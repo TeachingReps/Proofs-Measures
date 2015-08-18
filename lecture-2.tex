@@ -1,0 +1,151 @@
+%% LyX 2.1.3 created this file.  For more info, see http://www.lyx.org/.
+\documentclass[a4paper,english]{article}
+\usepackage[T1]{fontenc}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{Class 3 11 August 2015}
+
+\maketitle
+
+\section{Rules of inference using quantifiers}
+
+1. \uline{($\forall x$ in $U$) P($x$)} $\hphantom{ttttt}$Universal
+instantiation
+
+$\hphantom{ttttt}$P($a$) $\hphantom{tttttttttt}$where $a$ is any
+member in $U$\\
+2.\uline{($\exists x$ in $U$) P($x$)} $\hphantom{ttttt}$Existential
+instantiation
+
+$\hphantom{ttttt}$P($a$) $\hphantom{tttttttttt}$where $a$ is some
+member in $U$\\
+3.\uline{$\hphantom{ttttt}$P($c$)$\hphantom{ttttttttt}$}$\hphantom{ttttt}$Universal
+instantiation
+
+($\forall x$ in $U$) P($x$) $\hphantom{tttt}$where $c$ is any
+arbitrary member in $U$\\
+4.\uline{$\hphantom{ttttt}$P($d$)$\hphantom{ttttttttt}$}$\hphantom{ttttt}$Existential
+instantiation
+
+($\forall x$ in $U$) P($x$) $\hphantom{tttt}$where $d$ is some
+member in $U$\\
+
+
+Eg:-Let\\
+$N(x)=$'cat $x$ is nice'\\
+$S(x)=$'cat $x$ is smart'\\
+$C(x)=$'cat $x$ likes chopped liver'\\
+$T(x)=$'cat $x$ is siamese'\\
+Let the arguments be 
+
+1.Every cat that is nice and smart likes chopped liver i.e $\forall x$
+in $U$ $[N(x)\wedge S(x)\rightarrow C(x)]$
+
+2.Every siamese cat is nice i.e $\forall x$ in $U$ $[T(x)\rightarrow N(x)]$
+
+3.Some siamese cat don't like chopped liver i.e $\exists x$ in $U$
+$[T(x)\wedge\lnot C(x)]$\\
+And the conclusion is 
+
+There exists a stupid cat i.e $\exists x$ in $U$ $[\lnot S(x)]$\\
+We prove the conclusion on the basis of the premises as follows:
+
+4.$T(a)\wedge\lnot C(a)$ by 3,Existential Instantiation
+
+5.$\lnot C(a)$ by simplification of 4
+
+6.$T(a)$ by simplification of 4
+
+7.$T(a)\rightarrow N(a)$ Universal Instantiation by 2
+
+8.$N(a)$ Modus Ponens by 6 and 7
+
+9.$\lnot\lnot N(a)$ Double Negation of 8
+
+10.$(N(a)\wedge S(a)\rightarrow C(a)$ Universal Instantiation from
+1
+
+11.$\lnot(N(a)\wedge S(a))$ by Modus Tollen using 10 and 5 
+
+12.$\lnot N(a)\vee\lnot S(a)$ Simplified 11 using De Morgan's law
+
+13.$\lnot S(a)$ ,Considering 9 and 12 together and applying Modus
+Tollendo Ponens
+
+14.$\exists x$ in $U$ $[\lnot S(x)]$ Existential Generalization
+of 13 and hence proved that a stupid cat exists based on the premises
+
+
+\section{Strategies for Proofs}
+
+Thales of Miletus (6 BC) is credited with introducing the concepts
+of logical proof for abstract propositions.\emph{The elements} , book
+by Euclid ,written over 2000 years ago , discusses the various proofs
+of geometry based on axioms .So Why do we need proofs? . Human intuition/common
+sense is fallible (Sometimes we see what we want to see). Proofs are
+are necessary to infallibly ascertain facts ,to explain why things
+are true and to get a thorough understanding. So,
+\begin{description}
+\item [{Mathematical~Proof}] A convincing argument that starts from the
+premises and logically deduces the desired conclusion .
+\item [{Axioms}] Facts about mathematical objects assumed without proof.
+\item [{Axiomatic~system}] Body of knowledge that can be derived from
+a set of axioms .
+\item [{Eg:}] P.T ``Sum of even numbers are even''
+\item [{Ans}] precise statement for the above problem - `` If $n$ and
+$m$ are even integer numbers then $n+m$ is an even number .''
+\end{description}
+Let $n$ and m be even integers , then there exist integers $k$ and
+$l$ s.t $n=2k$ and $m=2l$.So $n+m=2(k+l)$ where $(k+l)$ is also
+an integer by closure property of integer addition.So $n+m$ is also
+an integer multiple of $2$ and hence even and therefore proved .
+\begin{description}
+\item [{Eg:}] P.T ``$\sqrt{2}$ is an irrational number .''
+\item [{Ans}]~
+\item [{Defn:}] Let $x$ be a real number.We say $x$ is a rational number
+if there exists integers $m$ and $n$ s.t $m\ne0$ and $x=\frac{n}{m}$
+and there are no 2 common factors between $n$ and $m$ other than
+$1$ or $-1$. 
+\item [{Proof}] Let $x$ be a rational number s.t $x=\sqrt{2}$.Then $x^{2}=2$.So
+by definition above $\frac{n^{2}}{m^{2}}=2$ or $n^{2}=2m^{2}$.So
+$n^{2}$ is an even number , therefore $n$ must be even . Hence there
+exists an integer $k$s.t $n=2k$. Thus we have $4k^{2}=2m^{2}$ i.e
+$2k^{2}=m^{2}$.Then $m$ must also be even i.e $m$ and $n$ have
+$2$ as common factor which contradicts the fact that both must have
+no common factor other than $1$ or $-1$ by definition above .Hence
+$x=\sqrt{2}$ is an irrational number .
+\end{description}
+
+\subsection{Features of Proofs}
+\begin{itemize}
+\item Should rely completely on the definiton of odd and even integers .
+\item Should be written in grammatically correct English .
+\item Implicit use of rules of inference
+\end{itemize}
+
+\subsection{Types of Proofs }
+\begin{description}
+\item [{Direct~Proofs~$P\rightarrow Q$}] Assume that $P$ is true and
+produce a series of steps eventually leading to $Q$.
+\item [{Proof~by~contrapositive~$\lnot Q\rightarrow\lnot P$}] Assume
+$Q$ is false and produce a series of steps eventually leading to
+$\lnot P$.
+\item [{Proof~by~contradiction~$\lnot(P\rightarrow Q)\leftrightarrow P\wedge\lnot Q$}] Assume
+$P\wedge\lnot Q$ is true ,then derive a logical contradiction .This
+implies that $P\wedge\lnot Q$ is false . Hence $P\rightarrow Q$
+is true by double negation equivalence.\end{description}
+
+\end{document}
