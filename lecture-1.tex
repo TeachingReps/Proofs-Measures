@@ -7,8 +7,9 @@
 
 \begin{document}
 \maketitle
-In this chapter, we would look at informal logic.
+
 \section{Sentential/Propositional Logic}
+%In this chapter, we would look at informal logic.
 \begin{defn}[Statement] A \textbf{statement} is anything we can say, write, or otherwise express that can be either true or false. 
 \end{defn}
 \begin{rem} Veracity of a statement doesn't depend on one's ability to verify it's truth or falsity.
@@ -22,26 +23,26 @@ We will be making following two assumptions when dealing with statements.
 \begin{assum} No statement is both true and false.
 \end{assum}
 One of the consequences of the bivalence assumption is that if a statement is not true, then it must be false. Hence, to prove that something is true, it would suffice to prove that it is not false.
-	
+
 \subsection{Combination of Statements }
 In this subsection, we would look at five basic ways of combining two statements $P$ and $Q$ to form new statements. We can form more complicated compound statements by using combinations of these basic operations. 
-\begin{defn}[Conjunction] We define \textbf{conjunction} of statements $P$ and $Q$ to be the statement that is true if both $P$ and $Q$ are true, and is false otherwise. Conjunction of of $P$ and $Q$ is denoted $P \wedge Q$, and read ``$P$ and $Q$''.
+\begin{defn}[Conjunction] We define \textbf{conjunction} of statements $P$ and $Q$ to be the statement that is true if both $P$ and $Q$ are true, and is false otherwise. Conjunction of of $P$ and $Q$ is denoted $P \wedge Q$, and read ``$P$ and $Q$.''
 \end{defn}
 \begin{rem} Logical \textbf{and} is different from it's colloquial usages for \emph{therefore} or \emph{for relations}.
 \end{rem}	
-\begin{defn}[Disjunction] We define \textbf{disjunction} of statements $P$ and $Q$ to be the statement that is true if either $P$ is true or $Q$ is true or both are true, and is false otherwise. Disjunction of $P$ and $Q$ is denoted $P \vee Q$, and read ``$P$ or $Q$''.
+\begin{defn}[Disjunction] We define \textbf{disjunction} of statements $P$ and $Q$ to be the statement that is true if either $P$ is true or $Q$ is true or both are true, and is false otherwise. Disjunction of $P$ and $Q$ is denoted $P \vee Q$, and read ``$P$ or $Q$.''
 \end{defn}
 \begin{rem} Logical ``or'' is \emph{inclusive} and different from it's colloquial usages for \emph{either or} that is exclusive. Colloquially, ``or'' is also used for \emph{that is}.
 \end{rem}			
-\begin{defn}[Negation] We define \textbf{negation} of a statement $P$ to be the statement that is true if $P$ is false, and is false if $P$ is true. Negation of statement $P$ is denoted $\neg P$, and read ``not $P$''.	
+\begin{defn}[Negation] We define \textbf{negation} of a statement $P$ to be the statement that is true if $P$ is false, and is false if $P$ is true. Negation of statement $P$ is denoted $\neg P$, and read ``not $P$.''	
 \end{defn}
-\begin{defn}[Conditional] We define the \textbf{conditional} from statement $P$ to statement $Q$ to be the statement that is true if it is never the case that $P$ is true and $Q$ is false. Conditional statement from $P$ to $Q$ is denoted $P \rightarrow Q$, and read ``if $P$ then $Q$''.	Statement $P$ is \emph{antecedent} of the conditional and $Q$ is \emph{consquent}.	
+\begin{defn}[Conditional] We define the \textbf{conditional} from statement $P$ to statement $Q$ to be the statement that is true if it is never the case that $P$ is true and $Q$ is false. Conditional statement from $P$ to $Q$ is denoted $P \rightarrow Q$, and read ``if $P$ then $Q$.''	Statement $P$ is \emph{antecedent} of the conditional and $Q$ is \emph{consquent}.	
 \end{defn}
 \begin{rem} Notice that $\neg P \vee Q$ is logically equivalent to $P \rightarrow Q$.
 \end{rem}	
 \begin{rem} Statement $Q \rightarrow P$ is not equivalent to $P \rightarrow Q$.
 \end{rem}	
-\begin{defn}[Biconditional] We deefine the \textbf{biconditional} from statement $P$ to statement $Q$ to be the statement that is true if $P$ and $Q$ are both true or both false, and is false otherwise. Binconditional from $P$ to $Q$ is denoted $P \leftrightarrow Q$, and read ``$P$ if and only if $Q$''. 
+\begin{defn}[Biconditional] We deefine the \textbf{biconditional} from statement $P$ to statement $Q$ to be the statement that is true if $P$ and $Q$ are both true or both false, and is false otherwise. Binconditional from $P$ to $Q$ is denoted $P \leftrightarrow Q$, and read ``$P$ if and only if $Q$.'' 
 \end{defn}
 \begin{exmp} From statements, $P,Q,R$, we can form compound statements such as $P \vee (Q\rightarrow \neg R)$.
 \end{exmp}		
@@ -89,7 +90,7 @@ Implications of statements will be extremely useful in constructing valid argume
 \begin{rem} Logical implication is not always reversible. For example, we saw that “it is not the case that, if Sheela thinks Leela is cute then she likes Leela” implies “Sheela thinks Leela is cute or she likes Leela.”
 \end{rem}
 
-\begin{defn}[Equivalence] Logical \textbf{equivalence} of statements is a meta-statement about biconditional from statement $P$ to statement $Q$, where statements $P$ and $Q$ are equivalent means that necessarily $P$ is true if and only if $Q$ is true. We say that $P$ and $Q$ are equivalent if the statement $P\leftrightarrow Q$ is a tautology. We abbreviate the English expression ``$P$ and $Q$ are equivalent'' with the notation ``$P\Leftrightarrow Q$''. 
+\begin{defn}[Equivalence] Logical \textbf{equivalence} of statements is a meta-statement about biconditional from statement $P$ to statement $Q$, where statements $P$ and $Q$ are equivalent means that necessarily $P$ is true if and only if $Q$ is true. We say that $P$ and $Q$ are equivalent if the statement $P\leftrightarrow Q$ is a tautology. We abbreviate the English expression ``$P$ and $Q$ are equivalent'' with the notation ``$P\Leftrightarrow Q$.'' 
 \end{defn} 
 \begin{rem} Notice that $P \Leftrightarrow Q$ is true iff $P \Rightarrow Q$ and $Q \Rightarrow P$ both hold.
 \end{rem}
@@ -123,15 +124,15 @@ Listed below are some equivalences of statements that will be particularly usefu
 		
 \begin{defn}[Contrapositive] Given a conditional statement of the form $P \rightarrow Q$, we call $\neg Q \rightarrow \neg P$ the \textbf{contrapositive} of the original statement. 
 \end{defn}
-\begin{exmp} The contrapositive of ``if I eat too much I will feel sick'' is ``if I do not feel sick I did not eat too much''.
+\begin{exmp} The contrapositive of ``if I eat too much I will feel sick'' is ``if I do not feel sick I did not eat too much.''
 \end{exmp}
 \begin{defn}[Converse] Given a conditional statement of the form $P \rightarrow Q$, we call $Q \rightarrow P$ the \textbf{converse} of the original statement. 
-\begin{exmp} The converse of ``if I eat too much I will feel sick'' is ``if I feel sick then I ate too much''.
+\begin{exmp} The converse of ``if I eat too much I will feel sick'' is ``if I feel sick then I ate too much.''
 \end{exmp}
 \end{defn}
-\begin{defn}[Inverse ] Given a conditional statement of the form $P \rightarrow Q$, we call $\neg P\rightarrow \neg Q$ the \textbf{inverse} of the original statement.
+\begin{defn}[Inverse] Given a conditional statement of the form $P \rightarrow Q$, we call $\neg P\rightarrow \neg Q$ the \textbf{inverse} of the original statement.
 \end{defn}	
-\begin{exmp} The converse of ``if I eat too much I will feel sick'' is ``if I did not eat too much then I will not feel sick''.
+\begin{exmp} The converse of ``if I eat too much I will feel sick'' is ``if I did not eat too much then I will not feel sick.''
 \end{exmp}
 
 \subsection{Valid Arguments}
@@ -143,81 +144,80 @@ Listed below are some equivalences of statements that will be particularly usefu
 \end{rem}
 \begin{rem} An argument is like a theorem and validity of the argument is proof of the theorem.
 \end{rem}
-\begin{rem} To show validity of the argument, one uses simple implications as ``rules of inference'', since the truth tables are too cumbersome.
+\begin{rem} To show validity of the argument, one uses simple implications as ``rules of inference,'' since the truth tables are too cumbersome.
 \end{rem}
 \begin{exmp} Show that the following argument is valid.\\
 \emph{If the poodle-o-matic is cheap or is energy efficient, then it will not make money for the manufacturer. If the poodle-o-matic is painted red, then it will make money for the manufacturer. The poodle-o-matic is cheap. Therefore the poodle-o-matic is not painted red.}\\
-We start by converting the argument to symbols. Let $C$ = ``the poodle-o-matic is cheap'', $E$ = ``the poodle-o-matic is energy efficient'', $M$ = ``the poodle-o-matic makes money for the manufacturer'', and R = ``the poodle-o-matic is painted red''. The argument then becomes
+We start by converting the argument to symbols. Let $C$ = ``the poodle-o-matic is cheap,'' $E$ = ``the poodle-o-matic is energy efficient,'' $M$ = ``the poodle-o-matic makes money for the manufacturer,'' and R = ``the poodle-o-matic is painted red.'' The argument then becomes
 \begin{equation}
 		 (((C \vee E) \rightarrow \neg M) \wedge (R \rightarrow M) \wedge C)) \Rightarrow \neg R
 \end{equation}
-\begin{proof}
-\infer{\neg R }{C \vee E \rightarrow \neg M \\\\R \rightarrow M\\\\C}
-
-\end{proof}
-	\begin{equation} \label{st:2} 
-		C \vee E ~~(Premise)
-		\end{equation}
-		\begin{equation} \label{st:4}   
-		R \rightarrow M ~~(Premise)
-		\end{equation}
-		\begin{equation} \label{st:1}
-		C ~~(Premise)
-		\end{equation}
-		\begin{equation}
-		\neg R ~~(Conclusion)
-		\end{equation}
-	
-		\item Solution
-		
-		
-		\begin{equation} \label{st:3}
-		C  ~~ (using~ 'Addition'~ on ~ (\ref{st:1})~)
-		\end{equation} 
-		\begin{equation} \label{st:5}
-		\neg M ~~ (using~ 'Modus Ponens'~ on ~ (\ref{st:2}) ~ and ~ (\ref{st:3}))
-		\end{equation}
-		\begin{equation}
-		\neg R ~~ (using~ 'Modus Tollens'~ on ~ (\ref{st:4}) ~ and ~ (\ref{st:5}))
-		\end{equation}
-		\\This sort of justification, often referred to by logicians as a derivation, is a chain of statements connected by meta-statements (namely, the justifications for each line). If an argument has a derivation, we say that the argument is derivable. An argument is valid if and only if it is derivable.
-		
+We can find a justification for the above argument using rules of inference.
+\begin{equation}
+\infer{\begin{array}{@{}llr@{}llr@{}llr@{}}(4)~&C \vee E& (3), \text{ Addition}\\(5)~ &\neg M&(1),(4), \text{ Modus Ponens}\\(6)~&\neg R&(2),(5), \text{ Modus Tollens}.\end{array}}{\begin{array}{@{}llr@{}llr@{}llr@{}} (1)~&C \vee E \rightarrow \neg M&\\(2)~&R \rightarrow M&\\(3)~&C&\end{array}}
+\end{equation}
+This sort of justification, often referred to by logicians as a derivation.
+	%\begin{equation} \label{st:2} 
+		%C \vee E ~~(Premise)
+		%\end{equation}
+		%\begin{equation} \label{st:4}   
+		%R \rightarrow M ~~(Premise)
+		%\end{equation}
+		%\begin{equation} \label{st:1}
+		%C ~~(Premise)
+		%\end{equation}
+		%\begin{equation}
+		%\neg R ~~(Conclusion)
+		%\end{equation}
+	%
+		%\item Solution
+		%
+		%
+		%\begin{equation} \label{st:3}
+		%C  ~~ (using~ 'Addition'~ on ~ (\ref{st:1})~)
+		%\end{equation} 
+		%\begin{equation} \label{st:5}
+		%\neg M ~~ (using~ 'Modus Ponens'~ on ~ (\ref{st:2}) ~ and ~ (\ref{st:3}))
+		%\end{equation}
+		%\begin{equation}
+		%\neg R ~~ (using~ 'Modus Tollens'~ on ~ (\ref{st:4}) ~ and ~ (\ref{st:5}))
+		%\end{equation}		
 	\end{exmp}
 
+\begin{defn}[Derivation] A \textbf{derivation} is a chain of statements connected by meta-statements (namely, the justifications for each line). If an argument has a derivation, we say that the argument is \textbf{derivable}.
+\end{defn}
+Following two big theorems from logic show that an argument is valid if and only if it is derivable.
 \begin{thm}[Completeness Theorem] Validity implies derivability.
 \end{thm}
 \begin{thm}[Correctness Theorem] Derivability implies validity.
 \end{thm}
 \begin{rem}[Direct Proof] To show that a given argument is valid, we simply need to find a derivation, which is often a much more pleasant prospect than showing validity directly.
 \end{rem}
-\begin{rem}[Counter-Example] To show that an argument is invalid, we use the definition of validity directly, and we find some truth values for the component statements of the argument that make the premises all true but the conclusion false.
+\begin{rem}[Counter-Example] To show that an argument is invalid, we use the definition of validity directly. We can find some truth values for the component statements of the argument for which the premises ar all true, but the conclusion is false.
 \end{rem}
     
 \begin{exmp}
-Consider the following argument.
+Consider the following argument.\\
 \emph{
-If aliens land on planet Earth, then all people will buy flowers. If Earth receives signals from outer space, then all people will grow long hair. Aliens land on Earth, and all people are growing long hair. Therefore all people buy flowers, and the Earth receives signals from outer space.}
-    	
-			This argument is invalid, which we can see as follows. Let A= ``aliens land on planet Earth,'' let R = ``all people buy flowers,'' let S = ``Earth receives signals from outer space'' and let H = ``all people grow long hair.'' The argument then becomes
-    	\\
-    	\begin{equation*}
+If aliens land on planet Earth, then all people will buy flowers. If Earth receives signals from outer space, then all people will grow long hair. Aliens land on Earth, and all people are growing long hair. Therefore all people buy flowers, and the Earth receives signals from outer space.}\\
+			This argument is invalid, which we can see as follows. Let $A$ = ``aliens land on planet Earth,'' $R$ = ``all people buy flowers,'' $S$ = ``Earth receives signals from outer space,'' and $H$ = ``all people grow long hair.'' The argument then becomes
+\begin{equation*}
+\infer{\begin{array}{@{}llr@{}llr@{}llr@{}}&R \wedge S& \end{array}}{\begin{array}{@{}llr@{}llr@{}llr@{}} &A \rightarrow R&\\&S \rightarrow H&\\&A \wedge H&\end{array}}
     	A \rightarrow R ~~ (Premise)
-    	\end{equation*}
-    	\begin{equation*}
-    	S \rightarrow H ~~ (Premise)
-    	\end{equation*}
-    	\begin{equation*}
-    	A \wedge H ~~ (Premise)
-    	\end{equation*}
-    	\begin{equation*}
-    	R \wedge S ~~ (Conclusion)
-    	\end{equation*}
-    	\\ Suppose that A is true, that R is true, that S is false and that H is true. Then A$\rightarrow$R, S$\rightarrow$H and A$\wedge$H are all true, but R$\wedge$S is false. Therefore the premises are all true but the conclusion is false, which means that the argument is invalid.	 
+\end{equation*}
+%\begin{equation*}
+    	%S \rightarrow H ~~ (Premise)
+    	%\end{equation*}
+    	%\begin{equation*}
+    	%A \wedge H ~~ (Premise)
+    	%\end{equation*}
+    	%\begin{equation*}
+    	%R \wedge S ~~ (Conclusion)
+%\end{equation*}
+We will show that this argument is invalid. To this end, suppose that $A$ is true, $R$ is true, $S$ is false, and $H$ is true. Then $A \rightarrow R, S\rightarrow H$ and $A \wedge H$ are all true, but $R \wedge S$ is false. Therefore, premises are all true but the conclusion is false. This means that the argument is invalid.	 
 \end{exmp}
 
-\begin{defn}[Inconsistent Premise] Premises that from contradictions are called \textbf{inconsistent}. 
-\end{defn}
-\begin{defn}[Consistent Premise] Premises that are not inconsistent are called \textbf{consistent}.
+\begin{defn}[Inconsistent Premise] Premises that from contradictions are called \textbf{inconsistent}.  Premises that are not inconsistent are called \textbf{consistent}.
 \end{defn}
 \begin{rem}We should avoid arguments that have inconsistent premises. Inconsistent arguments are not logically flawed but are useless.
 \end{rem}
@@ -226,45 +226,53 @@ If aliens land on planet Earth, then all people will buy flowers. If Earth recei
 \subsection{Common Fallacies}
 Following are a few common logical errors, often referred to as fallacies, that are
 regularly found in attempted mathematical proofs (and elsewhere).
-\begin{enumerate}
-	\item (P$\rightarrow$Q)$\wedge$Q$\Rightarrow$P (Fallacy of the converse)
-	\\\\ For example, consider the following argument: If Fred eats a good dinner, then he will drink a beer. Fred drank a beer.
-	Therefore Fred ate a good dinner.
-	\item (P$\rightarrow$Q)$\wedge$$\neg$P$\Rightarrow$$\neg$Q (Fallacy of the inverse)
-	\\\\ For example, consider the following argument: If Senator Bullnose votes himself a raise, then he is a sleazebucket. Senator Bullnose did not vote himself a raise. Therefore the senator is not a sleazebucket.
-	\item (P$\rightarrow$Q)$\Rightarrow$Q (Fallacy of unwarranted assumption)
-	\\\\ For example, consider the following argument: If Deirdre has hay fever, then she sneezes a lot. Therefore Deirdre sneezes a
-	lot.
-\end{enumerate}
+\begin{defn}[Fallacy of the converse] $(P\rightarrow Q) \wedge Q \Rightarrow P$
+\end{defn}
+\begin{exmp} Consider the following argument. If Fred eats a good dinner, then he will drink a beer. Fred drank a beer. Therefore Fred ate a good dinner.
+\end{exmp}
+\begin{defn}[Fallacy of the inverse] $(P \rightarrow Q) \wedge \neg P \Rightarrow \neg Q$
+\end{defn}
+\begin{exmp} For example, consider the following argument. If Senator Bullnose votes himself a raise, then he is a sleazebucket. Senator Bullnose did not vote himself a raise. Therefore the senator is not a sleazebucket.
+\end{exmp}
+\begin{defn}[Fallacy of unwarranted assumption] $(P \rightarrow Q) \Rightarrow Q$
+\end{defn}
+\begin{exmp} Consider the following argument. If Deirdre has hay fever, then she sneezes a lot. Therefore Deirdre sneezes a lot.
+\end{exmp}
 
 \section{Predicate Logic}
+Consider the expression $P$ = ``$x+y > 0$.'' Notice that expressions are not statements. Observe that $x$ and $y$ have the same roles in $P$. Using $P$ we can form a new expression $Q$ = ``for all positive real numbers $x$, the inequality $x+y > 0$ holds.'' In contrast to $P$, there is a substantial difference between the roles of $x$ and $y$ in $Q$. 
 
- Consider the expression P = ``x+y $>$ 0.'' Observe that x and y have the same roles in P. Using P we can form a new expression Q = ``for all positive real numbers x, the inequality x+y $>$ 0 holds.'' In contrast to P, there is a substantial difference between the roles of x and y in Q. The symbol x is called a bound variable in Q, in that we have no ability to choose which values of x we want to consider. By contrast, the symbol y is called a free variable in Q, because its possible values are not limited. Because y is a free variable in Q, it is often useful to write Q(y) instead of Q to indicate that y is free. In P both x and y are free variables, and we would denote that by writing P(x,y).
+\begin{defn}A \textbf{bound variable} in an expression can't be chosen. A \textbf{free variable} in an expression has unlimited possible values.
+\end{defn}
+
+Notice, the symbol $x$ is a bound variable in $Q$, in that we have no ability to choose which values of $x$ we want to consider. By contrast, the symbol $y$ is a free variable in $Q$, because its possible values are not limited. Because $y$ is a free variable in $Q$, it is often useful to write $Q(y)$ instead of $Q$ to indicate that $y$ is free. In $P$ both $x$ and $y$ are free variables, and we would denote that by writing $P(x,y)$.
 \subsection{Quantifiers}
-Let P(x) be an expression in free variable 'x'
-	\begin{enumerate}
-		\item Universal quantifiers applied to P(x) is a statement, denoted ($\forall$x in U)P(x) is true if P(x) is true for all possible values of x in U.
-		\item Existential quantifier applied to P(x) is a statement, denoted ($\exists$x in U)P(x) is true if P(x) is true for at least one value of x in U. 
-		 
-	\end{enumerate}
-	Example: Let C(x,t) be the statement 'Person x is hit by a car at time t'
-	\\ \\ \centerline{($\forall$t)($\exists$x)C(x,t) is not equivalent to ($\exists$x)($\forall$t)C(x,t)}  
+Let P(x) be an expression in free variable $x$.
+\begin{defn} \textbf{Universal quantifier} applied to $P(x)$ is a statement, denoted ($\forall x \text{ in } U)P(x)$ is true, if $P(x)$ is true for all possible values of $x$ in $U$.
+\end{defn}
+\begin{defn} \textbf{Existential quantifier} applied to $P(x)$ is a statement, denoted ($\exists x \text{ in }U)P(x)$ is true, if $P(x)$ is true for at least one value of $x$ in $U$.
+\end{defn}
+\begin{exmp} Let $C(x,t)$ be the statement ``person $x$ is hit by a car at time $t$.'' Notice that
+\begin{equation*}
+(\forall t)(\exists x) C(x,t) \not\Leftrightarrow (\exists x)(\forall t)C(x,t).
+\end{equation*}
+\end{exmp} 
 \subsection{Relations between statements within quantifiers}
-Let L(x,y) be an expression in free variables x and y.
-\begin{enumerate}
-	\item ($\forall$x)($\forall$y)L(x,y)$\Leftrightarrow$($\forall$y)($\forall$x)L(x,y)
-	\item ($\forall$y)($\forall$x)L(x,y)$\Rightarrow$($\exists$y)($\forall$x)L(x,y)
-	\item ($\exists$y)($\forall$x)L(x,y)$\Rightarrow$($\forall$y)($\exists$y)L(x,y)
-	\item ($\forall$y)($\exists$y)L(x,y)$\Rightarrow$($\exists$x)($\exists$y)L(x,y)
-	\item ($\exists$x)($\exists$y)L(x,y)$\Rightarrow$($\exists$y)($\exists$x)L(x,y)
-	\item ($\forall$x)($\forall$y)L(x,y)$\Rightarrow$($\exists$x)($\forall$y)L(x,y)\item ($\exists$x)($\forall$y)L(x,y)$\Rightarrow$($\forall$y)($\exists$x)L(x,y)\item
-	($\forall$y)($\exists$x)L(x,y)$\Rightarrow$($\exists$y)($\exists$x)L(x,y)  
-\end{enumerate}
-	
+Let $L(x,y)$ be an expression in free variables $x$ and $y$. Then the Figure~\ref{Fig:Equivalences} shows implications and equivalences between various statements.
+\begin{figure}[hhhh]
+\centering
+\scalebox{.8}{\input{Figures/Equivalences}}
+\caption{This figure depicts equivalences between statements with different quantifiers for free variables $x$ and $y$ in expression $L(x,y)$.}
+\label{Fig:Equivalences}
+\end{figure}
 
-
-
-
-
-
+%\begin{enumerate}
+	%\item 
+	%\item ( \forall y)( \forall x)L(x,y) \Rightarrow ( \exists y)( \forall x)L(x,y)
+	%\item ( \exists y)( \forall x)L(x,y) \Rightarrow ( \forall y)( \exists y)L(x,y)
+	%\item ( \forall y)( \exists y)L(x,y) \Rightarrow ( \exists x)( \exists y)L(x,y)
+	%\item ( \exists x)( \exists y)L(x,y) \Rightarrow ( \exists y)( \exists x)L(x,y)
+	%\item ( \forall x)( \forall y)L(x,y) \Rightarrow ( \exists x)( \forall y)L(x,y)\item ( \exists x)( \forall y)L(x,y) \Rightarrow ( \forall y)( \exists x)L(x,y)\item
+	%( \forall y)( \exists x)L(x,y) \Rightarrow ( \exists y)( \exists x)L(x,y)  
+%\end{enumerate}
 \end{document}

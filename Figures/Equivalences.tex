@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+[node distance = 10mm,text height=1.2ex,text depth=.25ex, % align text horizontally 
+draw=black,very thick,
+point/.style={coordinate},>=latex,bend angle=20,
+expression/.style={rounded rectangle, inner sep = 0pt,minimum size = 7mm,very thick,draw=white},
+pre/.style={<-, double, thick},
+post/.style={->, double, thick},
+prepost/.style={<->, double, thick}]	
+				
+\node[expression] (e0) at (0,0) {$(\forall x)(\forall y)L(x,y)$};
+\node[expression] (e1) [below left=of e0] {$(\exists x)(\forall y)L(x,y)$}
+  edge[pre] (e0);
+\node[expression] (e2) [below=of e1] {$(\forall y)(\exists x)L(x,y)$}
+	edge[pre] (e1);
+\node[expression] (e3) [below right=of e2] {$(\exists y)(\exists x)L(x,y)$}
+  edge[pre] (e2);
+\node[expression] (e4) [right=of e0] {$(\forall y)(\forall x)L(x,y)$}
+	edge[prepost](e0);
+\node[expression] (e5) [below right=of e4]  {$(\exists y)(\forall x)L(x,y)$}
+  edge[pre] (e4);
+\node[expression] (e6) [below=of e5] {$(\forall x)(\exists y)L(x,y)$}
+  edge[pre] (e5);
+\node[expression] (e7) [below left=of e6] {$(\exists x)(\exists y)L(x,y)$}
+  edge[pre] (e6)
+	edge[prepost] (e3);
+\end{tikzpicture}
