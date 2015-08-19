@@ -93,6 +93,18 @@ There are times when premise $P$ and conclusion $Q$ of a conditional $P \rightar
 \subsection{If and Only If}
 It is easy to see that $P \leftrightarrow Q \Leftrightarrow (P \rightarrow Q)\wedge(Q \rightarrow P)$. Therefore to show biconditional is a tautology, we need to show both conditionals $(P \rightarrow Q)$ and $(Q \rightarrow P)$ are tautologies as well.
 \subsection{The Following Are Equivalent}
-Often we would need to show a number of statements are equivalent. Usually written TFAE stands for ``The Following Are Equivalent.'' If there are $n$ statements, then we need to show pair-wise equivalence, leading to $n(n-1)$ implications. However, we can reduce this number significantly by showing $n$ implications of form statement $i$ implies statement $i+1$ for first $n-1$ statements and showing statement $n$ implies statement $1$. We can logically deduce all pair-wise equivalences from this.
- 
+Often we would need to show a number of statements are equivalent. Usually written TFAE stands for ``The Following Are Equivalent.'' If there are $n$ statements, then we need to show pair-wise equivalence, leading to $n(n-1)$ implications. However, we can reduce this number significantly by showing $n$ implications of form statement $i$ implies statement $i+1$ for first $n-1$ statements and showing statement $n$ implies statement $1$. We can logically deduce all pair-wise equivalences from this. We will see one example below.
+\begin{thm} Let $M$ be an upper triangular matrix of size $2 \times 2$ with integer entries. Specifically, 
+\begin{equation*}
+M = \left[\begin{array}{cc}a & b\\0&d\end{array}\right].
+\end{equation*}
+The following are equivalent.
+\begin{enumerate}
+\item $\det M = 1$.
+\item $a = d = \pm 1$.
+\item $\operatorname{tr} M = \pm 2$ and $a=d$.
+\end{enumerate}
+\end{thm}
+\begin{proof} We will show $(1) \Rightarrow (2) \Rightarrow (3) \Rightarrow (1)$.
+\end{proof}
 \end{document}
