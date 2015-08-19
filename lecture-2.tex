@@ -22,7 +22,7 @@
 \maketitle
 
 \section{Introduction}
-Thales of Miletus (6 BC) is credited with introducing the concepts of logical proof for abstract propositions. Euclid popularized the axiomatic system of proofs in his book \emph{The elements}, written over 2000 years ago. In this book, he proves a number of geometric theorems based on axioms.
+Thales of Miletus of sixth century BC is credited with introducing the concepts of logical proof for abstract propositions. Euclid popularized the axiomatic system of proofs in his book \emph{The elements}, written over 2000 years ago. In this book, he proves a number of geometric theorems based on axioms.
 
 We must ask why do we need proofs. There are four mains reasons for this endeavor. First, intuition is fallible (sometimes we see what we want to see). Therefore, proofs are necessary to infallibly ascertain facts. Second, we need proofs to explain why things are true. Not all proofs are instructive, however non-intuitive proofs are still better than no proofs. Third, writing proofs provide us a thorough understanding of the problem at hand. Last but not the least, proofs are useful to communicate ideas in language of mathematics. 
 
@@ -55,43 +55,44 @@ We will prove part~\ref{thm:even-even}. Suppose $n$ and $m$ are both even, then 
 
 Following are features of good proof. 
 \begin{itemize}
-\item Proofs should rely completely on the definitions.
+\item A proof should rely completely on the definitions.
 \item A proof should be written in grammatically correct language.
 \item A proof uses rules of inference implicitly.
 \end{itemize}
 
 \subsection{Types of Proofs }
+There are three types of proofs for $P\rightarrow Q$. 
 \begin{description}
-\item [{Direct~Proofs~$P\rightarrow Q$}] Assume that $P$ is true and
-produce a series of steps eventually leading to $Q$.
-\item [{Proof~by~contrapositive~$\lnot Q\rightarrow\lnot P$}] Assume
-$Q$ is false and produce a series of steps eventually leading to
-$\lnot P$.
-\item [{Proof~by~contradiction~$\lnot(P\rightarrow Q)\leftrightarrow P\wedge\lnot Q$}] Assume
-$P\wedge\lnot Q$ is true ,then derive a logical contradiction .This
-implies that $P\wedge\lnot Q$ is false . Hence $P\rightarrow Q$
-is true by double negation equivalence.\end{description}
+\item [Direct Proofs.] Assume that $P$ is true and produce a series of steps, each one following from the previous ones, eventually leading to $Q$.
 
+There are few steps in formulating a direct proof. First, we must specify the assumptions, and then specify what we are trying to prove. Second, we assume premise and see where it leads. Then we look at the conclusion, and see what's needed to prove this conclusion. However, in the final proof, we start with the premise, and produce a series of steps till conclusion is reached.
+\item [Proof by contrapositive.] Since we know that $P \rightarrow Q \Leftrightarrow \neg Q \rightarrow \neg P$. We can provide a direct proof for $\neg Q \rightarrow \neg P$ instead. Assume $Q$ is false, and produce a series of arguments to conclude $P$ is false.
 
-\begin{defn} Let $x$ be a real number.We say $x$ is a rational number
-if there exists integers $m$ and $n$ s.t $m\ne0$ and $x=\frac{n}{m}$
-and there are no 2 common factors between $n$ and $m$ other than
-$1$ or $-1$.
+\item [Proof by contradiction.] We also know that $\neg(P\rightarrow Q) \Leftrightarrow P\wedge\neg Q$. Assume $P\wedge\neg Q$ is true, then derive a logical contradiction. This implies that $P\wedge\neg Q$ is false. Hence $P\rightarrow Q$ is true by double negation equivalence.
+\end{description}
+
+\begin{defn}[Rational number] Let $x$ be a real number. We say $x$ is a \textbf{rational number} if there exist integers $m$ and $n$ such that $m\neq 0$ and $x=\frac{n}{m}$ and there are no common factors between $n$ and $m$ other than $1$ or $-1$. If $x$ is not a rational number, we say it is \textbf{irrational number}.
 \end{defn}
 
 \begin{thm} Prove that $\sqrt{2}$ is an irrational number.
 \end{thm}
+\begin{proof} We will prove this by contradiction. We assume $x = \sqrt{2}$ is a rational number. Then $x^2=2$. Since $x$ is rational, there are integers $n$ and $m$ such that $x = \frac{n}{m}$, and $n$ and $m$ have no common factors other than $1$ and $-1$. 
 
- 
-\begin{proof} Let $x$ be a rational number s.t $x=\sqrt{2}$.Then $x^{2}=2$.So
-by definition above $\frac{n^{2}}{m^{2}}=2$ or $n^{2}=2m^{2}$.So
-$n^{2}$ is an even number , therefore $n$ must be even . Hence there
-exists an integer $k$s.t $n=2k$. Thus we have $4k^{2}=2m^{2}$ i.e
-$2k^{2}=m^{2}$.Then $m$ must also be even i.e $m$ and $n$ have
-$2$ as common factor which contradicts the fact that both must have
-no common factor other than $1$ or $-1$ by definition above .Hence
-$x=\sqrt{2}$ is an irrational number .
+Since $x^2 = 2$, we get $n^2 = 2m^2$. Therefore, $n^2$ is even, hence $n$ must be even. By definition of even integers, there exists an integer $k$ such that $n=2k$. Thus, we have $2k^2 = m^2$, and $m$ must also be even. We thus have a contradiction, since $m$ and $n$ have $2$ as common factor. Hence, 
+$x=\sqrt{2}$ is not rational.
 \end{proof}
 
-
+\subsection{Cases}
+There are times when premise $P$ and conclusion $Q$ of a conditional $P \rightarrow Q$ are compound statements. In such a scenario, we need to consider cases. We look at four simple scenarios. Let $A$ and $B$ be statements.
+\begin{enumerate}[i]
+\item Premise $P$ consists of statements $A$ and $B$, then conditional $(A \wedge B) \rightarrow Q$ needs to be shown. We can show a direct proof by assuming both statements $A$ and $B$ true, and showing conclusion $Q$ to be true.
+\item Conclusion consists of statements $A$ and $B$, then we need to show conditional $P \rightarrow (A \wedge B)$. However, we know conditional $P \rightarrow (A \wedge B)$ is equivalent to statement $(P \rightarrow A)  \wedge (P \rightarrow B)$. Therefore, we can provide a direct proof by assuming premise $P$ and showing both statements $A$ and $B$ to be true.
+\item Premise $P$ consists of statements $A$ or $B$, such that we need to show conditional $(A \vee B) \rightarrow Q$. Since conditional $(A \vee B) \rightarrow Q$ is equivalent to statement $(A \rightarrow Q) \wedge (B \rightarrow Q)$, we need to prove both conditionals $(A \rightarrow Q)$ and $(B \rightarrow Q)$.
+\item Conclusion $Q$ is $A$ or $B$, that is we need to show conditional $P \rightarrow (A \vee B)$ to be true. Since $P \rightarrow (A \vee B)$ is equivalent to $(\neg A \wedge \neg B) \rightarrow \neg P)$,  we can assume both  statements $A$ and $B$ to be false, to show premise $P$ false. We also know that conditional $P \rightarrow (A \vee B)$ is equivalent to statement $(P\wedge \neg A) \rightarrow B$. Therefore, we can assume premise $P$ true and statement $A$ false, to show conclusion $Q$.
+\end{enumerate}
+\subsection{If and Only If}
+It is easy to see that $P \leftrightarrow Q \Leftrightarrow (P \rightarrow Q)\wedge(Q \rightarrow P)$. Therefore to show biconditional is a tautology, we need to show both conditionals $(P \rightarrow Q)$ and $(Q \rightarrow P)$ are tautologies as well.
+\subsection{The Following Are Equivalent}
+Often we would need to show a number of statements are equivalent. Usually written TFAE stands for ``The Following Are Equivalent.'' If there are $n$ statements, then we need to show pair-wise equivalence, leading to $n(n-1)$ implications. However, we can reduce this number significantly by showing $n$ implications of form statement $i$ implies statement $i+1$ for first $n-1$ statements and showing statement $n$ implies statement $1$. We can logically deduce all pair-wise equivalences from this.
+ 
 \end{document}
