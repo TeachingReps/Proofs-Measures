@@ -1,4 +1,4 @@
-\documentclass[]{article}
+\documentclass[a4paper,english,12pt]{article}
 \include{header}
 
 %opening
@@ -203,17 +203,7 @@ If aliens land on planet Earth, then all people will buy flowers. If Earth recei
 			This argument is invalid, which we can see as follows. Let $A$ = ``aliens land on planet Earth,'' $R$ = ``all people buy flowers,'' $S$ = ``Earth receives signals from outer space,'' and $H$ = ``all people grow long hair.'' The argument then becomes
 \begin{equation*}
 \infer{\begin{array}{@{}llr@{}llr@{}llr@{}}&R \wedge S& \end{array}}{\begin{array}{@{}llr@{}llr@{}llr@{}} &A \rightarrow R&\\&S \rightarrow H&\\&A \wedge H&\end{array}}
-    	A \rightarrow R ~~ (Premise)
 \end{equation*}
-%\begin{equation*}
-    	%S \rightarrow H ~~ (Premise)
-    	%\end{equation*}
-    	%\begin{equation*}
-    	%A \wedge H ~~ (Premise)
-    	%\end{equation*}
-    	%\begin{equation*}
-    	%R \wedge S ~~ (Conclusion)
-%\end{equation*}
 We will show that this argument is invalid. To this end, suppose that $A$ is true, $R$ is true, $S$ is false, and $H$ is true. Then $A \rightarrow R, S\rightarrow H$ and $A \wedge H$ are all true, but $R \wedge S$ is false. Therefore, premises are all true but the conclusion is false. This means that the argument is invalid.	 
 \end{exmp}
 
@@ -257,7 +247,9 @@ Let P(x) be an expression in free variable $x$.
 (\forall t)(\exists x) C(x,t) \not\Leftrightarrow (\exists x)(\forall t)C(x,t).
 \end{equation*}
 \end{exmp} 
+
 \subsection{Relations between statements within quantifiers}
+
 Let $L(x,y)$ be an expression in free variables $x$ and $y$. Then the Figure~\ref{Fig:Equivalences} shows implications and equivalences between various statements.
 \begin{figure}[hhhh]
 \centering
@@ -266,13 +258,51 @@ Let $L(x,y)$ be an expression in free variables $x$ and $y$. Then the Figure~\re
 \label{Fig:Equivalences}
 \end{figure}
 
-%\begin{enumerate}
-	%\item 
-	%\item ( \forall y)( \forall x)L(x,y) \Rightarrow ( \exists y)( \forall x)L(x,y)
-	%\item ( \exists y)( \forall x)L(x,y) \Rightarrow ( \forall y)( \exists y)L(x,y)
-	%\item ( \forall y)( \exists y)L(x,y) \Rightarrow ( \exists x)( \exists y)L(x,y)
-	%\item ( \exists x)( \exists y)L(x,y) \Rightarrow ( \exists y)( \exists x)L(x,y)
-	%\item ( \forall x)( \forall y)L(x,y) \Rightarrow ( \exists x)( \forall y)L(x,y)\item ( \exists x)( \forall y)L(x,y) \Rightarrow ( \forall y)( \exists x)L(x,y)\item
-	%( \forall y)( \exists x)L(x,y) \Rightarrow ( \exists y)( \exists x)L(x,y)  
-%\end{enumerate}
+\subsection{Rules of inference using quantifiers}
+\begin{enumerate}
+	\item Universal instantiation where $a$ is any member in $U$.
+		\begin{equation*}
+		\infer[\text{Universal instantiation}]{\begin{array}{@{}llr@{}llr@{}llr@{}}&P(a)& \end{array}}{\begin{array}{@{}llr@{}llr@{}llr@{}} &(\forall x \text{ in } U) P(x)&\end{array}}.
+		\end{equation*}
+	\item Existential instantiation where $b$ is some	member of $U$.
+	\begin{equation*}
+		\infer[\text{Existential instantiation}]{\begin{array}{@{}llr@{}llr@{}llr@{}}&P(b)& \end{array}}{\begin{array}{@{}llr@{}llr@{}llr@{}} &(\exists x \text{ in } U) P(x)&\end{array}}.
+		\end{equation*}
+	\item Universal generalization where $c$ is an arbitrary member of $U$.
+	\begin{equation*}
+		\infer[\text{Universal generalization}]{\begin{array}{@{}llr@{}llr@{}llr@{}}&P(c)&\end{array}}{\begin{array}{@{}llr@{}llr@{}llr@{}} &(\forall x \text{ in } U) P(x)&\end{array}}.
+		\end{equation*}
+			\item Existential generalization where $d$ is a member of $U$.
+	\begin{equation*}
+		\infer[\text{Existential generalization}]{\begin{array}{@{}llr@{}llr@{}llr@{}}&P(d)&\end{array}}{\begin{array}{@{}llr@{}llr@{}llr@{}} &(\exists x \text{ in } U) P(x)&\end{array}}.
+		\end{equation*}
+\end{enumerate}
+\begin{exmp} Let $N(x)$ = ``cat $x$ is nice,'' $S(x)$=``cat $x$ is smart,'' $C(x)$=``cat $x$ likes chopped liver,'' and $T(x)$=``cat $x$ is Siamese.'' Then the argument is\\ 
+\emph{Every cat that is nice and smart likes chopped liver. Every Siamese cat is nice. Some siamese cat don't like chopped liver. Therefore, there is a stupid cat.}\\
+
+A derivation for this argument using rules of inference is given below.
+\begin{equation}
+\infer{\begin{array}
+	{@{}llr@{}llr@{}llr@{}}
+	(4)~&T(a)\wedge \neg C(a) & (3), \text{ Existential Instantiation}\\
+	(5)~&\neg C(a)            & (4), \text{ Simplification}\\
+	(6)~&T(a)                 & (4), \text{ Simplification}\\
+	(7)~&T(a)\rightarrow N(a) & (2), \text{ Universal Instantiation}\\
+	(8)~&N(a)                 & (7),(6), \text{ Modus Ponens}\\
+	(9)~&\neg\neg N(a)        & (8), \text{ Double Negation}\\
+	(10)~&(N(a)\wedge S(a))\rightarrow C(a) &(1), \text{ Universal Instantiation}\\
+  (11)~&\neg(N(a)\wedge S(a))& (10),(5), \text{ Modus Tollens}\\
+  (12)~&\neg N(a)\vee\neg S(a)& (11), \text{ De Morgan's Law}\\
+  (13)~&\neg S(a)           & (12), (9), \text{ Modus Tollendo Ponens}\\
+  (14)&(\exists x \text{ in } U)[\neg S(x)]  & (13), \text{ Existential Generalization}.
+	\end{array}}
+	{\begin{array}
+	{@{}llr@{}llr@{}llr@{}} 
+	(1)~&(\forall x \text{ in } U) [N(x)\wedge S(x) \rightarrow C(x)]&\\
+	(2)~&(\forall x \text{ in } U) [T(x)\rightarrow N(x)] &\\
+	(3)~&(\exists x \text{ in } U) [T(x)\wedge \neg C(x)] &
+	\end{array}}
+\end{equation}
+Therefor, we've proved the conclusion on the basis of the premises that there exists a stupid cat.
+\end{exmp}
 \end{document}
