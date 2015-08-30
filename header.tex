@@ -1,23 +1,27 @@
 \usepackage{%
-	amsmath,%
 	amsfonts,%
+	amsmath,%	
 	amssymb,%
 	amsthm,%
-	hyperref,%
-	url,%
-	latexsym,%
+	bbm,%
+	caption,%
+	color,%
 	enumerate,%
 	epsfig,%
+	epstopdf,%
 	graphicx,%
-	psfrag,%
-	subfigure,%	
-	color,%
-	tikz,%
+	hyperref,%
+	latexsym,%
+	multicol,%
 	pgf,%
 	%pgfplots%
 	%pgfplotstable,%
 	pgfpages,%
-	proof%
+	proof,%
+	psfrag,%
+	subfigure,%	
+	tikz,%
+	url%
 }
 
 \usepgflibrary{shapes}
@@ -56,6 +60,8 @@
 %\theoremstyle{remark}
 \newtheorem{rem}{Remark}
 \newtheorem{note}{Note}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 \makeatletter
 \def\th@plain{%

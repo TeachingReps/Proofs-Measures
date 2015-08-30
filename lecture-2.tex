@@ -26,6 +26,7 @@ Thales of Miletus of sixth century BC is credited with introducing the concepts 
 
 We must ask why do we need proofs. There are four mains reasons for this endeavor. First, intuition is fallible (sometimes we see what we want to see). Therefore, proofs are necessary to infallibly ascertain facts. Second, we need proofs to explain why things are true. Not all proofs are instructive, however non-intuitive proofs are still better than no proofs. Third, writing proofs provide us a thorough understanding of the problem at hand. Last but not the least, proofs are useful to communicate ideas in language of mathematics. 
 
+\section{Proofs}
 \begin{defn}[Mathematical Proof] A convincing argument that starts from the premises and logically deduces the desired conclusion.
 \end{defn}
 We usually prove theorems, propositions, lemmas, corollaries, and exercises. Theorems are important results, propositions are less important results. Lemmas are small independent statements that can be used to prove other results. Corollaries follow easily from other results, and exercise is something left for reader to verify. 
@@ -107,4 +108,41 @@ The following are equivalent.
 \end{thm}
 \begin{proof} We will show $(1) \Rightarrow (2) \Rightarrow (3) \Rightarrow (1)$.
 \end{proof}
+
+\section{ Quantifiers in Theorems}
+\begin{defn}[Universal Quantifiers] The universal quantifier is a symbol which expresses that the statement is true  ``for all '' or `` any'' $x$, for e.g., a statement such as `` $(\forall x\in U)P(x)$'' $\Longleftrightarrow$ If $x\in U$ then $P(x)$ is true.  
+\end{defn}
+
+\textbf{Proof strategy.} To prove a statement with universal quantifiers to be true, prove that the statement is true for any arbitrary $x \in U$ then this will be true for any $x\in U$. 
+
+Example: Prove that $f(n) = n^2+n+41$ is prime $\forall n\in\{0,\ldots, 39\}$ 
+
+\textbf{Proof strategy by contradiction.} Pick a $y\in U$ and suppose that $P(y)$ then using argumentation arrive at a contradiction.
+
+\begin{defn}[Existential Quantifiers] The existential quantifier $\exists$ is a symbol which represents that there exists some element for which statement $P(x)$ is true. 
+\end{defn}
+
+\textbf{Proof strategy.} To prove a statement such as \emph{$(\exists x \in U)P(x) $} one need to find some $x_0\in U$ such that $P(x_0)$ holds.
+\section{Tips for Writing Mathematics}
+\begin{enumerate}
+ \item A written proof should stand on its own.
+ \item Write precisely and clearly.
+ \item Prove what is appropriate.
+ \item Be careful with saying things are ``obvious''. 
+ \item Use full sentences and correct grammar, for e.g., $x=z^2$ could be written as `` the variable $x$ equals to the square of variable $z$''.
+ \item Use ``='' sign properly.
+ \item Define all symbols and terms you make up. 
+ \item Break up a long proof into steps. 
+ \item Distinguish formal vs informal writing.
+ \item Miscellaneous Tips
+ \begin{enumerate}
+  \item No mathematical symbols after punctuation.
+  \item Don't use logical symbols such as $ \vee , \wedge ,\exists , \forall , \implies $ for words in proof.
+  \item Use equal sign only in equations.
+  \item Use consistent notation.
+  \item Display long formulas (or short important ones) on their own lines. 
+  \item Avoid colons.
+  \item Capitalize names such as Theorem 2.3, Lemma 1.7.  
+ \end{enumerate}
+\end{enumerate}
 \end{document}

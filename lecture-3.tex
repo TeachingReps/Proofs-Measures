@@ -1,51 +1,14 @@
-\documentclass[a4paper,10pt]{article}
-\usepackage[utf8x]{inputenc}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{bbm}
-\usepackage[pdftex]{graphicx}
-\usepackage{epstopdf}
+\documentclass[a4paper,english,12pt]{article}
+\include{header}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[pdftex]{graphicx}
 
-\graphicspath{{./Figs/}}
+\graphicspath{{./Figures/}}
 %opening
 \title{ Lecture 3: Quantifiers and Sets}
-
 \begin{document}
 \maketitle
-\section{ Quantifiers in Theorems}
-\textbf{Definition 3.1.1 (Universal Quantifiers).} The universal quantifier is a symbol which expresses that the statement is true  ``for all '' or `` any'' $x$, for e.g., a statement such as `` $(\forall x\in U)P(x)$'' $\Longleftrightarrow$ If $x\in U$ then $P(x)$ is true.  
 
-\textbf{Proof strategy.} To prove a statement with universal quantifiers to be true, prove that the statement is true for any arbitrary $x \in U$ then this will be true for any $x\in U$. 
-
-Example: Prove that $f(n) = n^2+n+41$ is prime $\forall n\in\{0,\ldots, 39\}$ 
-
-\textbf{Proof strategy by contradiction.} Pick a $y\in U$ and suppose that $P(y)$ then using argumentation arrive at a contradiction.
-
-\textbf{Definition 3.1.2 (Existential Quantifiers).} The existential quantifier $\exists$ is a symbol which represents that there exists some element for which statement $P(x)$ is true. 
-
-\textbf{Proof strategy.} To prove a statement such as \emph{$(\exists x \in U)P(x) $} one need to find some $x_0\in U$ such that $P(x_0)$ holds.
-\section{Tips for Writing Mathematics}
-\begin{enumerate}
- \item A written proof should stand on its own.
- \item Write precisely and clearly.
- \item Prove what is appropriate.
- \item Be careful with saying things are ``obvious''. 
- \item Use full sentences and correct grammar, for e.g., $x=z^2$ could be written as `` the variable $x$ equals to the square of variable $z$''.
- \item Use ``='' sign properly.
- \item Define all symbols and terms you make up. 
- \item Break up a long proof into steps. 
- \item Distinguish formal vs informal writing.
- \item Miscellaneous Tips
- \begin{enumerate}
-  \item No mathematical symbols after punctuation.
-  \item Don't use logical symbols such as $ \vee , \wedge ,\exists , \forall , \implies $ for words in proof.
-  \item Use equal sign only in equations.
-  \item Use consistent notation.
-  \item Display long formulas (or short important ones) on their own lines. 
-  \item Avoid colons.
-  \item Capitalize names such as Theorem 2.3, Lemma 1.7.  
- \end{enumerate}
-\end{enumerate}
 \section{Sets}
 \subsection{Basic Definitions.}
 \textbf{Definition 3.3.1 (Sets).} Set is a collection of objects. Objects contained in the set are called the ``elements'' of the set. If $\mathcal{A}$ is a set, and $a$ is an element of the set $\mathcal{A}$, we write $a\in \mathcal{A}$. If $a$ is not contained in $\mathcal{A}$, then we write $a\notin\mathcal{A}$. A set is written as $\{a,b,c,\ldots,e\}$, here ordering is irrelevant. 
