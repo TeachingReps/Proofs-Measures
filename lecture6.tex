@@ -1,0 +1,144 @@
+\documentclass[a4paper,english,12pt]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{multicol}
+
+\include {header}
+%SetFonts
+
+%SetFonts
+
+
+\title{Lecture 6: Injectivity, Surjectivity and Bijectivity}
+\author{Parimal Parag}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+
+\section { Injectivity, Surjectivity, Bijectivity}
+Let $ f \colon A \to B $ be a function
+\begin{defn} [Injectivity] The map $f$ is "injective" (one-to-one/monic/into) if $x \neq y $ implies $f(x) \neq f(y) $  $\forall x,y \in A$.
+equivalently if $f(x) = f(y) $ implies $x = y $ $\forall x,y \in A$.
+\end{defn}
+\begin{defn} [Surjectivity] The map $f$ is "Surjective" (onto/epic) if for every $b \in B$ , there exist some $a \in A $ such that $f(a)=b$. equivalently $f_{*}(A)=B$.
+\end{defn}
+\begin{defn} [Bijectivity] The map $f$ is "Bijective" if it is both Injective and Surjective.
+\end{defn}
+\begin{rem}
+Injective $\Leftrightarrow$  $\forall b \in B$ $ f^{-1}(\{b\})$ has atmost one element.
+\end{rem}
+\begin{rem}
+Surjective $\Leftrightarrow$  $\forall b \in B$ $ f^{-1}(\{b\})$ has atleast one element.
+\end{rem}
+\begin{rem}
+Bijective $\Leftrightarrow$  $\forall b \in B$ $ f^{-1}(\{b\})$ has exactly one element.
+\end{rem}
+%\subsection{special case}
+\begin{exmp}
+let $f \colon \mathbb{R} \to \mathbb{R}$ \\
+If \textbf{Injective} Horizontal line intersects at atmost one point.\\
+If \textbf{Surjective} Horizontal line intersects at atleast one point.\\
+If \textbf{Bijective} Horizontal line intersects at exactly one point.\\
+\end{exmp}
+\begin{lem}
+Let $f \colon A \to B$ , $g \colon B \to C$ be functions.
+\begin{enumerate}
+\item  $f$,$g$ are injective, then $f \circ g$ Injective.
+\item  $f$,$g$ are Surjective, then $f \circ g$ Surjective.
+\item  $f$,$g$ are Bijective, then $f \circ g$ Bijective.
+\end{enumerate}
+\end{lem}
+\begin{thm}
+Let A and B be two non-empty sets and let $f \colon A \to B$ be a function
+\begin{enumerate}
+\item $f$ has a right inverse iff $f$ is Surjective.
+\item $f$ has a left inverse iff $f$ is Injective.
+\item $f$ has a inverse iff $f$ is Bijective.
+\end{enumerate}
+\end{thm}
+\begin{proof} Suppose $f$ has a right inverse $g$, then 
+$f \circ g$ = $I_{B}$. We will show $f$ is Surjective.
+Let $b \in B$ We need to find an element $a \in A $ such that $f(a)=b$. Let $a=g(b)$ then $f(g(b))$ = $(f \circ g)(b)$ =$I_{B}(b)=b$.
+\par
+Suppose $f$ is Surjective. We wish to show that a map $g \colon B \to A$ such that $f$ has a right inverse , i.e there exists a map
+$g \colon B \to A$ such that $f \circ g$=$I_{B}$.\\
+We define $g$ as follows. For each $b \in B$ , There is at least one $a \in A$ such that $f(a)=b$. Let $g(b)=a$ for some $a \in f^{-1}(\{b\})$.
+Now $(f \circ g)(b)=b$ for all $b \in B$ by definition. Hence $f \circ g = I_{B}$.
+
+\end{proof} 
+\begin{thm} Let A and B be non empty sets and let $f \colon A \to B$ be a function.
+\begin{enumerate}
+\item the functiomn $f$ is Surjective iff $g \circ f = h \circ f$ implies $g=h$ for all functions $g,h \colon B \to X$ for all sets X.
+\item The function $f$ is Injective iff $f \circ g = f \circ h$ implies $g=h$ for all functions $g,h \colon Y \to A$ for all sets Y.
+\end{enumerate}
+\begin{proof}
+Assume $f$ Surjective Let $g,h \colon B \to X$ such that $g \circ f = h \circ f$ for some set X. By Theorem 1.5.1 , function $f$ has right inverse $q \colon B \to A$. By Assosiativity We have $(g \circ f) \circ q = g \circ (f \circ q) $ and thus $g \circ I_{B} = h \circ I_{B}$ and so $g=h$.\\
+We assume $f$ not Surjective. Let $b \in B$ such that $f^{-1}(\{b\})= \phi$. Let $X={1,2}$ define $g,h \colon B \to X$ by $g(y)=1$ $\forall y \in B$ and $h(y)=1$ $ \forall y \in B \backslash \{b\}$ and $h(b)=2$. It can be verified that $g \circ f = h \circ f$, even though $g \neq h$.
+\end{proof}
+\end{thm}
+\subsection{Sets of functions}
+\begin{defn} Let A and B be sets. The set $F(A,B)$ is defined to be the set of all functions $f \colon A \to B$.
+\[ F(A,B) = \{f \colon A \to B |\, f \,is function \} \]
+\end{defn}
+\begin{exmp} A=\{1,2\} , B=\{x,y\} \\
+$F(A,B) = \{ (f,g,h,k)\}\\$
+$f=\{(1,x),(2,x)\}$ , $g=\{(1,y),(2,y)\}$ , $h=\{(1,x),(2,y)\}$ , $k=\{(1,y),(2,x)\}$
+\end{exmp}
+\begin{figure}[]
+\centering
+\scalebox{.8}{\input{l6Figures/l6func-f} \input{l6Figures/l6func-g}}
+\caption{functions f,g}
+\label{}
+\end{figure}
+\begin{figure}[]
+\centering
+\scalebox{.8}{\input{l6Figures/l6func-h} \input{l6Figures/l6func-k}}
+\caption{functions h,k}
+\label{}
+\end{figure}
+
+\begin{exmp} $F(\mathbb{R},\mathbb{R}) \supset C(\mathbb{R},\mathbb{R}) \supset D(\mathbb{R},\mathbb{R})$\\
+$K \colon D(\mathbb{R},\mathbb{R}) \to F(\mathbb{R},\mathbb{R})$\\
+$K(f)=f'$
+\end{exmp}
+\begin{exmp}
+$f \in F(\mathbb{N},\mathbb{R})$ \\
+$f(1),f(2),.....$ is a sequences of real numbers.
+\end{exmp}
+\begin{lem}
+Let A,B,C,D be sets suppose that there are bijective maps $f \colon A \to C$ and $g \colon B \to D$ then there is a bijecition map between
+$F(A,B)$ and $F(C,D)$.
+\end{lem}
+\begin{proof} Since $f$ and $g$ are bijective maps , They have inverse maps $f^{-1}$ and $g^{-1}$ respectively.
+\begin{figure}[hhhh]
+\centering
+\scalebox{.8}{\input{l6Figures/l6lemma}}
+\caption{}
+\label{}
+\end{figure}\\
+Define $\Phi \colon F(A,B) \to F(C,D)$ by $\Phi (h)=g \circ h \circ f^{-1}$. for all $h \in F(A,B)$ \\
+It's easy to see that $\Phi (h) \in F(C,D)$ for all $h \in F(A,B)$. We need to show $\Phi$ is bijective.\\
+\textbf{Injective:} Let $h,k \in F(A,B)$ and suppose $\Phi (h)=\Phi (k)$ Then $g \circ h \circ f^{-1} = g \circ k \circ f^{-1}$, hence $h=k$ , $(g^{-1} \circ g \circ h \circ f^{-1} \circ f)=(g^{-1} \circ g \circ h \circ f^{-1} \circ f)$\\
+\textbf{Surjective:} Let $r \in F(C,D)$ and define $t=g^{-1} \circ r \circ f$ clearly $t \in F(A,B)$ , $\Phi (t)=g \circ (g^{-1} \circ r \circ f) \circ f^{-1}=r$
+\end{proof}
+\begin{prop} Let A be a non empty set. Then there is a bijective map from $F(A,\{0,1\})$ to $P(A)$.
+\begin{proof} Let $\Phi \colon P(A) \to F(A,\{0,1\})$ be defined as\\
+\[ [\Phi (s)](x)\, \, = 1  \quad  x \in S \] 
+$\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad=0 \quad  x \in A \backslash S$\\
+for all $S \subseteq A , \Phi (S) \colon A \to \{0,1\}$\\
+\textbf{Injectivity:} Let $S,T \in P(A)$ and suppose $\Phi (S)=\Phi (T)$ ,We will show $S=T$\\
+$y \in S , [ \Phi (S)](y)=1=[ \Phi (T)](y)$ then $y \in T$. Hence $S \subseteq T$. Similarly $T \subseteq S$.\\
+\textbf{Surjectivity:} Let $f \in F(A,\{0,1\})$, Define $s \in P(A)$ such that $S=\{x \in A | f(x)=1\}=f^{-1}(\{1\})$. We will show that 
+$\Phi (S)=f$.\\ For all $x \in S$ , $\Phi (S)(x)=1=f(x)$ , $x \notin S , \Phi(S)(x)=0=f(x)$ .
+\end{proof}
+\end{prop}
+\end{document}  

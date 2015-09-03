@@ -1,0 +1,17 @@
+
+ 
+ \begin{tikzpicture}[ele/.style={fill=black,circle,minimum width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner sep=-1pt}]
+  \node[ele,label=left:$1$] (a1) at (0,4) {};    
+  \node[ele,label=left:$2$] (a2) at (0,3) {};    
+ 
+
+  \node[ele,,label=right:$x$] (b1) at (4,4) {};
+  \node[ele,,label=right:$y$] (b2) at (4,3) {};
+ 
+
+  \node[draw,fit= (a1) (a2) ,minimum width=2cm] {} ;
+  \node[draw,fit= (b1) (b2) ,minimum width=2cm] {} ;  
+  \draw[->,thick,shorten <=2pt,shorten >=2pt] (a1) -- (b1);
+  \draw[->,thick,shorten <=2pt,shorten >=2pt] (a2) -- (b1);
+ 
+ \end{tikzpicture}
