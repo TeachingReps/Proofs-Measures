@@ -1,0 +1,103 @@
+\documentclass[a4paper,english,12pt]{article}
+\include{header}
+
+%opening
+\title{Lecture 8: Relations (contd.)}
+\author{Parimal Parag}
+
+\begin{document}
+\maketitle
+
+\section{Equivalence Relations}
+\begin{thm} Let $A$ be a non-empty set, and let $\sim$ be an equivalence relation on A.
+	\begin{itemize}
+		\item Let $x,y \in A$. If $x \sim y$, then $[x] = [y]$. If $x \nsim y$, then $[x] \cap [y] = \Phi$.
+		\item $\bigcup\limits_{{x\in A}} [x] = A$.
+	\end{itemize}
+\end{thm}
+
+\begin{proof} ii) By definition, $[x] \subseteq A$ for all $x \in A$. Hence, $\bigcup\limits_{{x \in A}} [x] \subseteq A$. Now, let $q \in A$. Then, $q \sim q$ by reflexivity. Therefore, $q \in [q] \subseteq \bigcup\limits_{{x \in A}} [x]$. Hence, $A \subseteq \bigcup\limits_{{x \in A}} [x]$. Hence, it can be concluded that $\bigcup\limits_{{x \in A}} [x] = A$.
+\end{proof}
+
+\begin{cor} Let $A$ be a non-empty set, let $\sim$ be an equivalence relation on $A$ and let $x, y \in A$. Then $[x] = [y]$ if and only if $x \sim y$.
+\end{cor}
+
+\begin{defn} Let $A$ be a non-empty set. A \textbf{partition} of $A$ is a family $\mathcal{D}$ of non-empty subsets of $A$ such that
+	\begin{enumerate}
+		\item if $P,Q \in \mathcal{D}$ and $P \neq Q$, then $P \cap Q = \phi$;
+		\item $\bigcup \limits_{{P \in \mathcal{D}}} P = A$.
+	\end{enumerate}
+	
+\end{defn}
+
+\begin{exmp}
+	\begin{enumerate}
+		\item Let $\mathcal{D} = {E,O}$ where $E$ is the set of even integers and $O$ is the set of odd integers. Then $\mathcal{D}$ is a partition of $\mathbb{Z}$.
+		\item $\mathcal{C} = \{[n,n+1)\}_{n \in \mathbb{Z}}$ is a partition of $\mathbb{R}$.
+		\item $\mathcal{G} =\{(n-1,n+1)\}_{n \in \mathbb{Z}}$ is not a partition of $\mathbb{R}$ because it is not pairwise disjoint.
+	\end{enumerate}
+\end{exmp}
+
+\begin{cor} 
+	Let $A$ be a non-empty set, and let $\sim$ be an equivalence relation on $A$. Then $A/\sim$ is a partition of A.
+\end{cor}
+
+\begin{defn} 
+	Let $A$ be a non-empty set. Let $E(A)$ denote the set of all equivalence relations on $A$. Let $\mathcal{T}_A$ denote the set of all partitions of $A$.
+\end{defn}
+
+\begin{exmp}
+	Let $A=\{1,2,3\}$. Then $\mathcal{T}_A = \{\mathcal{D}_1, \mathcal{D}_2,...,\mathcal{D}_5\}$, where\\
+	$\mathcal{D}_1 = \{\{1\},\{2\},\{3\}\}$,\\
+	$\mathcal{D}_2 = \{\{1,2\},\{3\}\}$,\\
+	$\mathcal{D}_3 = \{\{1,3\},\{2\}\}$,\\
+	$\mathcal{D}_4 = \{\{2,3\},\{1\}\}$,\\
+	$\mathcal{D}_1 = \{\{1,2,3\}\}$.\\
+	
+	Also, $E(A) = \{R_1, R_2,..., R_5\}$, where these relations are defined by the sets\\
+	$R_1 = \{(1,1),(2,2),(3,3)\}$,\\
+	$R_2 = \{(1,1),(2,2),(3,3),(1,2),(2,1)\}$,\\
+	$R_3 = \{(1,1),(2,2),(3,3),(1,3),(3,1)\}$,\\
+	$R_4 = \{(1,1),(2,2),(3,3),(2,3),(3,2)\}$,\\
+	$R_5 = \{(1,1),(2,2),(3,3),(1,2),(2,1),(1,3),(3,1),(2,3),(3,2)\}$,\\
+	
+	Each of the relations $R_i$ listed above is an equivalence relation on $A$.
+\end{exmp}
+
+\begin{defn}
+	Let $A$ be a non-empty set. Let $\Phi : E(A) \rightarrow \mathcal{T}_A$ be defined as follows. If $\sim$ is an equivalence relation on $A$, let $\Phi(\sim)$ be the family of sets $A/\sim$. Let $\Psi : \mathcal{T}_A \rightarrow E(A)$ be defined as follows. If $\mathcal{D}$ is a partition of $A$, let $\Psi(\mathcal{D})$ be the relation on $A$ defined by $x \: \Psi(\mathcal{D}) \: y$ if and only if there is some $P \in \mathcal{D}$ such that $x,y \in P$ for all $x,y \in A$.
+\end{defn}
+
+\begin{lem}
+	Let $A$ be a non-empty set. The functions $\Phi$ and $\Psi$ in the above definition are well defined.
+\end{lem}
+	
+\begin{proof}
+	To prove the lemma, we need to show the following two things:
+	\begin{enumerate}
+		\item For any equivalence relation $\sim$ on $A$, the family of sets $\Phi(\sim)$ is a partition of $A$; and
+		\item for any partition $\mathcal{D}$ of $A$, the relation $\Psi(\mathcal{D})$ is an equivalence relation on $A$.
+	\end{enumerate}
+	Proof of (1) follows from definition of $\Phi$ and Corollary 5.3.12.\\
+	Proof of (2): Because $\mathcal{D}$ is a partition then $A = \bigsqcup \limits_{i=1}^{n}P_i$ for some $n$ and $P_i\cap P_j = \phi$ for all $i \neq j$. $\Psi (\mathcal{D}) = \{(x,y): there\ is \ some \ P \in \mathcal{D}\ such\ that\ x,y \in P\}$. \\
+	Symmetry: Let $x\, \Psi(\mathcal{D})\, y$. Then we can find $P \in \mathcal{D}$ such that $x,y \in P$. Hence, $y\, \Psi(\mathcal{D})\, x$. \\
+	Reflexivity: Let $x \in A$. Then $x \in P$ for some $P \in \mathcal{D}$. Hence, $x\, \Psi(\mathcal{D})\, x$.\\
+	Transitivity: Let $x\, \Psi(\mathcal{D})\, y$ and $y\, \Psi(\mathcal{D})\, z$. Then, $x,y \in P$ for some $P \in \mathcal{D}$ and $y,z \in Q$ for some $Q \in \mathcal{D}$. Because $P$ and $Q$ are disjoint for $P \neq Q$, therefore, $P = Q$. This implies $x,y,z \in P$. Hence, $x\, \Psi(\mathcal{D})\, z$.\\
+\end{proof}
+
+\begin{thm} Let $A$ be a non-empty set. Then the functions $\Phi$ and $\Psi$ are inverses of each other, and hence both are bijective.	
+\end{thm}
+
+\begin{proof}
+	We need to show that $\Psi \circ \Phi = 1_{E(A)}$ and $\Phi \circ \Psi = 1_{\mathcal{T}_A}$.\\
+	First, we prove that $\Psi \circ \Phi = 1_{E(A)}$. Let $\sim \, \in E(A)$ be an equivalence relation on $A$. Let $\approx \, = \Psi(\Phi(\sim))$. We will show that $\approx \, = \, \sim$, and it will then follow that $\Psi \circ \Phi = 1_{E(A)}$.\\
+	Let $D = \Phi(\sim)$, so that $\approx  = \Psi(D)$.	Let $x,y \in A$ such that $x \approx y$. Then by the definition of $\Psi$ there is some $D \in \mathcal{D}$ such that $x,y \in D$. By the definition of $\Psi$, we know that $D$ is an equivalence class of $\sim$, so that $D = [q]$ for some $q \in A.$ Then $q \sim x$ and $q \sim y$, and by the symmetry and transitivity of $\sim$ it follows that $x \sim y$. Hence, $R_{\approx} \subseteq R_{\sim}$.\\ 
+	Now suppose that $x \sim y$. Then $y \in [x]$. By the reflexivity of $\sim$, we know that $x \in [x]$. The definition of $\Phi$ implies that $[x] \in \mathcal{D}$. Hence, by the definition of $\Psi$, it follows that $x \approx y$. Hence, $R_{\sim} \subseteq R_{\approx}$.\\ 
+	Therefore $x \approx y$ if and only if 	$x \sim y$. We conclude that $\approx = \sim$.
+	
+	Second, we prove that $\Phi \circ \Psi = 1_{\mathcal{T}_A}$. Let $\mathcal{D} \in \mathcal{T}_A$ be a partition of $A$. Let $\mathcal{F} = \Phi(\Psi(\mathcal{D}))$. We will show that $\mathcal{F} = \mathcal{D}$, and it will then follow that $\Phi \circ \Psi = 1_{\mathcal{T}_A}$. \\
+	Let $\sim \, = \Psi(\mathcal{D})$, so that $\mathcal{F} = \Psi(\sim)$. Let $B \in \mathcal{F}$ . Then by the definition of $\Phi$ we know that $B$ is an equivalence class of $\sim$, so that $B = [z]$ for some $z \in A$. Because $\mathcal{D}$ is a partition of $A$, then there is a unique $P \in \mathcal{D}$ such that $z \in P$. Let $w \in A$. Then by the definition of $\Psi$ we see that $z \sim w$ if and only if $w \in P$. It follows that $w \in [z]$ if and only if $w \in P$, and hence $P = [z]$. Hence $B = [z] = P \in \mathcal{D}$. Therefore $\mathcal{F} \subseteq \mathcal{D}$.\\
+	Let $C \in \mathcal{D}$. Let $y \in C$. As before, it follows from the definition of $\Psi$ that $C = [y]$. Therefore by the definition of $\Phi$ we see that $C \in \Phi(\sim) = \mathcal{F}$. Hence $B \subseteq \mathcal{F}$. We conclude that $\mathcal{F} = \mathcal{D}$.
+\end{proof}
+	
+\end{document}
