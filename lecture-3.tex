@@ -10,92 +10,138 @@
 \maketitle
 
 \section{Sets}
+Logic is built on set of axioms that are assumed true. Euclid attempted to use the axiomatic constructions for Geometry in his book ``The Elements''. Hilbert formalized Euclidean Geometry in 1899, with a complete set of axioms. 
+
+Set theory is starting place for all rigorous mathematics. It was developed formally by Georg Cantor in lat 19th century. We would develop set theory informally in this lecture. We would provide a glimpse of formal set theory developed from an axiomatic system at the end of the lecture. 
 \subsection{Basic Definitions.}
-\textbf{Definition 3.3.1 (Sets).} Set is a collection of objects. Objects contained in the set are called the ``elements'' of the set. If $\mathcal{A}$ is a set, and $a$ is an element of the set $\mathcal{A}$, we write $a\in \mathcal{A}$. If $a$ is not contained in $\mathcal{A}$, then we write $a\notin\mathcal{A}$. A set is written as $\{a,b,c,\ldots,e\}$, here ordering is irrelevant. 
+\begin{defn}[Sets] Set is any collection of objects. Objects contained in the set are called the \textbf{elements} of the set. If ${A}$ is a set, and $a$ is an element of the set ${A}$, we write $a\in {A}$. If $a$ is not contained in ${A}$, then we write $a\notin{A}$. 
+\end{defn}
+\textbf{Axiom:} Given any set $A$ and any object $a$, we assume that precisely one of $a \in A$ or $a \notin A$ holds.\\
+\textbf{Representation:} A set is written as $\{a,b,c,d\}$, here ordering is irrelevant. 
 
-\textbf{Important sets.}
+\begin{defn}[Important sets]
 \begin{enumerate}
- \item Set of natural numbers $\mathbbm{N} =\{1,2,\ldots\}$
- \item Set of integers $\mathbbm{Z} =\{\ldots,-3,-2,-1,0, 1,2,\ldots\}$
- \item Set of rational numbers $\mathbbm{Q}$
- \item Set of real numbers $\mathbbm{R}$
- \item set of whole numbers $\mathbbm{N}_0$
-  \item Empty set $\phi$ 
+ \item Set of \textbf{natural numbers} is denoted by $\mathbbm{N} =\{1,2,\ldots\}$.
+ \item Set of \textbf{integers} is denoted by $\mathbbm{Z} =\{\ldots,-2,-1,0, 1,2,\ldots\}$.
+ \item Set of\textbf{rational numbers}, denoted by $\mathbbm{Q}$, is set of fractions.
+ \item Set of \textbf{real numbers} is denoted by $\mathbbm{R}$.
+ \item Set of \textbf{whole numbers}, denoted by $\mathbbm{N}_0$, also called set of non-negative integers.
+  \item Set with no elements is an \textbf{empty set}, denoted by $\phi$.
 \end{enumerate}
+\end{defn}
 
-\textbf{Example 3.2} Let $S=\{n\in \mathbbm{Z}| n \text{ is a perfect square}\}$, then 
-\begin{eqnarray*}
- S&=&\{n\in \mathbbm{Z}| n =k^2\text{ for some} k\in \mathbbm{Z}\}\\
- &=&S=\{n\in \mathbbm{Z}| \text{ is a perfect square } k\in \mathbbm{Z} \text{ such that } n=k^2 \}
-\end{eqnarray*}
-\textbf{Definition 3.3.2 (Intervals).}
+\begin{exmp} Let $S=\{n\in \mathbbm{Z}| n \text{ is a perfect square}\}$, then 
+\begin{align*}
+ S&=\{n\in \mathbbm{Z}| n =k^2\text{ for some} k\in \mathbbm{Z}\},\\
+  &=\{n\in \mathbbm{Z}| \text{ is a perfect square } k\in \mathbbm{Z} \text{ such that } n=k^2 \}.
+\end{align*}
+Notice that $n$ and $k$ are dummy variables in this set notation.
+\end{exmp}
 
-\textbf{Definition 3.3.2.1 (Open Interval).} An open interval is defined as follows $$(a,b):= \{x\in \mathbbm{R}: a<x<b\}$$
+\begin{defn}[Intervals] Let $a,b$ be real numbers.
+\begin{itemize}
+\item An \textbf{open bounded interval} is defined as 
+	\begin{equation*}
+		(a,b) \triangleq \{x\in \mathbbm{R}: a<x<b\}.
+	\end{equation*}
+\item A \textbf{closed bounded interval} is defined as 
+	\begin{equation*}
+	[a,b]:= \{x\in \mathbbm{R}: a\leq x\leq b\}.
+	\end{equation*}
+\item A \textbf{half-open interval} is defined as 
+	\begin{equation*}
+	[a,b):= \{x\in \mathbbm{R}: a<x\leq b.
+	\end{equation*}
+\item An \textbf{open unbounded interval} is defined as 
+	\begin{equation*}
+	(a,\infty):= \{x\in \mathbbm{R}: a< x\}.
+	\end{equation*}
+\item A \textbf{closed unbounded interval} is defined as 
+	\begin{equation*}
+	[a,\infty):= \{x\in \mathbbm{R}: a\leq x \}.
+	\end{equation*}
+%\item An \textbf{infinite interval} is defined as $[a,\infty):= \{x\in \mathbbm{R}: a\leq x\}$. Other infinite intervals can be $(a,-\infty)$, $(-\infty,b]$, $(-\infty,\infty)=\mathbbm{R}$.
+\end{itemize}
+\end{defn}
 
-\textbf{Definition 3.3.2.2 (Closed Interval).} A closed interval is defined as $$[a,b]:= \{x\in \mathbbm{R}: a\leq x\leq b\}$$
+\begin{rem}$+\infty$ and $-\infty$ are not real numbers.
+\end{rem}
+\begin{rem}Dummy variables cannot be used outside the definition without redefining them. For example, let $y \in [a,b]$, then $y \geq a$ and $y \leq b$.
+\end{rem}
 
-\textbf{Definition 3.3.2.3 (Half-open Interval).} A half-open interval is defined as  $$[a,b):= \{x\in \mathbbm{R}: a<x\leq b\}$$
-
-\textbf{Definition 3.3.2.4 (Infinite Interval).} An infinite interval is defined as $$[a,\infty):= \{x\in \mathbbm{R}: a\leq x\}.$$ Other infinite intervals can be $(a,-\infty)$, $(-\infty,b]$, $(-\infty,\infty)=\mathbbm{R}$
-
-\textbf{Remark 1:} $+\infty$ and $-\infty$ are not real numbers.
-
-\textbf{Remark 2:} Dummy variables cannot be used outside without redefining them.
 \subsection{Relation between Sets.}
- Let $\mathcal{A}$ and $\mathcal{B}$ be sets
- 
- \textbf{Definition 3.3.3 (Subset)} We say that $\mathcal{A}$ is a ``subset'' of $\mathcal{B}$ if $x\in \mathcal{A}$ implies $x\in \mathcal{B}$, and is denoted by $\mathcal{A}\subset \mathcal{B}$. This is shown in following figure 
- 
+
+\begin{defn}[Subset] Let ${A}$ and ${B}$ be sets. We say that ${A}$ is a \textbf{subset} of ${B}$ if $x\in {A}$ implies $x\in {B}$, and is denoted by ${A}\subseteq {B}$. If $A$ is not a subset of $B$, we write $A \nsubseteq B$.
+\end{defn}
+This is shown in the Figure~\ref{Fig:Sets}
 \begin{figure}[!h]
+\label{Fig:Sets}
 \centering
- \includegraphics[height=1.0in]{fig33.eps}
+ \includegraphics[height=2.0in]{fig33.eps}
+\caption{In first example, $A \subseteq B$. In second example, $C \nsubseteq D$.}
 \end{figure}
-In other words, we can say that $\mathcal{A}\subseteq \mathcal{B}$ if $\forall x [(x\in \mathcal{A}) \rightarrow (x\in\mathcal{B})]$. While, we say that $\mathcal{A}\nsubseteq\mathcal{B}$ if $\exists$ $x$ such that $[x\in\mathcal{A}\rightarrow x\not\in\mathcal{B}]$.
+In other words, we can say that ${A}\subseteq {B}$ if $\forall x ([x\in {A}] \rightarrow [x\in{B}])$. While, we say that ${A}\nsubseteq{B}$ if $(\exists x) ([x\in{A}]\wedge[x\not\in{B}])$.
 
-\textbf{Lemma 3.1} Let $\mathcal{A},\mathcal{B}$ and $\mathcal{C}$ be sets then following is true
+\begin{lem} Let ${A},{B}$, and ${C}$ be sets, then the following are true.
 \begin{enumerate}
- \item $\mathcal{A}\subseteq \mathcal{A}$.
- \item $\mathcal{\phi}\subseteq\mathcal{A}$.
- \item If $\mathcal{A}\subseteq\mathcal{B}$ and $\mathcal{B}\subseteq\mathcal{C}$ then $\mathcal{A}\subseteq\mathcal{C}$.
+ \item ${A}\subseteq {A}$.
+ \item ${\phi}\subseteq{A}$.
+ \item If ${A}\subseteq{B}$ and ${B}\subseteq{C}$ then ${A}\subseteq{C}$.
 \end{enumerate}
+\end{lem}
 
-\textbf{Proof: }
+\begin{proof} Let ${A},{B},$ and ${C}$ be sets.
 \begin{enumerate}
- \item Since $\forall x\in\mathcal{A}$ implies $x\in\mathcal{A}$. This implies $\mathcal{A}\subseteq \mathcal{A}$. Alternatively, Let $x$ be an arbitrary element of set $\mathcal{A}$. Since any element in $\mathcal{A}$ is in $\mathcal{A}$ itself, therefore $\mathcal{A}\subseteq \mathcal{A}$.
- \item Since $\forall x \in \mathcal{\phi}$ implies $ x \in \mathcal{A}$
- \item Let $x$ be an arbitrary element of set $\mathcal{A}$, then by definition since $\mathcal{A}\subseteq \mathcal{B}$, then $x\in \mathcal{B}$. Also, since $\mathcal{B}\subseteq\mathcal{C}$, then $x\in \mathcal{B}$. Then using definition $\mathcal{A}\subseteq\mathcal{C}$.
+ \item %Since $\forall x\in{A}$ implies $x\in{A}$. This implies ${A}\subseteq {A}$. Alternatively, 
+Let $x$ be an arbitrary element of set ${A}$. Since any element in ${A}$ is in ${A}$ itself, therefore ${A}\subseteq {A}$.
+ \item We need to show that for any $x \in \phi$, we have $x \in A$. However, since empty set $\phi$ has no elements, conclusion necessarily follows. %Let $x \in \phi$, then Since $\forall x \in {\phi}$ implies $ x \in {A}$
+ \item Let's assume ${A}\subseteq {B}$ and $B \subseteq C$. Let $x$ be an arbitrary element of set ${A}$, then by assumption $A \subseteq B$, we have $x \in {B}$. Further, since ${B}\subseteq{C}$, we have $x\in {C}$. Since choice of $x$ was arbitrary in $A$, we conclude? ${A}\subseteq{C}$.
 \end{enumerate}
+\end{proof}
 
-\textbf{Definition 3.3.4 (Equality of Sets)} Let $\mathcal{A}$ and $\mathcal{B}$ sets. We say that $\mathcal{A}$ equals $\mathcal{B}$, denoted $\mathcal{A}=\mathcal{B}$, if $\mathcal{A}\subseteq \mathcal{B}$ and $\mathcal{B}\subseteq \mathcal{A}$. We say that $\mathcal{A}$ is a proper subset of $\mathcal{B}$ if $\mathcal{A}\subset \mathcal{B}$, and $\mathcal{A}\neq \mathcal{B}$, denoted as $\mathcal{A}\varsubsetneq \mathcal{B} (\mathcal{A}\subset \mathcal{B})$. 
-\textbf{Lemma 3.1} Let $\mathcal{A},\mathcal{B}$ and $\mathcal{C}$ be sets then following is true
+\begin{defn}[Equality of Sets] Let ${A}$ and ${B}$ sets. We say that ${A}$ equals ${B}$, denoted ${A}={B}$, if ${A}\subseteq {B}$ and ${B}\subseteq {A}$. 
+\end{defn}
+\begin{defn}[Proper Subset] We say that ${A}$ is a proper subset of ${B}$ if ${A}\subset {B}$, and ${A}\neq {B}$, denoted as ${A}\varsubsetneq {B} ({A}\subset {B})$.
+\end{defn} 
+\begin{lem} Let ${A},{B},$ and ${C}$ be sets, then following is true
 \begin{enumerate}
- \item $\mathcal{A}= \mathcal{A}$.
- \item If $\mathcal{A}= \mathcal{B}$ then $\mathcal{B}= \mathcal{A}$.
- \item If $\mathcal{A}= \mathcal{B}$ and $\mathcal{B}= \mathcal{C}$ then $\mathcal{A}= \mathcal{C}$.
+ \item ${A}= {A}$.
+ \item If ${A}= {B}$ then ${B}= {A}$.
+ \item If ${A}= {B}$ and ${B}= {C}$ then ${A}= {C}$.
 \end{enumerate}
-\textbf{Definition 3.3.5 (Power Set)} Let $\mathcal{A}$ be a set. The `` Power set'' of $\mathcal{A}$ denoted by $\mathcal{P}(\mathcal(A))$ is the set whose elements are subsets of $\mathcal{A}$.
+\end{lem}
+\begin{defn}[Power Set] Let ${A}$ be a set. The \textbf{power set} of ${A}$ denoted by $\mathcal{P}(A)$ is the set whose elements are subsets of ${A}$.
+\end{defn}
 
-\textbf{Example 3.2} Power set of $S=\{1,2\}$, is $\mathcal{P}=\{\{1\},\{2\},\{1,2\},\phi\}$.
+\begin{exmp}Power set of $S=\{1,2\}$, is ${P}=\{\{1\},\{2\},\{1,2\},\phi\}$.
+\end{exmp}
 
-\textbf{Russell's Paradox}
-$\mathcal{S} = \text{ set of all sets},$ $\mathcal{T}:=\{\mathcal{A}\in\mathcal{S}|\mathcal{A}\not\in\mathcal{A} \}$
+\begin{exmp}[Russell's Paradox] Let set $S$ be defined as 
+\begin{align*}
+S &\triangleq \{\text{ set of all sets}\},\\
+T &\triangleq \{{A}\in{S}|{A}\not\in{A} \}.
+\end{align*}
+Then is $T \in T$? If $T \in T$, then $ T \not\in T$ by definition. If $T \not\in T$, then $T \in T$ by definition.
+\end{exmp}
+To resolve such paradoxes. Set theory is built from some basic axioms. One such axiomatic system is discussedou  below.
 
-
-\section{Axiomatic System for Set Theory}[Zermeto-Frankel axioms]
+\section{Axiomatic System for Set Theory}
+\begin{defn}[Zermelo-Frankel axioms]
 \begin{enumerate}
  \item \textbf{Axiom of extension-ability} Two sets are euqal if they have same elements, i.e.,
- $$\forall z (z\in \mathcal{X} \Leftrightarrow z\in \mathcal{Y})\implies \mathcal{X}=\mathcal{Y}$$.
- \item \textbf{Axiom of regularity (foundation)} Every non-empty set $\mathcal{X}$ contains a member $\mathcal{Y}$ such that
- $\mathcal{X}$ and $\mathcal{Y}$ are disjoint sets. 
- \item \textbf{Axiom schema of specification/separation/restricted comprehension} Let $\mathcal{X}$ be a set. Then
-there is a set $\mathcal{Z}$ such that $y \in\mathcal{Z}$ if and only if $y \in \mathcal{X}$ and $P(y)$ is true, where $P(y)$ is a logical property. 
- \item \textbf{Axiom of pairing} If $\mathcal{X}$ and $\mathcal{Y}$ are sets, then there exists a set which contains $\mathcal{X}$ and $\mathcal{Y}$ as elements. 
+ $$\forall z (z\in {X} \Leftrightarrow z\in {Y})\implies {X}={Y}$$.
+ \item \textbf{Axiom of regularity (foundation)} Every non-empty set ${X}$ contains a member ${Y}$ such that
+ ${X}$ and ${Y}$ are disjoint sets. 
+ \item \textbf{Axiom schema of specification/separation/restricted comprehension} Let ${X}$ be a set. Then
+there is a set ${Z}$ such that $y \in{Z}$ if and only if $y \in {X}$ and $P(y)$ is true, where $P(y)$ is a logical property. 
+ \item \textbf{Axiom of pairing} If ${X}$ and ${Y}$ are sets, then there exists a set which contains ${X}$ and ${Y}$ as elements. 
  \item \textbf{Axiom of union} The union over the elements of a set exists. 
- \item \textbf{Axiom of replacement} Let $\mathcal{X}$ be a set. Then there is a set $\mathcal{Z}$ such that $y\in \mathcal{Z}$ if and only if there is some $w \in \mathcal{X}$ such that $F(w, y)$ is true where $F(s, t)$ is a functional property of sets with two free variables $s$ and $t$ 
- \item \textbf{Axiom of infinity} There exists a set having infinity many elements, i.e., there is a set $\mathcal{Z}$ such that $\phi  \in \mathcal{Z}$, and if $\mathcal{X} ∈ \mathcal{Z}$ then $\mathcal{X} ∪ \{x\} ∈ \mathcal{Z}$.
-\item \textbf{Axiom of power set} Let $\mathcal{X}$ be a set. There is a set $\mathcal{Z}$ such that $\mathcal{W}\in\mathcal{Z}$ if and only if $\mathcal{W}\in \mathcal{Z}$
-\item For any set $\mathcal{X}$, there is a binary relation $R$, which well-orders $\mathcal{X}$. This means $R$ is a linear order on $\mathcal{X}$ such that every non-empty subset of $\mathcal{X}$ has a member which is minimal under $R$, i.e., $\forall \mathcal{X}\exists R $($R$ well-orders $\mathcal{X}$)
+ \item \textbf{Axiom of replacement} Let ${X}$ be a set. Then there is a set ${Z}$ such that $y\in {Z}$ if and only if there is some $w \in {X}$ such that $F(w, y)$ is true where $F(s, t)$ is a functional property of sets with two free variables $s$ and $t$ 
+ \item \textbf{Axiom of infinity} There exists a set having infinity many elements, i.e., there is a set ${Z}$ such that $\phi  \in {Z}$, and if ${X} ∈ {Z}$ then ${X} ∪ \{x\} ∈ {Z}$.
+\item \textbf{Axiom of power set} Let ${X}$ be a set. There is a set ${Z}$ such that ${W}\in{Z}$ if and only if ${W}\in {Z}$
+\item For any set ${X}$, there is a binary relation $R$, which well-orders ${X}$. This means $R$ is a linear order on ${X}$ such that every non-empty subset of ${X}$ has a member which is minimal under $R$, i.e., $\forall {X}\exists R $($R$ well-orders ${X}$)
  \end{enumerate}
+\end{defn}
 
 
 

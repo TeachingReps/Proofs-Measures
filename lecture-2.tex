@@ -18,7 +18,7 @@
 \begin{document}
 
 \title{Lecture 2: Strategies for Proofs}
-\author{Parimal Parag}
+%\author{Parimal Parag}
 \maketitle
 
 \section{Introduction}
@@ -103,44 +103,57 @@ The following are equivalent.
 \begin{enumerate}
 \item $\det M = 1$.
 \item $a = d = \pm 1$.
-\item $\operatorname{tr} M = \pm 2$ and $a=d$.
+\item $\tr M = \pm 2$ and $a=d$.
 \end{enumerate}
 \end{thm}
 \begin{proof} We will show $(1) \Rightarrow (2) \Rightarrow (3) \Rightarrow (1)$.
+\begin{itemize}
+	\item[$(1) \Rightarrow (2)$:] Assume that $\det M = 1$. This means that $ad = 1$. Since, $a,d \in \mathbb{Z}$, either $a = d = 1$ or $a = d = -1$.
+	\item[$(2) \Rightarrow (3)$:] Assume that $a = d = \pm 1$. First suppose that $a = d = 1$, then $\tr M = a + d = 2$. Second, suppose that $a = d = 1$, then $\tr M = a + d = -2$. Hence, $\tr M = \pm 2$ and $a = d$.
+	\item[$(3) \Rightarrow (1)$:] Assume that $\tr M = \pm 2$ and $a = d$. Then, $(a+d)^2 = 4ad = 4$. That is, $\det M = ad = 1$.
+\end{itemize}
 \end{proof}
 
 \section{ Quantifiers in Theorems}
-\begin{defn}[Universal Quantifiers] The universal quantifier is a symbol which expresses that the statement is true  ``for all '' or `` any'' $x$, for e.g., a statement such as `` $(\forall x\in U)P(x)$'' $\Longleftrightarrow$ If $x\in U$ then $P(x)$ is true.  
+Quantifiers are used to describe variables in statements. 
+\begin{defn}[Universal Quantifiers] The universal quantifier is a symbol which expresses that the statement is true  ``for all'' or ``any'' element $x$ in a given set $U$. For example, a statement such as `` $(\forall x\text{ in } U)P(x)$'' $\Longleftrightarrow$ ``if $x$ is  in $U$ then $P(x)$ is true.''  
+\end{defn}
+\begin{description}
+	\item[Direct proof.] To prove a statement with universal quantifiers to be true, prove that the statement is true for any arbitrary $x$ in $U$. Since choice of $x$ was arbitrary, this will be true for any $x$ in $U$. 
+	\item[Proof by contradiction.] Let $y$ be in $U$ and suppose that $P(y)$ is false. Then using logical arguments arrive at a contradiction.
+	\item[Proof by contrapositive.] We assume $P(x)$ to be false, and then show that $x$ is not in $U$.
+\end{description}
+\begin{exmp} Expression $f(n) = n^2+n+41$ is prime for all $n$ in $\{0,\ldots, 39\}$. However, $f(40) = 1681 = 41^2$ and hence not prime. Therefore, $f(n)$ is not prime for all $n$.
+\end{exmp}
+
+\begin{defn}[Existential Quantifiers] The existential quantifier $\exists$ is a symbol which represents that there exists some element $x$ in a given set $U$, for which statement $P(x)$ is true. For example, a statement such as `` $(\exists x\text{ in } U)P(x)$'' $\Longleftrightarrow$  ``there exists $x$ in $U$ such that $P(x)$ is true.
 \end{defn}
 
-\textbf{Proof strategy.} To prove a statement with universal quantifiers to be true, prove that the statement is true for any arbitrary $x \in U$ then this will be true for any $x\in U$. 
+\begin{description}
+	\item[Direct proof.] To prove a statement with existential quantifier to be true, we need to find some element $z_0$ in set $U$ such that statement $P(z_0)$ holds.
+	%\item[Proof by contradiction.] Let $y$ be in $U$ and suppose that $P(y)$ is false. Then using logical arguments arrive at a contradiction.
+	%\item[Proof by contrapositive.] We assume $P(x)$ to be false, and then show that $x$ is not in $U$.
+\end{description}
 
-Example: Prove that $f(n) = n^2+n+41$ is prime $\forall n\in\{0,\ldots, 39\}$ 
-
-\textbf{Proof strategy by contradiction.} Pick a $y\in U$ and suppose that $P(y)$ then using argumentation arrive at a contradiction.
-
-\begin{defn}[Existential Quantifiers] The existential quantifier $\exists$ is a symbol which represents that there exists some element for which statement $P(x)$ is true. 
-\end{defn}
-
-\textbf{Proof strategy.} To prove a statement such as \emph{$(\exists x \in U)P(x) $} one need to find some $x_0\in U$ such that $P(x_0)$ holds.
 \section{Tips for Writing Mathematics}
 \begin{enumerate}
- \item A written proof should stand on its own.
- \item Write precisely and clearly.
- \item Prove what is appropriate.
- \item Be careful with saying things are ``obvious''. 
- \item Use full sentences and correct grammar, for e.g., $x=z^2$ could be written as `` the variable $x$ equals to the square of variable $z$''.
- \item Use ``='' sign properly.
- \item Define all symbols and terms you make up. 
- \item Break up a long proof into steps. 
+ \item A written proof should stand on its own, without any need for clarification. State everything explicitly and clearly. Don't assume that reader is a mind reader.
+
+ \item Write precisely and clearly. There is no room for ambiguity in mathematics. Make sure what you write is what you mean. Revise several times, and read as a third person. Make theorems, lemmas, propositions, to be self-contained with all the hypotheses.
+ \item Prove what is appropriate. Assume reader to be at same level of knowledge, except the proof.
+ \item Be careful with saying things are ``obvious''.  Obviously, clearly, similarly are covers for uncertainty and laziness. An obvious statement is that someone with equal mathematical knowledge should figure out in very little time with very little effort. A trivial statement is the one for which a simple proof can be found after some (possibly a long time) thought.
+ \item Use full sentences and correct grammar. For example, $x=z^2$ could be written as ``the variable $x$ equals to the square of variable $z$''. Use therefore, hence, it follows liberally to help guide the logical flow.
+ \item Use ``='' sign properly. Use = when needed and only there. Don't use any backward step in the proof.
+ \item Define all symbols and terms you make up. Declare all variables before use, as in programming. Avoid exotic alphabets and complicated notations.
+ \item Break up a long proof into steps. Isolate preliminary part as lemmas of precise statements. Outline proof strategy prior to details for long proofs. 
  \item Distinguish formal vs informal writing.
  \item Miscellaneous Tips
  \begin{enumerate}
-  \item No mathematical symbols after punctuation.
-  \item Don't use logical symbols such as $ \vee , \wedge ,\exists , \forall , \implies $ for words in proof.
+  \item No mathematical symbols right after punctuation symbols.
+  \item Don't use logical symbols such as $\vee, \wedge,\exists, \forall, \implies $ for words in proof.
   \item Use equal sign only in equations.
   \item Use consistent notation.
-  \item Display long formulas (or short important ones) on their own lines. 
+  \item Display long formulas (or short important ones) on their own lines. Still use punctuation when using equations.
   \item Avoid colons.
   \item Capitalize names such as Theorem 2.3, Lemma 1.7.  
  \end{enumerate}

@@ -1,0 +1,96 @@
+\documentclass[a4paper,10pt]{report}
+\usepackage{amsfonts}
+\usepackage[mathscr]{eucal}
+\usepackage{amsmath}
+\usepackage{mathtools}
+% Title Page
+\title{6.4 Recursion}
+\author{}
+
+
+\begin{document}
+\maketitle
+% \begin{abstract}
+% \end{abstract}
+Consider a sequence 1, 2, 4, 8, 16, .... This sequence is described in two ways. First way is, let $a_n$ denote the $n^{th}$ term of the sequence, then $a_n=2^{n-1},~ \forall n\epsilon{N}$. Seconde way is, let $a_1$ =1, and $a_{n+1}=2a_n,~ \forall n\epsilon{N}$. Such a description is called a recursive description of the sequence.
+
+Given a sequence for which we already have an explicit formula for each $a_n$ in terms of n, it can be useful to find a recursive formula, but there is no question that the sequence exists.\\ What about a sequence for which we have only a recursive description, but no explicit formula?\\ For example, suppose that we have the recursive description $c_1$ = 4, and $c_{n+1}$ = 3 + 2$c_n$ for all n $\epsilon$ N. Is there a sequence $c_1,~ c_2,~ c_3,~ . . .$ satisfying such a description? That is, does this description actually define a sequence? It does appear intuitively as if there is such a sequence, because we can proceed “inductively”, producing one element at a time. We know that $c_1$ = 4. We then compute $c_2$= 3 + 2$c_1$ = 3 + 2 $*$ 4 = 11, and $c_3 = 3 + 2c_2$ = 3 + 2 $*$ 11 = 25, and so on. We could continue indefintely in this way, and it would seem that the sequence $c_1, c_2, c_3, . . .$ is defined for all n $\epsilon$ N. Our intuition will turn out to be correct, and the sequence is indeed defined, and moreover uniquely defined, for all n $\epsilon$ N. In fact, we will give an explicit formula for this sequence in Example 6.4.2.
+
+There are a number of variations of the process of definition by recursion, the most basic of which is as follows. Suppose we are given a number b $\epsilon$ R, and a function $h:R\rightarrow R$. We then want to define a sequence $a_1,a_2, ...$ such that $a_1=b$ and that $a_{n+1}=h(a_n)~for ~all~  n \epsilon N$. To be more precise, recall from Example 4.5.2 (4) that the formal definition of a sequence of real numbers is simply a function f : N $\rightarrow$ R, which can be converted to the more standard notation for sequences by letting $a_n$ = f(n) for all n $\epsilon$ N. Although the sequences discussed in Example 4.5.2 (4) were in R, the same approach applies to sequences in any set, so that a sequence in the set A is simply a function f : N $\rightarrow$ A.
+
+    We can now state the theorem that guarantees the validity of definition by recursion. \\
+{\bf Theorem 6.4.1 (Definition by Recursion)}. Let A be a set, let b $\epsilon$ A and let k : A $\rightarrow$ A be a function. Then there is a unique function f : N $\rightarrow$ A such that f(1) = b, and that f(n + 1) = k(f(n)) for all n $\epsilon$ N.
+
+     Stated more informally, Definition by Recursion (Theorem 6.4.1) says that if A is a set, if b$\epsilon$A and if k : 
+A$\rightarrow$A is a function,  then there is a unique sequence $a_1, a_2, a_3 , . . .$ in A such that $a_1$ = b, and that $a_{n+1} = k(a_n)$ for all n$\epsilon$N. \\\\
+{\bf Example: 6.4.2} 
+\\
+(1) In previous example we asked whether there is a sequence that satisfies the conditions $c_1 = 4,~ and~ c_{n+1} = 3 + 2c_n$ for all n$\epsilon$N. We can now treat this example rigorously. Let b = 4, and let h : R$\rightarrow$R be defined by h(x) = 3+2x for all x$\epsilon$R. Then Definition by Recursion (Theorem 6.4.1) tells us that there is a unique function f : N$\rightarrow$R such that f(1) = 4, and that f(n + 1) = 3 + 2*f(n) for all n$\epsilon$N. If we let $c_n$ = f(n) for all n$\epsilon$N, then the sequence $c_1, c_2, c_3 , . . . $ satisfies the conditions $c_1$ = 4, and $c_{n+1}=3+2c_n$ for all n$\epsilon$N.
+
+
+Definition by Recursion tells us only that the sequence $c_1, c_2, ...$ with the desired properties exists; it does not give us an explicit formula for this sequence. It is not always possible to find an explicit formula for this sequence. It is not always possible to find an explicit formula for every sequence defined by recursion, although in the present case such a formula can be found. By calculating the first few terms of the sequence, and a bit of trial and error, it is possible to guess the formula $c_n=7*2^{n-1}$ for all n$\epsilon$N.
+
+To prove this formula holds, we use PMI. \\First, we show that the formula holds for n=1, that is 7*$2^{1-1}$-3=4, and observing that $c_1$=4. \\ Next, suppose that the result holds for some n$\epsilon$N, which means that $c_n=7*2^{n-1}-3$ for this n. We then show that the result holds for n+1, which we accomplish by computing\\ $c_{n+1}=3+2c_n=3+2\{7*2^{n-1}-3\}=7*2^{(n+1)-1}-3$.\\
+It then follows from PMI that the formula holds for all n$\epsilon$N.\\
+(2) Let A be a non-empty set, and let f:A$\rightarrow$A be a function. For any n$\epsilon$N, we would like to define a function, denoted $f^n$, by the formula\\
+$f^n=\underbrace{fo...of}_n$\\
+However, anything involving ``...''is not rigorous, unless the ``...'' is an abbreviation for something that has been rigorously defined, which we can do in the present case by using Definition by Recursion.
+
+Let $k:\mathscr{F}\rightarrow \mathscr{F}$ be defined by $k(g)=f o g$ for all $g\epsilon \mathscr{F}$. We can then apply Definition by Recursion (Theorem 6.4.1) to the set $\mathscr{F}(A,A)$, the element $f\epsilon \mathscr{F}(A,A)$ and the function $k:\mathscr{F}(A,A) \rightarrow \mathscr{F}(A,A)$, and we deduce that there is a unique function $\phi:N\rightarrow \mathscr{F}(A,A)$ such that $\phi(1)=f$ and that $\phi(n+1)=k(\phi(n))=(f o \phi)(n)$ for all $n\epsilon N$. Then $f^1 = f$ , and $f^{n+1} = f o f^n$ for all $n\epsilon N$, just as expected. We refer to $f^n$ as the n-fold iteration of $f$.
+\\\\
+{\bf Theorem 6.4.3} Let A be a set, let $b\epsilon A$ and let $t:A * N \rightarrow A$ be a function. Then there is a unique function $g:N \rightarrow A$ such that $g(1) = b$, and that $g(n + 1)=t((g(n), n))~ for~ all~ n \epsilon N$.
+\\\\
+{\bf Example 6.4.4} (1) We want to define a sequence by specifying that $a_1 = 1$, and that $a_{n+1}=(n + 1)a_n~ for~ all~ n\epsilon N.$ Using Theorem 6.4.3 with b = 1, and with $t:R*N\rightarrow R$ defined by $t(x, m) = (m + 1)x ~for~ all~ (x, m)\epsilon R*N$, we see that there is a unique sequence satisfying these conditions. This sequence starts 1, 2, 6, 24, 120, . . ., and consists of the familiar factorial numbers. We use the symbol n! to denote $a_n$, for all $n\epsilon N$. 
+
+The notation n! is informally defined by writing n! = n(n − 1)(n − 2) . . . 2 . 1, but this is not a rigorous definition, because of the appearance of ``. . .''. The formal way to define n! is to say that it is the value of $a_n$ for the sequence we have defined by recursion; doing so then gives a rigorous meaning to the · · · appearing in the expression n(n − 1)(n − 2) . . .2 . 1. From Definition by Recursion, we deduce immediately that (n + 1)! = (n + 1)n! for all $n\epsilon N$, because that is the result of substituting n! for $a_n$ in the condition $a_{n+1}=(n + 1)a_n$.\\
+(2) In Proposition 6.3.3 we wrote the expression ``1 + 2 + . . . + n'', and in Exercise 6.3.1 we had similar expressions, such as $``1^2$ + $2^2$ + . . . + $n^2``$. We now use Theorem 6.4.3 to give this use of ''. . .`` a rigorous definition. In general, let $f : N \rightarrow R$ be a function. We want to give a rigorous meaning to the expression ''f(1) + f(2) + . . . + f (n)``.
+ 
+Let $q : R * N \rightarrow R$ be defined by $q((x, n)) = x + f (n + 1)$ for all $(x, n) \epsilon R * N$. We then apply Theorem 6.4.3 to the set R, the element $f(1)\epsilon R$ and the function q, and we deduce that there is a unique function $h : N \rightarrow R$ such that $h(1) = f(1)$, and that $h(n + 1) = q((h(n), n)) = h(n) + f (n + 1)$ for all $n\epsilon N$. We now let the notation ''f(1) + f(2) + . . . + f(n)`` be defined to mean h(n), for all $n\epsilon N$.
+\\
+\\
+Our next version of Definition by Recursion is used for a particularly interesting sequence, namely, the well-known {\bf Fibonacci sequence}, which starts \\1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 . . .\\ The number in this sequence are referred to as Fibonacci numbers. Examples of fibonacci numbers is numbers of petals in flowers, the numbers of spirals in pine cones, and others.
+
+Let the elements of the Fibonacci sequence be denoteed $F_1, F_2, . . . .$ Its basic pattern is $F_{n+2}=F_{n+1}+F_n$ for all $n\epsilon N$. The Fibonacci sequence is the unique sequence specified by $F_1=1$, and $F_2=1$, and $F_{n+2}=F_{n+1}+F_n$ for all $n\epsilon N$.
+\\\\
+{\bf Theorem 6.4.5} Let A be a set, let $a, b \epsilon A$ and let $p : A * A \rightarrow A$ be a function. Then there is a unique function $f : N \rightarrow A$ such that $f (1) = a$, that $f (2) = b$ and that $f (n + 2) = p(( f (n), f (n + 1)))$ for all $n \epsilon N$. 
+
+The Fibonacci sequence is defined using Theorem 6.4.5 with a = 1, with b = 1, and with $p:R*R\rightarrow R$ defined by $p((x,y))=x+y$ for all $(x,y)\epsilon R*R$. THe following proposition gives a few examples of formulas involving the sums and products of Fibonacci numbers.
+\\ \\ 
+{\bf Proposition 6.4.6} Let $n\epsilon N$.
+\begin{enumerate}
+\item $F_1 + F_2 + . . . + F_n = F_{n+2} − 1$.
+\item $F_1^2 + F_2^2 + . . . + F_n^2 = F_nF_{n+1}$.
+\item $ If~ n\geq2,~ then (F_n)^2 − F_{n+1}F_{n−1}=(−1)^{n+1}$.
+\end{enumerate}
+{\bf Proof. of 3.} Using PMI-V3 with $k_0=2$. We see that $(F_2)^2-F_3F_1=1^2-2.1=-1=(-1)^{2+1}$, so the equation holds for $n=2$. Now let $n\epsilon N$. Suppose that $n\geq3$, and that the equation holds for all values in $\{2, . . ., n\}$. We compute \\
+$(F_{n+1})^2 - F_{n+2}F_n=(F_n+F_{n-1})^2 - (F_{n+1}+F_n)F_n$\\
+~~~~~~~~~~~~~~~~~~~~~~~~~$=(F_n)^2+2F_nF_{n-1}+(F_{n-1})^2-F_{n+1}F_n-(F_n)^2$\\
+~~~~~~~~~~~~~~~~~~~~~~~~~$=(F_{n-1})^2+F_n(2F_{n-1}-F_{n+1}$\\
+~~~~~~~~~~~~~~~~~~~~~~~~~$=(F_{n-1})^2+F_n(F_{n-1}-F_n)$\\
+~~~~~~~~~~~~~~~~~~~~~~~~~$=(F_{n-1})^2-F_nF_{n-2}=(-1)^{(n-1)+1}=(-1)^{(n+1)+1}$ \\where the last line holds by the inductive hypothesis.
+
+    The idea of this variation of Definition by Recursion is that we want to have each term of the sequence be dependent upon all the 
+terms that came earlier in the sequence, not just the previous term, or the previous two terms, or any other fixed number of previous terms. In other words, we want to define a sequence $c_1, c_2, c_3, . . .$ by specifying $c_1$, and by specifying $c_{n+1}$ in terms of $c_1, . . ., c_n$, for each $n\epsilon N$. That is, we want $c_2$ to depend upon $c_1$, and $c_3$ to depend upon $c_1~ and~ c_2$, and so on. The complication here is that there cannot be a single function to specify $c_{n+1}$ in terms of $c_1, . . ., c_n$ that works for all $n\epsilon N$, because any single function must have a fixed number of ''variables``. To resolve this matter, we use the following definition.
+\\\\
+{\bf Definition 6.4.7} Let A be a set. Let G(A) be the set defined by\\
+$\mathscr{G}(A)=\bigcup_{n=1}^{\infty}\mathscr{F}(\{1, 2, . . ., n\}, A)$\\\\
+{\bf Theorem 6.4.8} Let A be a set, let $b\epsilon A$ and let $k : G(A)\rightarrow A$ be a function. Then there is a unique function 
+$f : N\rightarrow A$ such that $f(1)=b$, and that $f (n + 1) = k( f|{1,...,n} )~ for~ all~ n\epsilon N$.
+\\
+{\bf Proof. Uniqueness:}\\
+Let $s,t : N\rightarrow A$ be functions. Suppose that $s(1) = b~ and~ t(1) = b$, and that $s(n + 1) = k(s|\{1,...,n\})~ and~ t(n + 1) = k(t|\{1,...,n\})~ for~ all~ n\epsilon N$. We will show that $s(n)=t(n)~for~all~n\epsilon N$ by induction on n, using PMI-V2 (Theorem 6.3.8). By hypothesis we know that $s(1) = b = t(1)$. Next, let $n\epsilon N$ and suppose that $s(j) = t(j)~ for~ all~ j\epsilon \{1,. . ., n\}$. Then $s|\{1,...,n\} = t|\{1,...,n\}$, and therefore $s(n + 1) = k(s|\{1,...,n\} ) = k(t|\{1,...,n\}) = t(n + 1)$. It now follows from PMI-V2 that $s(n) = t(n)~ for ~all~ n\epsilon N$, which means that $s = t$. \\{\bf Existence: There are three steps in the definition of $f .$}\\
+{\bf Step 1.} We will shown that for each $p\epsilon N$, there is a function $h_p : \{1, . . ., p\}\rightarrow A$ such that $h_p(1)=b,$ and that $h_p(n + 1) = k(h_p |\{1,...,n\})~ for~ all~ n\epsilon \{1, . . ., p − 1\}$. The proof is by induction on p. First, let $p=1.$ Then $\{1, . . ., p\} = \{1\}$. Let $h_1 : \{1, . . .,1\}\rightarrow A$ be defined by $h_1(1) = b$. Observe that $\{1, . . ., p − 1\} = \{1, . . ., 0\} = 0$, and hence $h_1 (n + 1) = k(h_1 |\{1, . . ., n\})~ for~ all~ n\epsilon \{1, . . ., p − 1\}$ is necessarily true. Next, let $p\epsilon N$. Suppose there is a function $h_p : \{1, . . ., p\}\rightarrow A$ such that $h_p(1) = b,$ and that  \begin{equation*}
+h_{p+1}(n)= \left\{\begin{matrix}
+h_p(n), if~ n\epsilon \{1, . . ., p\} & \\ 
+k(h_p), if~ n=p+1.& 
+\end{matrix}\right.
+\end{equation*}
+Then $h_{p+1} |\{1,...,p\} = h_p$. It follows that $h_{p+1}(1) = h_p(1)=b$, that $h_{p+1}(n + 1) = h_p(n+1) = k(h_p |\{1,...,n\})=k(h_{p+1} |\{1,...,n\})~ for~ all~ n\epsilon \{1,. . ., p − 1\}$ and that $h_{p+1}(p +1) = k(h_p) = k(h_{p+1} |\{1,...,p\})$. Hence $h_{p+1}$ has the desired properties. The proof of this step is then complete by PMI.
+\\
+{\bf Step 2.} Let $p,q\epsilon N$. Suppose that $p<q$. We will show that $h_q(n) = h_p(n)~ for~ all~n\epsilon \{1, . . ., p\}$ by using Exercise 6.3.15. By Step 1 we know that $h_q(1) = b = h_p(1).$ Next, suppose that $n\epsilon \{1, . . ., p − 1\}$ and that $h_q(j)=h_p(j)$ $for~ all~j\epsilon \{1, . . ., n\}.$ Hence $h_q|\{1,...,n\} = h_p |\{1,...,n\}$. Then by Step 1 we see that $h_q(n+1)=k(h_q |\{1,...,n\})=k(h_p |\{1,...,n\})=h_p(n+1)$. It now follows from Exercise 6.3.15 that $h_q(n)=h_p(n)~for~all~n\epsilon \{1, . . ., p\}.$\\
+{\bf Step 3.} Let $f:N\rightarrow A$ be defined by $f(n) = h_n(n)~ for~ all~ n\epsilon N$. Then $f(1)=h_1(1)=b$ by Step 1. Let $p\epsilon N$. If $j\epsilon \{1, . . ., p\}, ~then~ j < p + 1,$ and it follows from Step 2 that $h_{p+1}(j)=h_j(j)=f(j)$. Hence $h_{p+1}|\{1,...,p\}=f|\{1,...,p\}$. Using Step 1 we then see that $f(p + 1) = h_{p+1}(p + 1) = k(h_{p+1} |\{1,...,p\})=k(f|\{1,...,p\})$. We therefore see that $f$ satisfies the desired properties.
+
+
+
+
+\end{document}          

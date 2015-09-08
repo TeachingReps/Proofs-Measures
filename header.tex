@@ -4,6 +4,7 @@
 	amssymb,%
 	amsthm,%
 	bbm,%
+	biblatex,%
 	caption,%
 	color,%
 	enumerate,%
@@ -57,12 +58,12 @@
 \newtheorem{exmp}[thm]{Example}
 \newtheorem{assum}[thm]{Assumptions}
 
-%\theoremstyle{remark}
+\theoremstyle{remark}
 \newtheorem{rem}{Remark}
 \newtheorem{note}{Note}
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-
+\newcommand{\tr}{\operatorname{tr}}
 \makeatletter
 \def\th@plain{%
   \thm@notefont{}% same as heading font
