@@ -1,20 +1,18 @@
 \documentclass[a4paper,10pt]{report}
-\usepackage{amsfonts}
+\include{header}
 \usepackage[mathscr]{eucal}
-\usepackage{amsmath}
-\usepackage{mathtools}
 % Title Page
-\title{6.4 Recursion}
+\title{Lecture 9: Recursion}
 \author{}
-
 
 \begin{document}
 \maketitle
 % \begin{abstract}
 % \end{abstract}
-Consider a sequence 1, 2, 4, 8, 16, .... This sequence is described in two ways. First way is, let $a_n$ denote the $n^{th}$ term of the sequence, then $a_n=2^{n-1},~ \forall n\epsilon{N}$. Seconde way is, let $a_1$ =1, and $a_{n+1}=2a_n,~ \forall n\epsilon{N}$. Such a description is called a recursive description of the sequence.
+\section{Recursion}
+Consider a sequence 1, 2, 4, 8, 16, .... This sequence is described in two ways. First way is, let $a_n$ denote the $n^{th}$ term of the sequence, then $a_n=2^{n-1},~ \forall n\epsilon{N}$. Second way is, let $a_1$ =1, and $a_{n+1}=2a_n,~ \forall n\epsilon{N}$. Such a description is called a recursive description of the sequence.
 
-Given a sequence for which we already have an explicit formula for each $a_n$ in terms of n, it can be useful to find a recursive formula, but there is no question that the sequence exists.\\ What about a sequence for which we have only a recursive description, but no explicit formula?\\ For example, suppose that we have the recursive description $c_1$ = 4, and $c_{n+1}$ = 3 + 2$c_n$ for all n $\epsilon$ N. Is there a sequence $c_1,~ c_2,~ c_3,~ . . .$ satisfying such a description? That is, does this description actually define a sequence? It does appear intuitively as if there is such a sequence, because we can proceed “inductively”, producing one element at a time. We know that $c_1$ = 4. We then compute $c_2$= 3 + 2$c_1$ = 3 + 2 $*$ 4 = 11, and $c_3 = 3 + 2c_2$ = 3 + 2 $*$ 11 = 25, and so on. We could continue indefintely in this way, and it would seem that the sequence $c_1, c_2, c_3, . . .$ is defined for all n $\epsilon$ N. Our intuition will turn out to be correct, and the sequence is indeed defined, and moreover uniquely defined, for all n $\epsilon$ N. In fact, we will give an explicit formula for this sequence in Example 6.4.2.
+Given a sequence for which we already have an explicit formula for each $a_n$ in terms of n, it can be useful to find a recursive formula, but there is no question that the sequence exists.\\ What about a sequence for which we have only a recursive description, but no explicit formula?\\ For example, suppose that we have the recursive description $c_1$ = 4, and $c_{n+1}$ = 3 + 2$c_n$ for all n $\epsilon$ N. Is there a sequence $c_1,~ c_2,~ c_3,~ . . .$ satisfying such a description? That is, does this description actually define a sequence? It does appear intuitively as if there is such a sequence, because we can proceed “inductively”, producing one element at a time. We know that $c_1$ = 4. We then compute $c_2$= 3 + 2$c_1$ = 3 + 2 $*$ 4 = 11, and $c_3 = 3 + 2c_2$ = 3 + 2 $*$ 11 = 25, and so on. We could continue indefinitely in this way, and it would seem that the sequence $c_1, c_2, c_3, . . .$ is defined for all n $\epsilon$ N. Our intuition will turn out to be correct, and the sequence is indeed defined, and moreover uniquely defined, for all n $\epsilon$ N. In fact, we will give an explicit formula for this sequence in Example 6.4.2.
 
 There are a number of variations of the process of definition by recursion, the most basic of which is as follows. Suppose we are given a number b $\epsilon$ R, and a function $h:R\rightarrow R$. We then want to define a sequence $a_1,a_2, ...$ such that $a_1=b$ and that $a_{n+1}=h(a_n)~for ~all~  n \epsilon N$. To be more precise, recall from Example 4.5.2 (4) that the formal definition of a sequence of real numbers is simply a function f : N $\rightarrow$ R, which can be converted to the more standard notation for sequences by letting $a_n$ = f(n) for all n $\epsilon$ N. Although the sequences discussed in Example 4.5.2 (4) were in R, the same approach applies to sequences in any set, so that a sequence in the set A is simply a function f : N $\rightarrow$ A.
 
@@ -48,13 +46,13 @@ The notation n! is informally defined by writing n! = n(n − 1)(n − 2) . . . 
 Let $q : R * N \rightarrow R$ be defined by $q((x, n)) = x + f (n + 1)$ for all $(x, n) \epsilon R * N$. We then apply Theorem 6.4.3 to the set R, the element $f(1)\epsilon R$ and the function q, and we deduce that there is a unique function $h : N \rightarrow R$ such that $h(1) = f(1)$, and that $h(n + 1) = q((h(n), n)) = h(n) + f (n + 1)$ for all $n\epsilon N$. We now let the notation ''f(1) + f(2) + . . . + f(n)`` be defined to mean h(n), for all $n\epsilon N$.
 \\
 \\
-Our next version of Definition by Recursion is used for a particularly interesting sequence, namely, the well-known {\bf Fibonacci sequence}, which starts \\1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 . . .\\ The number in this sequence are referred to as Fibonacci numbers. Examples of fibonacci numbers is numbers of petals in flowers, the numbers of spirals in pine cones, and others.
+Our next version of Definition by Recursion is used for a particularly interesting sequence, namely, the well-known {\bf Fibonacci sequence}, which starts \\1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 . . .\\ The number in this sequence are referred to as Fibonacci numbers. Examples of Fibonacci numbers is numbers of petals in flowers, the numbers of spirals in pine cones, and others.
 
-Let the elements of the Fibonacci sequence be denoteed $F_1, F_2, . . . .$ Its basic pattern is $F_{n+2}=F_{n+1}+F_n$ for all $n\epsilon N$. The Fibonacci sequence is the unique sequence specified by $F_1=1$, and $F_2=1$, and $F_{n+2}=F_{n+1}+F_n$ for all $n\epsilon N$.
+Let the elements of the Fibonacci sequence be denoted $F_1, F_2, . . . .$ Its basic pattern is $F_{n+2}=F_{n+1}+F_n$ for all $n\epsilon N$. The Fibonacci sequence is the unique sequence specified by $F_1=1$, and $F_2=1$, and $F_{n+2}=F_{n+1}+F_n$ for all $n\epsilon N$.
 \\\\
 {\bf Theorem 6.4.5} Let A be a set, let $a, b \epsilon A$ and let $p : A * A \rightarrow A$ be a function. Then there is a unique function $f : N \rightarrow A$ such that $f (1) = a$, that $f (2) = b$ and that $f (n + 2) = p(( f (n), f (n + 1)))$ for all $n \epsilon N$. 
 
-The Fibonacci sequence is defined using Theorem 6.4.5 with a = 1, with b = 1, and with $p:R*R\rightarrow R$ defined by $p((x,y))=x+y$ for all $(x,y)\epsilon R*R$. THe following proposition gives a few examples of formulas involving the sums and products of Fibonacci numbers.
+The Fibonacci sequence is defined using Theorem 6.4.5 with a = 1, with b = 1, and with $p:R*R\rightarrow R$ defined by $p((x,y))=x+y$ for all $(x,y)\epsilon R*R$. The following proposition gives a few examples of formulas involving the sums and products of Fibonacci numbers.
 \\ \\ 
 {\bf Proposition 6.4.6} Let $n\epsilon N$.
 \begin{enumerate}

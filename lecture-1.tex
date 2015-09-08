@@ -3,7 +3,7 @@
 
 %opening
 \title{Lecture 1: Informal Logic}
-%\author{Parimal Parag}
+\author{}
 
 \begin{document}
 \maketitle
@@ -36,13 +36,13 @@ In this subsection, we would look at five basic ways of combining two statements
 \end{rem}			
 \begin{defn}[Negation] We define \textbf{negation} of a statement $P$ to be the statement that is true if $P$ is false, and is false if $P$ is true. Negation of statement $P$ is denoted $\neg P$, and read ``not $P$.''	
 \end{defn}
-\begin{defn}[Conditional] We define the \textbf{conditional} from statement $P$ to statement $Q$ to be the statement that is true if it is never the case that $P$ is true and $Q$ is false. Conditional statement from $P$ to $Q$ is denoted $P \rightarrow Q$, and read ``if $P$ then $Q$.''	Statement $P$ is \emph{antecedent} of the conditional and $Q$ is \emph{consquent}.	
+\begin{defn}[Conditional] We define the \textbf{conditional} from statement $P$ to statement $Q$ to be the statement that is true if it is never the case that $P$ is true and $Q$ is false. Conditional statement from $P$ to $Q$ is denoted $P \rightarrow Q$, and read ``if $P$ then $Q$.''	Statement $P$ is \emph{antecedent} of the conditional and $Q$ is \emph{consequent}.	
 \end{defn}
 \begin{rem} Notice that $\neg P \vee Q$ is logically equivalent to $P \rightarrow Q$.
 \end{rem}	
 \begin{rem} Statement $Q \rightarrow P$ is not equivalent to $P \rightarrow Q$.
 \end{rem}	
-\begin{defn}[Biconditional] We deefine the \textbf{biconditional} from statement $P$ to statement $Q$ to be the statement that is true if $P$ and $Q$ are both true or both false, and is false otherwise. Binconditional from $P$ to $Q$ is denoted $P \leftrightarrow Q$, and read ``$P$ if and only if $Q$.'' 
+\begin{defn}[Biconditional] We define the \textbf{biconditional} from statement $P$ to statement $Q$ to be the statement that is true if $P$ and $Q$ are both true or both false, and is false otherwise. Biconditional from $P$ to $Q$ is denoted $P \leftrightarrow Q$, and read ``$P$ if and only if $Q$.'' 
 \end{defn}
 \begin{exmp} From statements, $P,Q,R$, we can form compound statements such as $P \vee (Q\rightarrow \neg R)$.
 \end{exmp}		
@@ -193,7 +193,7 @@ Following two big theorems from logic show that an argument is valid if and only
 \end{thm}
 \begin{rem}[Direct Proof] To show that a given argument is valid, we simply need to find a derivation, which is often a much more pleasant prospect than showing validity directly.
 \end{rem}
-\begin{rem}[Counter-Example] To show that an argument is invalid, we use the definition of validity directly. We can find some truth values for the component statements of the argument for which the premises ar all true, but the conclusion is false.
+\begin{rem}[Counter-Example] To show that an argument is invalid, we use the definition of validity directly. We can find some truth values for the component statements of the argument for which the premises are all true, but the conclusion is false.
 \end{rem}
     
 \begin{exmp}
@@ -278,7 +278,7 @@ Let $L(x,y)$ be an expression in free variables $x$ and $y$. Then the Figure~\re
 		\end{equation*}
 \end{enumerate}
 \begin{exmp} Let $N(x)$ = ``cat $x$ is nice,'' $S(x)$=``cat $x$ is smart,'' $C(x)$=``cat $x$ likes chopped liver,'' and $T(x)$=``cat $x$ is Siamese.'' Then the argument is\\ 
-\emph{Every cat that is nice and smart likes chopped liver. Every Siamese cat is nice. Some siamese cat don't like chopped liver. Therefore, there is a stupid cat.}\\
+\emph{Every cat that is nice and smart likes chopped liver. Every Siamese cat is nice. Some Siamese cat don't like chopped liver. Therefore, there is a stupid cat.}\\
 
 A derivation for this argument using rules of inference is given below.
 \begin{equation}

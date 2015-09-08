@@ -1,33 +1,18 @@
 \documentclass[a4paper,english,12pt]{article}
 \include{header}
 
-%opening
 \title{Lecture 7: Relations}
-\author{Parimal Parag}
-\usepackage{amsmath}
+\author{}
+
 \begin{document}
 \maketitle
 
-\section{Product of an indexed family of sets}
-%In this chapter, we would look at informal logic 
-$ AXB = \{(a,b), a \in A , b\in B\}$
-
-$\{f\in f(\{1,2\},AUB):f(1)\in A, f(2)\in B\}$\\\\
-\textbf{Definition}\\
-Let I be a non empty set and let$\{A_i:i\in I\}$ be a family of set indexed by I.The product of all the set in this family of sets defined 
-\begin{equation}
-\prod_{i\in I}A_i =\{f\in F(I,\bigcup_{i \in I}A_i):f(i) \in A_i, \forall i \in I\}
-\end{equation}\\
-If all the sets $A_i$ are equal to a single set A.Then we denote $\prod_{i \in A_i}A_i$ by $A^I$.
-\textbf{Verify:-}\\
-If $I \neq \emptyset $ and A is a set ,then \\
-$A_I =f(I,A)$ 
 \section{Relation}
-Let A and B be sets a relation R from A to B is a subset of cartesian product R$\subseteq A \times B $\\
-If a$\in$ A and b$\in$ B,we write a R b if (a,b)$\in$ R and a R b if (a,b)$\notin$ R \\
-Arelation from A to A is called a relation A.\\
-Examples.\\
-1. Let A=\{1,2,3\} and B =\{x,y,z\} and S$\subseteq$ \{(1,y),(1,z),(2,y)\} then 1Sy, 1Sz, 2Sy\\\\
+Let $A$ and $B$ be sets. A relation $R$ from $A$ to $B$ is a subset of Cartesian product $R \subseteq A \times B $. If $a \in A$ and $b \in B$, we write $a R b$ if $(a,b) \in R$ and $a R b$ if $(a,b) \notin R$. 
+A relation from $A$ to $A$ is called a relation on $A$.
+\begin{exmp}
+\begin{enumerate}
+1. Let $A=\{1,2,3\}$ and $B =\{x,y,z\}$ and S$\subseteq$ \{(1,y),(1,z),(2,y)\} then $1Sy, 1Sz, 2Sy$\\\\
 2. P=\{set of all people\}\\
 R$\subseteq$ P$\times$P s.t R=\{(x,y)$\in$ P$\times$ P:x and y have at least one parent common\}\\
 3. P=\{set of all people\} , B =\{set of all books\}\\
@@ -35,7 +20,9 @@ Relation T$\subseteq$ P$\times$B such that \\
 T=\{(x,y)$\in$ P$\times B$: x has read y \}\\
 4. Let A be a set define a relation on P(A), by saying that P,Q $\in$ P(A) are related iff P$\subseteq$Q\\
 U =\{(P,Q)$\in$ P(A)$\times$P(A):P$\subseteq$Q\}\\\\
-5. A function f: A$\rightarrow$ B is subset of A$\times$B satisfying certain conditions.Hence function f: A$\rightarrow$B are also relation from A$\rightarrow$B\\\\
+5. A function f: A$\rightarrow$ B is subset of A$\times$B satisfying certain conditions.Hence function f: A$\rightarrow$B are also relation from A$\rightarrow$B.
+\end{enumerate}
+\end{exmp}
 \textbf{Notice the difference between Functions and relations}\\
 $\bullet$ Domain doesn't have to be covered\\
 $\bullet$ More than one element for each a$\in$A\\\\
@@ -53,23 +40,23 @@ half-siblings, then [a] = \{a, b, c\}, and [b] = \{a, b\}, and [c] = \{a, c\}.\\
 3.For the relation $<$, we see that [x] = (x, $\infty$) for all x $\in$ $\mathbb{R}$, and for the relation
 $\leq$, we see that [x] = [x, $\infty$) for all x $\in$ $\mathbb{R}$.\\\\
 \textbf{Definition}\\
-Let A$\neq \emptyset$ and let R be arelation on A\\
+Let A$\neq \emptyset$ and let R be a relation on A\\
 1."Reflexive" if xRx for all x$\in$A\\\\
 2."symmetric" if xRy implies yRx for all x$\in$A\\\\
-3."transtive" if xRy and yRz implies xRz for all x,y,z$\in$A\\\\
+3."transitive" if xRy and yRz implies xRz for all x,y,z$\in$A\\\\
 \textbf{Examples}\\\\
-1. Congurence of triangles is "Reflexive","symmetric",Transitive".\\\\
+1. Congruence of triangles is "Reflexive","symmetric",Transitive".\\\\
 2. The relation "$\leq$" is "reflexive",but not "Transitive ,not "Symmetric".\\\\
 3. C=\{1,2,3\} P=\{(2,2),(3,3),(2,3),(3,2)\}\\\\
   Not "Reflexive" as (1,1)$\notin$P\\\\
   Its "symmetric" as \{(2,3),(3,2)\}$\in$P\\\\
-  Its "Transtive" as \{(2,3),(3,2),(2,2)\}$\in$P\\\\
+  Its "Transitive" as \{(2,3),(3,2),(2,2)\}$\in$P\\\\
 4. B=\{x,y,z\}       T=\{(x,x),(y,y),(z,z),(x,y),(y,z)\}\\\\
  Its "Reflexive" as           \{(x,x),(y,y),(z,z)\}$\in$T\\\\
  But not "symmetric" as\{(y,x),(z,y)\}$\notin$T\\\\
  Not "transitive" as(x,z)$\notin$T\\\\
-5. Relation of one person being cousion of    another is "symmetric", not "Reflexive", not "Transitive"\\\\
-6. < relation is not "Reflexive", not "Symmetric" but its "Transtive".\\\\
+5. Relation of one person being cousin of    another is "symmetric", not "Reflexive", not "Transitive"\\\\
+6. < relation is not "Reflexive", not "Symmetric" but its "Transitive".\\\\
 7. Relation of one person being daughter of another person :none.\\\\
 \section{Equivalence Relation}
 \textbf{Definition}\\\\
@@ -83,9 +70,9 @@ The quotient set of A and $\sim$ is denoted by A/$\sim$\\\\
 \textbf{Example}
 1. Let P be the set of all people, and let ∼ be the relation on P defined
 by x $\sim$ y if and only if x and y are the same age (in years). If person x is 19 years
-old, then the equivalence class of x is the set of all 19-year-olds. Each element of the
+old, then the equivalence class of x is the set of all 19-year olds. Each element of the
 quotient set P/$\sim$ is itself a set, where there is one such set consisting of all 1-year-
-olds, another consisting of all 2-year-olds, and so on. Although there are billions of
+olds, another consisting of all 2-year olds, and so on. Although there are billions of
 people in P, there are fewer than 125 elements in P/$\sim$, because no currently living
 person has reached the age of 125.\\\\
 2. Let $\sim$be the relation on R 2 defined by (x, y) $\sim$ (z, w) if and only if y$-$x =

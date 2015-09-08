@@ -17,9 +17,51 @@
 %\usepackage{babel}
 \begin{document}
 
-\title{Lecture 5: Image, Inverse Image, Composition and Inverse of Functions}
-\author{Parimal Parag}
+\title{Lecture 5: Functions}
+\author{}
 \maketitle
+
+\section{Functions}
+We have all seen some form of functions in high school. For example, we have seen polynomial, exponential, logarithmic, trigonometric functions in calculus. These functions map real numbers to real numbers. We have also seen functions that map functions to functions, such a derivatives. Functions are of interest in many branches of mathematics, including enumerative combinatorics, topology, and group theory among others. An abstract understanding of function would be, an output $f(x)$ for each input $x$. We formalize this notion below.
+\begin{defn} [Function]
+ Let $A$ and $B$ be sets. A \textbf{function} (also called a \textbf{map}) from $A$ to $B$ denoted $f: A \to B$ is a subset $F \subseteq A \times B$ such that for each $a \in A$, there is a one and only one pair of the form $(a,b)$ in $F$. The set $A$ is called the domain of $f$ and the set $B$ is called the co-domain of $f$.
+\end{defn}
+
+\begin{rem} To show the equality of functions, we need to show that the domain, co-domain, and subset of the product of domain and co-domain satisfying the above conditions must agree.
+\end{rem}
+
+\begin{defn}
+Let $A$ and $B$ be sets, and let $S \subseteq A$ be a subset. 
+\begin{enumerate}
+ \item  A \textbf{constant map} $f: A \to B$ is any function of the form $f(x) = b$ for all $x \in A$, where $b \in B$ is some fixed element.
+ 
+ \item  The \textbf{identity map} on $A$ is the function $I_{A}: A \to A$ defined by $\mathbb{1}_{A}(x) = x$ for all $x \in A$.
+
+ \item  The \textbf{inclusion map} from $S to A$ is the function $j: S \to A$ defined by $j(x) = x$ for all $x \in A$.
+
+ \item If $f: A \to B$ is a map, the \textbf{restriction} of $f \to S$, denoted by $f |_{S}$ is the map $f|_{S}: S \to B$, defined by $f|_{S}(x)= x$ for all 
+ $x \in S$.
+
+ \item  If $g: A \to B$ is a map, an \textbf{extension} of $g$ to $A$ is any map $G: A \to B$ such that $G|_{s} = g$.
+
+ \item   The \textbf{projection} map from $A \times B$ are the functions, $\pi_{1}: A \times B \to A$ and $\pi_{2}: A \times B \to B$ defined by 
+ $\pi_{1}(a, b) = a$ and $\pi_{1}(a, b) = b$ for all $(a,b) \in A \times B$. Projection maps $\pi_{i}: A_{1} \times A_{2} \dots A_{p} = A_{i}$ for 
+ any finite collection of sets $A_{1}, A_{2} \dots A_{p}$ are defined similarly.
+
+\end{enumerate}
+\end{defn}
+
+
+\begin{defn} [Image and inverse image]
+ Let $f: A \to B$ be a function.
+ \begin{enumerate} [i)]
+  \item For each $P \subseteq A$, let $f_{*}(P)$ be defined as $f_{*}(P) = \{ b \in B | b = f(P) \text{ for some } p \in P \} = \{ f(p) | p \in P\}$ is called 
+  the image of $P$ under $f$.
+  \emph{Remark}. The range (image) of $f$ is the set $f_{*}(A)$.
+  \item For each $G \subseteq B$, let $f^{*}(Q)$ be defined as $f^{*}(Q) = \{ a \in A | f(a) = q \text{ for some } q \in Q\} \{ a \in A | f(a) \in Q \}$ is called 
+  the inverse image of $Q$ under $f$.
+ \end{enumerate}
+\end{defn}
 
 \section{Image and Inverse Image}
 Let $A$ and $B$ be sets and $f:A\rightarrow B$ be a function. 
@@ -43,7 +85,7 @@ f^*(Q)  =\{a\in A: f(a)=q \textnormal{ for some } q\in Q\} =\{a\in A:f(a)\in Q\}
 
 \textbf{Remarks:}
 \begin{enumerate}[i)]
-\item For every $P\subseteq A$, $\emptyset \neq f_*(P)\subseteq B$ and $|P|\geqslant |f_*(P)|$. The \textbf{range} (or \textbf{image}) of $f$ is the set $f_*(A)$. The range need not be equal to the codomain.
+\item For every $P\subseteq A$, $\emptyset \neq f_*(P)\subseteq B$ and $|P|\geqslant |f_*(P)|$. The \textbf{range} (or \textbf{image}) of $f$ is the set $f_*(A)$. The range need not be equal to the co-domain.
 \item For every $Q\subseteq B$, $f^*(Q)\subseteq A$, possibly be empty, and $|Q|\leqslant |f^*(Q)|$. 
 \item Given a function $f:A\rightarrow B$, the process of taking image (inverse image) of subsets of $A$ ($B$) can be thought of as operation of a new function $f_*:2^A\rightarrow 2^B$ ($f^*:2^B\rightarrow 2^A$) on subsets of $A$ ($B$) and induced by $f$.
 \item Abuse of notation: 
@@ -64,7 +106,7 @@ Consider the function $f:\mathbb{R}\rightarrow \mathbb{R}$ plotted in Fig.~\ref{
 \label{func_ex}
 \end{figure}
 \item For $Q_1=[1.7,2.5]$ and $Q_2=[-4,-3.2]$, $f^*(Q_1)= [-2,-1.6] \cup [-0.6,0] \cup [1.7,2.5]$ and $f^*(Q_2)=\emptyset$.
-\item From (i) and (ii), we have that $f^*(f_*(P_1))\neq P_1$, $f^*(f_*(P_2))=P_2$, $f_*(f^*(Q_1))=Q_1$ and $f_*(f^*(Q_2))=Q_2$ (cf. Thrm.~\ref{img-preimg_props}).
+\item From (i) and (ii), we have that $f^*(f_*(P_1))\neq P_1$, $f^*(f_*(P_2))=P_2$, $f_*(f^*(Q_1))=Q_1$ and $f_*(f^*(Q_2))=Q_2$ (cf. Theorem~\ref{img-preimg_props}).
 \end{enumerate}
 \end{exmp}
 
@@ -103,7 +145,7 @@ for all $a\in A$
 \centering
 \includegraphics[scale=0.8]{Figures/l5f3_commdiag.pdf}
 \end{figure*}
-\item If the codomain of the first function ($f$) is equal to the domain of the second ($g$), then the composition $g\circ f$ is defined. (The composition is defined iff the range of the first function is a subset of the domain of the second).
+\item If the co-domain of the first function ($f$) is equal to the domain of the second ($g$), then the composition $g\circ f$ is defined. (The composition is defined iff the range of the first function is a subset of the domain of the second).
 \item If $A=C$, then $f\circ g$ is also defined but need not necessarily be equal to $g\circ f$ or $1_A$.
 \item The range of $g\circ f$ is a subset of range of $g$, \textit{i.e.}, $(g\circ f)_*\subseteq g_*$.
 \end{enumerate}

@@ -4,9 +4,9 @@
 %\usepackage[T1]{fontenc}
 %\PassOptionsToPackage{normalem}{ulem}
 %\usepackage{ulem}
-\usepackage{caption}
+%\usepackage{caption}
 %\makeatletter
-\usepackage{multicol}
+%\usepackage{multicol}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
 %\pdfpageheight\paperheight
 %\pdfpagewidth\paperwidth
@@ -16,37 +16,28 @@
 
 %\usepackage{babel}
 
-\newcommand{\Real}{\mathbb{R}}
-
-
 
 \begin{document}
 
-\title{Lecture 4: Sets and Functions}
-\author{Parimal Parag}
+\title{Lecture 4: Set Operations}
+\author{}
 \maketitle
 
 \section{Set Operations}
-New sets can be constructed from existing sets by combining one or multiple of them using set operations. This is somewhat analogous to the
-the construction of natural and rational numbers. The two most basic set operations that we will now describe correspond to the familiar 
-logical operations ``or'' and ``and''. \\
-Let $A$ and $B$ be sets. 
-\begin{defn}[Union]
-The union of sets $A$ and $B$, denoted $A \cup B$, is the set defined by 
+New sets can be constructed from existing sets by combining one or multiple of them using set operations. This is somewhat analogous to the the construction of natural and rational numbers. The two most basic set operations that we will now describe correspond to the familiar logical operations ``or'' and ``and''. \\
+
+\begin{defn}[Union] Let $A$ and $B$ be sets. The \textbf{union} of sets $A$ and $B$, denoted $A \cup B$, is the set defined by 
 \begin{equation*}
- A \cup B = \{ x | x \in A \text{ or } x \in B \}
+ A \cup B = \{ x | x \in A \text{ or } x \in B \}.
+\end{equation*}
+\end{defn}
+\begin{defn}[Intersection] Let $A$ and $B$ be sets. The intersection of sets $A$ and $B$, denoted $A \cap B$, is the set defined by 
+\begin{equation*}
+ A \cup B = \{ x | x \in A \text{ and } x \in B \}.
 \end{equation*}
 \end{defn}
 
-\begin{defn}[Intersection]
-The intersection of sets $A$ and $B$, denoted $A \cap B$, is the set defined by 
-\begin{equation*}
- A \cup B = \{ x | x \in A \text{ and } x \in B \}
-\end{equation*}
-\end{defn}
-
-Do the familiar properties of addition and multiplication of numbers (such as commutativity and associativity) also hold for union and intersection of sets? The
-following theorem shows that such properties do hold, although they are not exactly the same as for addition and multiplication
+Do the familiar properties of addition and multiplication of numbers (such as commutativity and associativity) also hold for union and intersection of sets? The following theorem shows that such properties do hold, although they are not exactly the same as for addition and multiplication.
 
 \begin{thm}
  Let $A$, $B$ and $C$ be sets. 
@@ -100,7 +91,7 @@ The following theorem gives some standard properties of set difference.
   \item $B \backslash (B \backslash A) = A$ iff $A \subseteq B$.
   \item If $A \subseteq B$, then $A \backslash C \subseteq B \backslash C$.
   \item If $A \subseteq B$, then $(C \backslash A) \supseteq (C \backslash B)$.
-  \item (De-morgan's Laws) $C \backslash (A \cup B) = (C \backslash A) \cap (C \backslash B)$ and $C \backslash (A \cap B) = (C \backslash A) \cup (C \backslash B)$.
+  \item (De Morgan’s Laws) $C \backslash (A \cup B) = (C \backslash A) \cap (C \backslash B)$ and $C \backslash (A \cap B) = (C \backslash A) \cup (C \backslash B)$.
  \end{enumerate}
 \end{thm}
 
@@ -112,7 +103,7 @@ The following theorem gives some standard properties of set difference.
  \item Let us assume that $A \subseteq B$. Let $x$ be an element of $A \backslash B$, which implies $x \in A$ and $x \notin B$. Since $A \subseteq B$, $x \in B$ as well, which contradicts the previous  statement. Hence, there exists no $x$ such that $x \in A \backslash B$, implying that $A \backslash B = \phi$.  For the converse, let us assume that $A \backslash B = \phi$ and let $x \in A$, then, we need to show that $x$ also belongs to the set $B$. Let us suppose that $x \notin B$, then $x \in B^{C}$. Then, it follows that $x \in A \ B$, which is a contradicts the initial assumption that 
  $A \backslash B$ is an empty set. Hence, $x \in B$. Since choice of $x$ was arbitrary, we conclude that $A \subseteq B$.    
  \item Let us assume that $A \subseteq B$. Let $x$ be an element of $B \backslash (B \backslash A)$, implying that $x \in B$ and $x \notin (B \backslash A)$ or equivalently $x \in (B \backslash A)^{C}$
- which translates to $x \in (B^{C} \cap A)$ by using De-morgan's law. Since $x \notin B^{C}$, $x$ must belong to the set $A$. Thus, we have shown that $B \backslash (B \backslash A) \subseteq A$.
+ which translates to $x \in (B^{C} \cap A)$ by using De Morgan’s law. Since $x \notin B^{C}$, $x$ must belong to the set $A$. Thus, we have shown that $B \backslash (B \backslash A) \subseteq A$.
 To show that $A \subseteq B \backslash (B \backslash A)$, let $y$ be an element of set $A$ and consequently $y$ is also an element of set $B$, since it is given that $A \subseteq B$. Since $y$ is an element of both $A$ and $B$, it does not belong to the set $B \backslash A$. Thus, from definition of set difference, $y$ is an element of $B \backslash (B \backslash A)$.
 
 To prove the converse, let $z$ be an element of the set $A$. Since $B \backslash (B \backslash A) = A$, $z$ is also an element of the set $B \backslash (B \backslash A)$. Then, it follows that $z \in B$, which completes the proof as the choice of $z$ was arbitrary.
@@ -140,7 +131,7 @@ some given sets. Unlike a set $\{a, b\}$, where the order of the elements does n
 elements does matter. Note that the ordered pair $\left(a, b \right)$ equals the ordered pair $\left(c, d \right)$ if and only if $a = c$ and $b = d$. 
 
 \begin{defn}[Cartesian product]
-Let $A$ and $B$ be sets. The cartesian product of $A$ and $B$, denoted 
+Let $A$ and $B$ be sets. The Cartesian product of $A$ and $B$, denoted 
 $A \times B = \{ (a, b) \; | \; a \in A \text{ and } b \in B \}$, 
 where $(a, b)$ denote an ordered pair.
 \end{defn}
@@ -149,7 +140,7 @@ where $(a, b)$ denote an ordered pair.
 (i). $\Real^{2} = \Real \times \Real$ (ii). $\Real^{n} = \Real \times \Real \dots \times \Real$.
 \end{exmp}
 
-The following theorem gives some properties of the cartesian product.
+The following theorem gives some properties of the Cartesian product.
 \begin{thm}
  Let $A, B, C, D$ be sets.
  \begin{enumerate}[i)]
@@ -201,62 +192,8 @@ Let $I$ be a non-empty set, $\{ A_{i} : i \in I \}$ be a family of sets indexed 
  \item $A_{k \subseteq} \displaystyle \bigcup_{i \in I} A_{i}$ for all $k \in I$. If $A_{k} \subseteq B$ for all $k \in I$, then $\displaystyle \bigcup_{i \in I}A_{i} \subseteq B$. \\
  \item Distributive law: $\displaystyle B \cap \left( \bigcup_{i \in I}A_{i} \right) = \bigcup_{i \in I} \left( B \cap A_{i} \right)$
  \item Distributive law: $\displaystyle B \cup \left( \bigcap_{i \in I}A_{i} \right) = \bigcap_{i \in I} \left( B \cup A_{i} \right)$
- \item De-morgan's law: $B \backslash \left( \bigcup_{i \in I}A_{i} \right) = \bigcap_{i \in I} \left( B \backslash A_{i} \right)$
- \item De-morgan's law: $B \backslash \left(\bigcap_{i \in I}A_{i} \right) = \bigcup_{i \in I} \left( B \backslash A_{i} \right)$
+ \item De Morgan's law: $B \backslash \left( \bigcup_{i \in I}A_{i} \right) = \bigcap_{i \in I} \left( B \backslash A_{i} \right)$
+ \item De Morgan's law: $B \backslash \left(\bigcap_{i \in I}A_{i} \right) = \bigcup_{i \in I} \left( B \backslash A_{i} \right)$
  \end{enumerate}
 \end{thm}
-
-
-\section{Functions}
-
-\begin{defn} [Function]
- Let $A$ and $B$ be sets. A \textbf{function} (also called a \textbf{map}) from $A$ to $B$ denoted $f: A \to B$ is a subset $F \subseteq A \times B$ such that for 
- each $a \in A$, there is a one and only one pair of the form $(a,b)$ in $F$. The set $A$ is called the domain of $f$ and the set $B$ is called the 
- codomain of $f$.
-\end{defn}
-
-\emph{Remark:} To show the equality of functions, we need to show that the domain, co-domain and subset of the product of domain and co-domain satisfying the 
-above conditions. must agree.
-
-\begin{defn}
-Let $A$ and $B$ be sets, and let $S \subseteq A$ be a subset. 
-\begin{enumerate}
- \item  A \textbf{constant map} $f: A \to B$ is any function of the form $f(x) = b$ for all $x \in A$, where $b \in B$ is some fixed element.
- 
- \item  The \textbf{identity map} on $A$ is the function $I_{A}: A \to A$ defined by $\mathbb{1}_{A}(x) = x$ for all $x \in A$.
-
- \item  The \textbf{inclusion map} from $S to A$ is the function $j: S \to A$ defined by $j(x) = x$ for all $x \in A$.
-
- \item If $f: A \to B$ is a map, the \textbf{restriction} of $f \to S$, denoted by $f |_{S}$ is the map $f|_{S}: S \to B$, defined by $f|_{S}(x)= x$ for all 
- $x \in S$.
-
- \item  If $g: A \to B$ is a map, an \textbf{extension} of $g$ to $A$ is any map $G: A \to B$ such that $G|_{s} = g$.
-
- \item   The \textbf{projection} map from $A \times B$ are the functions, $\pi_{1}: A \times B \to A$ and $\pi_{2}: A \times B \to B$ defined by 
- $\pi_{1}(a, b) = a$ and $\pi_{1}(a, b) = b$ for all $(a,b) \in A \times B$. Projection maps $\pi_{i}: A_{1} \times A_{2} \dots A_{p} = A_{i}$ for 
- any finite collection of sets $A_{1}, A_{2} \dots A_{p}$ are defined similarly.
-
-\end{enumerate}
-\end{defn}
-
-
-\begin{defn} [Image and inverse image]
- Let $f: A \to B$ be a function.
- \begin{enumerate} [i)]
-  \item For each $P \subseteq A$, let $f_{*}(P)$ be defined as $f_{*}(P) = \{ b \in B | b = f(P) \text{ for some } p \in P \} = \{ f(p) | p \in P\}$ is called 
-  the image of $P$ under $f$.
-  \emph{Remark}. The range (image) of $f$ is the set $f_{*}(A)$.
-  \item For each $G \subseteq B$, let $f^{*}(Q)$ be defined as $f^{*}(Q) = \{ a \in A | f(a) = q \text{ for some } q \in Q\} \{ a \in A | f(a) \in Q \}$ is called 
-  the inverse image of $Q$ under $f$.
- \end{enumerate}
-\end{defn}
-
-
-
-
-
-
-\vspace{10cm}
-
-
 \end{document}

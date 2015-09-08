@@ -1,13 +1,8 @@
 \documentclass[a4paper,english,12pt]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
-\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
-\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+%\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
 %\geometry{landscape}                		% Activate for rotated page geometry
 %\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
-\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
-								% TeX will automatically convert eps --> pdf in pdflatex		
-\usepackage{amssymb}
-\usepackage{caption}
-\usepackage{multicol}
 
 \include {header}
 %SetFonts
@@ -15,8 +10,8 @@
 %SetFonts
 
 
-\title{Lecture 6: Injectivity, Surjectivity and Bijectivity}
-\author{Parimal Parag}
+\title{Lecture 6: Injectivity, Surjectivity, and Bijectivity}
+\author{}
 %\date{}							% Activate to display a given date or no date
 
 \begin{document}
@@ -34,10 +29,10 @@ equivalently if $f(x) = f(y) $ implies $x = y $ $\forall x,y \in A$.
 \begin{defn} [Bijectivity] The map $f$ is "Bijective" if it is both Injective and Surjective.
 \end{defn}
 \begin{rem}
-Injective $\Leftrightarrow$  $\forall b \in B$ $ f^{-1}(\{b\})$ has atmost one element.
+Injective $\Leftrightarrow$  $\forall b \in B$ $ f^{-1}(\{b\})$ has at most one element.
 \end{rem}
 \begin{rem}
-Surjective $\Leftrightarrow$  $\forall b \in B$ $ f^{-1}(\{b\})$ has atleast one element.
+Surjective $\Leftrightarrow$  $\forall b \in B$ $ f^{-1}(\{b\})$ has at least one element.
 \end{rem}
 \begin{rem}
 Bijective $\Leftrightarrow$  $\forall b \in B$ $ f^{-1}(\{b\})$ has exactly one element.
@@ -45,8 +40,8 @@ Bijective $\Leftrightarrow$  $\forall b \in B$ $ f^{-1}(\{b\})$ has exactly one 
 %\subsection{special case}
 \begin{exmp}
 let $f \colon \mathbb{R} \to \mathbb{R}$ \\
-If \textbf{Injective} Horizontal line intersects at atmost one point.\\
-If \textbf{Surjective} Horizontal line intersects at atleast one point.\\
+If \textbf{Injective} Horizontal line intersects at at most one point.\\
+If \textbf{Surjective} Horizontal line intersects at at least one point.\\
 If \textbf{Bijective} Horizontal line intersects at exactly one point.\\
 \end{exmp}
 \begin{lem}
@@ -77,33 +72,33 @@ Now $(f \circ g)(b)=b$ for all $b \in B$ by definition. Hence $f \circ g = I_{B}
 \end{proof} 
 \begin{thm} Let A and B be non empty sets and let $f \colon A \to B$ be a function.
 \begin{enumerate}
-\item the functiomn $f$ is Surjective iff $g \circ f = h \circ f$ implies $g=h$ for all functions $g,h \colon B \to X$ for all sets X.
+\item the function $f$ is Surjective iff $g \circ f = h \circ f$ implies $g=h$ for all functions $g,h \colon B \to X$ for all sets X.
 \item The function $f$ is Injective iff $f \circ g = f \circ h$ implies $g=h$ for all functions $g,h \colon Y \to A$ for all sets Y.
 \end{enumerate}
 \begin{proof}
-Assume $f$ Surjective Let $g,h \colon B \to X$ such that $g \circ f = h \circ f$ for some set X. By Theorem 1.5.1 , function $f$ has right inverse $q \colon B \to A$. By Assosiativity We have $(g \circ f) \circ q = g \circ (f \circ q) $ and thus $g \circ I_{B} = h \circ I_{B}$ and so $g=h$.\\
+Assume $f$ Surjective Let $g,h \colon B \to X$ such that $g \circ f = h \circ f$ for some set X. By Theorem 1.5.1 , function $f$ has right inverse $q \colon B \to A$. By Associativity We have $(g \circ f) \circ q = g \circ (f \circ q) $ and thus $g \circ I_{B} = h \circ I_{B}$ and so $g=h$.\\
 We assume $f$ not Surjective. Let $b \in B$ such that $f^{-1}(\{b\})= \phi$. Let $X={1,2}$ define $g,h \colon B \to X$ by $g(y)=1$ $\forall y \in B$ and $h(y)=1$ $ \forall y \in B \backslash \{b\}$ and $h(b)=2$. It can be verified that $g \circ f = h \circ f$, even though $g \neq h$.
 \end{proof}
 \end{thm}
 \subsection{Sets of functions}
-\begin{defn} Let A and B be sets. The set $F(A,B)$ is defined to be the set of all functions $f \colon A \to B$.
-\[ F(A,B) = \{f \colon A \to B |\, f \,is function \} \]
+\begin{defn} Let A and B be sets. The set $\mathcal{F}(A,B)$ is defined to be the set of all functions $f \colon A \to B$.
+\[ \mathcal{F}(A,B) = \{f \colon A \to B |\, f \,is function \} \]
 \end{defn}
 \begin{exmp} A=\{1,2\} , B=\{x,y\} \\
-$F(A,B) = \{ (f,g,h,k)\}\\$
+$\mathcal{F}(A,B) = \{ (f,g,h,k)\}\\$
 $f=\{(1,x),(2,x)\}$ , $g=\{(1,y),(2,y)\}$ , $h=\{(1,x),(2,y)\}$ , $k=\{(1,y),(2,x)\}$
 \end{exmp}
-\begin{figure}[]
+\begin{figure}[hhh]
 \centering
-\scalebox{.8}{\input{l6Figures/l6func-f} \input{l6Figures/l6func-g}}
-\caption{functions f,g}
-\label{}
+\scalebox{.8}{\input{Figures/l6func-f} \input{Figures/l6func-g}}
+\caption{Functions $f,g$.}
+\label{Fig:fg}
 \end{figure}
-\begin{figure}[]
+\begin{figure}[hhh]
 \centering
-\scalebox{.8}{\input{l6Figures/l6func-h} \input{l6Figures/l6func-k}}
-\caption{functions h,k}
-\label{}
+\scalebox{.8}{\input{Figures/l6func-h} \input{Figures/l6func-k}}
+\caption{Functions $h,k$.}
+\label{Fig:hk}
 \end{figure}
 
 \begin{exmp} $F(\mathbb{R},\mathbb{R}) \supset C(\mathbb{R},\mathbb{R}) \supset D(\mathbb{R},\mathbb{R})$\\
@@ -115,15 +110,15 @@ $f \in F(\mathbb{N},\mathbb{R})$ \\
 $f(1),f(2),.....$ is a sequences of real numbers.
 \end{exmp}
 \begin{lem}
-Let A,B,C,D be sets suppose that there are bijective maps $f \colon A \to C$ and $g \colon B \to D$ then there is a bijecition map between
+Let $A,B,C,D$ be sets suppose that there are bijective maps $f \colon A \to C$ and $g \colon B \to D$ then there is a bijection map between
 $F(A,B)$ and $F(C,D)$.
 \end{lem}
 \begin{proof} Since $f$ and $g$ are bijective maps , They have inverse maps $f^{-1}$ and $g^{-1}$ respectively.
 \begin{figure}[hhhh]
 \centering
-\scalebox{.8}{\input{l6Figures/l6lemma}}
+\scalebox{.8}{\input{Figures/l6lemma}}
 \caption{}
-\label{}
+\label{Fig:}
 \end{figure}\\
 Define $\Phi \colon F(A,B) \to F(C,D)$ by $\Phi (h)=g \circ h \circ f^{-1}$. for all $h \in F(A,B)$ \\
 It's easy to see that $\Phi (h) \in F(C,D)$ for all $h \in F(A,B)$. We need to show $\Phi$ is bijective.\\
@@ -141,4 +136,18 @@ $y \in S , [ \Phi (S)](y)=1=[ \Phi (T)](y)$ then $y \in T$. Hence $S \subseteq T
 $\Phi (S)=f$.\\ For all $x \in S$ , $\Phi (S)(x)=1=f(x)$ , $x \notin S , \Phi(S)(x)=0=f(x)$ .
 \end{proof}
 \end{prop}
+\section{Product of an indexed family of sets}
+%In this chapter, we would look at informal logic 
+$ A \times B = \{(a,b), a \in A , b\in B\}$
+
+$\{f\in f(\{1,2\},AUB):f(1)\in A, f(2)\in B\}$\\\\
+\textbf{Definition}\\
+Let I be a non empty set and let$\{A_i:i\in I\}$ be a family of set indexed by I.The product of all the set in this family of sets defined 
+\begin{equation}
+\prod_{i\in I}A_i =\{f\in F(I,\bigcup_{i \in I}A_i):f(i) \in A_i, \forall i \in I\}
+\end{equation}\\
+If all the sets $A_i$ are equal to a single set A.Then we denote $\prod_{i \in A_i}A_i$ by $A^I$.
+\textbf{Verify:-}\\
+If $I \neq \emptyset $ and A is a set ,then \\
+$A_I =f(I,A)$ 
 \end{document}  
