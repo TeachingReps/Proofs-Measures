@@ -1,6 +1,6 @@
-\documentclass[a4paper,10pt]{report}
+\documentclass[a4paper,english,12pt]{article}
 \include{header}
-\usepackage[mathscr]{eucal}
+
 % Title Page
 \title{Lecture 9: Recursion}
 \author{}
@@ -10,10 +10,12 @@
 % \begin{abstract}
 % \end{abstract}
 \section{Recursion}
-Consider a sequence 1, 2, 4, 8, 16, .... This sequence is described in two ways. First way is, let $a_n$ denote the $n^{th}$ term of the sequence, then $a_n=2^{n-1},~ \forall n\epsilon{N}$. Second way is, let $a_1$ =1, and $a_{n+1}=2a_n,~ \forall n\epsilon{N}$. Such a description is called a recursive description of the sequence.
+Consider a sequence $\{1, 2, 4, 8, 16, \ldots\}$. This sequence is described in two ways. First way is, let $a_n$ denote the $n^{th}$ term of the sequence, then $a_n=2^{n-1},~ \forall n\in \mathbb{N}$. Second way is, let $a_1$ =1, and $a_{n+1}=2a_n,~ \forall n\in \mathbb{N}$. Such a description is called a recursive description of the sequence.
 
-Given a sequence for which we already have an explicit formula for each $a_n$ in terms of n, it can be useful to find a recursive formula, but there is no question that the sequence exists.\\ What about a sequence for which we have only a recursive description, but no explicit formula?\\ For example, suppose that we have the recursive description $c_1$ = 4, and $c_{n+1}$ = 3 + 2$c_n$ for all n $\epsilon$ N. Is there a sequence $c_1,~ c_2,~ c_3,~ . . .$ satisfying such a description? That is, does this description actually define a sequence? It does appear intuitively as if there is such a sequence, because we can proceed “inductively”, producing one element at a time. We know that $c_1$ = 4. We then compute $c_2$= 3 + 2$c_1$ = 3 + 2 $*$ 4 = 11, and $c_3 = 3 + 2c_2$ = 3 + 2 $*$ 11 = 25, and so on. We could continue indefinitely in this way, and it would seem that the sequence $c_1, c_2, c_3, . . .$ is defined for all n $\epsilon$ N. Our intuition will turn out to be correct, and the sequence is indeed defined, and moreover uniquely defined, for all n $\epsilon$ N. In fact, we will give an explicit formula for this sequence in Example 6.4.2.
+Given a sequence for which we already have an explicit formula for each $a_n$ in terms of $n$, it can be useful to find a recursive formula, but there is no question that the sequence exists. What about a sequence for which we have only a recursive description, but no explicit formula?
+For example, Suppose that we have the recursive description $c_1$ = 4, and $c_{n+1}$ = 3 + 2$c_n$ for all $n \in \mathbb{N}$. Is there a sequence $\{c_1, c_2, c_3, \ldots \}$ satisfying such a description? That is, does this description actually define a sequence? It does appear intuitively as if there is such a sequence, because we can proceed “inductively”, producing one element at a time. We know that $c_1 = 4$. We then compute $c_2 = 3 + 2 c_1 = 3 + 2 \times 4 = 11$, and $c_3 = 3 + 2c_2 = 3 + 2 \times 11 = 25$, and so on. We could continue indefinitely in this way, and it would seem that the sequence $\{c_1, c_2, c_3, \ldots \}$ is defined for all $n \in \mathbb{N}$. Our intuition will turn out to be correct, and the sequence is indeed defined, and moreover uniquely defined, for all $n \in \mathbb{N}$. In fact, we will give an explicit formula for this sequence in Example~\ref{Exmp:}.
 
+\section{Definitions}
 There are a number of variations of the process of definition by recursion, the most basic of which is as follows. Suppose we are given a number b $\epsilon$ R, and a function $h:R\rightarrow R$. We then want to define a sequence $a_1,a_2, ...$ such that $a_1=b$ and that $a_{n+1}=h(a_n)~for ~all~  n \epsilon N$. To be more precise, recall from Example 4.5.2 (4) that the formal definition of a sequence of real numbers is simply a function f : N $\rightarrow$ R, which can be converted to the more standard notation for sequences by letting $a_n$ = f(n) for all n $\epsilon$ N. Although the sequences discussed in Example 4.5.2 (4) were in R, the same approach applies to sequences in any set, so that a sequence in the set A is simply a function f : N $\rightarrow$ A.
 
     We can now state the theorem that guarantees the validity of definition by recursion. \\
