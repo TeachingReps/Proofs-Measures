@@ -1,21 +1,14 @@
-%% LyX 2.1.3 created this file.  For more info, see http://www.lyx.org/.
 \documentclass[a4paper,english,12pt]{article}
 \include{header}
 %\usepackage[T1]{fontenc}
 %\PassOptionsToPackage{normalem}{ulem}
 %\usepackage{ulem}
-%\usepackage{caption}
 %\makeatletter
-%\usepackage{multicol}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
 %\pdfpageheight\paperheight
 %\pdfpagewidth\paperwidth
 
-
 %\makeatother
-
-%\usepackage{babel}
-
 
 \begin{document}
 
@@ -31,14 +24,13 @@ New sets can be constructed from existing sets by combining one or multiple of t
  A \cup B = \{ x | x \in A \text{ or } x \in B \}.
 \end{equation*}
 \end{defn}
-\begin{defn}[Intersection] Let $A$ and $B$ be sets. The intersection of sets $A$ and $B$, denoted $A \cap B$, is the set defined by 
+\begin{defn}[Intersection] Let $A$ and $B$ be sets. The \textbf{intersection} of sets $A$ and $B$, denoted $A \cap B$, is the set defined by 
 \begin{equation*}
  A \cup B = \{ x | x \in A \text{ and } x \in B \}.
 \end{equation*}
 \end{defn}
 
 Do the familiar properties of addition and multiplication of numbers (such as commutativity and associativity) also hold for union and intersection of sets? The following theorem shows that such properties do hold, although they are not exactly the same as for addition and multiplication.
-
 \begin{thm}
  Let $A$, $B$ and $C$ be sets. 
 \begin{enumerate} [i)]
@@ -46,7 +38,7 @@ Do the familiar properties of addition and multiplication of numbers (such as co
 $X \subseteq A \cap B $.
 \item $A \subseteq A \cup B $ and $B \subseteq A \cup B $. If Y is a set such that $A \subseteq Y$ and $B \subseteq Y$, then $A \cup B \subseteq Y$.
 \item (Commutative Laws) $A \cup B = B \cup A$ and $A \cap B = B \cap A$.
-\item (Associative Laws) $(A \cup B) \cup C = (A \cup B) \cup (A \cup C)$ and $(A \cup B) \cup C = (A \cap B) \cap (A \cap C)$. 
+\item (Associative Laws) $(A \cup B) \cup C = A \cup (B \cup C)$ and $(A \cup B) \cup C = A \cap (B \cap C)$. 
 \item (Distributive Laws) $A \cap (B \cup C)$ = $(A \cap B) \cup (A \cap C)$ and $A \cup (B \cap C)$ = $(A \cup B) \cap (A \cup C)$
 \item (Identity Laws) $A \cup \phi = \phi$ and $A \cap \phi = \phi$.
 \item (Idempotent Laws) $A \cup A = A$ and $A \cap A = A$.
@@ -55,12 +47,10 @@ $X \subseteq A \cap B $.
 \end{enumerate}
 \end{thm}
 
-It is interesting to note that both union and intersection distribute over each other, which is quite different from addition and multiplication of numbers,
-where multiplication distributes over addition, but not vice versa.
+It is interesting to note that both union and intersection distribute over each other, which is quite different from addition and multiplication of numbers, where multiplication distributes over addition, but not vice versa.
 
-
-\begin{defn}[Disjoint sets]
- Let $A$ and $B$ be sets. The sets $A$ and $B$ are disjoint if $A \cap B = \phi$.
+\begin{defn}[Disjoint sets] 
+Let $A$ and $B$ be sets. The sets $A$ and $B$ are \textbf{disjoint} if $A \cap B = \phi$.
 \end{defn}
 
 \begin{exmp}
@@ -69,33 +59,33 @@ whereas $E$ and $P$ are not disjoint (because $E \cap P = \{2\}$). Another inter
 is the partition of a set.
 \end{exmp}
 
-\begin{defn}[Set difference]
-Let $A$ and $B$ be sets. The set difference of $A$ and $B$ is denoted by $A \backslash B$ and is defined by 
+\begin{defn}[Set difference] 
+Let $A$ and $B$ be sets. The \textbf{set difference} of $A$ and $B$ is denoted by $A \setminus B$ and is defined by 
  \begin{equation}
   A \backslash B = \{ x \; | \;  x \in A \text{ and } x \notin B  \}.
  \end{equation}
-The set difference $A \backslash B$ can also be written as $A \cap B^{C}$.
+The set difference $A \setminus B$ can also be written as $A \cap B^{C}$.
 \end{defn}
 
 \begin{exmp}
-Let $A = \{a, b, c\}$ and $B = \{b \}$, then $A \backslash B = \{a, c\}$. 
+Let $A = \{a, b, c\}$ and $B = \{b \}$, then $A \setminus B = \{a, c\}$. 
 \end{exmp}
 
 The following theorem gives some standard properties of set difference.
 \begin{thm}
  Let $A$, $B$ and $C$ be sets.
  \begin{enumerate}[i)]
-  \item $A \backslash B \subseteq A$.
-  \item $(A \backslash B) \cap B = \phi$.
-  \item $A \backslash B = \phi$ iff $A \subseteq B$.
-  \item $B \backslash (B \backslash A) = A$ iff $A \subseteq B$.
-  \item If $A \subseteq B$, then $A \backslash C \subseteq B \backslash C$.
-  \item If $A \subseteq B$, then $(C \backslash A) \supseteq (C \backslash B)$.
-  \item (De Morgan’s Laws) $C \backslash (A \cup B) = (C \backslash A) \cap (C \backslash B)$ and $C \backslash (A \cap B) = (C \backslash A) \cup (C \backslash B)$.
+  \item $A \setminus B \subseteq A$.
+  \item $(A \setminus B) \cap B = \phi$.
+  \item $A \setminus B = \phi$ iff $A \subseteq B$.
+  \item $B \setminus (B \setminus A) = A$ iff $A \subseteq B$.
+  \item If $A \subseteq B$, then $A \setminus C \subseteq B \setminus C$.
+  \item If $A \subseteq B$, then $(C \setminus A) \supseteq (C \setminus B)$.
+  \item (De Morgan's Laws) $C \setminus (A \cup B) = (C \setminus A) \cap (C \setminus B)$ and $C \setminus (A \cap B) = (C \setminus A) \cup (C \setminus B)$.
  \end{enumerate}
 \end{thm}
 
-\textbf{Proof: }
+\begin{proof}
 \begin{enumerate} [i)]
  \item Follows from definition of set difference.
  \item We can rewrite left hand side as $(A \cap B^{C}) \cap B$ which is equal to 
@@ -103,7 +93,7 @@ The following theorem gives some standard properties of set difference.
  \item Let us assume that $A \subseteq B$. Let $x$ be an element of $A \backslash B$, which implies $x \in A$ and $x \notin B$. Since $A \subseteq B$, $x \in B$ as well, which contradicts the previous  statement. Hence, there exists no $x$ such that $x \in A \backslash B$, implying that $A \backslash B = \phi$.  For the converse, let us assume that $A \backslash B = \phi$ and let $x \in A$, then, we need to show that $x$ also belongs to the set $B$. Let us suppose that $x \notin B$, then $x \in B^{C}$. Then, it follows that $x \in A \ B$, which is a contradicts the initial assumption that 
  $A \backslash B$ is an empty set. Hence, $x \in B$. Since choice of $x$ was arbitrary, we conclude that $A \subseteq B$.    
  \item Let us assume that $A \subseteq B$. Let $x$ be an element of $B \backslash (B \backslash A)$, implying that $x \in B$ and $x \notin (B \backslash A)$ or equivalently $x \in (B \backslash A)^{C}$
- which translates to $x \in (B^{C} \cap A)$ by using De Morgan’s law. Since $x \notin B^{C}$, $x$ must belong to the set $A$. Thus, we have shown that $B \backslash (B \backslash A) \subseteq A$.
+ which translates to $x \in (B^{C} \cap A)$ by using De Morgan's law. Since $x \notin B^{C}$, $x$ must belong to the set $A$. Thus, we have shown that $B \backslash (B \backslash A) \subseteq A$.
 To show that $A \subseteq B \backslash (B \backslash A)$, let $y$ be an element of set $A$ and consequently $y$ is also an element of set $B$, since it is given that $A \subseteq B$. Since $y$ is an element of both $A$ and $B$, it does not belong to the set $B \backslash A$. Thus, from definition of set difference, $y$ is an element of $B \backslash (B \backslash A)$.
 
 To prove the converse, let $z$ be an element of the set $A$. Since $B \backslash (B \backslash A) = A$, $z$ is also an element of the set $B \backslash (B \backslash A)$. Then, it follows that $z \in B$, which completes the proof as the choice of $z$ was arbitrary.
@@ -120,9 +110,9 @@ $x \in A$ or $x \in B$ would imply that $x \in A \cup B$. Because $x \in C$ and 
 Now let $y \in (C \backslash A) \cap (C \backslash B)$. Hence $y \in C \backslash A$ and $y \in C \backslash B$. Because $y \in C \backslash A$, it follows that $y \in C$ and $y \notin A$. Because $y \in C \backslash B$, it follows that $y \in C$ and $y \notin B$.
 Because $y \notin A$ and $y \notin B$, it follows that $y \notin A \cup B$. Therefore $y  \in C \backslash (A \cup B)$. Hence $(C \backslash A) \cap (C \backslash B)  \subseteq C \backslash (A \cup B)$.
 
-We conclude that $C \backslash (A \cup B) = (C \backslash A) \cap (C \backslash B)$.
- 
+We conclude that $C \backslash (A \cup B) = (C \backslash A) \cap (C \backslash B)$. 
 \end{enumerate}
+\end{proof}
 
 
 There is one more fundamental way of forming new sets out of old by taking their product. Think of how the plane $\Real^{2}$ is coordinatized by ordered pairs of real
@@ -131,13 +121,16 @@ some given sets. Unlike a set $\{a, b\}$, where the order of the elements does n
 elements does matter. Note that the ordered pair $\left(a, b \right)$ equals the ordered pair $\left(c, d \right)$ if and only if $a = c$ and $b = d$. 
 
 \begin{defn}[Cartesian product]
-Let $A$ and $B$ be sets. The Cartesian product of $A$ and $B$, denoted 
+Let $A$ and $B$ be sets. The Cartesian \textbf{product} of $A$ and $B$, denoted 
 $A \times B = \{ (a, b) \; | \; a \in A \text{ and } b \in B \}$, 
-where $(a, b)$ denote an ordered pair.
+where $(a, b)$ denotes an ordered pair.
 \end{defn}
 
-\begin{exmp}
-(i). $\Real^{2} = \Real \times \Real$ (ii). $\Real^{n} = \Real \times \Real \dots \times \Real$.
+\begin{exmp} Following are simple examples of Cartesian products of real number line.
+\begin{enumerate}[(i)]
+\item $\Real^{2} = \Real \times \Real$.
+\item $\Real^{n} = \Real \times \Real \dots \times \Real$.
+\end{enumerate}
 \end{exmp}
 
 The following theorem gives some properties of the Cartesian product.
@@ -158,42 +151,39 @@ The following theorem gives some properties of the Cartesian product.
 
 \end{thm}
 
-\section{Indexed family of sets}
-We set the following notation:
-\begin{equation*}
- \bigcup_{i = 1}^{n} A_{i} = A_{1} \cup A_{2} \dots \cup A_{n}
- \nonumber
-\end{equation*}
-\begin{equation*}
- \bigcap_{i = 1}^{n} A_{i} = A_{1} \cap A_{2} \dots \cap A_{n}
- \nonumber
-\end{equation*}
+\section{Indexed Families of Sets}
+Let $\{A_i\}$ be a set for each $i$ in $\{1,2,\ldots,n\}$. We set the following notation for union and intersection of these sets as, 
+\begin{align*}
+ \bigcup_{i = 1}^{n} A_{i} = A_{1} \cup A_{2} \cup \cdots \cup A_{n} \text{ and }& 
+ \bigcap_{i = 1}^{n} A_{i} = A_{1} \cap A_{2} \cup \cdots \cap A_{n} \text{ respectively}.
+\end{align*}
 
-\begin{defn}
- Let $I$ be a non-empty set. Suppose there is a set $A_{i} \subseteq U$ for each element $i \in I$. Such a collection is called a 
- "family of sets indexed by $I$``. The set $I$ is called the ''indexing set", for this family of sets. 
+\begin{defn}[Indexed Family of Sets]
+ Let $I$ be a non-empty set. Suppose there is a set $A_{i} \subseteq U$ for each element $i \in I$. Such a collection is called a ``family of sets indexed by $I$''. The set $I$ is called the \textbf{indexing set}, for this family of sets. 
 \end{defn}
 
-We denote the family of sets by $\{A_{i} \;:\; i \in I\}$. Union and intersection for this family of sets are denoted by $\bigcup_{i}^{n}A_{i}$
-and $\bigcap_{i}^{n}$ respectively, where,
-\begin{equation*}
- \bigcup_{i = 1}^{n}A_{i} = \{x \; | \; x \in A_{i} \text{ for some } i \in I \}
+We denote the family of sets by $\{A_{i} \;:\; i \in I\}$. Union and intersection for this family of sets are denoted by $\bigcup_{i \in I}A_{i}$ and $\bigcap_{i \in I}A_i$ respectively, and defined as
+\begin{align*}
+ \bigcup_{i = \in I}A_{i} &= \{x \; | \; x \in A_{i} \text{ for some } i \in I \}, \text{ and }\\
+ \bigcap_{i = \in I}A_{i} &= \{x \; | \; x \in A_{i} \text{ for all } i \in I \} \text{ respectively}.
  \nonumber
-\end{equation*}
-\begin{equation*}
- \bigcap_{i = 1}^{n}A_{i} = \{x \; | \; x \in A_{i} \text{ for all } i \in I \}
- \nonumber
-\end{equation*}
+\end{align*}
 
 \begin{thm}
-Let $I$ be a non-empty set, $\{ A_{i} : i \in I \}$ be a family of sets indexed by $I$ and let $B$ be a set.
+Let $I$ be a non-empty set, $\{ A_{i} : i \in I \}$ be a family of sets indexed by $I$, and $B$ be a set.
 \begin{enumerate}[i)]
  \item $\displaystyle \bigcap_{i \in I} A_{i}  \subseteq A_{k}$ for all $k \in I$. If $B \subseteq A_{k}$ for all $k \in I$, then $B\displaystyle \subseteq \bigcap_{i \in I}A_{i}$.
- \item $A_{k \subseteq} \displaystyle \bigcup_{i \in I} A_{i}$ for all $k \in I$. If $A_{k} \subseteq B$ for all $k \in I$, then $\displaystyle \bigcup_{i \in I}A_{i} \subseteq B$. \\
- \item Distributive law: $\displaystyle B \cap \left( \bigcup_{i \in I}A_{i} \right) = \bigcup_{i \in I} \left( B \cap A_{i} \right)$
- \item Distributive law: $\displaystyle B \cup \left( \bigcap_{i \in I}A_{i} \right) = \bigcap_{i \in I} \left( B \cup A_{i} \right)$
- \item De Morgan's law: $B \backslash \left( \bigcup_{i \in I}A_{i} \right) = \bigcap_{i \in I} \left( B \backslash A_{i} \right)$
- \item De Morgan's law: $B \backslash \left(\bigcap_{i \in I}A_{i} \right) = \bigcup_{i \in I} \left( B \backslash A_{i} \right)$
+ \item $A_{k} \subseteq \displaystyle \bigcup_{i \in I} A_{i}$ for all $k \in I$. If $A_{k} \subseteq B$ for all $k \in I$, then $\displaystyle \bigcup_{i \in I}A_{i} \subseteq B$. \\
+ \item (Distributive laws) 
+		\begin{enumerate}
+			\item $\displaystyle B \cap \left( \bigcup_{i \in I}A_{i} \right) = \bigcup_{i \in I} \left( B \cap A_{i} \right)$
+			\item $\displaystyle B \cup \left( \bigcap_{i \in I}A_{i} \right) = \bigcap_{i \in I} \left( B \cup A_{i} \right)$
+		\end{enumerate}
+ \item (De Morgan's laws) 
+		\begin{enumerate}
+			\item $B \backslash \left( \bigcup_{i \in I}A_{i} \right) = \bigcap_{i \in I} \left( B \backslash A_{i} \right)$
+			\item $B \backslash \left(\bigcap_{i \in I}A_{i} \right) = \bigcup_{i \in I} \left( B \backslash A_{i} \right)$
  \end{enumerate}
+\end{enumerate}
 \end{thm}
 \end{document}
