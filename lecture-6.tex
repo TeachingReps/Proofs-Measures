@@ -4,105 +4,108 @@
 %\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
 
 
-\title{Lecture 6: Injectivity, Surjectivity, and Bijectivity}
+\title{Lecture 6: Functions : Injectivity, Surjectivity, and Bijectivity}
 \author{}
 
 \begin{document}
 \maketitle
 
 \section {Injectivity, Surjectivity, Bijectivity}
-Let $ f \colon A \to B $ be a function
-\begin{defn} [Injectivity] The map $f$ is "injective" (one-to-one/monic/into) if $x \neq y $ implies $f(x) \neq f(y) $  $\forall x,y \in A$.
-equivalently if $f(x) = f(y) $ implies $x = y $ $\forall x,y \in A$.
+We are interested in finding out the conditions for a function to have a left inverse, or right inverse, or both.
+\begin{defn} Let $ f \colon A \to B $ be a function.
+\begin{enumerate} 
+	\item The map $f$ is \textbf{injective} (also called one-to-one/monic/into) if $x \neq y $ implies $f(x) \neq f(y) $ for all $x,y \in A$. Equivalently, $f(x) = f(y) $ implies $x = y $ for all $x,y \in A$.
+	\item The map $f$ is \textbf{surjective} (onto/epic) if for every $b \in B$ , there exists some $a \in A $ such that $f(a)=b$, equivalently $f(A)=B$.
+ \item The map $f$ is \textbf{bijective} if it is both injective and surjective.
+\end{enumerate}
 \end{defn}
-\begin{defn} [Surjectivity] The map $f$ is "Surjective" (onto/epic) if for every $b \in B$ , there exist some $a \in A $ such that $f(a)=b$. equivalently $f_{*}(A)=B$.
-\end{defn}
-\begin{defn} [Bijectivity] The map $f$ is "Bijective" if it is both Injective and Surjective.
-\end{defn}
-\begin{rem}
-Injective $\Leftrightarrow$  $\forall b \in B$ $ f^{-1}(\{b\})$ has at most one element.
-\end{rem}
-\begin{rem}
-Surjective $\Leftrightarrow$  $\forall b \in B$ $ f^{-1}(\{b\})$ has at least one element.
-\end{rem}
-\begin{rem}
-Bijective $\Leftrightarrow$  $\forall b \in B$ $ f^{-1}(\{b\})$ has exactly one element.
-\end{rem}
-%\subsection{special case}
-\begin{exmp}
-let $f \colon \mathbb{R} \to \mathbb{R}$ \\
-If \textbf{Injective} Horizontal line intersects at at most one point.\\
-If \textbf{Surjective} Horizontal line intersects at at least one point.\\
-If \textbf{Bijective} Horizontal line intersects at exactly one point.\\
-\end{exmp}
-\begin{lem}
-Let $f \colon A \to B$ , $g \colon B \to C$ be functions.
-\begin{enumerate}
-\item  $f$,$g$ are injective, then $f \circ g$ Injective.
-\item  $f$,$g$ are Surjective, then $f \circ g$ Surjective.
-\item  $f$,$g$ are Bijective, then $f \circ g$ Bijective.
+\begin{lem} Let $f: A \to B$ be a function. Then the following are true.
+\begin{enumerate}[i)]
+	\item Function $f$ is injective iff $ f^{-1}(\{b\})$ has at most one element for all $b \in B$ .
+	\item Function $f$ is surjective iff $ f^{-1}(\{b\})$ has at least one element for all $b \in B$ .
+	\item Function $f$ is bijective iff $ f^{-1}(\{b\})$ has exactly one element for all $b \in B$ .
 \end{enumerate}
 \end{lem}
-\begin{thm}
-Let A and B be two non-empty sets and let $f \colon A \to B$ be a function
-\begin{enumerate}
-\item $f$ has a right inverse iff $f$ is Surjective.
-\item $f$ has a left inverse iff $f$ is Injective.
-\item $f$ has a inverse iff $f$ is Bijective.
+%\subsection{special case}
+\begin{exmp}
+A function $f \colon \mathbb{R} \to \mathbb{R}$ on real line is a special function.  This function is injective iff any horizontal line intersects at at most one point, surjective iff any horizontal line intersects at at least one point, and bijective iff any horizontal line intersects at exactly one point.
+\end{exmp}
+
+In the following lemma, we see that injectivity, surjectivity, and bijectivity is preserved by composition of functions.
+\begin{lem}
+Let $f \colon A \to B$ , $g \colon B \to C$ be functions.
+\begin{enumerate}[i)]
+\item  Functions $f, g$ are injective, then function $f \circ g$ injective.
+\item  Functions $f, g$ are surjective, then  function $f \circ g$ surjective.
+\item  Functions $f, g$ are bijective, then function $f \circ g$ bijective.
+\end{enumerate}
+\end{lem}
+
+In the following theorem, we show how these properties of a function are related to existence of inverses.
+\begin{thm}\label{Thm:BijectiveInverse}
+Let $A$ and $B$ be two non-empty sets and let $f \colon A \to B$ be a function. 
+\begin{enumerate}[i)]
+\item Function $f$ has a right inverse iff $f$ is surjective.
+\item Function $f$ has a left inverse iff $f$ is injective.
+\item Function $f$ has a inverse iff $f$ is bijective.
 \end{enumerate}
 \end{thm}
-\begin{proof} Suppose $f$ has a right inverse $g$, then 
-$f \circ g$ = $I_{B}$. We will show $f$ is Surjective.
-Let $b \in B$ We need to find an element $a \in A $ such that $f(a)=b$. Let $a=g(b)$ then $f(g(b))$ = $(f \circ g)(b)$ =$I_{B}(b)=b$.
-\par
-Suppose $f$ is Surjective. We wish to show that a map $g \colon B \to A$ such that $f$ has a right inverse , i.e there exists a map
-$g \colon B \to A$ such that $f \circ g$=$I_{B}$.\\
-We define $g$ as follows. For each $b \in B$ , There is at least one $a \in A$ such that $f(a)=b$. Let $g(b)=a$ for some $a \in f^{-1}(\{b\})$.
-Now $(f \circ g)(b)=b$ for all $b \in B$ by definition. Hence $f \circ g = I_{B}$.
-
-\end{proof} 
-\begin{thm} Let A and B be non empty sets and let $f \colon A \to B$ be a function.
-\begin{enumerate}
-\item the function $f$ is Surjective iff $g \circ f = h \circ f$ implies $g=h$ for all functions $g,h \colon B \to X$ for all sets X.
-\item The function $f$ is Injective iff $f \circ g = f \circ h$ implies $g=h$ for all functions $g,h \colon Y \to A$ for all sets Y.
+\begin{proof} Let $A$ and $B$ be non-empty sets and $f: A \to B$ a function.
+\begin{enumerate}[i)] 
+	\item $\Rightarrow$. Suppose $f$ has a right inverse $g$, then $f \circ g$ = $1_{B}$. We will show $f$ is surjective. Let $b \in B$, we need to find an element $a \in A$ such that $f(a)=b$. Let $a=g(b)$ then $f(a)  = (f \circ g)(b) =1_{B}(b)=b$.\\
+$\Leftarrow$. Suppose $f$ is surjective. We wish to show that $f$ has a right inverse, i.e., there exists a map $g : B \to A$ such that $f \circ g$=$1_{B}$. We define $g$ as follows. For each $b \in B$ , let $g(b)=a$ for some $a \in f^{-1}(\{b\})$. Notice that $f^{-1}(\{b\})$ is non-empty for all $b \in B$ since $f$ is surjective. Now $(f \circ g)(b)=b$ for all $b \in B$ by definition. Hence $f \circ g = 1_{B}$.
+	\item $\Rightarrow$. Suppose $f$ has a left inverse $h$, then $h \circ f$ = $1_{A}$. %We will show $f$ is injective. 
+	Let $x,y \in A$ such that $f(x) = f(y) \in B$. By definition of left inverse we have then $x = (h \circ f)(x) = (h \circ f)(y) = y$. Hence, $f$ is injective.\\
+$\Leftarrow$. Suppose $f$ is injective. We wish to show that $f$ has a left inverse, i.e., there exists a map $h \colon B \to A$ such that $h \circ f$=$1_{A}$. We define $h: B \to A$ as follows. For each $b \in f(A)$, let $h(b)=f^{-1}(\{b\})$. Notice that $f^{-1}(\{b\})$ has exactly one element for all $b \in f(A)$ since $f$ is injective. Now $(h \circ f)(a)=a$ for all $a \in A$ by definition. Hence $h \circ f = 1_{A}$.
+	\item Follows from first two parts.
 \end{enumerate}
-\begin{proof}
-Assume $f$ Surjective Let $g,h \colon B \to X$ such that $g \circ f = h \circ f$ for some set X. By Theorem 1.5.1 , function $f$ has right inverse $q \colon B \to A$. By Associativity We have $(g \circ f) \circ q = g \circ (f \circ q) $ and thus $g \circ I_{B} = h \circ I_{B}$ and so $g=h$.\\
-We assume $f$ not Surjective. Let $b \in B$ such that $f^{-1}(\{b\})= \phi$. Let $X={1,2}$ define $g,h \colon B \to X$ by $g(y)=1$ $\forall y \in B$ and $h(y)=1$ $ \forall y \in B \backslash \{b\}$ and $h(b)=2$. It can be verified that $g \circ f = h \circ f$, even though $g \neq h$.
+\end{proof} 
+
+
+\begin{thm} Let A and B be non empty sets and let $f \colon A \to B$ be a function.
+\begin{enumerate}[(i)]
+\item the function $f$ is surjective iff $g \circ f = h \circ f$ implies $g=h$ for all functions $g,h \colon B \to X$ for all sets X.
+\item The function $f$ is injective iff $f \circ g = f \circ h$ implies $g=h$ for all functions $g,h \colon Y \to A$ for all sets Y.
+\end{enumerate}
+\begin{proof} Let A and B be non empty sets and let $f \colon A \to B$ be a function.
+\begin{enumerate}
+\item $\Rightarrow$. Assume $f$ surjective. Let $g,h \colon B \to X$ such that $g \circ f = h \circ f$ for some set X. By Theorem~\ref{Thm:BijectiveInverse}[(i)], function $f$ has right inverse $q \colon B \to A$. By associativity, we have $(g \circ f) \circ q = g \circ (f \circ q)$ and thus $g \circ 1_{B} = h \circ 1_{B}$ and so $g=h$.\\
+$\Leftarrow$. We assume $f$ not surjective. Let $b \in B$ such that $f^{-1}(\{b\})= \emptyset$. Let $X=\{1,2\}$ define $g,h \colon B \to X$ by $g(y)=1$ for all $y \in B$ and $h(y)=1$ for all $y \in B \setminus \{b\}$ and $h(b)=2$. It is clear that $g \circ f = h \circ f$, even though $g \neq h$.
+\item $\Rightarrow$. Assume $f$ injective. Let $g,h \colon Y \to A$ such that $f \circ g = f \circ h$ for some set Y. By Theorem~\ref{Thm:BijectiveInverse}[(ii)], function $f$ has left inverse $q \colon B \to A$. By associativity, we have $ q \circ (f \circ g) = (q \circ f) \circ g$. Therefore, thus $1_{A} \circ g = 1_{A} \circ h$ and so $g=h$.\\
+$\Leftarrow$. We assume $f$ not injective. Let $x \neq y \in A$ such that $f(x) = f(y)$. Let $Y = \{1,2\}$ define $g,h \colon Y \to A$ by $g(1) = x, g(2) = y$. It is to see that $f \circ g = f \circ h$, even though $g \neq h$.
+\end{enumerate}
 \end{proof}
 \end{thm}
-\subsection{Sets of functions}
-\begin{defn} Let A and B be sets. The set $\mathcal{F}(A,B)$ is defined to be the set of all functions $f \colon A \to B$.
-\[ \mathcal{F}(A,B) = \{f \colon A \to B |\, f \,is function \} \]
+\section{Sets of functions}
+\begin{defn} Let A and B be sets. The set $\mathcal{F}(A,B)$ is defined to be the set of all functions $f \colon A \to B$. That is,
+\begin{align*}
+\mathcal{F}(A,B) = \{f \colon A \to B |\, f \,\text{ is a function }\}.
+\end{align*}
 \end{defn}
-\begin{exmp} A=\{1,2\} , B=\{x,y\} \\
-$\mathcal{F}(A,B) = \{ (f,g,h,k)\}\\$
-$f=\{(1,x),(2,x)\}$ , $g=\{(1,y),(2,y)\}$ , $h=\{(1,x),(2,y)\}$ , $k=\{(1,y),(2,x)\}$
-\end{exmp}
-\begin{figure}[hhh]
+\begin{rem} If $A$ and $B$ are not empty, then $\mathcal{F}(A,B)$ is non-empty.
+\end{rem}
+\begin{exmp} 
+\begin{enumerate}
+\item Let $A=\{1,2\}$ and $B=\{x,y\}$. Then, $\mathcal{F}(A,B) = \{ (f,g,h,k)\}$, where $f=\{(1,x),(2,x)\}$ , $g=\{(1,x),(2,y)\}$ , $h=\{(1,y),(2,x)\}$ , $k=\{(1,y),(2,y)\}$.
+\begin{figure}[hhhh]
 \centering
 \scalebox{.8}{\input{Figures/l6func-f} \input{Figures/l6func-g}}
 \caption{Functions $f,g$.}
 \label{Fig:fg}
 \end{figure}
-\begin{figure}[hhh]
+\begin{figure}[hhhh]
 \centering
 \scalebox{.8}{\input{Figures/l6func-h} \input{Figures/l6func-k}}
 \caption{Functions $h,k$.}
 \label{Fig:hk}
 \end{figure}
+\item Let $\mathcal{F}(\mathbb{R}, \mathbb{R})$ be set of real-valued functions on real line. Let $C(\mathbb{R}, \mathbb{R})$ and $D(\mathbb{R}, \mathbb{R})$ be set of real-valued continuous and derivable functions respectively. Then, $F(\mathbb{R},\mathbb{R}) \supset C(\mathbb{R},\mathbb{R}) \supset D(\mathbb{R},\mathbb{R})$. In fact, let $k \colon D(\mathbb{R},\mathbb{R}) \to F(\mathbb{R},\mathbb{R})$ such that $k(f)=f'$. Then, $k$ is not injective. For example, let $f(x) = x^2 + 5$ and $g(x) = x^2 + 7$ for all $x \in \mathbb{R}$. Then, $k(f) = k(g)$, but $f \neq g$.
+\item Let $f \in \mathcal{F}(\mathbb{N},\mathbb{R})$, then $f(1),f(2),\ldots$ is a sequences of real numbers. That is, $\mathcal{F}(\mathbb{N},\mathbb{R})$ set of real-valued sequences.
+\end{enumerate}
+\end{exmp}
 
-\begin{exmp} $F(\mathbb{R},\mathbb{R}) \supset C(\mathbb{R},\mathbb{R}) \supset D(\mathbb{R},\mathbb{R})$\\
-$K \colon D(\mathbb{R},\mathbb{R}) \to F(\mathbb{R},\mathbb{R})$\\
-$K(f)=f'$
-\end{exmp}
-\begin{exmp}
-$f \in F(\mathbb{N},\mathbb{R})$ \\
-$f(1),f(2),.....$ is a sequences of real numbers.
-\end{exmp}
 \begin{lem}
-Let $A,B,C,D$ be sets suppose that there are bijective maps $f \colon A \to C$ and $g \colon B \to D$ then there is a bijection map between
-$F(A,B)$ and $F(C,D)$.
+Let $A,B,C,D$ be sets suppose that there are bijective maps $f \colon A \to C$ and $g \colon B \to D$ then there is a bijective map between $ \mathcal{F}(A,B)$ and $ \mathcal{F}(C,D)$.
 \end{lem}
 \begin{proof} Since $f$ and $g$ are bijective maps , They have inverse maps $f^{-1}$ and $g^{-1}$ respectively.
 \begin{figure}[hhhh]
