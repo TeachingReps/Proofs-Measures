@@ -69,9 +69,9 @@ $\Leftarrow$. Suppose $f$ is injective. We wish to show that $f$ has a left inve
 \end{enumerate}
 \begin{proof} Let A and B be non empty sets and let $f \colon A \to B$ be a function.
 \begin{enumerate}
-\item $\Rightarrow$. Assume $f$ surjective. Let $g,h \colon B \to X$ such that $g \circ f = h \circ f$ for some set X. By Theorem~\ref{Thm:BijectiveInverse}[(i)], function $f$ has right inverse $q \colon B \to A$. By associativity, we have $(g \circ f) \circ q = g \circ (f \circ q)$ and thus $g \circ 1_{B} = h \circ 1_{B}$ and so $g=h$.\\
+\item $\Rightarrow$. Assume $f$ surjective. Let $g,h \colon B \to X$ such that $g \circ f = h \circ f$ for some set X. By Theorem~\ref{Thm:BijectiveInverse}(i), function $f$ has right inverse $q \colon B \to A$. By associativity, we have $(g \circ f) \circ q = g \circ (f \circ q)$ and thus $g \circ 1_{B} = h \circ 1_{B}$ and so $g=h$.\\
 $\Leftarrow$. We assume $f$ not surjective. Let $b \in B$ such that $f^{-1}(\{b\})= \emptyset$. Let $X=\{1,2\}$ define $g,h \colon B \to X$ by $g(y)=1$ for all $y \in B$ and $h(y)=1$ for all $y \in B \setminus \{b\}$ and $h(b)=2$. It is clear that $g \circ f = h \circ f$, even though $g \neq h$.
-\item $\Rightarrow$. Assume $f$ injective. Let $g,h \colon Y \to A$ such that $f \circ g = f \circ h$ for some set Y. By Theorem~\ref{Thm:BijectiveInverse}[(ii)], function $f$ has left inverse $q \colon B \to A$. By associativity, we have $ q \circ (f \circ g) = (q \circ f) \circ g$. Therefore, thus $1_{A} \circ g = 1_{A} \circ h$ and so $g=h$.\\
+\item $\Rightarrow$. Assume $f$ injective. Let $g,h \colon Y \to A$ such that $f \circ g = f \circ h$ for some set Y. By Theorem~\ref{Thm:BijectiveInverse}(ii), function $f$ has left inverse $q \colon B \to A$. By associativity, we have $ q \circ (f \circ g) = (q \circ f) \circ g$. Therefore, thus $1_{A} \circ g = 1_{A} \circ h$ and so $g=h$.\\
 $\Leftarrow$. We assume $f$ not injective. Let $x \neq y \in A$ such that $f(x) = f(y)$. Let $Y = \{1,2\}$ define $g,h \colon Y \to A$ by $g(1) = x, g(2) = y$. It is to see that $f \circ g = f \circ h$, even though $g \neq h$.
 \end{enumerate}
 \end{proof}
@@ -86,17 +86,17 @@ $\Leftarrow$. We assume $f$ not injective. Let $x \neq y \in A$ such that $f(x) 
 \end{rem}
 \begin{exmp} 
 \begin{enumerate}
-\item Let $A=\{1,2\}$ and $B=\{x,y\}$. Then, $\mathcal{F}(A,B) = \{ (f,g,h,k)\}$, where $f=\{(1,x),(2,x)\}$ , $g=\{(1,x),(2,y)\}$ , $h=\{(1,y),(2,x)\}$ , $k=\{(1,y),(2,y)\}$.
+\item Let $A=\{1,2\}$ and $B=\{x,y\}$. Then, $\mathcal{F}(A,B) = \{ (f,g,h,k)\}$, where $f=\{(1,x),(2,x)\}$ , $g=\{(1,y),(2,y)\}$ , $h=\{(1,x),(2,y)\}$ , $k=\{(1,y),(2,x)\}$. These functions are illustrated in Figure~\ref{Fig:fg} and Figure~\ref{Fig:hk} respectively.
 \begin{figure}[hhhh]
 \centering
 \scalebox{.8}{\input{Figures/l6func-f} \input{Figures/l6func-g}}
-\caption{Functions $f,g$.}
+\caption{Functions $f = \{(1,x),(2,x)\}$, $g = \{(1,y),(2,y)\}$.}
 \label{Fig:fg}
 \end{figure}
 \begin{figure}[hhhh]
 \centering
 \scalebox{.8}{\input{Figures/l6func-h} \input{Figures/l6func-k}}
-\caption{Functions $h,k$.}
+\caption{Functions $h=\{(1,x),(2,y)\}$ , $k=\{(1,y),(2,x)$.}
 \label{Fig:hk}
 \end{figure}
 \item Let $\mathcal{F}(\mathbb{R}, \mathbb{R})$ be set of real-valued functions on real line. Let $C(\mathbb{R}, \mathbb{R})$ and $D(\mathbb{R}, \mathbb{R})$ be set of real-valued continuous and derivable functions respectively. Then, $F(\mathbb{R},\mathbb{R}) \supset C(\mathbb{R},\mathbb{R}) \supset D(\mathbb{R},\mathbb{R})$. In fact, let $k \colon D(\mathbb{R},\mathbb{R}) \to F(\mathbb{R},\mathbb{R})$ such that $k(f)=f'$. Then, $k$ is not injective. For example, let $f(x) = x^2 + 5$ and $g(x) = x^2 + 7$ for all $x \in \mathbb{R}$. Then, $k(f) = k(g)$, but $f \neq g$.
@@ -105,43 +105,53 @@ $\Leftarrow$. We assume $f$ not injective. Let $x \neq y \in A$ such that $f(x) 
 \end{exmp}
 
 \begin{lem}
-Let $A,B,C,D$ be sets suppose that there are bijective maps $f \colon A \to C$ and $g \colon B \to D$ then there is a bijective map between $ \mathcal{F}(A,B)$ and $ \mathcal{F}(C,D)$.
+Let $A,B,C,D$ be sets suppose that there are bijective maps $f \colon A \to C$ and $g \colon B \to D$ then there is a bijective map between $\mathcal{F}(A,B)$ and $ \mathcal{F}(C,D)$.
 \end{lem}
 \begin{proof} Since $f$ and $g$ are bijective maps , They have inverse maps $f^{-1}$ and $g^{-1}$ respectively.
+Define $\Phi \colon \mathcal{F}(A,B) \to \mathcal{F}(C,D)$ by $\Phi (h) = g \circ h \circ f^{-1}$. for all $h \in \mathcal{F}(A,B)$, it's easy to see that $\Phi (h) \in \mathcal{F}(C,D)$ for all $h \in \mathcal{F}(A,B)$. We need to show $\Phi$ is bijective. One can see the corresponding commutative diagram in Figure~\ref{Fig:CommDiagBij}.
+
+\underline{\textbf{Injective:}} Let $h,k \in \mathcal{F}(A,B)$ and suppose $\Phi (h)=\Phi (k)$. Then $g \circ h \circ f^{-1} = g \circ k \circ f^{-1}$. Hence, from associativity of composition of functions we have, $h = g^{-1} \circ ( g \circ h \circ f^{-1}) \circ f = g^{-1} \circ ( g \circ k \circ f^{-1} ) \circ f = k$.
+
+\underline{\textbf{Surjective:}} Let $r \in \mathcal{F}(C,D)$, and define $t = g^{-1} \circ r \circ f$. Clearly, $t \in \mathcal{F}(A,B)$, and $\Phi(t) = g \circ (g^{-1} \circ r \circ f) \circ f^{-1} = r$.
+\end{proof}
 \begin{figure}[hhhh]
 \centering
-\scalebox{.8}{\input{Figures/l6lemma}}
-\caption{}
-\label{Fig:}
-\end{figure}\\
-Define $\Phi \colon F(A,B) \to F(C,D)$ by $\Phi (h)=g \circ h \circ f^{-1}$. for all $h \in F(A,B)$ \\
-It's easy to see that $\Phi (h) \in F(C,D)$ for all $h \in F(A,B)$. We need to show $\Phi$ is bijective.\\
-\textbf{Injective:} Let $h,k \in F(A,B)$ and suppose $\Phi (h)=\Phi (k)$ Then $g \circ h \circ f^{-1} = g \circ k \circ f^{-1}$, hence $h=k$ , $(g^{-1} \circ g \circ h \circ f^{-1} \circ f)=(g^{-1} \circ g \circ h \circ f^{-1} \circ f)$\\
-\textbf{Surjective:} Let $r \in F(C,D)$ and define $t=g^{-1} \circ r \circ f$ clearly $t \in F(A,B)$ , $\Phi (t)=g \circ (g^{-1} \circ r \circ f) \circ f^{-1}=r$
-\end{proof}
-\begin{prop} Let A be a non empty set. Then there is a bijective map from $F(A,\{0,1\})$ to $P(A)$.
-\begin{proof} Let $\Phi \colon P(A) \to F(A,\{0,1\})$ be defined as\\
-\[ [\Phi (s)](x)\, \, = 1  \quad  x \in S \] 
-$\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad=0 \quad  x \in A \backslash S$\\
-for all $S \subseteq A , \Phi (S) \colon A \to \{0,1\}$\\
-\textbf{Injectivity:} Let $S,T \in P(A)$ and suppose $\Phi (S)=\Phi (T)$ ,We will show $S=T$\\
-$y \in S , [ \Phi (S)](y)=1=[ \Phi (T)](y)$ then $y \in T$. Hence $S \subseteq T$. Similarly $T \subseteq S$.\\
-\textbf{Surjectivity:} Let $f \in F(A,\{0,1\})$, Define $s \in P(A)$ such that $S=\{x \in A | f(x)=1\}=f^{-1}(\{1\})$. We will show that 
-$\Phi (S)=f$.\\ For all $x \in S$ , $\Phi (S)(x)=1=f(x)$ , $x \notin S , \Phi(S)(x)=0=f(x)$ .
-\end{proof}
-\end{prop}
-\section{Product of an indexed family of sets}
-%In this chapter, we would look at informal logic 
-$ A \times B = \{(a,b), a \in A , b\in B\}$
+\scalebox{1}{\input{Figures/l6lemma}}
+\caption{Commutative diagram for bijection between functional spaces $\mathcal{F}(A,B)$ and $ \mathcal{F}(C,D)$, where $f:A \to C$ and $g: B \to D$ are bijective functions.}
+\label{Fig:CommDiagBij}
+\end{figure}
 
-$\{f\in f(\{1,2\},AUB):f(1)\in A, f(2)\in B\}$\\\\
-\textbf{Definition}\\
-Let I be a non empty set and let$\{A_i:i\in I\}$ be a family of set indexed by I.The product of all the set in this family of sets defined 
-\begin{equation}
-\prod_{i\in I}A_i =\{f\in F(I,\bigcup_{i \in I}A_i):f(i) \in A_i, \forall i \in I\}
-\end{equation}\\
-If all the sets $A_i$ are equal to a single set A.Then we denote $\prod_{i \in A_i}A_i$ by $A^I$.
-\textbf{Verify:-}\\
-If $I \neq \emptyset $ and A is a set ,then \\
-$A_I =f(I,A)$ 
+We can use set of function to study power sets. Indeed, we will show there is a bijection between these two in the following proposition.
+\begin{prop} Let A be a non empty set. Then, there is a bijective map from $F(A,\{0,1\})$ to $\mathcal{P}(A)$.
+\end{prop}
+\begin{proof} Let $\Phi \colon \mathcal{P}(A) \to \mathcal{F}(A,\{0,1\})$ be defined as follows. Let $S \in \mathcal{P}(A)$, then $\Phi(S) \colon A \to \{0,1\}$ is defined as
+\begin{equation*}
+[\Phi (S)](x) = \begin{cases}1, &  x \in S,\\0,  & x \notin S.\end{cases}
+\end{equation*}
+We will show that $\Phi$ is bijection in two different ways.
+\begin{enumerate}
+\item We can show that $\Phi$ is injective and surjective.
+\textbf{Injectivity:} Let $S,T \in \mathcal{P}(A)$ and suppose $\Phi (S)=\Phi (T)$, we will show $S=T$. Let $y \in S$, then $[\Phi (S)](y) = 1 = [\Phi (T)](y)$ then $y \in T$. Hence, we have shown $S \subseteq T$. Similarly, we can show, $T \subseteq S$.\\
+\textbf{Surjectivity:} Let $f \in \mathcal{F}(A,\{0,1\})$. Define $S \in \mathcal{P}(A)$ such that $S = \{x \in A | f(x) = 1\} = f^{-1}(\{1\})$. We will show that $\Phi(S) = f$. For all $x \in S$, we have $\Phi(S)(x) = 1 = f(x)$. On the other hand, for all $x \notin S$, we have $\Phi(S)(x) = 0 = f(x)$.
+\item We will construct an explicit inverse for $\Phi$. To this end, we define $\Psi : \mathcal{F}(A, \{0,1\}) \to \mathcal{P}(A)$ as
+\begin{equation*}
+\Psi(f) = f^{-1}(\{1\}) = \{x \in A : f(x) = 1\}, \text{ for all } f \text{ in } \mathcal{F}(A, \{0, 1\}).
+\end{equation*}
+We will show $\Psi \circ \Phi = 1_{\mathcal{P}(A)}$ and $\Phi \circ \Psi = 1_{\mathcal{F}(A, \{0,1\})}$. Let $S \in \mathcal{P}(A)$, then $(\Psi \circ \Phi)(S) = [\Phi(S)]^{-1}(\{1\}) = S$. Now, let $f \in \mathcal{F}(A, \{0,1\})$, such that $(\Phi \circ \Psi)(f) = \mathbbm{1}_{\{f^{-1}(\{1\})\}}$. Clearly, $f(x) = \mathbbm{1}_{\{f^{-1}(\{1\})\}}(x)$ for all $x \in A$.
+\end{enumerate}
+\end{proof}
+
+\section{Product of an indexed family of sets}
+We can define Cartesian product of two sets as $A \times B = \{(a,b), a \in A , b\in B\}$ in terms of $\{f\in \mathcal{F}(\{1,2\}, A \cup B)$, such that $f(1) \in A$, and $f(2)\in B\}$.
+\begin{defn}
+Let $I$ be a non empty set and let $\{ A_i : i \in I \}$ be a family of sets indexed by $I$. The \textbf{product} of all the sets in this family of sets is defined as 
+\begin{equation*}
+\prod_{i\in I} A_i = \{ f \in \mathcal{F}(I,\bigcup_{i \in I}A_i) : f(i) \in A_i, \text{ for all }i \in I\}.
+\end{equation*}
+If all the sets $A_i$ are equal to a single set $A$. Then, we denote $\prod_{i \in A_i}A_i$ by $A^I$.
+\end{defn}
+\begin{prop} If $I \neq \emptyset$ and $A$ is a set, then $A^I = f(I,A)$.
+\end{prop}
+\begin{proof} Follows from the definition.
+\end{proof}
 \end{document}  

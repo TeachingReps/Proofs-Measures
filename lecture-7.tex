@@ -8,87 +8,73 @@
 \maketitle
 
 \section{Relation}
-Let $A$ and $B$ be sets. A relation $R$ from $A$ to $B$ is a subset of Cartesian product $R \subseteq A \times B $. If $a \in A$ and $b \in B$, we write $a R b$ if $(a,b) \in R$ and $a R b$ if $(a,b) \notin R$. 
-A relation from $A$ to $A$ is called a relation on $A$.
-\begin{exmp}
+Relation between two objects signify some connection between them. For example, relation of one person being biological parent of another. If we take any two people at random, say persons $X$ and $Y$, then either $X$ is a parent of $Y$ or not. This depends on our knowledge of knowing whether $(X,Y)$ is a parent child pair. Alternatively, we can list all pairs of people $(X,Y)$ such that $X$ is a parent of $Y$. Then, knowing whether $X$ and $Y$ are related is equivalent to checking whether pair $(X,Y)$  belongs to this set of listed pairs. We formalize this notion below.
+\begin{defn}[Relation] Let $A$ and $B$ be sets. A \textbf{relation} $R$ from $A$ to $B$ is a subset
+\begin{equation*}
+R \subseteq A \times B. 
+\end{equation*}
+If $a \in A$ and $b \in B$, we write $aRb$ if $(a,b) \in R$ and $a \centernot R b$ if $(a,b) \notin R$. A relation from $A$ to $A$ is called a relation on $A$.
+\end{defn}
+\begin{exmp} Following are some examples of relations.
 \begin{enumerate}
-1. Let $A=\{1,2,3\}$ and $B =\{x,y,z\}$ and S$\subseteq$ \{(1,y),(1,z),(2,y)\} then $1Sy, 1Sz, 2Sy$\\\\
-2. P=\{set of all people\}\\
-R$\subseteq$ P$\times$P s.t R=\{(x,y)$\in$ P$\times$ P:x and y have at least one parent common\}\\
-3. P=\{set of all people\} , B =\{set of all books\}\\
-Relation T$\subseteq$ P$\times$B such that \\
-T=\{(x,y)$\in$ P$\times B$: x has read y \}\\
-4. Let A be a set define a relation on P(A), by saying that P,Q $\in$ P(A) are related iff P$\subseteq$Q\\
-U =\{(P,Q)$\in$ P(A)$\times$P(A):P$\subseteq$Q\}\\\\
-5. A function f: A$\rightarrow$ B is subset of A$\times$B satisfying certain conditions.Hence function f: A$\rightarrow$B are also relation from A$\rightarrow$B.
+\item Let $A=\{1,2,3\}$ and $B =\{x,y,z\}$. Then, we can define a relation $S = \{(1,y),(1,z),(2,y)\}$ such that $1Sy, 1Sz, 2Sy$.
+\item Let $P$ be set of all people. Then, we define a relation $R$ as $R \subseteq P \times P$ such that $R =\{(x,y) \in P \times P :x \text{ and } y \text{ have at least one parent in common}\}$.
+\item Symbols $<$ and $\leq$ represent relations on $\mathbb{R}$.
+\item Let P be set of all people, and B be set of all books. Then, we can define a relation $T \subseteq P \times B$ such that $T=\{(x,y) \in P \times B: x \text{ has read } y \}$. 
+\item Let $A$ be a set. Define a relation on $\mathcal{P}(A)$, by saying that $P,Q \in \mathcal{P}(A)$ are related iff $P \subseteq Q$. Let $U =\{(P,Q) \in \mathcal{P}(A) \times \mathcal{P}(A) : P \subseteq Q\}$.
+\item A function $f: A \to B$ is subset of $A \times B$ satisfying certain conditions. Hence, a function $f: A \to B$ is also a relation from $A$ to $B$.
 \end{enumerate}
 \end{exmp}
-\textbf{Notice the difference between Functions and relations}\\
-$\bullet$ Domain doesn't have to be covered\\
-$\bullet$ More than one element for each a$\in$A\\\\
-\textbf{Definition}\\
-Let A and B be non empty sets and let R be a relation from A to B.For each element x$\in$A, define the "Relation Class" of x with respect to relation R, denoted R[x], to be the set R[x] =\{y$\in$B : xRy\} if the relation R is understand from the context, we will often write [x] instead of R[x]\\
-\textbf{Examples}\\
-consider the previous examples \\
-1.For this relation we see that [1]=\{y,z\}, and [2]=\{y\}, [3]=$\emptyset$\\\\
-2.There are a number of distinct cases here, and we will examine a few of them.
-If x is the only child of each of her parents, then [x] = \{x\}, where we observe that
-x has the same parents as herself. If y and z are the only two children of each of
-their parents, then [y] = \{y, z\} = [z]. If a has one half-sibling b by her father, and
-another half-sibling c by her mother, and each of b and c has no other siblings or
-half-siblings, then [a] = \{a, b, c\}, and [b] = \{a, b\}, and [c] = \{a, c\}.\\\\
-3.For the relation $<$, we see that [x] = (x, $\infty$) for all x $\in$ $\mathbb{R}$, and for the relation
-$\leq$, we see that [x] = [x, $\infty$) for all x $\in$ $\mathbb{R}$.\\\\
-\textbf{Definition}\\
-Let A$\neq \emptyset$ and let R be a relation on A\\
-1."Reflexive" if xRx for all x$\in$A\\\\
-2."symmetric" if xRy implies yRx for all x$\in$A\\\\
-3."transitive" if xRy and yRz implies xRz for all x,y,z$\in$A\\\\
-\textbf{Examples}\\\\
-1. Congruence of triangles is "Reflexive","symmetric",Transitive".\\\\
-2. The relation "$\leq$" is "reflexive",but not "Transitive ,not "Symmetric".\\\\
-3. C=\{1,2,3\} P=\{(2,2),(3,3),(2,3),(3,2)\}\\\\
-  Not "Reflexive" as (1,1)$\notin$P\\\\
-  Its "symmetric" as \{(2,3),(3,2)\}$\in$P\\\\
-  Its "Transitive" as \{(2,3),(3,2),(2,2)\}$\in$P\\\\
-4. B=\{x,y,z\}       T=\{(x,x),(y,y),(z,z),(x,y),(y,z)\}\\\\
- Its "Reflexive" as           \{(x,x),(y,y),(z,z)\}$\in$T\\\\
- But not "symmetric" as\{(y,x),(z,y)\}$\notin$T\\\\
- Not "transitive" as(x,z)$\notin$T\\\\
-5. Relation of one person being cousin of    another is "symmetric", not "Reflexive", not "Transitive"\\\\
-6. < relation is not "Reflexive", not "Symmetric" but its "Transitive".\\\\
-7. Relation of one person being daughter of another person :none.\\\\
-\section{Equivalence Relation}
-\textbf{Definition}\\\\
-Let A be a set and let $\sim$ be a relation on A.The relation $\sim$ is an "equivalence relation" if it is reflexive, symmetric, transitive.\\\\
-\textbf{Examples}\\\\
-1. $\sim$ : same age on set of people.\\\\
-2. $\sim$ : on $\mathbb{R}$\\\\
-\textbf{Definition}\\\\
-Let A be a non empty set and $\sim$ be an equivalence relation on A .The relation classes of A w.r.t $\sim$ are called "equivalence classes".The "quotient set" of A define and equivalence relation $\sim$ is the set of all equivalence classes of A w.r.t $\sim$ that is the set \{[x]:x$\in$A\}\\\\
-The quotient set of A and $\sim$ is denoted by A/$\sim$\\\\
-\textbf{Example}
-1. Let P be the set of all people, and let ∼ be the relation on P defined
-by x $\sim$ y if and only if x and y are the same age (in years). If person x is 19 years
-old, then the equivalence class of x is the set of all 19-year olds. Each element of the
-quotient set P/$\sim$ is itself a set, where there is one such set consisting of all 1-year-
-olds, another consisting of all 2-year olds, and so on. Although there are billions of
-people in P, there are fewer than 125 elements in P/$\sim$, because no currently living
-person has reached the age of 125.\\\\
-2. Let $\sim$be the relation on R 2 defined by (x, y) $\sim$ (z, w) if and only if y$-$x =
-w$-$z, for all (x, y), (z, w) $\in$ $\mathbb{R}$$^2$ . It can be verified that $\sim$ is an equivalence relation. We
-want to describe the partition $\phi(\sim)$ of $\mathbb{R}$$^2$. Let (x, y) $\in$ $\mathbb{R}$$^2$ . Then [(x, y)] = {(z, w) $\in$
-$\mathbb{R}$$^2$ | w − z = y − x}. Let c = y − x. Then [(x, y)] = {(z, w) $\in$ R 2 | w = z + c}, which is
-just a line in $\mathbb{R}$$^2$ with slope 1 and y-intercept c. Hence $\phi(\sim)$ is the collection of all
-lines in $\mathbb{R}$$^2$ with slope 1.\\\\
-2. Let C = \{[n, n + 1)\} Where n$\in$Z Then C is a partition of $\mathbb{R}$\\
-Y(C).= \{(x,y)$\in$ $\mathbb{R}\times\mathbb{R}$| (x,y)$\in$[n,n$+$1)\}
-  
-
-
-
-
-
-
+\begin{rem} Relations are more general than functions.  6 6grNotice the difference between functions and relations.
+\begin{enumerate}
+	\item Possible to have no ordered pair for some $a \in A$.
+	\item Possible to have more than one ordered pair for some $a \in A$.
+\end{enumerate}
+\end{rem}
+\begin{defn}[Relation Class] Let $A$ and $B$ be non-empty sets and let $R$ be a relation from $A$ to $B$.For each element $x \in A$, define the \textbf{relation class} of $x$ with respect to relation $R$, denoted $R[x]$, to be the set
+\begin{equation*} 
+R[x] =\{y \in B : x R y \}.
+\end{equation*} 
+If the relation $R$ is understood from the context, we will often write $[x]$ instead of $R[x]$.
+\end{defn}
+\begin{exmp} Let's consider the previous examples.
+\begin{enumerate}
+	\item For this relation we see that $[1]=\{y,z\}$, $[2]=\{y\}$, and $[3] = \emptyset$. We have an example of relation class that is empty.
+	\item There are a number of distinct cases here, and we will examine a few of them. 
+	\begin{enumerate}
+		\item If $x$ is the only child of each of her parents, then $[x] = \{x\}$, where we observe that
+$x$ has the same parents as herself. Notice that for any two distinct single children, $[x] \cup [y] = \emptyset$. That is, we have examples of relations classes that are disjoint.
+		\item If $y$ and $z$ are the only two children of each of their parents, then $[y] = \{y, z\} = [z]$. 
+		\item If $a$ has one half-sibling $b$ by her father, and another half-sibling $c$ by her mother, and each of $b$ and $c$ have no other siblings or half-siblings, then $[a] = \{a, b, c\}$, and $[b] = \{a, b\}$, and $[c] = \{a, c\}$.
+	\end{enumerate}
+	\item For the relation $<$, we see that $[x] = (x, \infty)$ for all $x \in \mathbb{R}$, and for the relation
+$\leq$, we see that $[x] = [x, \infty)$ for all $x \in \mathbb{R}$.
+	\item Relation class of a person $x$ is $[x] = \{\text{ set of books read by }x\}$. 
+	\item Relation class of a subset $P \subseteq A$ is $[P] = \{ Q \subset A: p \subseteq Q \}$.
+	\item Relation class of a function $x$ is $[x] = \{f(x)\}$.
+\end{enumerate}
+\end{exmp}
+We see that relation classes can be empty. Two relation classes can be disjoint or have non-empty intersection. This is due to the fact that relations are very general and have no structures. In the following we would add some structure to define two specific relations.
+\begin{defn} Let $A \neq \emptyset$ and let $R$ be a relation on $A$.
+	\begin{enumerate}
+		\item Relation $R$ is \textbf{reflexive} if $xRx$ for all $x \in A$.
+		\item Relation $R$ is \textbf{non-reflexive} if $xRx$ doesn't hold for any $x \in A$.
+		\item Relation $R$ is \textbf{symmetric} if $xRy$ implies $yRx$ for all $x \in A$.
+		\item Relation $R$ is \textbf{transitive} if $xRy$ and $yRz$ implies $xRz$ for all $x,y,z \in A$.
+		\item Relation $R$ is \textbf{comparable} if $x \neq y$, then either $xRy$ or $yRx$ for all $x,y \in A$.
+	\end{enumerate}
+\end{defn}
+\begin{exmp} We look at some relations and which of the above-defined properties they satisfy. 
+\begin{enumerate}
+	\item Congruence of triangles is reflexive, symmetric, and transitive.
+	\item Relation of one person weighing within $5$ kgs of another person is reflexive, symmetric, but not transitive.
+	\item The relation $\leq$ on real numbers is not symmetric. However, this relation is reflexive, and transitive. 
+	\item Let $C=\{1,2,3\}$, and a relation $P$ on set $C$ such that $P=\{(2,2),(3,3),(2,3),(3,2)\}$. Then $P$ is not reflexive as $(1,1) \notin P$, symmetric as $\{(2,3),(3,2)\} \in P$, and transitive as $\{(2,3),(3,2),(2,2)\} \in P$.
+	\item Let $B=\{x,y,z\}$ and a relation $T$ on set $B$ such that $T = \{(x,x),(y,y),(z,z),(x,y),(y,z)\}$. Relation $T$ is reflexive as $\{(x,x),(y,y),(z,z)\} \in T$, not symmetric as $\{(y,x),(z,y)\} \notin T$, and not transitive as $(x,z) \notin T$.
+	\item Relation of one person being cousin of another is symmetric, but not reflexive, or transitive. In fact it is anti-reflexive.
+	\item Relation $<$ on real numbers is neither reflexive, nor symmetric. However, it is anti-reflexive, comparable, and transitive.
+	\item Relation of one person being daughter of another person is neither reflexive, nor symmetric, nor transitive.
+\end{enumerate}
+\end{exmp}
 
 \end{document}
