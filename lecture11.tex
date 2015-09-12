@@ -1,0 +1,138 @@
+\documentclass[a4paper,english,12pt]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+%SetFonts
+
+%SetFonts
+\include {header}
+
+
+\title{Lecture 11 : Countability}
+\author{Parimal Parag}
+\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+\section{}
+\begin{defn}[] Let $n \in N$, Let $[n]$ denote the set $\{1,2,3,....n\}$
+\begin{enumerate}
+\item A set $\textbf{A}$ is finite if it is either empty or $A \sim [n]$ for some $n \in \mathbb{N}$.
+\item The set $\textbf{A}$ is infinite if it is not finite.
+\item The set $\textbf{A}$ is countably infinite if $A \sim \mathbb{N}$.
+\item The set $\textbf{A}$ is countable if it is finite or countably infinite.
+\item The set $\textbf{A}$ is uncountable if it is not countable.
+\end{enumerate}
+\end{defn}
+\begin{lem} 
+\begin{enumerate}
+\item The set $\mathbb{N}$ is infinite.
+\item A countably infinite set if $A \sim \mathbb{N}$.
+\end{enumerate}
+\end{lem}
+\begin{proof} $\textbf{(i)}$ Suppose that $\mathbb{N}$ is finite. Because $\mathbb{N} \neq \phi$ then $\exists n \in \mathbb{N}$ such that $\mathbb{N} \sim [n]$.
+Let $f \colon [n] \to \mathbb{N}$ be bijective function. From previous theorem it follows that $\exists k \in [n]$ such that $f(k) \geq f(i) $ $\forall i \in [n]$. Therefore 
+$f(k)+1 \notin f([n])$. But $f(k)+1 \in \mathbb{N}$,Therefore $f$ is not Surjective. This is contradiction since $f$ is bijective. Hence The set $\mathbb{N}$ is infinite.\\
+$\textbf{(ii)}$ Let B be a countably infinite set, Then $B \sim \mathbb{N}$ by definition. Suppose that B is finite, then it means  $\mathbb{N}$ is finite. Which is a contradiction to part 1 of this lemma.
+\end{proof} 
+\begin{exmp} Let A={1,2} then $P(A)=\{ \phi,\{1\},\{2\},\{1,2\}\}$. Therefore $A \nsim P(A) $.
+\end{exmp}
+\begin{thm} Let A be a set then $A \nsim P(A) $.
+\end{thm}
+\begin{proof} Consider $A = \phi$ then $P(A) = \{ \phi \}$ , Hence there can not be a bijective function $P(A) \to A$. So $A \nsim P(A) $.\\
+Suppose $A \neq \phi$ , Suppose $A \sim P(A)$ then $\exists$ bijection $f \colon A \to P(A)$.\\
+Let $D=\{a \in A  | a \notin f(a)\}$. Notice $D \subseteq A$. Hence $D \in P(A)$. Since $f$ is surjective we can choose $d \in A$ such that $f(d)=D$.\\
+Is $d \in D$?\\
+Suppose $d \in D$, then $d \notin f(d)=D$.\\
+Suppose $d \notin D$, then $d \in f(d)=D$.\\
+We therefore have a contradiction. So $A \nsim P(A)$.
+\end{proof}
+\begin{cor} The set P($\mathbb{N}$) is uncountable.
+\end{cor}
+\begin{defn} Let A and B be sets. we say that $A \leq B$ if there is an injection function $f \colon A \to B$. we say that $A < B$ if $A \leq B$ and $A \nsim B$.
+\end{defn}
+It is easy to see that for any set A their is an injective function from $A \to P(A)$ and hence $A \leq P(A)$. By above Theorem $A \nsim P(A)$ so $A < P(A)$. Applying this fact to set $\mathbb{N}$ repeatedly we get following
+\[ \mathbb{N} < P(\mathbb{N}) < P(P(\mathbb{N})) < P(P(P(\mathbb{N})))......\]
+Because all the sets in this sequence other than the first are uncountable, we therefore see that there are infinitely many different cardinalities among the uncountable sets.The cardinality of $\mathbb{N}$ is denoted by $\aleph _{0}$ and called "cardinal number" even though it is not real number. it is common to denote the cardinality of $P(\mathbb{N})$ by  $ 2 ^{\aleph _{0}}$
+
+
+
+\begin{thm}[Schroeder - Bernstien theorem]
+Let A and B be sets. Suppose that $A \leq B$ and $B \leq A$, then $A \sim B$.
+\end{thm}
+\begin{proof}
+Let $f \colon A \to B$ and $g \colon B \to A$ be injective functions.\\
+Let T be subset of A constructed as follows\\
+Let $T_{0}=A \backslash g(B)$.
+$T_{n+1}= (g \circ f)(T_{n})$ $\forall n \in \mathbb{N}_{0}$.\\
+$T=\bigcup_{n \in \mathbb{N}_{0}} T_{n}$.\\
+We need to define a bijection $h \colon A \to B$.\\
+\[ h(x)\, \, = f(x)  \quad  x \in T \] 
+$\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \, \,=g^{-1}(x) \quad  x \in A \backslash T$.
+\begin{figure}[hhhh]
+\centering
+\scalebox{.8}{\input{Figures/l11thmlemma}}
+\caption{}
+\label{Fig1}
+\end{figure}
+\\$T=\bigcup_{n \in \mathbb{N}_{0}} T_{n}$.\\
+$(g \circ f)(T)=\bigcup_{n \in \mathbb{N}_{0}} (g \circ f)(T_{n})$
+$= \bigcup _{n \in \mathbb{N}} T_{n} \subseteq T$.
+\\To show $h$ is bijection\\
+\textbf{Injectiviity:} Since $h \arrowvert _{T}$ and $h \arrowvert _{A \backslash T}$ are injective and if $x_{1} \in T$ and $x_{2} \in A \backslash T$ If $h(x_{1})=h(x_{2})$ implies $f(x_{1})=g^{-1}(x_{2})$ or $(g \circ f)(x_{1})=x_{2}$, that $x_{2} \in (g \circ f)(T) \subseteq T$ from above derivation. which is contradiction since  $x_{2} \in A \backslash T$. so $h(x_{1}) \neq h(x_{2})$. Hence $h$ is injective.\\
+\textbf{Surjectivity:} 
+Since $h$ is injective $f(T)$ and $g^{-1}(A \backslash T)$ sets  are disjoint. 
+And $f(T) \cup g^{-1}(A \backslash T) \subseteq B$.\,\,\,\,\,\,$ g^{-1}(A \backslash T) \subseteq B$.
+To show $h$ is surjective It suffices to show $B \backslash f(T) \subseteq g^{-1}(A \backslash T)$. Because we need to show $\forall b \in B$  $\exists a \in A$ such that $f(a)=b$.\,\,$\forall b \in f(T) \subseteq B$ this property is satisfied. Need to show for $\forall b \in B \backslash f(T)$.
+If we can show sets $B \backslash f(T)$ and $g^{-1}(A \backslash T)$ are equal from injectivity of $h$ and property of functions we can satisfy surjectivity.\\
+Let $y \in B \backslash f(T) = \{ y \in B |\, \,  y \neq f(x)\,\,   for \,\,  any \,\,  x \in T\}$. Now $g(y) \neq (g \circ f)(x)$. For any $x \in T$, Since $g$ is injective. That is $g(y) \neq (g \circ f)(T) \subseteq T$(followed from above given derivation)  OR $g(y) \in A \backslash T$. That is $y \in g^{-1}(A \backslash T)$.
+
+\end{proof}
+
+\begin{exmp} Let $a<b \in \mathbb{R}$. We will use Schroeder - Bernstien theorem to show $[a,b] \sim (a,b)$. Suffices to show $[-1,1] \sim (-1,1)$.\\
+Let $f \colon (-1,1) \to [-1,1]$ be defined by $f(x)=x$ $\forall x \in (-1,1)$ it is easy to see $f$ is injective.\\
+Let $g \colon [-1,1] \to (-1,1)$ be defined by $g(x)=x/2$ $\forall x \in [-1,1]$.
+\end{exmp}
+\begin{thm}[Trichotomy law for sets] Let A and B be sets then $A \leq B $ or $B \leq A$.
+\end{thm}
+
+\section{Finite sets and countable sets}
+\begin{defn} Let A be a set. Suppose A is finite. The "cardinality" of denoted by $|A|$, is defined as follows. If $A= \phi$ then $|A|=0$, If $A \neq \phi$, then $|A|=n$ where $A \sim [n]$.
+\end{defn}
+\begin{lem} Let $n,m \in \mathbb{N}$ then $[n] \sim [m]$ iff n=m.
+\end{lem}
+\begin{cor} Let A,B be finite sets then $A \sim B$ iff $|A|=|B|$.
+\end{cor}
+\begin{thm} Let A be a set. Suppose A is finite
+\begin{enumerate}
+\item If $X \subseteq A$, then X is finite.
+\item If $X \subseteq A$, then $|A|=|X|+|A\backslash X|$.
+\item If $X \subset A$, then $|X|<|A|$.
+\item If $X \subset A$, then $X \nsim A$.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+\textbf{(i)} It follows immediately from the theorem Let $S \subseteq \{1,2,3,...,n\}$  be a non-empty subset. Then there is a bijective function $g \colon \{1,2,3,...,n\} \to \{1,2,3,...,n\}$ such that $g(S) =  \{1,2,3,...,k\}$ for some $k \in \mathbb{N}$ and $k \leq n$.If S is a proper subset of $\{1,2,3,...,n\}$ then $r < n$.\\
+\textbf{(ii)} If $A - X$ is $\phi$ result is trivial. If $A - X \neq \phi$ and let $|A|=n$ and n>0. Let $f \colon A \to \{1,2,3,...,n\}$ be bijection. $f(X) \subseteq \{1,2,3,...,n\}$ for $X \subseteq A$. We can find bijection $g \colon \{1,2,3,...,n\} \to \{1,2,3,...,n\}$ such that $g(f(X)) =  \{1,2,3,...,k\}$ for some $k \in \mathbb{N}$ and $k \leq n$. We can se that $g \circ f$ is bijection. Then it follows that $X \sim  \{1,2,3,...,k\}$ that is $|X|=k$.\\
+\[ (g \circ f)(A-X)=(g \circ f)(A)-(g \circ f)(X)= g(f(A))-g(f(X))\]
+$\qquad \qquad \qquad \qquad \qquad \,\,\,\,\,\,\,\,   =\{1,2,3,...,n\}-\{1,2,3,...,k\} = \{k+1,k+2,...,n\}$\\
+Since $g \circ f$ is bijection it follows that $|A-X| \sim \{k+1,k+2,...,n\}$. We can find a bijection from $\{1,2,3,...,n-k\} \to \{k+1,k+2,...,n\}$. Hence $|A-X|=n-k$.
+Which completes the proof.\\
+\textbf{(iii)} It follows from the above part (ii) proof.\\
+\textbf{(iv)} This part of the theorem follows from Part (iii) and Corollary.
+
+\end{proof}
+\begin{cor} Let A be a set, then A is infinite iff it contains an infinite subset.
+\end{cor}
+
+
+
+
+\end{document}  
