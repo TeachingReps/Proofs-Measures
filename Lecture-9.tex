@@ -1,0 +1,59 @@
+\documentclass[a4paper,english,12pt]{article}
+\include{header}
+
+% Title Page
+\title{\bf Lecture 9	: Principle of Mathematical Induction}
+\author{}
+
+\begin{document}
+\maketitle
+% \begin{abstract}
+% \end{abstract}
+\section{Properties Of Natural Numbers}
+The set of natural numbers is denoted by the set $\mathbb{N}$ .The set $\mathbb{N}$ consists of a distinguished element which is  1. A unique property for the set of natural numbers is that, there is a function s which maps the elements of $\mathbb{N}$ to $\mathbb{N}$. It can be written as $s:\mathbb{N}\rightarrow \mathbb{N}$.\\
+Any rigorous treatment of the natural numbers must ultimately rely upon some
+axioms. There are two standard axiomatic approaches to developing the natural numbers. One approach, involving the minimal axiomatic assumptions and the most effort deducing facts from the axioms, is to assume the Peano Postulates for the natural numbers, which are stated as follows.\\
+
+{\bf Axiom 6.2.1 (Peano Postulator)}: There exists a set $\mathbb{N}$ with an element $1\epsilon N$ and a function $s:\mathbb{N}\rightarrow \mathbb{N}$, that satisfy the following three properties:\\
+a. There is no $n\epsilon N$ such that $s(n)=1$.\\
+b. The function $s$ is injective.\\
+c. Let $G \subseteq N$ be a set. Suppose that $1 \epsilon N$, and that if $g\epsilon G$ then $s(g) \epsilon G$. Then $G=N$.\\
+
+If we think intuitively of the function s in the Peano Postulates as taking each
+natural number to its successor, then Part (a) of the postulates says that 1 is the first number in N, because it is not the successor of anything.\\
+
+{\bf Definition 6.2.2}: The set of {\bf natural numbers} is the set $\mathbb{N}$, the existence of which is given in the Peano Postulates.\\
+
+How do we know that there is a set, and an element of the set, and a function
+of the set to itself, that satisfy the Peano Postulates? There are two approaches to resolving this matter. When we do mathematics, we have to take something as axiomatic, which we use as the basis upon which we prove all our other results. Hence,one approach to the Peano Postulates is to recognize their very reasonable and minimal nature, and to be satisfied with taking them axiomatically. Alternatively, if one takes the Zermelo-Fraenkel Axioms as the basis for set theory, then it is not necessary to assume additionally that the Peano Postulates hold, because the existence ofsomething satisfying the Peano Postulates can be derived from the Zermelo-Fraenkel Axioms.\\
+
+If one goes through the full development of the natural numbers starting from
+the Peano Postulates, the first major theorem one encounters is the one which will be stated shortly.. This theorem is used in particular in the definition of addition and multiplication of the natural numbers.This theorem, called Definition by Recursion.\\
+
+{\bf Theorem 6.2.3 (Defintion by Recursion)}: Let A be a set and let $b\epsilon A$ and let $k:\mathbb{A}\rightarrow \mathbb{A}$. Then there exists a unique function,$f:\mathbb{N}\rightarrow \mathbb{A}$ such that $f(1)=b$ and $f \circ s=k \circ f$.\\
+The equation $f \circ s=k \circ f$ in the statement of  {\bf Definition by Recursion (Theorem 6.2.3)} means that $f(s(n))=k(f(n))$ for all $n \epsilon \mathbb{N}$. If $s(n)$ were to be interpreted as $n+1,$ as indeed it is once addition for $\mathbb{N}$ is rigorously defined (a definition that requires Definition by Recursion), then $f(s(n))=k(f(n))$ would mean that $f(n+1)=k(f(n))$, which looks more familiar intuitively.\\
+
+{\bf Theorem 6.2.4 }: Let $a,b,c,d \epsilon \mathbb{N}$.\\\\
+{\bf 1}. If $a+c=b+c$, then $a=b$.\\
+{\bf 2}. $(a + b)+c=a+(b + c)$.\\
+{\bf 3}. $s(a)=a+1$.\\
+{\bf 4}. $a+b=b+a$.\\
+{\bf 5}. $a·1=a=1·a$.\\
+{\bf 6}. $(a+b)c=ac+bc$.\\
+{\bf 7}. $ab = ba$.\\
+{\bf 8}. $c(a+b)=ca+cb$.\\
+{\bf 9}. $(ab)c = a(bc)$.\\
+{\bf 10}. If $ac=bc$ then $a=b$.\\
+{\bf 11}. $a\geq a$, and $a\ngtr a$, and $a+1>a$.\\
+{\bf 12}. $a\geq1$, and if $a\neq1$ then $a>1$.\\
+{\bf 13}. If $a<b$ and $b<c$, then $a<c$; if $a\leq b$ and $b<c$, then $a<c$. If $a<b$ and $b\leq c$, then $a<c$; if $a\leq b$ and $b\leq c$, then $a\leq c$.\\
+{\bf 14}. $a<b$ if and only if $a+c<b+c$.\\
+{\bf 15}. $a<b$ if and only if $ac<bc$.\\
+{\bf 16}. Precisely one of the following holds: $a<b$, or $a=b$, or $a>b$  (Trichotomy Law).\\
+{\bf 17}. $a \leq b$ or $b \leq a$.\\
+{\bf 18}. If $a \leq b$ and $b \leq a$, then $a=b$.\\
+{\bf 19}. It cannot be that $b<a<b+1$.\\
+{\bf 20}. $a<b$ if and only if $a+1 \leq b$.\\
+{\bf 21}. If $a<b$, there is a unique $p\epsilon\mathbb{N}$ such that $a+p=b$.\\
+
+\end{document}
