@@ -1,0 +1,98 @@
+\documentclass[a4paper,english,12pt]{article}
+\include{header}
+
+% Title Page
+\title{\bf Lecture 14: The Order Topology}
+\author{}
+
+\begin{document}
+
+\maketitle
+% \begin{abstract}
+% \end{abstract}
+\section{The Order Topology}
+If X is a simply ordered set, there is a standard topology for X, defined using the order relation. It is called "Order Topology".\\
+\begin{flushleft}
+{\bf Definition}: Suppose X is a set having order relation $<$. Given a$<$b $\epsilon$ X, there are four subsets of X called intervals determined by a and b. They are as follows :\\
+$(a,b)=\{x\mid a<x<b\}$\\
+$(a,b]=\{x\mid a<x\leq b\}$\\
+$[a,b)=\{x\mid a\leq x<b\}$\\
+$[a,b]=\{x\mid a\leq x\leq b\}$\\
+\vspace{2mm}
+{\bf Definition}: Let X be a simple order relation.Assume that X has more than one element.Let $\mathbb{B}$ be the collection of all sets of the following types:\\
+\vspace{2mm}
+{\bf 1}.All open intervals (a,b) in X.\\
+{\bf 2}.All intervals of the form [$a_0$,b), where $a_0$ is the smallest element (if any) of X.\\
+{\bf 3}.All intervals of the form (a,$b_0$], where $b_0$ is the largest element (if any) of X.\\
+\vspace{2mm}
+The collection $\mathbb{B}$ is a basis for a topology on X, which is called the order topology.\\
+\vspace{1mm}
+{\bf Remark}: If X has no smallest then there are no sets of type {\bf 2} and if X has no largest element then there are no sets of type {\bf 3}.\\
+\vspace{1mm}
+{\bf Verification that $\mathbb{B}$ satisfies the requirements for being a basis}: Let x $\epsilon$ X. If x=$a_0$ then x $\epsilon$[$a_0$,b).If x=$b_0$, then x $\epsilon$ (a,$b_0$].These 2 cases are easy to verify. But let us consider the scenario where x$\neq a_0$ and x$\neq b_0$.\\
+\vspace{1mm}
+From definition, $(a,b)=\{z\mid a<z<b\}$. As the order relation < is defined on the set X, there will some element a $\epsilon$ X and some element b $\epsilon$ such that a<x<b.In that case a $\epsilon$ (a,b). Hence we have verified that $\mathbb{B}$ satisfies the first criteria for being a basis over the order topology on X.\\
+Now we need to check for the 2nd  which $\mathbb{B}$ B needs to satisfy for being a basis over the order topology on X. Let us take $B_1=[a_0,b)$,$B_2=(a,b_0]$, $B_3=(a_1,b_1)$ and $B_4=(a_2,b_2)$, where $a_0$ is the smallest element in X and $b_0$ is the largest element in X. The sets $B_1,B_2,B_3.B_4$ all belong to $\mathbb{B}$.
+If x $\epsilon B_1 \cap B_2$, then x $\epsilon (a,b)$. The set (a,b) is thus a subset of $B_1 \cap B_2$. Hence, x $\epsilon (a,b) \subset B_1 \cap B_2 \epsilon \mathbb{B}$. Thus if X has both largest and smallest element, then $\mathbb{B}$ satisfies the criteria for being a basis.\\
+\vspace{1mm}
+We shall now inspect the case that X has no largest element.If x $\epsilon B_1 \cap B_3$. Depending on the value of b  $a_1$ and $b_1$, we will be able to a set of the form (p,q), such that  x $\epsilon (p,q) \subset B_1 \cap B_3 \epsilon \mathbb{B}$. Thus if X has no largest element but a smallest element, then $\mathbb{B}$ satisfies the criteria for being a basis.\\
+\vspace{1mm}
+Let us consider the case that X has no smallest element. If x $\epsilon B_2 \cap B_3$. Depending on the value of a,$a_1$ and $b_1$, we will be able to a set of the form (r,s), such that  x $\epsilon (r,s) \subset B_2 \cap B_3 \epsilon \mathbb{B}$. Thus if X has no largest element but a smallest element, then $\mathbb{B}$ satisfies the criteria for being a basis.\\
+\vspace{1mm}
+Finally, we will consider the case when X has no largest or smallest element. So the basis of the order topology will consist of sets of the form (m,n). If x $\epsilon B_3 \cap B_4$. Depending on the value of $a_1$,$b_1$,$a_2$ and $b_2$, we will be able to a set of the form (e,d), such that  x $\epsilon (e,d) \subset B_3 \cap B_4 \epsilon \mathbb{B}$. Thus if X has no largest and smallest element, then $\mathbb{B}$ satisfies the criteria for being a basis.\\
+\vspace{1mm}
+Thus we have considered all possible scenarios which should be checked for $\mathbb{B}$ for being a basis for the order topology on X. Since $\mathbb{B}$ has satisfied all of them, it is a basis for order topology on X.\\
+\vspace{1mm}
+{\bf Example 1}: The standard topology on $\mathbb{R}$ is just the order topology derived from the usual order on $\mathbb{R}$.\\
+\vspace{1mm}
+{\bf Example 2}: Consider the set $\mathbb{R}\times\mathbb{R}$ in the dictionary order; we shall denote the general element of $\mathbb{R}\times\mathbb{R}$ by x$\times$y, to avoid difficulty with notation. The set $\mathbb{R}\times\mathbb{R}$ has neither a
+largest nor a smallest element, so the order topology on $\mathbb{R}\times\mathbb{R}$ has as basis the collection of all open intervals of the form (a$\times$b, с$\times$d) for a$<$c,and for a$=$с,b$<$d.\\
+{\bf Example 3}: The positive integers $\mathbb{Z}_+$ form an ordered set with a smallest element. The order topology on $\mathbb{Z}_+$, is the discrete topology,as the singletons are open sets. If n$>$1,then the singleton $\{n\}$=(n-1,n+1) is a basis element;and if n=1,the one-point set $\{1\}$=[1,2) is a basis element.\\
+{\bf Example 4}: The set X=$\{1,2\}\times\mathbb{Z}_+$ in the dictionary order is another example of an ordered set with a smallest element. Denoting 1$\times$n by $a_n$ and 2$\times$n by $b_n$, we can represent X by $\{a_1,a_2.....,b_1,b_2......\}$
+The order topology on X is not the discrete topology. Most one-point sets are open, but
+there is an exception .The one-point set $\{b_1\}$. Any open set containing $b_1$ must contain a basis element about $b_1$ (by definition),but any basis element containing $b_1$ contains points of the $a_i$ sequence.\\
+\vspace{2mm}
+{\bf Definition}:If X is an ordered set and a is an element of X,there are four subsets of X that are called the rays determined by a. They are the following:\\
+$(-\infty,a)=\{x\mid x<a\}$\\
+$(a,+\infty)=\{x\mid x>a\}$\\
+$(-\infty,a]=\{x\mid x\leq a\}$\\
+$[a,+\infty)=\{x\mid x\geq a\}$\\
+
+The sets of type $(-\infty,a)$ and $(a,+\infty)$ are called open rays. Similarly, the sets of type $(-\infty,a]$ and $[a,+\infty)$ are called closed rays.\\
+We now need to verify that the open rays belong to the order topology on X. We shall first consider the open ray $(a,+\infty)$.\\
+If X contains a largest element $b_0$ then $(a,+\infty)$ is of the form $(a,b_0]$,which is a basis element for the order topology on X. Thus in this case $(a,+\infty)$ is open. If X has no largest element, then $(a,+\infty)$=$\bigcap_{x>a} (a,x)$. To prove this statement, let z $\epsilon (a,+\infty)$. From definition, z$>a$. Hence if we consider the set $\bigcap_{x>a} (a,x)$, z will belong at least one of the subsets of the form (a,x). Thus z $\epsilon \bigcap_{x>a} (a,x)$. Hence $(-\infty,a) \subset \bigcap_{x>a} (a,x)$.\\
+Now let p $\epsilon \bigcap_{x>a} (a,x)$. So p will belong to atleast one of the open intervals of the form $(a,x)$. If p belongs to some open interval of the form $(a,x)$, then from definition $a<p<x$. From definition of the open rays, p $\epsilon (a,+\infty)$. Thus $bigcap_{x>a} (a,x)\subset (-\infty,a))$. Also, we have proven that $(-\infty,a) \subset \bigcap_{x>a} (a,x)$. So $(-\infty,a)=\bigcap_{x>a} (a,x)$.\\
+We shall now consider the open ray $(-\infty,a)$.If X contains a smallest element $a_0$ then $(-\infty,a))$ is of the form $[a_0,a)$,which is a basis element for the order topology on X.Thus in this case $(-\infty,a)$ is open.If X has no smallest element, then $(-\infty,a)$=$\bigcap_{x<a} (x,a)$.To prove this statement, let w $\epsilon (-\infty,a)$.From definition, w$<a$. Hence if we consider the set $\bigcap_{x<a} (x,a)$, w will belong at least one of the subsets of the form (x,a). Thus w $\epsilon \bigcap_{x<a} (x,a)$. Hence $(-\infty,a) \subset \bigcap_{x<a} (x,a)$.\\
+Now let q $\epsilon \bigcap_{x<a} (x,a)$. So q will belong to atleast one of the open intervals of the form $(x,a)$. If p belongs to some open interval of the form $(x,a)$, then from definition $x<q<a$. From definition of the open rays, q $\epsilon (-\infty,a)$. Thus $\bigcap_{x<a} (x,a)\subset (-\infty,a))$. Also, we have proven that $(-\infty,a) \subset \bigcap_{x<a} (x,a)$. So $(-\infty,a)=\bigcap_{x<a} (x,a)$.\\
+Hence both the open rays belong to the order topology on X.\\
+\vspace{2mm}
+{\bf Remark}: The open rays form a sub-basis for the order topology on X.\\
+\vspace{2mm}
+{\bf Proof}:The open rays $(-\infty,a)$ and $(a,+\infty)$ are open sets in the order topology defined on X. Hence the topology generated by $(-\infty,a)$ and $(a,+\infty)$ are contained in the order topology on X. If $\mathbb{T}_R$ be the topology generated by the open intervals and if $\mathbb{T}$ be the order topology on X, then we write $ \mathbb{T}_R\subset \mathbb{T}$. \\
+\vspace{1mm}
+If we consider the intersection of the open rays of the form $(-\infty,b)$ and $(a,+\infty)$, then it is the open interval of the form (a,b).The set (a,b) is a basis element of the order topology on X. If X has a smallest element $a_0$, then $(-\infty,b))$ is of the form $[a_0,b)$. Then the intersection of $[a_0,b)$ with $(a,+\infty)$, will yield an interval of the form (a,b), which is a basis element for the order topology on X. \\
+\vspace{1mm}
+Similarly,if X has a largest element $b_0$, then $(a,\infty)$ is of the form $(a,b_0]$. Then the intersection of $(a,b_0]$ with $(-\infty,b)$, will yield an interval of the form (a,b), which is a basis element for the order topology on X. For both the largest element and the smallest element cases, we have assumed that the intersection between the sets is non-empty. If it is empty, then the basis elements of the form $(a,b_0]$ or $[a_0,b)$ which both again are subsets of the order topology on X.\\
+Thus, finite intersection of the open rays yield the basis elements for the order topology on X. Also, X= $(-\infty,a) \cap (a,+\infty)$. Hence the open rays satisfy the criteria for being a sub-basis for the order topology on X.
+\vspace{3mm}
+
+\section{The Product Topology}
+{\bf Definition}: Let X and Y be topological spaces. The product topology on X$\times$Y is the topology having as basis the collection $\mathbb{B}$ of all sets of the form U$\times$V where U is an open set in X and V is an open set in Y.\\
+\vspace{1mm}
+We need to check whether $\mathbb{B}$ is a basis over X$\times$Y.Let (x,y)$\epsilon$ X$\times$Y.The collection $\mathbb{B}$ contains elements of the form U $\times$V, where U and V are open sets in X and Y respectively. So U $\epsilon$ X and V $\epsilon$ Y.The element (x,y) belongs to the product topology on X$\times$Y. So there must be some U $\epsilon$ X and V $\epsilon$ Y such that X $\epsilon$ X and y $\epsilon$ V. Thus (x,y) $\epsilon$ U$\times$V $\subset$ X$\times$Y. Now U$\times$V $\epsilon$ $\mathbb{B}$.So the elements of the set $\mathbb{B}$ satisfy the first criteria for being a basis of the product topology on  X$\times$Y.\\
+\vspace{1mm}
+Let us take $B{_1}\epsilon\mathbb{B}$ and $B{_2}\epsilon\mathbb{B}$ such that $B{_1}$=U$\times$V and $B{_2}$=T$\times$W.The sets U and T are open in X and the sets V and W are open in Y.So we can write $B{_1}\cap B{_2}$=(U$\times$V)$\cap $(T$\times$W).Now $B{_1}\cap B{_2}$ can be also written as (U$\cap $T)$\times $(V$\cap $W).If (a,b) $\epsilon$ $B{_1}\cap B{_2}$, then (a,b) $\epsilon$ (U$\cap $T)$\times $(V$\cap $W).Since the sets
+U and T are open in X and the sets V and W are open in Y,so (U$\cap$ T) and (V$\cap$ W) are open in X and Y respectively. Let $U_0$=(U$\cap$ T) and $V_0$=(V$\cap$ W). Thus we have (a,b)$\epsilon$ ($U_0$ $\cap $ $V_0$)$\subset$ (U$\cap$ T)$\times $(V$\cap$ W).Also ($U_0$ $\cap$ $V_0$) $\epsilon \mathbb{B}$. Thus the elements of $\mathbb{B}$ satisfy the two necessary conditions for being a basis of the product topology on X$\times$Y. Hence the elements of $\mathbb{B}$ form a basis.\\
+\vspace{2mm}
+{\bf Theorem 15.1}: If $\mathbb{B}$ be the basis for a topology on X and $\mathbb{C}$ be the basis for a topology on Y, then,\\
+\vspace{1mm}
+$\mathbb{D}=\{B\times C\mid B \epsilon \mathbb{B} and C \epsilon \mathbb{C}\}$\\
+\vspace{1mm}
+is the basis for the topology on X$\times$Y.
+{\bf Proof}: 
+
+
+\end{flushleft}
+
+
+\end{document} 
