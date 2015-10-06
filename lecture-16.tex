@@ -1,0 +1,132 @@
+\documentclass[a4paper,english,12pt]{article}
+\include{header}
+
+%opening
+\title{Lecture 16: The subspace topology, Closed sets}
+\author{Parimal Parag}
+
+\begin{document}
+\maketitle
+
+\section{Closed Sets and Limit Points}
+\begin{defn}
+A subset $A$ of a topological space $X$ is said to be \textbf{closed} if the set $X - A$ is open.
+\end{defn}
+\begin{thm}
+Let $Y$ be a subspace of $X$ . Then a set $A$ is closed in $Y$ if and only if
+it equals the intersection of a closed set of $X$ with $Y$
+\begin{proof}
+Assume that $A = C \cap Y$ , where $C$ is closed in $X$ . Then $X-C$ is open in $X$ , so that $(X - C) \cap Y$ is open in $Y$ , by definition of the subspace topology. But $(X - C) \cap Y = Y - A$. Hence $Y - A$ is open in $Y$ , so that $A$ is closed in $Y$ . Conversely, assume that $A$ is closed in $Y$ .Then $Y - A$ is open in $Y$ , so that by definition it equals the intersection of an open set $U$ of $X$ with $Y$ . The set $X - U$ is closed in $X$ , and $A = Y \cap (X - U )$, so that $A$ equals the intersection of a closed set of $X$ with $Y$ , as desired. .
+\end{proof}
+\end{thm} 
+\begin{thm}
+Let $Y$ be a subspace of $X$ . If $A$ is closed in $Y$ and $Y$ is closed in $X$ ,
+then $A$ is closed in $X$ .
+\end{thm}
+\begin{defn}
+Given a subset $A$ of a topological space $X$ , the \textbf{interior} of $A$ is defined as the union of all open sets contained in $A$, and the \textbf{closure} of $A$ is defined as the intersection of all closed sets containing $A$.
+\[ Int A =\cup\{U\subseteq A | U\in \mathcal{T}  \}\]
+\[Closure \  \bar{A}= \cap \{\mathcal{F} \subseteq A | X - \mathcal{F} \in \mathcal{T}\}
+\]
+If $A$ is open, $A = Int A$; while if $A$ is closed, $A = \bar{A}$; furthermore
+\[ IntA \subseteq A \subseteq \bar{A}
+\]
+\end{defn}
+\begin{thm}
+Let $Y$ be a subspace of $X$ ; let $A$ be a subset of $Y$ ; let $\bar{A}$ denote the
+closure of $A$ in $X$ . Then the closure of $A$ in $Y$ equals $\bar{A} \cap Y$.
+\begin{proof}
+Let $B$ denote the closure of $A$ in $Y$ . The set $\bar{A}$ is closed in $X$ , so $\bar{A} \cap Y$ is closed in $Y$ by Theorem 1.2. Since $A \cap Y$ contains $A$, and since by definition $B$ equals the intersection of all closed subsets of $Y$ containing $A$, we must have $B \subset \bar{A} \cap Y$. On the other hand, we know that $B$ is closed in $Y$. Hence by Theorem 1.2, $B = C \cap Y$ for some set $C$ closed in $X$ . Then $C$ is a closed set of $X$ containing $A$; because $\bar{A}$ is the intersection of all such closed sets, we conclude that $\bar{A} \subset C$. Then $(\bar{A} \cap Y ) \subset (C \cap Y ) = B$.
+\end{proof}
+\end{thm}
+\begin{defn}
+A \textbf{neighborhood} of a point $x \in X$ is an open set $U$ containing $x$
+\end{defn}
+\begin{thm}
+Let $A$ be a subset of the topological space $X$ .
+\begin{enumerate}
+\item  Then $x \in \bar{A}$ if and only if every open set $U$ containing $x$ intersects $A$ .
+\item Supposing the topology of $X$ is given by a basis, then $x \in \bar{A}$ if and only if every basis element $B$ containing $x$ intersects $A$ .
+\end{enumerate}
+\begin{proof}
+Consider the statement in $1$. It is a statement of the form $P \leftrightarrow Q$. Let
+us transform each implication to its contrapositive, thereby obtaining the logically
+equivalent statement $(not P) \leftrightarrow (not Q)$. Written out, it is the following:
+\[x \notin \bar{A} \longleftrightarrow \ there \ exists \ an \ open \ set \ U \ containing \ x \ that \ does \ not \ intersect \ A \]
+the set $U = X - \bar{A}$ is an In this form, our theorem is easy to prove. If $x$ is not in $A$, open set containing $x$ that does not intersect $A$, as desired. Conversely, if there exists an open set $U$ containing $x$ which does not intersect $A$, then $X - U$ is a closed set containing $A$. By definition of the closure $A$, $x$ cannot be in $A$. Statement $2$ follows readily. If every open set containing $x$ intersects $A$, so does every basis element $B$ containing $x$, because $B$ is an open set. Conversely, if every basis element containing $x$ intersects $A$, so does every open set $U$ containing $x$, because $U$ contains a basis element that contains $x$.
+\end{proof}
+\end{thm}
+\begin{exmp}
+\begin{enumerate}
+\item Let $X$ be the real line $\mathbb{R}$. If $A = (0, 1]$, then $\bar{A} = [0, 1]$, for every neighborhood of $0$ intersects $A$, while every point outside $[0, 1]$ has a neighborhood disjoint from A
+\item If $B = \{1 \ n | n \in  \mathbb{Z}_+ \}$, then $\bar{B}= \{0\} \cup B$.
+\item if $C = \{0\} \cup  (1, 2), \ then \  \bar{C}= \{0\} \cup [1, 2]$.
+\item If $\mathbb{Z}_+ $ is the set of positive integers, then $\mathbb{\bar{Z}}_+ = \mathbb{Z}_+$
+\end{enumerate}
+\end{exmp}
+\begin{defn}
+If $A$ is a subset of the topological space $X$ and if $x$ is a point of $X$ , we say that $x$ is a \textbf{limit point} (or “cluster point,” or “point of accumulation”) of $A$ if every neighborhood of $x$ intersects $A$ in some point other than $x$ itself.
+$x$ is a limit point of $A$ if it belongs to the closure of $A - \{x\}$
+\end{defn}
+\begin{exmp}
+\begin{enumerate}
+\item Consider the real line $\mathbb{R}$. If $A = (0, 1]$, then the point $0$ is a limit point of $A$ and so is the point $0.5$ . In fact, every point of the interval $[0, 1]$ is a limit point of $A$, but no other point of $\mathbb{R}$ is a limit point of $A$.
+\item If $B = \{1/n | n \in \mathbb{Z}_+\}$, then $0$ is the only limit point of $B$. Every other point $x$ of $\mathbb{R}$ has a neighborhood that either does not intersect $B$ at all, or it intersects $B$ only in the point $x$ itself. If $C = \{0\} \cup (1, 2)$, then the limit points of $C$ are the points of the interval $[1, 2]$.
+\item If $\mathbb{R}_+$ is the set of positive reals, then every point of $\{0\} \cup \mathbb{R}_+$ is a limit point of $\mathbb{R}_+$.
+\end{enumerate}
+\end{exmp}
+\begin{thm}
+Let $A$ be a subset of the topological space $X$ ; let $A'$ be the set of all
+limit points of $A$ . Then
+\[\bar{A} = A \cup A'
+\]
+\begin{proof}
+If $x$ is in $A'$ , every neighborhood of $x$ intersects $A$ (in a point different from $x$). Therefore, by Theorem 1.7, $x$ belongs to $\bar{A}$. $A' \subset \bar{A}$. Since by definition $A \subset \bar{A}$ it follows that $A \cup A' \subset \bar{A}$.
+To demonstrate the reverse inclusion, we let $x$ be a point of $\bar{A}$ and show that
+$x \in  A \cup A'$ . If $x$ happens to lie in $A$, it is trivial that $x \in A \cup A'$ ; suppose that $x$ does not lie in $A$. since $x \in  \bar{A}$. we know that every neighborhood $U$ of $x$ intersects $A$; because $x \notin A$, the set $U$ must intersect $A$ in a point different from $x$. Then $x \in  A'$ ,so that $x \in A \cup A'$ , as desired.
+\end{proof}
+
+\end{thm}
+\section{Housdorff Spaces}
+\begin{defn}
+Let $(X,\mathcal{T})$ be topological space. A sequence $\{x_n : n \in \mathbb{N}\} \subseteq X$ \textbf{converges} to $x_0 \in X$ if for all $U$ neighborhood of $x_0 \  \exists \  \mathbb{N}$ such that $x_n \in U$ for all $n \geq \mathbb{N}$
+\end{defn}
+\begin{defn}
+A topological space $X$ is called a\textbf{ Hausdorff space} if for each pair $x_1$ , $x_2$
+of distinct points of $X$ , there exist neighborhoods $U_1$ and $U_2$ of $x_1$ and $x_2$ , respectively that are disjoint.
+\end{defn}
+\begin{thm}
+Every finite point set in a Hausdorff space $X$ is closed.
+\begin{proof}
+It suffices to show that every one-point set $\{x_0\}$ is closed. If $x$ is a point of $X$ different from $x_0$ , then $x$ and $x_0$ have disjoint neighborhoods $U$ and $V$ , respectively. Since $U$ does not intersect $\{x_0\}$, the point $x$ cannot belong to the closure of the set $\{x_0\}$. As a result, the closure of the set $\{x_0\}$ is $\{x_0\}$ itself, so that it is closed.
+\end{proof}
+\end{thm}
+\begin{exmp}
+the real line $\mathbb{R}$ in the finite complement topology is not a
+Hausdorff space, but it is a space in which finite point sets are closed. The condition that finite point sets be closed has been given a name of its own: it is called the \textbf{$T_1$ axiom}.
+\end{exmp}
+\begin{thm}
+Let $X$ be a space satisfying the $T_1$ axiom; let $A$ be a subset of $X$. Then the point $x$ is a limit point of $A$ if and only if every neighborhood of $x$ contains infinitely many points of $A$ .
+\begin{proof}
+ If every neighborhood of $x$ intersects $A$ in infinitely many points, it certainly intersects $A$ in some point other than $x$ itself, so that $x$ is a limit point of $A$. Conversely, suppose that $x$ is limit point of $A$, and suppose some neighborhood $U$ of $x$ intersects $A$ in only finitely many points. Then $U$ also intersects $A - \{x\}$ in finitely many points; let $\{x_1 , . . . , x_m \}$ be the points of $U \cap (A - \{x\})$. The set $X - \{x_1 , . . . , x_m\}$ is an open set of $X$ , since the finite point set $\{x_1 , . . . , x_m \}$ is closed;
+then
+\[U \cap (X - \{x_1 , . . . , x_m \})
+\]
+is a neighborhood of $x$ that intersects the set $A - \{x\}$ not at all. This contradicts the assumption that $x$ is a limit point of $A$.
+\end{proof}
+\end{thm}
+\begin{thm}
+If $X$ is a Hausdorff space, then a sequence of points of $X$ converges
+to at most one point of $X$ .
+\begin{proof}
+Suppose that $x_n$ is a sequence of points of $X$ that converges to $x$. If $y = x$, let $U$ and $V$ be disjoint neighborhoods of $x$ and $y$, respectively. Since $U$ contains $x_n$ for all but finitely many values of $n$, the set $V$ cannot. Therefore, $x_n$ cannot converge
+to $y$.
+\end{proof}
+\end{thm}
+\begin{defn}
+If the sequence $x_n$ of points of the Hausdorff space $X$ converges to the point $x$ of $X$ , we often write $x_n \rightarrow x$, and we say that $x$ is the \textbf{limit} of the sequence $x_n$.
+\end{defn}
+
+
+	
+\end{document}
