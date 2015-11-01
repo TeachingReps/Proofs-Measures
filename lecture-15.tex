@@ -1,14 +1,14 @@
 \documentclass[a4paper,english,12pt]{article}
-\include{header}
+\input{header}
 
 %opening
 \title{Lecture 15: The subspace topology, Closed sets}
-\author{Parimal Parag}
+\author{}
 
 \begin{document}
 \maketitle
 
-\section{The subspace topology}
+\section{The Subspace Topology}
 \begin{defn}
 	Let $(X,\mathcal{T})$ be a topological space with topology $\mathcal{T}$. If $Y$ is a subset of $X$, the collection 
 	\[ \mathcal{T}_Y = \{Y \cap U | U \in \mathcal{T}\}	\]
@@ -97,7 +97,7 @@ Consider the following examples:
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\linewidth]{Lecture15_Fig1}
+	\includegraphics[width=0.8\linewidth]{Figures/Lecture15_Fig1}
 	\caption{Subspace and order}
 	\label{fig1}
 \end{figure}
@@ -121,14 +121,14 @@ The anomaly seen in Examples 2 and 3 does not occur for intervals or rays in an 
 	Consider the ray $(a, +\infty)$ in $X$. If $a \in Y$, then
 	\[(a, +\infty) \cap Y = 
 		\begin{dcases*}
-			\{x | x \in Y , x > a\} & a $\in$ Y\\
+			\{x : x \in Y , x > a\} & a $\in$ Y\\
 			Y & a=lower bound on Y, a $\notin$ Y\\
 			\phi  & a=upper bound on Y, a $\notin$ Y
 		\end{dcases*}
 	\]
 	
-		A similar remark shows that the intersection of the ray $(—\infty, a)$ with $Y$ is either	an open ray of $Y$, or $Y$ itself, or empty. Since the sets $(a, +\infty) \cap Y$ and $(-\infty,a \cap Y)$ form a subbasis for the subspace topology on $Y$, and since each is open in the order topology, the order topology contains the subspace topology.\\
-		To prove the reverse, note that any open ray of $Y$ equals the intersection of an open ray of $X$ with $Y$, so it is open in the subspace topology on $Y$. Since the open rays of $Y$ are a subbasis for the order topology on $Y$, this topology is contained in the subspace topology.
+		A similar remark shows that the intersection of the ray $(—\infty, a)$ with $Y$ is either	an open ray of $Y$, or $Y$ itself, or empty. Since the sets $(a, +\infty) \cap Y$ and $(-\infty,a \cap Y)$ form a sub-basis for the subspace topology on $Y$, and since each is open in the order topology, the order topology contains the subspace topology.\\
+		To prove the reverse, note that any open ray of $Y$ equals the intersection of an open ray of $X$ with $Y$, so it is open in the subspace topology on $Y$. Since the open rays of $Y$ are a sub-basis for the order topology on $Y$, this topology is contained in the subspace topology.
 \end{proof}
 
 \section{Closed Sets}
@@ -181,12 +181,16 @@ The collection of closed subsets of a space $X$ has properties similar to those 
 	\begin{enumerate}
 		\item $\phi$ and $X$ are closed because they are the complements of the open sets $X$ and $\phi$, respectively.
 		
-		\item Given a collection of closed sets we apply DeMorgan's law,
-		\[X-\bigcap_{\alpha \in J} A_\alpha = \bigcup_{\alpha \in J} (X-A_\alpha)\]
-		Since the sets $X — A_\alpha$ are open by definition, the right side of this equation represents	an arbitrary union of open sets, and is thus open. Therefore, $\bigcap A_\alpha$ is closed.
+		\item Given a collection of closed sets we apply De Morgan's law,
+		\begin{align*}
+			X \setminus\bigcap_{\alpha \in J} A_\alpha = \bigcup_{\alpha \in J} (X \setminus A_\alpha).
+		\end{align*}
+		Since the sets $X \setminus A_\alpha$ are open by definition, the right side of this equation represents	an arbitrary union of open sets, and is thus open. Therefore, $\bigcap A_\alpha$ is closed.
 		
-		\item Similarly, if $A_i$ is closed for $i = 1,...,n$, consider the equation
-		\[X-\bigcup_{\alpha \in J}^n A_i = \bigcap_{\alpha \in J}^n (X-A_i) \]
+		\item Similarly, if $A_i$ is closed for $i \in [n]$, consider the equation
+		\begin{align*}
+			X \setminus\bigcup_{\alpha \in J}^n A_i = \bigcap_{\alpha \in J}^n (X \setminus A_i).
+		\end{align*}
 		The set on the right side of this equation is a finite intersection of open sets and is therefore open. Hence $\cup A_i$ is closed.
 	\end{enumerate}
 \end{proof}

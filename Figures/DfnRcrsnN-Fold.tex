@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+[node distance = 10mm,text height=1.2ex,text depth=.25ex, % align text horizontally 
+draw=black,very thick,
+point/.style={coordinate},>=latex,bend angle=20,
+expression/.style={rounded rectangle, inner sep = 0pt,minimum size = 7mm,very thick,draw=white},
+pre/.style={<-, thick},
+post/.style={->, thick},
+prepost/.style={<->, double, thick}]	
+				
+\node[expression] (e0) at (0,0) {$\Natural$};
+\node[expression] (e1) [right=of e0] {$\Natural$}
+  edge[pre] node[auto]{$s$} (e0);
+\node[expression] (e2) [below=of e0] {$\mathcal{F}$}
+	edge[pre] node[auto]{$\phi$} (e0);
+\node[expression] (e3) [right=of e2] {$\mathcal{F}$}
+	edge[pre] node [auto]{$\phi$}(e1)
+	edge[pre] node [auto]{$k$} (e2);
+\end{tikzpicture}

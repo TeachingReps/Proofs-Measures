@@ -1,0 +1,145 @@
+\documentclass[a4paper,english,12pt]{article}
+\input{header}
+
+% Title Page
+\title{Lecture 9: Principle of Mathematical Induction}
+\author{}
+
+\begin{document}
+\maketitle
+% \begin{abstract}
+% \end{abstract}
+\section{Properties of Natural Numbers}
+Most fundamental property of natural numbers is ability to do proof by induction. 
+The set of natural numbers is denoted by the set $\Natural$. The set $\Natural$ consists of a distinguished element denoted by $1$ considered to be starting point for the induction. A unique property for the set of natural numbers is that, there is a function $s$ which maps the elements of $\Natural$ to its successor in $\Natural$. Any rigorous treatment of the natural numbers must ultimately rely upon some axioms. There are two standard axiomatic approaches to developing the natural numbers. One approach, involving the minimal axiomatic assumptions and the most effort deducing facts from the axioms, is to assume the Peano Postulates for the natural numbers, which are stated as follows.
+
+\begin{axiom}[Peano Postulates] There exists a set $\Natural$ with an element $1\in N$ and a function $s:\Natural\to \Natural$, that satisfy the following three properties.
+\begin{itemize}
+	\item There is no $n \in \Natural$ such that $s(n)=1$.
+	\item The function $s$ is injective.
+	\item Let $G \subseteq \Natural$ be a set. Suppose that $1 \in G$, and that if $g \in G$ then $s(g) \in G$. Then $G=\Natural$.
+\end{itemize}
+\end{axiom}
+
+If we think intuitively of the function $s$ in the Peano Postulates as taking each natural number to its successor, then first postulate says that $1$ is the first number in $\Natural$, because it is not a successor of anything.
+
+\begin{defn}[Natural numbers] The set of {\bf natural numbers} is the set $\Natural$, the existence of which is given in the Peano Postulates.
+\end{defn}
+
+How do we know that there is a set, and an element of the set, and a function of the set to itself, that satisfy the Peano Postulates? There are two approaches to resolving this matter. When we do mathematics, we have to take something as axiomatic, which we use as the basis upon which we prove all our other results. Hence, one approach to the Peano Postulates is to recognize their very reasonable and minimal nature, and to be satisfied with taking them axiomatically. Alternatively, if one takes the Zermelo-Fraenkel Axioms as the basis for set theory, then it is not necessary to assume additionally that the Peano Postulates hold, because the existence of something satisfying the Peano Postulates can be derived from the Zermelo-Fraenkel Axioms.
+
+If one goes through the full development of the natural numbers starting from the Peano Postulates, the first major theorem one encounters is the one which will be stated shortly. This theorem is used in particular in the definition of addition and multiplication of the natural numbers.This theorem, called Definition by Recursion.
+
+\begin{thm}[Defintion by Recursion] Let $A$ be a set, $b\in A$, and $k:A \to A$ be a function. Then there exists a unique function $f:\Natural\to A$ such that $f(1)=b$ and $f \circ s = k \circ f$.
+\end{thm}
+\begin{rem} We make following observations about definition by recursion.
+\begin{enumerate}
+	\item The equation $f \circ s = k \circ f$ means that $f(s(n))=k(f(n))$ for all $n \in \Natural$. 
+	\item If $s(n)$ were to be interpreted as $n+1,$ that it will turn out to be once addition for $\Natural$ is rigorously defined, then $f(s(n))=k(f(n))$ would mean that $f(n+1)=k(f(n))$, which looks more familiar intuitively.
+	\item It's easier to understand this definition by the commutative diagram in Figure~\ref{Figure:DfnRcrsn}.
+	\begin{figure}[hhhh]%
+	\centering
+	%\includegraphics[width=\columnwidth]{filename}%
+		\scalebox{1.5}{\input{Figures/DfnRcrsn}}
+	\caption{Commutative diagram for recursive function $k: A \to A$.}%
+	\label{Figure:DfnRcrsn}%
+	\end{figure}
+\end{enumerate}
+
+\end{rem}
+
+\begin{thm}\label{Thm:PropertiesN} Let $a,b,c,d \in \Natural$. Then the following hold.
+\begin{enumerate}
+	\item If $a+c=b+c$, then $a=b$. (Additive inverse)
+	\item $(a + b) + c = a + (b + c)$. (Additive associativity)
+	\item $s(a)=a+1$. (Additive increment)
+	\item $a+b=b+a$. (Additive commutativity)
+	\item $a \cdot 1 = a = 1 \cdot a$. (Product identity)
+	\item $(a+b)c = ac + bc$. (Multiplicative distributivity)
+	\item $ab = ba$. (Multiplicative commutativity)
+	\item $c(a+b)=ca+cb$. (Multiplicative distributivity)
+	\item $(ab)c = a(bc)$. (Multiplicative associativity)
+	\item If $ac=bc$ then $a=b$. (Multiplicative inverse)
+	\item $a \geq a$, and $a\ngtr a$, and $a+1 > a$.
+	\item $a \geq 1$, and if $a \neq 1$ then $a > 1$.
+	\item If $a < b$ and $b < c$, then $a<c$; if $a\leq b$ and $b < c$, then $a < c$. If $a < b$ and $b \leq c$, then $a < c$; if $a \leq b$ and $b \leq c$, then $a \leq c$.
+	\item $a < b$ if and only if $a+c < b+c$.
+	\item $a < b$ if and only if $ac < bc$.
+	\item Precisely one of the following holds: $a<b$, or $a=b$, or $a>b$. (Trichotomy Law)
+	\item $a \leq b$ or $b \leq a$. (Comparability)
+	\item If $a \leq b$ and $b \leq a$, then $a=b$. (Equality)
+	\item It cannot be that $b < a < b+1$.
+	\item $a < b$ if and only if $a + 1 \leq b$.
+	\item If $a < b$, there is a unique $p \in \Natural$ such that $a + p = b$.
+\end{enumerate}
+\end{thm}
+
+\begin{thm}[Well-ordering principle] Let $A \subseteq \Natural$ be a set. If $A$ is non-empty, then there is a unique $m \in A$ such that $m \leq a$ for all $a \in A$.
+\end{thm}
+\begin{rem} Uniqueness is easy to see from Thm~\ref{Thm:PropertiesN}, but existence is hard to show.
+\end{rem}
+\begin{defn} Let $a, b \in \Natural$. The sets $\{a,\ldots, b\}$ and $\{a,\ldots\}$ are defined by $\{a,\ldots, b\} = \{x \in \Natural: a \leq x \leq b\}$ and $\{a,\ldots\} = \{x \in \Natural: a \leq x\}$ respectively.
+\end{defn}
+
+\section{Mathematical Induction}
+Mathematical induction is a method to prove statements of the form $(\forall n \in \Natural)(P(n))$. Informally, we show that $P(1)$ is true, and if $P(1)$ is true then $P(2)$ is true, and so on. It suffices to show that $P(1)$ holds, and if $P(n)$ holds then $P(n+1)$ holds for any arbitrary natural number $n$.
+\begin{thm}[Principle of mathematical induction (PMI)] Let $G \subseteq \Natural$. Suppose that
+\begin{enumerate}
+	\item $1 \in G$,
+	\item if $n \in G$, then $n+1 \in G$.
+\end{enumerate}
+Then, $G = \Natural$.
+\end{thm}
+\begin{rem} Notice second assumption is called inductive step and $n \in G$ is called inductive hypothesis.
+\end{rem}
+\begin{exmp} If $n \in \Natural$, then $8^n - 3^n$ is divisible by $5$.
+\end{exmp}
+\begin{proof} Let 
+\begin{align*}
+G = \{ n \in \Natural : 8^n - 3^n \text{ divisible by } 5\},
+\end{align*}
+and we'll show $G = \Natural$. Notice that $G \subseteq \Natural$. Further, we have $1 \in G$, since $8^1 - 3^1 = 5$ is divisible by $5$. Let $n \in G$, then $8^n - 3^n$ is divisible by $5$. Further, 
+\begin{align*}
+8^{n+1}-5^{n+1}= 8\cdot 8^n - 3 \cdot 5^n = 5 \cdot 8^n + 3(8^n-3^n).
+\end{align*}
+Hence, $8^{n+1}- 5^{n+1}$ is divisible by $5$ and hence $n+1 \in G$.
+\end{proof}
+\begin{thm}[PMI-Variant~1] Let $G \subseteq \Natural$ and $k_0 \in \Natural$. Suppose that
+\begin{enumerate}
+	\item $k_0 \in G$,
+	\item if $n \in \{k_0, \ldots\}$ and $n \in G$, then $n+1 \in G$.
+\end{enumerate}
+Then, $\{k_0,\ldots\} \subseteq G$.
+\end{thm}
+\begin{thm}[PMI-Variant~2] Let $G \subseteq \Natural$. Suppose that
+\begin{enumerate}
+	\item $1 \in G$,
+	\item if $n \in \Natural$ and $\{1, \ldots, n\} \in G$, then $n+1 \in G$.
+\end{enumerate}
+Then, $G = \Natural$.
+\end{thm}
+\begin{proof} Suppose $G \neq \Natural$, we'll derive a contradiction. Let $H = \Natural \setminus G \neq \emptyset$. Since, $H \subseteq \Natural$, we have some $m \in H$ such that $m \leq h$ for all $h \in H$ by well-ordering principle. We have $m > 1$ since $1 \in G$. Therefore, $m = 1 +b$ for some $b \in \Natural$. Let $p \in \{1,2,\ldots,b\}$, then $p \leq b < b+1 = m$. That is, $p \notin H$ and hence $p \in G$. By second hypothesis of the theorem, we have $m = b+1 \in G$. Therefore, we have a contradiction.
+\end{proof}
+\begin{thm}[PMI-Variant~3] Let $G \subseteq \Natural$ and $k_0 \in \Natural$. Suppose that
+\begin{enumerate}
+	\item $k_0 \in G$,
+	\item if $n \in \{k_0,\ldots\}$ and $\{k_0, \ldots, n\} \in G$, then $n+1 \in G$.
+\end{enumerate}
+Then, $\{k_0,\ldots\} \subseteq G$.
+\end{thm}
+\begin{defn} Set $\{1,2,\ldots,n\}$ is also denoted by $[n]$.
+\end{defn}
+\begin{exmp} Let $n \in \Natural$. Suppose that $n \geq 2$. Then $n$ is either a prime number or a product of finitely many prime numbers.
+\end{exmp}
+%\begin{proof} 
+%\end{proof}
+\begin{thm} Let $n,k \in \Natural$. Then the following are true.
+\begin{enumerate}
+	\item Let $f:[n] \to \Natural$ be a function. Then, there is a $q \in [n]$ such that $f(q) \geq f(i)$ for all $i \in [n]$.
+	\item Let $S \in [n]$ be a non-empty subset. Then, there is a bijective function $g: [n] \to [n]$ such that $g(S) = [r]$ for some $r \in \Natural$ such that $r \leq n$. If $S \subset [n]$, then $r < n$.
+	\item Let $f: [n] \to [k]$ be a function. If $f$ is bijective, then $n = k$. If $f$ is injective but not surjective, then $n < k$.
+\end{enumerate}
+\end{thm}
+%\begin{proof} We'll prove part 3 here. First, we suppose that $f$ is bijective.
+%\end{proof}
+\end{document}

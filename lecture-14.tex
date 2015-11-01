@@ -1,8 +1,8 @@
 \documentclass[a4paper,english,12pt]{article}
-\include{header}
+\input{header}
 
 % Title Page
-\title{\bf Lecture 14: The Order Topology}
+\title{Lecture 14: The Order Topology}
 \author{}
 
 \begin{document}
@@ -11,9 +11,10 @@
 % \begin{abstract}
 % \end{abstract}
 \section{The Order Topology}
-If X is a simply ordered set, there is a standard topology for X, defined using the order relation. It is called "Order Topology".\\
-\begin{flushleft}
-{\bf Definition}: Suppose X is a set having order relation $<$. Given a$<$b $\epsilon$ X, there are four subsets of X called intervals determined by a and b. They are as follows :\\
+\begin{defn}
+If $X$ is a simply ordered set, there is a standard topology for $X$, defined using the order relation. It is called \textbf{order topology}.
+\end{defn}
+\begin{defn} Suppose $X$ is a set having order relation $<$. Given a$<$b $\epsilon$ X, there are four subsets of X called intervals determined by a and b. They are as follows :\\
 \begin{centering}
 $(a,b)=\{x\mid a<x<b\}$\\
 $(a,b]=\{x\mid a<x\leq b\}$\\
@@ -65,9 +66,9 @@ $[a,+\infty)=\{x\mid x\geq a\}$\\
 The sets of type $(-\infty,a)$ and $(a,+\infty)$ are called open rays. Similarly, the sets of type $(-\infty,a]$ and $[a,+\infty)$ are called closed rays.\\
 We now need to verify that the open rays belong to the order topology on X. We shall first consider the open ray $(a,+\infty)$.\\
 If X contains a largest element $b_0$ then $(a,+\infty)$ is of the form $(a,b_0]$,which is a basis element for the order topology on X. Thus in this case $(a,+\infty)$ is open. If X has no largest element, then $(a,+\infty)$=$\bigcap_{x>a} (a,x)$. To prove this statement, let z $\epsilon (a,+\infty)$. From definition, z$>a$. Hence if we consider the set $\bigcap_{x>a} (a,x)$, z will belong at least one of the subsets of the form (a,x). Thus z $\epsilon \bigcap_{x>a} (a,x)$. Hence $(-\infty,a) \subset \bigcap_{x>a} (a,x)$.\\
-Now let p $\epsilon \bigcap_{x>a} (a,x)$. So p will belong to atleast one of the open intervals of the form $(a,x)$. If p belongs to some open interval of the form $(a,x)$, then from definition $a<p<x$. From definition of the open rays, p $\epsilon (a,+\infty)$. Thus $bigcap_{x>a} (a,x)\subset (-\infty,a))$. Also, we have proven that $(-\infty,a) \subset \bigcap_{x>a} (a,x)$. So $(-\infty,a)=\bigcap_{x>a} (a,x)$.\\
+Now let p $\epsilon \bigcap_{x>a} (a,x)$. So p will belong to at least one of the open intervals of the form $(a,x)$. If p belongs to some open interval of the form $(a,x)$, then from definition $a<p<x$. From definition of the open rays, p $\epsilon (a,+\infty)$. Thus $bigcap_{x>a} (a,x)\subset (-\infty,a))$. Also, we have proven that $(-\infty,a) \subset \bigcap_{x>a} (a,x)$. So $(-\infty,a)=\bigcap_{x>a} (a,x)$.\\
 We shall now consider the open ray $(-\infty,a)$.If X contains a smallest element $a_0$ then $(-\infty,a))$ is of the form $[a_0,a)$,which is a basis element for the order topology on X.Thus in this case $(-\infty,a)$ is open.If X has no smallest element, then $(-\infty,a)$=$\bigcap_{x<a} (x,a)$.To prove this statement, let w $\epsilon (-\infty,a)$.From definition, w$<a$. Hence if we consider the set $\bigcap_{x<a} (x,a)$, w will belong at least one of the subsets of the form (x,a). Thus w $\epsilon \bigcap_{x<a} (x,a)$. Hence $(-\infty,a) \subset \bigcap_{x<a} (x,a)$.\\
-Now let q $\epsilon \bigcap_{x<a} (x,a)$. So q will belong to atleast one of the open intervals of the form $(x,a)$. If p belongs to some open interval of the form $(x,a)$, then from definition $x<q<a$. From definition of the open rays, q $\epsilon (-\infty,a)$. Thus $\bigcap_{x<a} (x,a)\subset (-\infty,a))$. Also, we have proven that $(-\infty,a) \subset \bigcap_{x<a} (x,a)$. So $(-\infty,a)=\bigcap_{x<a} (x,a)$.\\
+Now let q $\epsilon \bigcap_{x<a} (x,a)$. So q will belong to at least one of the open intervals of the form $(x,a)$. If p belongs to some open interval of the form $(x,a)$, then from definition $x<q<a$. From definition of the open rays, q $\epsilon (-\infty,a)$. Thus $\bigcap_{x<a} (x,a)\subset (-\infty,a))$. Also, we have proven that $(-\infty,a) \subset \bigcap_{x<a} (x,a)$. So $(-\infty,a)=\bigcap_{x<a} (x,a)$.\\
 Hence both the open rays belong to the order topology on X.\\
 \vspace{2mm}
 {\bf Remark}: The open rays form a sub-basis for the order topology on X.\\

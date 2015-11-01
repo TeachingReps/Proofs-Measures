@@ -1,5 +1,5 @@
 \documentclass[a4paper,english,12pt]{article}
-\include{header}
+\input{header}
 
 \title{Lecture 7: Relations}
 \author{}
@@ -25,10 +25,10 @@ If $a \in A$ and $b \in B$, we write $aRb$ if $(a,b) \in R$ and $a \centernot R 
 \item A function $f: A \to B$ is subset of $A \times B$ satisfying certain conditions. Hence, a function $f: A \to B$ is also a relation from $A$ to $B$.
 \end{enumerate}
 \end{exmp}
-\begin{rem} Relations are more general than functions.  6 6grNotice the difference between functions and relations.
+\begin{rem} Relations are more general than functions. Notice the difference between functions and relations. The following two properties that can hold for relations but not for functions.
 \begin{enumerate}
-	\item Possible to have no ordered pair for some $a \in A$.
-	\item Possible to have more than one ordered pair for some $a \in A$.
+	\item A relation can have no ordered pair for some $a \in A$.
+	\item A relation can have more than one ordered pair for some $a \in A$.
 \end{enumerate}
 \end{rem}
 \begin{defn}[Relation Class] Let $A$ and $B$ be non-empty sets and let $R$ be a relation from $A$ to $B$.For each element $x \in A$, define the \textbf{relation class} of $x$ with respect to relation $R$, denoted $R[x]$, to be the set
@@ -43,14 +43,14 @@ If the relation $R$ is understood from the context, we will often write $[x]$ in
 	\item There are a number of distinct cases here, and we will examine a few of them. 
 	\begin{enumerate}
 		\item If $x$ is the only child of each of her parents, then $[x] = \{x\}$, where we observe that
-$x$ has the same parents as herself. Notice that for any two distinct single children, $[x] \cup [y] = \emptyset$. That is, we have examples of relations classes that are disjoint.
+$x$ has the same parents as herself. Notice that for any two distinct single children, $[x] \cap [y] = \emptyset$. That is, we have examples of relations classes that are disjoint.
 		\item If $y$ and $z$ are the only two children of each of their parents, then $[y] = \{y, z\} = [z]$. 
 		\item If $a$ has one half-sibling $b$ by her father, and another half-sibling $c$ by her mother, and each of $b$ and $c$ have no other siblings or half-siblings, then $[a] = \{a, b, c\}$, and $[b] = \{a, b\}$, and $[c] = \{a, c\}$.
 	\end{enumerate}
 	\item For the relation $<$, we see that $[x] = (x, \infty)$ for all $x \in \mathbb{R}$, and for the relation
 $\leq$, we see that $[x] = [x, \infty)$ for all $x \in \mathbb{R}$.
 	\item Relation class of a person $x$ is $[x] = \{\text{ set of books read by }x\}$. 
-	\item Relation class of a subset $P \subseteq A$ is $[P] = \{ Q \subset A: p \subseteq Q \}$.
+	\item Relation class of a subset $P \subseteq A$ is $[P] = \{ Q \subset A: P \subseteq Q \}$.
 	\item Relation class of a function $x$ is $[x] = \{f(x)\}$.
 \end{enumerate}
 \end{exmp}
@@ -69,12 +69,50 @@ We see that relation classes can be empty. Two relation classes can be disjoint 
 	\item Congruence of triangles is reflexive, symmetric, and transitive.
 	\item Relation of one person weighing within $5$ kgs of another person is reflexive, symmetric, but not transitive.
 	\item The relation $\leq$ on real numbers is not symmetric. However, this relation is reflexive, and transitive. 
-	\item Let $C=\{1,2,3\}$, and a relation $P$ on set $C$ such that $P=\{(2,2),(3,3),(2,3),(3,2)\}$. Then $P$ is not reflexive as $(1,1) \notin P$, symmetric as $\{(2,3),(3,2)\} \in P$, and transitive as $\{(2,3),(3,2),(2,2)\} \in P$.
-	\item Let $B=\{x,y,z\}$ and a relation $T$ on set $B$ such that $T = \{(x,x),(y,y),(z,z),(x,y),(y,z)\}$. Relation $T$ is reflexive as $\{(x,x),(y,y),(z,z)\} \in T$, not symmetric as $\{(y,x),(z,y)\} \notin T$, and not transitive as $(x,z) \notin T$.
-	\item Relation of one person being cousin of another is symmetric, but not reflexive, or transitive. In fact it is anti-reflexive.
-	\item Relation $<$ on real numbers is neither reflexive, nor symmetric. However, it is anti-reflexive, comparable, and transitive.
+	\item Let $C=\{1,2,3\}$, and a relation $P$ on set $C$ such that 
+	\begin{align*}
+	P=\{(2,2),(3,3),(2,3),(3,2)\}.
+	\end{align*}
+	Then $P$ is not reflexive as $(1,1) \notin P$, symmetric as $\{(2,3),(3,2)\} \in P$, and transitive as $\{(2,3),(3,2),(2,2)\} \in P$.
+	\item Let $B=\{x,y,z\}$ and a relation $T$ on set $B$ such that 
+	\begin{align*}
+	T = \{(x,x),(y,y),(z,z),(x,y),(y,z)\}.
+	\end{align*}
+	Relation $T$ is reflexive as $\{(x,x),(y,y),(z,z)\} \in T$, not symmetric as $\{(y,x),(z,y)\} \notin T$, and not transitive as $(x,z) \notin T$.
+	\item Relation of one person being cousin of another is symmetric, but not reflexive, or transitive. In fact, it is non-reflexive.
+	\item Relation $<$ on real numbers is neither reflexive, nor symmetric. However, it is non-reflexive, comparable, and transitive.
 	\item Relation of one person being daughter of another person is neither reflexive, nor symmetric, nor transitive.
 \end{enumerate}
 \end{exmp}
+
+\section{Order Relations}
+First interesting relation we will study is order relation.
+\begin{defn}[Order Relation] A relation $C$ on a set $A$ is called an \textbf{order relation} (or a \textbf{simple order}, or a \textbf{linear order}) if it is comparable, non-reflexive, and transitive. Symbol $<$ is commonly used to denote an order relation.
+\end{defn}
+\begin{rem} We use following facts and conventions for order relations.
+\begin{enumerate}
+	\item Comparability doesn't prohibit $xCy$ and $yCx$ both to be true. However, transitivity and non-reflexivity of the order relation prohibits such an occurrence.
+	\item Statement $x \leq y$ stands for statement ``either $x < y$ or $x = y$''.
+	\item Statement $x < y < z$ stands for $x < y$ and $y < z$.
+\end{enumerate}
+\end{rem}
+\begin{exmp} Following are some of the examples for order relations.
+	\begin{enumerate}
+		\item Let $R = \{(x,y) \in \mathbb{R}^2: x < y\}$. This is an order relation, called \textbf{usual order relation} on $\mathbb{R}$.
+		\item Let $C = \{(x,y) \in \mathbb{R}^2: x^2 < y^2, \text{ or } x = y \text{ and } x < y\}$. This can be verified to be an order relation.
+		\item Let $P$ be set of all people in the world. We respectively define descendent, blood, and sibling relations as 
+		\begin{align*}
+		D &= \{(x,y) \in P \times P : x \text{ descendent of } y\},\\
+		B &= \{(x,y) \in P \times P : x \text{ has an ancestor, who is also an ancestor of } y\},\\
+		S &= \{(x,y) \in P \times P : \text{ parents of } x \text{ are parents of } y\}.
+		\end{align*}
+		Descendent relation is not comparable, but it is non-reflexive, and transitive. Blood relation is neither comparable, nor non-reflexive, nor transitive. Sibling relation is transitive, but neither non-reflexive, nor comparable.  
+		\item Let $A$ be a non-empty set. We can define a relation on power set of $A$ as $\{(S,T) \in \mathcal{P}(A)\times \mathcal{P}(A): S \subset T\}$. This relation is not comparable, but non-reflexive and transitive.
+	\end{enumerate}
+\end{exmp}
+\begin{defn}[Strict Partial Order] Relations that satisfy non-reflexivity and  transitivity are called \textbf{strict partial order} relations.
+\end{defn}
+\begin{defn} Let $X$ be a set, and $<$ an order relation on $X$, with $a < b$ elements of $X$. Then, an \textbf{open interval} in $X$ is defined as set of elements $\{x \in X : a < x < b\}$, denoted by $(a, b)$. If this set is empty, we call $a$ the \textbf{immediate predecessor} of $b$, and we call $b$ the \textbf{immediate successor} of $a$.
+\end{defn}
 
 \end{document}
