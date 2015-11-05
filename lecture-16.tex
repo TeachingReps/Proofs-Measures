@@ -3,7 +3,7 @@
 
 %opening
 \title{Lecture 16: The subspace topology, Closed sets}
-\author{Parimal Parag}
+\author{}
 
 \begin{document}
 \maketitle
@@ -14,11 +14,11 @@ A subset $A$ of a topological space $X$ is said to be \textbf{closed} if the set
 \end{defn}
 \begin{thm}
 Let $Y$ be a subspace of $X$ . Then a set $A$ is closed in $Y$ if and only if
-it equals the intersection of a closed set of $X$ with $Y$
+it equals the intersection of a closed set of $X$ with $Y$.
+\end{thm}
 \begin{proof}
 Assume that $A = C \cap Y$ , where $C$ is closed in $X$ . Then $X-C$ is open in $X$ , so that $(X - C) \cap Y$ is open in $Y$ , by definition of the subspace topology. But $(X - C) \cap Y = Y - A$. Hence $Y - A$ is open in $Y$ , so that $A$ is closed in $Y$ . Conversely, assume that $A$ is closed in $Y$ .Then $Y - A$ is open in $Y$ , so that by definition it equals the intersection of an open set $U$ of $X$ with $Y$ . The set $X - U$ is closed in $X$ , and $A = Y \cap (X - U )$, so that $A$ equals the intersection of a closed set of $X$ with $Y$ , as desired. .
 \end{proof}
-\end{thm} 
 \begin{thm}
 Let $Y$ be a subspace of $X$ . If $A$ is closed in $Y$ and $Y$ is closed in $X$ ,
 then $A$ is closed in $X$ .
