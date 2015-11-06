@@ -10,46 +10,48 @@
 % \begin{abstract}
 % \end{abstract}
 \section{Recursion}
-Consider a sequence $\{1, 2, 4, 8, 16, \ldots\}$. This sequence is described in two ways. First way is, let $a_n$ denote the $n^{th}$ term of the sequence, then $a_n=2^{n-1},~ \forall n\in \Natural$. Second way is, let $a_1 =1$, and $a_{n+1}=2a_n,~ \forall n\in \Natural$. Such a description is called a ``recursive'' description of the sequence.
+Consider a sequence $\{1, 2, 4, 8, 16, \ldots\}$. This sequence is described in two ways. First way is, let $a_n$ denote the $n^{th}$ term of the sequence, then $a_n=2^{n-1},~ \forall n\in \N$. Second way is, let $a_1 =1$, and $a_{n+1}=2a_n,~ \forall n\in \N$. Such a description is called a ``recursive'' description of the sequence.
 
 Given a sequence for which we already have an explicit formula for each $a_n$ in terms of $n$, it can be useful to find a recursive formula, but there is no question that the sequence exists. What about a sequence for which we have only a recursive description, but no explicit formula?
 
-\begin{exmp} Suppose that we have the recursive description $c_1 = 4$, and $c_{n+1} = 3 + 2c_n$ for all $n \in \Natural$. Is there a sequence $\{c_1, c_2, c_3, \ldots \}$ satisfying such a description? That is, does this description actually define a sequence? 
+\begin{exmp} Suppose that we have the recursive description $c_1 = 4$, and $c_{n+1} = 3 + 2c_n$ for all $n \in \N$. Is there a sequence $\{c_1, c_2, c_3, \ldots \}$ satisfying such a description? That is, does this description actually define a sequence? 
 \end{exmp}
 \begin{rem}
 Intuitively, it seems that there exists such a sequence, because we can proceed ``inductively'', producing one element at a time. We know that $c_1 = 4$. We can then compute $c_2 = 3 + 2 c_1 = 3 + 2 \times 4 = 11$, and $c_3 = 3 + 2c_2 = 3 + 2 \times 11 = 25$, and so on. 
 \end{rem}
-%We could continue indefinitely in this way, and it would seem that the sequence $\{c_1, c_2, c_3, \ldots \}$ is defined for all $n \in \Natural$. Our intuition will turn out to be correct, and the sequence is indeed defined, and moreover uniquely defined, for all $n \in \Natural$. In fact, we will give an explicit formula for this sequence in Example~\ref{Exmp:Recurse}.
+%We could continue indefinitely in this way, and it would seem that the sequence $\{c_1, c_2, c_3, \ldots \}$ is defined for all $n \in \N$. Our intuition will turn out to be correct, and the sequence is indeed defined, and moreover uniquely defined, for all $n \in \N$. In fact, we will give an explicit formula for this sequence in Example~\ref{Exmp:Recurse}.
 
-There are a number of variations of the process of definition by recursion, the most basic of which is as follows. Suppose we are given a number $b \in X$, and a function $h:X \to X$. We then want to define a sequence $\{a_1,a_2, \ldots\} \subseteq X$ such that $a_1=b$ and that $a_{n+1}=h(a_n)$, for all  $n \in \Natural$. %To be more precise, recall from Example 4.5.2 (4) that the formal definition of a sequence of real numbers is simply a function $f : \Natural \to \Real$, which can be converted to the more standard notation for sequences by letting $a_n = f(n)$ for all $n \in \Natural$. Although the sequences discussed in Example 4.5.2 (4) were in R, the same approach applies to sequences in any set, so that a sequence in the set A is simply a function f : N $\to$ A.
+There are a number of variations of the process of definition by recursion, the most basic of which is as follows. Suppose we are given a number $b \in X$, and a function $h:X \to X$. We then want to define a sequence $\{a_1,a_2, \ldots\} \subseteq X$ such that $a_1=b$ and that $a_{n+1}=h(a_n)$, for all  $n \in \N$. %To be more precise, recall from Example 4.5.2 (4) that the formal definition of a sequence of real numbers is simply a function $f : \N \to \R$, which can be converted to the more standard notation for sequences by letting $a_n = f(n)$ for all $n \in \N$. Although the sequences discussed in Example 4.5.2 (4) were in R, the same approach applies to sequences in any set, so that a sequence in the set A is simply a function f : N $\to$ A.
 We can now state the theorem that guarantees the validity of definition by recursion.    
-\begin{thm}[Definition by Recursion] Let $A$ be a set, let $b \in A$ and let $k : A \to A$ be a function. Then there is a unique function $f : \Natural \to A$ such that $f(1) = b$, and that $f(n + 1) = k(f(n))$ for all $n \in \Natural$.
+\begin{thm}[Definition by Recursion]
+\label{Thm:DfnRcrsn} 
+Let $A$ be a set, $b \in A$, and $k : A \to A$ be a function. Then there is a unique function $f : \N \to A$ such that $f(1) = b$, and that $f(n + 1) = k(f(n))$ for all $n \in \N$.
 \end{thm}
 \begin{rem} Informally, definition by recursion says that if $A$ is a set, $b \in A$, and $k : 
-A \to A$ is a function, then there is a unique sequence $\{a_n: n \in \Natural\} \subseteq A$ such that $a_1 = b$, and that $a_{n+1} = k(a_n)$ for all $n \in \Natural$. 
+A \to A$ is a function, then there is a unique sequence $\{a_n: n \in \N\} \subseteq A$ such that $a_1 = b$, and that $a_{n+1} = k(a_n)$ for all $n \in \N$. 
 \end{rem}
-\begin{exmp}\label{Exmp:Recurse} In previous example we were looking for existence of sequence $\{c_n: n \in \Natural\}$ such that $c_1 = 4$, and $c_{n+1} = 3 + 2c_n$ for all $n \in \Natural$. Let $b = 4$, and function $h : \Real \to \Real$ defined by $h(x) = 3+2x$ for all $x \in \Real$. By definition by recursion, we have a unique function $f : \Natural \to \Real$ such that $f(1) = 4$ and  $f(n + 1) = 3 + 2 \cdot f(n)$ for all $n \in \Natural$. If we let $c_n = f(n)$ for all $n \in \Natural$, then the sequence $\{c_n: n \in \Natural\}$ satisfies the recursive conditions. %$c_1 = 4$, and $c_{n+1}=3+2c_n$ for all $n \in \Natural$.
+\begin{exmp}\label{Exmp:Recurse} In previous example we were looking for existence of sequence $\{c_n: n \in \N\}$ such that $c_1 = 4$, and $c_{n+1} = 3 + 2c_n$ for all $n \in \N$. Let $b = 4$, and function $h : \R \to \R$ defined by $h(x) = 3+2x$ for all $x \in \R$. By definition by recursion, we have a unique function $f : \N \to \R$ such that $f(1) = 4$ and  $f(n + 1) = 3 + 2 \cdot f(n)$ for all $n \in \N$. If we let $c_n = f(n)$ for all $n \in \N$, then the sequence $\{c_n: n \in \N\}$ satisfies the recursive conditions. %$c_1 = 4$, and $c_{n+1}=3+2c_n$ for all $n \in \N$.
 \end{exmp}
 \begin{rem} We make some observations about definition by recursion.
 \begin{enumerate}
 	\item Definition by recursion gives us existence of a unique sequence with the desired properties, it does not give us an explicit formula for this sequence. %It is not always possible to find an explicit formula for this sequence. It is not always possible to find an explicit formula for every sequence defined by recursion, although in the present case such a formula can be found. By calculating the first few terms of the sequence, and a bit of trial and error, it is possible to 
 	\item Usual techniques to find explicit formulas are generating functions, which unfortunately are out of scope of these lectures.
-	\item In case of Example~\ref{Exmp:Recurse}, we can guess the formula $c_n=7*2^{n-1}$ for all $n \in \Natural$, and use PMI to show this formula holds. 
-%To prove this formula holds, we use PMI. \\First, we show that the formula holds for $n=1$, that is 7*$2^{1-1}$-3=4, and observing that $c_1$=4. \\ Next, suppose that the result holds for some $n \in \Natural$, which means that $c_n=7*2^{n-1}-3$ for this $n$. We then show that the result holds for $n+1$, which we accomplish by computing\\ $c_{n+1}=3+2c_n=3+2\{7*2^{n-1}-3\}=7*2^{(n+1)-1}-3$.\\
-%It then follows from PMI that the formula holds for all $n \in \Natural$.\
-	\item Let $A$ be a non-empty set, and let $f : A \to A$ be a function. For any $n \in \Natural$, we would like to define a function denoted $f^n$, by the formula
+	\item In case of Example~\ref{Exmp:Recurse}, we can guess the formula $c_n=7*2^{n-1}$ for all $n \in \N$, and use PMI to show this formula holds. 
+%To prove this formula holds, we use PMI. \\First, we show that the formula holds for $n=1$, that is 7*$2^{1-1}$-3=4, and observing that $c_1$=4. \\ Next, suppose that the result holds for some $n \in \N$, which means that $c_n=7*2^{n-1}-3$ for this $n$. We then show that the result holds for $n+1$, which we accomplish by computing\\ $c_{n+1}=3+2c_n=3+2\{7*2^{n-1}-3\}=7*2^{(n+1)-1}-3$.\\
+%It then follows from PMI that the formula holds for all $n \in \N$.\
+	\item Let $A$ be a non-empty set, and let $f : A \to A$ be a function. For any $n \in \N$, we would like to define a function denoted $f^n$, by the formula
 \begin{align*}
 	f^n=\underbrace{f\circ \ldots \circ f}_{n \text{ times }}
 \end{align*}
 %However, anything involving ``...''is not rigorous, unless the ``...'' is an abbreviation for something that has been rigorously defined, which we can do in the present case by using Definition by Recursion.
 \end{enumerate}
 \end{rem}
-\begin{defn} Fix a function $f \in \mathcal{F}(A,A)$. Then, we can define a function $k: \mathcal{F}\to \mathcal{F}$  by $k(g) = f \circ g$ for all $g\in \mathcal{F}(A,A)$. By definition by recursion applied to the set $\mathcal{F}(A,A)$, the element $f \in \mathcal{F}(A,A)$, and the function $k: \mathcal{F}(A,A) \to \mathcal{F}(A,A)$, there exists a unique function $\phi : \Natural \to \mathcal{F}(A,A)$ such that $\phi(1) = f$ and %$\phi(n+1)=k(\phi(n))
-$k \circ \phi = f \circ \phi = \phi \circ s$. We define $f^n$ as $\phi(n)$ for all $n \in \Natural$, and refer to it as the \textbf{$n$-fold iteration of $f$}.
+\begin{defn} Fix a function $f \in \mathcal{F}(A,A)$. Then, we can define a function $k: \mathcal{F}\to \mathcal{F}$  by $k(g) = f \circ g$ for all $g\in \mathcal{F}(A,A)$. By definition by recursion applied to the set $\mathcal{F}(A,A)$, the element $f \in \mathcal{F}(A,A)$, and the function $k: \mathcal{F}(A,A) \to \mathcal{F}(A,A)$, there exists a unique function $\phi : \N \to \mathcal{F}(A,A)$ such that $\phi(1) = f$ and %$\phi(n+1)=k(\phi(n))
+$k \circ \phi = f \circ \phi = \phi \circ s$. We define $f^n$ as $\phi(n)$ for all $n \in \N$, and refer to it as the \textbf{$n$-fold iteration of $f$}.
 \end{defn}
 \begin{rem} We make the following observations about this n-fold iteration of $f$.
 \begin{enumerate}
-	\item Notice that $f^1 = \phi(1) = f$, and as we expect for all $n\in \Natural$, we have
+	\item Notice that $f^1 = \phi(1) = f$, and as we expect for all $n\in \N$, we have
 \begin{align*}
 f^{n+1} = \phi(n+1) = (\phi \circ s)(n) = (f \circ \phi)(n) = f \circ f^n.
 \end{align*}
@@ -65,15 +67,25 @@ f^{n+1} = \phi(n+1) = (\phi \circ s)(n) = (f \circ \phi)(n) = f \circ f^n.
 \end{enumerate}
 \end{rem}
 We have a variant of definition by recursion theorem by defining $a_{n+1} = k(n, a_n)$.
-\begin{thm}\label{Thm:DR-Var1} Let $A$ be a set, $b \in A$, and $t : A \times N \to A$ be a function. Then there is a unique function $g: \Natural \to A$ such that $g(1) = b$, and $g(n + 1) = t(g(n), n)$ for all $n \in \Natural$.
+\begin{thm}\label{Thm:DR-Var1} Let $A$ be a set, $b \in A$, and $t : A \times \N \to A$ be a function. Then there is a unique function $g: \N \to A$ such that $g(1) = b$, and $g(n + 1) = t(g(n), n)$ for all $n \in \N$.
 \end{thm}
+\begin{proof} We apply Theorem~\ref{Thm:DfnRcrsn} to set $B = A \times \N$, element $(b,1) \in B$, function $\tilde{t}: B \to B$, to get a unique function $\tilde{g}: \N \to B$ such that $\tilde{g}(1) = (b,1)$ and $\tilde{g} \circ s = \tilde{t} \circ \tilde{g}$. Let $\pi_1: B \to A$  and $\pi_2: B \to \N$ be coordinate-wise projections of elements in $B$ to $A$ and $\N$ respectively, such that $\pi_1(a,n) = a$ and $\pi_2(a,n) = n$ for all $(a,n) \in B$. Let $\tilde{t} = (t,s \circ \pi_2)$ for all elements in $B$, then we have $\tilde{g}(1) = (b,1)$, and 
+\begin{align*}
+\tilde{g} \circ s = \tilde{t} \circ \tilde{g} = ( t \circ \tilde{g}, s \circ \pi_2 \circ \tilde{g} ). 
+\end{align*}
+We let $g = \pi_1\circ\tilde{g}$. Then, we observe that $g(1) = b$, and 
+\begin{align*}
+g \circ s = \pi_1 \circ \tilde{g} \circ s = \pi_1 \circ \tilde{t} \circ \tilde{g} = t \circ \tilde{g} = t \circ (g, \pi_2 \circ \tilde{g}).
+\end{align*}
+It suffices to show that $(\pi_2 \circ \tilde{g})(n) = n$ holds for all $n \in \N$. We can show this by induction on $n \in \N$. It is clear that $(\pi_2 \circ \tilde{g})(1) = 1$. Assuming that inductive hypothesis holds for $n$, and observing that $(\pi_2\circ\tilde{g} \circ s) = (s \circ \pi_2 \circ \tilde{g})$, we see that it is indeed true.
+\end{proof}
 \begin{exmp} We have few interesting examples of such recursions.
 	\begin{enumerate}
-	\item We define the following recursion $a_1 = 1$, and $a_{n+1}=(n + 1)a_n$ for all $n\in \Natural$. This recursion looks curiously like familiar sequence of factorials. We formally show existence of such a sequence by defining a function $t:\Real \times \Natural \to \Real$ as $t(x, m) = (m + 1)x$ for all $(x, m)\in \Real \times \Natural$.  Applying Theorem~\ref{Thm:DR-Var1} for $A = \Real$, $b = 1$, and function $t$, we see that there is a unique sequence $\phi \in \mathcal{\Natural, \Real}$ satisfying these conditions. Notice that $\phi(1) = 1$, and $\phi(n+1) = t(\phi(n),n) = (n+1)\phi(n)$. We denote $\phi(n)$ by $n!$.
-		%This sequence starts 1, 2, 6, 24, 120, . . ., and consists of the familiar factorial numbers. We use the symbol n! to denote $a_n$, for all $n \in \Natural$. 
-	%The notation n! is informally defined by writing n! = n(n − 1)(n − 2) . . . 2 . 1, but this is not a rigorous definition, because of the appearance of ``. . .''. The formal way to define n! is to say that it is the value of $a_n$ for the sequence we have defined by recursion; doing so then gives a rigorous meaning to the · · · appearing in the expression n(n − 1)(n − 2) . . .2 . 1. From Definition by Recursion, we deduce immediately that (n + 1)! = (n + 1)n! for all $n \in \Natural$, because that is the result of substituting n! for $a_n$ in the condition $a_{n+1}=(n + 1)a_n$.\\
-	\item Let $f : \Natural \to \Real$ be a real-valued sequence, and $q: \Real \times \Natural \to \Real$ be a function defined as $q(x,n) = x + f(n+1)$. Then, the recursive definition $a_1 = f(1)$ and $a_{n+1} = q(a_n,n)$ leads to a unique sequence $h: \Natural \to \Real$ using Theorem~\ref{Thm:DR-Var1} for $A = \Real$, $b = f(1)$, and function $q$, satisfying recursive conditions.
-	%(2) In Proposition 6.3.3 we wrote the expression ``1 + 2 + . . . + n'', and in Exercise 6.3.1 we had similar expressions, such as $``1^2$ + $2^2$ + . . . + $n^2``$. We now use Theorem 6.4.3 to give this use of ''. . .`` a rigorous definition. In general, let $f : \Natural \to \Real$ be a function. We want to give a rigorous meaning to the expression ''f(1) + f(2) + . . . + f (n)``. %
+	\item We define the following recursion $a_1 = 1$, and $a_{n+1}=(n + 1)a_n$ for all $n\in \N$. This recursion looks curiously like familiar sequence of factorials. We formally show existence of such a sequence by defining a function $t:\R \times \N \to \R$ as $t(x, m) = (m + 1)x$ for all $(x, m)\in \R \times \N$.  Applying Theorem~\ref{Thm:DR-Var1} for $A = \R$, $b = 1$, and function $t$, we see that there is a unique sequence $\phi \in \mathcal{\N, \R}$ satisfying these conditions. Notice that $\phi(1) = 1$, and $\phi(n+1) = t(\phi(n),n) = (n+1)\phi(n)$. We denote $\phi(n)$ by $n!$.
+		%This sequence starts 1, 2, 6, 24, 120, . . ., and consists of the familiar factorial numbers. We use the symbol n! to denote $a_n$, for all $n \in \N$. 
+	%The notation n! is informally defined by writing n! = n(n − 1)(n − 2) . . . 2 . 1, but this is not a rigorous definition, because of the appearance of ``. . .''. The formal way to define n! is to say that it is the value of $a_n$ for the sequence we have defined by recursion; doing so then gives a rigorous meaning to the · · · appearing in the expression n(n − 1)(n − 2) . . .2 . 1. From Definition by Recursion, we deduce immediately that (n + 1)! = (n + 1)n! for all $n \in \N$, because that is the result of substituting n! for $a_n$ in the condition $a_{n+1}=(n + 1)a_n$.\\
+	\item Let $f : \N \to \R$ be a real-valued sequence, and $q: \R \times \N \to \R$ be a function defined as $q(x,n) = x + f(n+1)$. Then, the recursive definition $a_1 = f(1)$ and $a_{n+1} = q(a_n,n)$ leads to a unique sequence $h: \N \to \R$ using Theorem~\ref{Thm:DR-Var1} for $A = \R$, $b = f(1)$, and function $q$, satisfying recursive conditions.
+	%(2) In Proposition 6.3.3 we wrote the expression ``1 + 2 + . . . + n'', and in Exercise 6.3.1 we had similar expressions, such as $``1^2$ + $2^2$ + . . . + $n^2``$. We now use Theorem 6.4.3 to give this use of ''. . .`` a rigorous definition. In general, let $f : \N \to \R$ be a function. We want to give a rigorous meaning to the expression ''f(1) + f(2) + . . . + f (n)``. %
 %Let $q : R * N \to R$ be defined by $q((x, n)) = x + f (n + 1)$ for all $(x, n) \in R * N$. We then apply Theorem 6.4.3 to the set R, the element $f(1)\in R$ and the function q, and we deduce that there is a unique function $h : N \to R$ such that $h(1) = f(1)$, and that $h(n + 1) = q((h(n), n)) = h(n) + f (n + 1)$ for all $n\in N$. We now let the notation ''f(1) + f(2) + . . . + f(n)`` be defined to mean h(n), for all $n\in N$.
 %\\
 	 %
@@ -89,49 +101,78 @@ We have a variant of definition by recursion theorem by defining $a_{n+1} = k(n,
 \end{exmp}
 
 
-\begin{thm}\label{Thm:Fibonacci} Let A be a set, let $a, b \in A$ and let $p : A \times A \to A$ be a function. Then there is a unique function $f : \Natural \to A$ such that $f(1) = a$, $f(2) = b$, and $f(n + 2) = p(f(n), f(n + 1))$ for all $n \in \Natural$. 
+\begin{thm}\label{Thm:Fibonacci} Let A be a set, let $a, b \in A$ and let $p : A \times A \to A$ be a function. Then there is a unique function $f : \N \to A$ such that $f(1) = a$, $f(2) = b$, and $f(n + 2) = p(f(n), f(n + 1))$ for all $n \in \N$. 
 \end{thm}
-\begin{defn}[Fibonacci Sequence] Let $p : \Real \times \Real \to \Real$ be a function defined by $p(x,y)=x+y$ for all $(x,y)\in \Real \times \Real$. Then, the \textbf{Fibonacci sequence}, is the unique sequence denoted $\{F_n : n \in \Natural \}$ defined by $F_1 = 1$, $F_2 = 2$ and $F_{n+2} = p(F_n, F_{n+1})$.
+\begin{proof} We apply Theorem~\ref{Thm:DfnRcrsn} to set $B = A \times A$, element $(a,b) \in B$, function $\tilde{p}: B \to B$, to get a unique function $\tilde{f}: \N \to B$ such that $\tilde{f}(1) = (a,b)$ and $\tilde{f} \circ s = \tilde{p} \circ \tilde{f}$. Let $\pi_1$  and $\pi_2$ be coordinate-wise projections of elements in $B$ to $A$, such that $\pi_1(x,y) = x$ and $\pi_2(x,y) = y$ for all $(x,y) \in B$. %Let $q: B \to A$ such that $q(x,y)= p(y, p(x,y))$ for all $(x,y) \in B$. Let $q = p \circ (\pi_2, p)$, and 
+Let $\tilde{p} = (\pi_2, p)$ for all elements in $B$, then we have $\tilde{f}(1) = (a,b)$, and 
+\begin{align*}
+\tilde{f} \circ s = \tilde{p} \circ \tilde{f} = (\pi_2 \circ \tilde{f},  p \circ \tilde{f}). 
+\end{align*}
+Let $f = \pi_1 \circ \tilde{f}$. Then, we observe that $f(1) = a$, and 
+\begin{align*}
+f \circ s &= \pi_1 \circ \tilde{f} \circ s = \pi_1 \circ \tilde{p} \circ \tilde{f} = \pi_2 \circ \tilde{f},\\
+f \circ s \circ s &= \pi_2 \circ \tilde{f} \circ s = p \circ \tilde{f} = p \circ (f , \pi_2 \circ \tilde{f}) = p \circ (f , f \circ s).
+\end{align*}
+\end{proof}
+\begin{defn} Let $p : \R \times \R \to \R$ be a function defined by $p(x,y)=x+y$ for all $(x,y)\in \R \times \R$. Then, the \textbf{Fibonacci sequence} is the unique sequence denoted $\{F_n : n \in \N \}$ defined by $F_1 = 1$, $F_2 = 2$ and $F_{n+2} = p(F_n, F_{n+1})$.
 \end{defn}
-\begin{rem} Notice the existence of this unique sequence follows from Theorem~\ref{Thm:Fibonacci} applied to the case when $A = \Real$, $a = 1$, $b = 1$, and function $p : \Real \times \Real \to \Real$ is $p(x,y) = x+y$.
+\begin{rem} Notice the existence of this unique sequence follows from Theorem~\ref{Thm:Fibonacci} applied to the case when $A = \R$, $a = 1$, $b = 1$, and function $p : \R \times \R \to \R$ is $p(x,y) = x+y$.
 \end{rem}
 The following proposition gives a few examples of formulas involving the sums and products of Fibonacci numbers.
-\begin{prop} Let $n\in \Natural$. Then the following are true.
+\begin{prop} Let $n\in \N$. Then the following are true.
 \begin{enumerate}
 \item $F_1 + F_2 + . . . + F_n = F_{n+2} - 1$.
 \item $F_1^2 + F_2^2 + . . . + F_n^2 = F_nF_{n+1}$.
 \item If $n \geq 2$, then $(F_n)^2 - F_{n+1}F_{n-1}=(-1)^{n+1}$.
 \end{enumerate}
 \end{prop}
-\begin{proof} We will show part 3 using PMI-V3 with $k_0=2$. We see that $(F_2)^2-F_3F_1=1^2-2.1=-1=(-1)^{2+1}$, so the equation holds for $n=2$. Now let $n\in \Natural$. Suppose that $n \geq 3$, and that the equation holds for all values in $\{2, . . ., n\}$. We compute 
+\begin{proof} We will show part 3 using PMI-V3 with $k_0=2$. We see that $(F_2)^2-F_3F_1=1^2-2.1=-1=(-1)^{2+1}$, so the equation holds for $n=2$. Now let $n\in \N$. Suppose that $n \geq 3$, and that the equation holds for all values in $\{2, . . ., n\}$. We compute 
 \begin{align*}
-(F_{n+1})^2 - F_{n+2}F_n&=(F_n+F_{n-1})^2 - (F_{n+1}+F_n)F_n\\
-&=(F_n)^2+2F_nF_{n-1}+(F_{n-1})^2-F_{n+1}F_n-(F_n)^2\\
-&=(F_{n-1})^2+F_n(2F_{n-1}-F_{n+1}\\
-&=(F_{n-1})^2+F_n(F_{n-1}-F_n)\\
-&=(F_{n-1})^2-F_nF_{n-2}=(-1)^{(n-1)+1}=(-1)^{(n+1)+1},
+(F_{n+1})^2 - F_{n+2}F_n&=(F_{n+1})^2 - (F_{n+1}+F_n)F_n = F_{n+1}(F_{n+1}-F_n) - F_n^2\\
+&= -(F_{n}^2-F_{n+1}F_{n-1}) = - (-1)^{n+1} = (-1)^{n+2}.
 \end{align*} 
 where the last line holds by the inductive hypothesis.
 \end{proof}
+\begin{rem} Binet's formula for explicitly writing Fibonacci sequence is 
+\begin{align*}
+F_n %= \frac{1}{\sqrt{5}}\left[\left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n \right], ~\forall n \in \N,\\
+&=\frac{1}{\sqrt{5}}\left[\phi^n - (-\phi^{-1})^n \right], ~\forall n \in \N,
+\end{align*}
+where $\phi = \frac{1 + \sqrt{5}}{2}$ is the golden ratio.
+\end{rem}
     %The idea of this variation of Definition by Recursion is that we want to have each term of the sequence be dependent upon all the 
 %terms that came earlier in the sequence, not just the previous term, or the previous two terms, or any other fixed number of previous terms. In other words, we want to define a sequence $c_1, c_2, c_3, . . .$ by specifying $c_1$, and by specifying $c_{n+1}$ in terms of $c_1, . . ., c_n$, for each $n\in N$. That is, we want $c_2$ to depend upon $c_1$, and $c_3$ to depend upon $c_1~ and~ c_2$, and so on. The complication here is that there cannot be a single function to specify $c_{n+1}$ in terms of $c_1, . . ., c_n$ that works for all $n\in N$, because any single function must have a fixed number of ''variables``. To resolve this matter, we use the following definition.
 %\\\\
-%{\bf Definition 6.4.7} Let A be a set. Let G(A) be the set defined by\\
-%$\mathcal{G}(A)=\bigcup_{n=1}^{\infty}\mathcal{F}(\{1, 2, . . ., n\}, A)$\\\\
-%\begin{thm} 6.4.8} Let A be a set, let $b\in A$ and let $k : G(A)\to A$ be a function. Then there is a unique function 
-%$f : N\to A$ such that $f(1)=b$, and that $f (n + 1) = k( f|{1,...,n} )~ for~ all~ n\in N$.
-%\\
-%{\bf Proof. Uniqueness:}\\
-%Let $s,t : N\to A$ be functions. Suppose that $s(1) = b~ and~ t(1) = b$, and that $s(n + 1) = k(s|\{1,...,n\})~ and~ t(n + 1) = k(t|\{1,...,n\})~ for~ all~ n\in N$. We will show that $s(n)=t(n)~for~all~n\in N$ by induction on n, using PMI-V2 (Theorem 6.3.8). By hypothesis we know that $s(1) = b = t(1)$. Next, let $n\in N$ and suppose that $s(j) = t(j)~ for~ all~ j\in \{1,. . ., n\}$. Then $s|\{1,...,n\} = t|\{1,...,n\}$, and therefore $s(n + 1) = k(s|\{1,...,n\} ) = k(t|\{1,...,n\}) = t(n + 1)$. It now follows from PMI-V2 that $s(n) = t(n)~ for ~all~ n\in N$, which means that $s = t$. \\{\bf Existence: There are three steps in the definition of $f .$}\\
-%{\bf Step 1.} We will shown that for each $p\in N$, there is a function $h_p : \{1, . . ., p\}\to A$ such that $h_p(1)=b,$ and that $h_p(n + 1) = k(h_p |\{1,...,n\})~ for~ all~ n\in \{1, . . ., p − 1\}$. The proof is by induction on p. First, let $p=1.$ Then $\{1, . . ., p\} = \{1\}$. Let $h_1 : \{1, . . .,1\}\to A$ be defined by $h_1(1) = b$. Observe that $\{1, . . ., p − 1\} = \{1, . . ., 0\} = 0$, and hence $h_1 (n + 1) = k(h_1 |\{1, . . ., n\})~ for~ all~ n\in \{1, . . ., p − 1\}$ is necessarily true. Next, let $p\in N$. Suppose there is a function $h_p : \{1, . . ., p\}\to A$ such that $h_p(1) = b,$ and that  \begin{equation*}
-%h_{p+1}(n)= \left\{\begin{matrix}
-%h_p(n), if~ n\in \{1, . . ., p\} & \\ 
-%k(h_p), if~ n=p+1.& 
-%\end{matrix}\right.
-%\end{equation*}
-%Then $h_{p+1} |\{1,...,p\} = h_p$. It follows that $h_{p+1}(1) = h_p(1)=b$, that $h_{p+1}(n + 1) = h_p(n+1) = k(h_p |\{1,...,n\})=k(h_{p+1} |\{1,...,n\})~ for~ all~ n\in \{1,. . ., p − 1\}$ and that $h_{p+1}(p +1) = k(h_p) = k(h_{p+1} |\{1,...,p\})$. Hence $h_{p+1}$ has the desired properties. The proof of this step is then complete by PMI.
-%\\
-%{\bf Step 2.} Let $p,q\in N$. Suppose that $p<q$. We will show that $h_q(n) = h_p(n)~ for~ all~n\in \{1, . . ., p\}$ by using Exercise 6.3.15. By Step 1 we know that $h_q(1) = b = h_p(1).$ Next, suppose that $n\in \{1, . . ., p − 1\}$ and that $h_q(j)=h_p(j)$ $for~ all~j\in \{1, . . ., n\}.$ Hence $h_q|\{1,...,n\} = h_p |\{1,...,n\}$. Then by Step 1 we see that $h_q(n+1)=k(h_q |\{1,...,n\})=k(h_p |\{1,...,n\})=h_p(n+1)$. It now follows from Exercise 6.3.15 that $h_q(n)=h_p(n)~for~all~n\in \{1, . . ., p\}.$\\
-%{\bf Step 3.} Let $f:N\to A$ be defined by $f(n) = h_n(n)~ for~ all~ n\in N$. Then $f(1)=h_1(1)=b$ by Step 1. Let $p\in N$. If $j\in \{1, . . ., p\}, ~then~ j < p + 1,$ and it follows from Step 2 that $h_{p+1}(j)=h_j(j)=f(j)$. Hence $h_{p+1}|\{1,...,p\}=f|\{1,...,p\}$. Using Step 1 we then see that $f(p + 1) = h_{p+1}(p + 1) = k(h_{p+1} |\{1,...,p\})=k(f|\{1,...,p\})$. We therefore see that $f$ satisfies the desired properties.
-
+\begin{defn} Let $A$ be a set. Let $\mathcal{G}(A)$ be the set defined by
+\begin{align*}
+\mathcal{G}(A)=\bigcup_{n \in \N}\mathcal{F}([n], A).
+\end{align*}
+\end{defn}
+\begin{thm} Let $A$ be a non-empty set, an element $b \in A$, and $k: \mathcal{G}(A) \to A$ be a function. Then there is a unique function $f: \N \to A$ such that $f(1)=b$, and that $f(n + 1) = k(f|_{[n]})$ for all $n \in \N$.
+\end{thm}
+\begin{proof} As usually is the case, uniqueness is easier to show than existence.
+\begin{description}
+	\item[Uniqueness:] Let $s,t : \N \to A$ be functions. Suppose that $s(1) = t(1) = b$, and $s(n + 1) = k(s|_{[n]})$ and $t(n + 1) = k(t|_{[n]})$ for all $n \in \N$. We will show that $s(n) = t(n)$ for all $n \in \N$ by induction on $n$, using PMI-V2. 
+	
+By hypothesis, we know that $s(1) = t(1) = b$. Next, let $n \in N$ and suppose that $s(j) = t(j)$ for all $j \in [n]$. Then $s|_{[n]} = t|_{[n]}$, and therefore $s(n + 1) = k(s|_{[n]}) = k(t|_{[n]}) = t(n + 1)$. It now follows from PMI-V2 that $s(n) = t(n)$ for all$ n \in \N$, which means that $s = t$. 
+	\item[Existence:] There are three steps in the definition of $f$.
+\begin{description}
+	\item[Step 1.] We will shown that for each $p \in \N$, there is a function $h_p : [p] \to A$ such that $h_p(1)=b$, and that $h_p(n + 1) = k(h_p |_{[n]})$ for all $n \in [p-1]$. The proof is by induction on $p$. First, let $p=1$. Then, $[p] = \{1\}$. Let $h_1 : [1]\to A$ be defined by $h_1(1) = b$. Observe that $[p-1] = \emptyset$, and hence $h_1 (n + 1) = k(h_1 |_{[n]})$ for all $n\in [p-1]$ is necessarily true. Next, let $p \in \N$, and assume that inductive hypothesis is true for $p$, for a function $h_p: [p] \to A$. We define a function $h_{p+1}: [p+1] \to A$ as% such that $h_p(1) = b,$ and that  
+\begin{align*}
+h_{p+1}(n)= \begin{cases}
+h_p(n),  &n \in [p],\\ 
+k(h_p),  &n=p+1. 
+\end{cases}
+\end{align*}
+Then $h_{p+1} |_{[p]} = h_p$. It follows that $h_{p+1}(1) = h_p(1)=b$, and 
+\begin{align*}
+h_{p+1}(n + 1) = h_p(n+1) = k(h_p|_{[n]})=k(h_{p+1}|_{[n]}) = h_p(n) \forall n \in [p-1],
+\end{align*}
+and that $h_{p+1}(p+1) = k(h_p) = k(h_{p+1}|_{[p]})$. Hence $h_{p+1}$ has the desired properties. The proof of this step is then complete by PMI.
+	\item[Step 2.] Let $p,q \in \N$. Suppose that $p < q$. We can show that $h_q(n) = h_p(n)$ for all $n\in [p]$. By Step 1, we know that $h_q(1) = h_p(1) = b$. Next, suppose that $n\in [p-1]$ and that $h_q(j)=h_p(j)$ for all $j \in [n].$ Hence $h_q|[n] = h_p |_{[n]}$. Then by Step 1 we see that $h_q(n+1)=k(h_q |_{[n]})=k(h_p |_{[n]})=h_p(n+1)$. It now follows that $h_q(n)=h_p(n)$ for all $n \in [p]$.
+	\item[Step 3.] Let $f: \N \to A$ be defined by $f(n) = h_n(n)$ for all $n\in \N$. Then $f(1)=h_1(1)=b$ by Step 1. Let $p\in \N$. If $j\in [p]$, then $j < p + 1$, and it follows from Step 2 that $h_{p+1}(j)=h_j(j)=f(j)$. Hence $h_{p+1}|_{[p]}=f|_{[p]}\}$. Using Step 1 we then see that $f(p + 1) = h_{p+1}(p + 1) = k(h_{p+1}|_{[p]})=k(f|_{[p]})$. 
+\end{description}	
+We therefore see that $f$ satisfies the desired properties.
+\end{description}
+\end{proof}
 \end{document}          
