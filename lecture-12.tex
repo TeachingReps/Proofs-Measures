@@ -11,23 +11,34 @@
 %\section{}
 %\subsection{}
 \section{Topological Spaces}
-\begin{defn}[Topology] A \textbf{topology} on a set $X$ is a collection $\T$ of subsets of $X$ having the following properties
+\begin{defn} A \textbf{topology} on a set $X$ is a collection $\T$ of subsets of $X$ having the following properties
 \begin{enumerate}
 \item $\emptyset$ and $X$ are in $\T$.
 \item The union of the elements of any sub-collection of $\T$ is in $\T$.
 \item The intersection of any finite sub-collection of $\T$ is in $\T$. A set $X$ for which a topology $\T$ has been specified is called a \textbf{topological space $(X,\T)$}.
 \end{enumerate}
 \end{defn}
-\begin{defn}[Open Set] If $X$ is a topological space with topology $\T$, we say that a subsets $U$ of $X$ is an \textbf{open set} of $X$ if $U$ belongs to the collection of $\T$.
+\begin{defn} If $X$ is a topological space with topology $\T$, we say that a subset $U$ of $X$ is an \textbf{open set} of $X$ if $U$ belongs to the collection of $\T$.
+\end{defn}
+\begin{defn} Let $X$ be any set. 
+\begin{itemize}
+	\item Power set $\mathcal{P}(X)$ is a topology called \textbf{discrete topology}.
+	\item Collection $\T =\{\emptyset,X\}$ is a topology called \textbf{indiscrete topology} or \textbf{trivial topology}.
+\end{itemize} 
 \end{defn}
 \begin{exmp} 
- Let $X$ be any set, then its power set $\mathcal{P}(X)$ is a topology and is called as \textbf{discrete topology}.  While topology $\T =\{\emptyset,X\}$ is called \textbf{indiscrete topology} or \textbf{trivial topology}.
-\end{exmp}
-\begin{exmp} 
- Let $X$ be a set, and let $\T_f = \{U\subseteq X : X \setminus U\text{ is finite or }X \setminus U= X\}$. Prove that $\T_f$ is a topology on $X$.
- \begin{proof}
-  Both $\emptyset$ and $X$ are in $\T_f$ since $X \setminus\emptyset =X$ and $X \setminus X$ is finite. Let $\{U_i\}$ be a indexed family of nonzero elements of $\T_f$. Now to show that the union of any sub-collection $\mathcal{I}$ of $U_i$ is in $\T_f$ $$X\setminus\bigcup_{i\in\mathcal{I}}U_i=\bigcap_{i\in\mathcal{I}}(X\setminus U_i)\subseteq (X\setminus U_i).$$ Since $X\setminus U_i$ is finite hence union of any sub-collection of $U_i$ is in $X$. Let $U_1,\ldots,U_n$ denote the finite nonzero elements of $X$. To show that their intersection is in $X$ $$X\setminus\bigcap_{i\in\mathcal{I}}U_i=\bigcup_{i\in\mathcal{I}}(X\setminus U_i),$$
-  since it is a finite union of finite sets hence it is also finite. 
+ Let $X$ be a set, and let $\T_f = \{U\subseteq X : X \setminus U \text{ is finite or }X \setminus U= X\}$. Prove that $\T_f$ is a topology on $X$.
+\begin{proof}
+Both $\emptyset$ and $X$ are in $\T_f$ since $X \setminus \emptyset = X$ and $X \setminus X$ is finite. Let $\{U_i: i \in I \}$ be an indexed family of non-empty elements of $\T_f$. If $U_i = \emptyset$ for all $i \in I$, then there is nothing to show. Else, there exists $i \in I$ such that $X \setminus U_i$ is finite.  %To show that the union of any sub-collection $\mathcal{I}$ of $U_i$ is in $\T_f$ 
+Notice that
+\begin{align*}
+X\setminus\bigcup_{j \in I}U_j=\bigcap_{j \in {I}}(X\setminus U_j)\subseteq (X\setminus U_i).
+\end{align*}
+Since $X\setminus U_i$ is finite, union of collection of $U_i$ is in $X$. Similarly, consider $U_1,\ldots,U_n$ non-empty elements of $\T$. To show that their intersection is in $\T$, we notice that
+\begin{align*} 
+X \setminus \bigcap_{i = 1}^nU_i=\bigcup_{i = 1}^n(X\setminus U_i).
+\end{align*}
+Since finite union of finite sets is finite, $\cap_{i=1}^{n}U_i$ belongs to collection $\T$. 
  \end{proof}
  \end{exmp}
  
