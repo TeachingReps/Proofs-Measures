@@ -135,7 +135,7 @@ Next, we define an injective map $g \colon [-1,1] \to (-1,1)$ defined by $g(x) =
 \end{cor}
 \begin{exmp} Let $B = \{1,4,9,16\}$. We can show $|B| = 4$ by showing $B \sim [4]$. Let $h: B \to [4]$ defined by $h(x) = \sqrt{x}$ for all $x \in B$. It is easy to see that $h$ is a bijection.
 \end{exmp}
-\begin{thm} Let $A$ be a set. Suppose $A$ is finite
+\begin{thm}\label{Thm:SubsetFiniteSets} Let $A$ be a set. Suppose $A$ is finite
 \begin{enumerate}[i$\_$]
 \item If $X \subseteq A$, then $X$ is finite.
 \item If $X \subseteq A$, then $|A|=|X|+|A \setminus X|$.
@@ -144,7 +144,7 @@ Next, we define an injective map $g \colon [-1,1] \to (-1,1)$ defined by $g(x) =
 \end{enumerate}
 \end{thm}
 \begin{proof}
-\begin{enumerate}[$i\_$]
+\begin{enumerate}[i$\_$]
 	\item It follows immediately from the technical theorem. %Let $S \subseteq \{1,2,3,...,n\}$  be a non-empty subset. Then there is a bijective function $g \colon \{1,2,3,...,n\} \to \{1,2,3,...,n\}$ such that $g(S) =  \{1,2,3,...,k\}$ for some $k \in \N$ and $k \leq n$.If S is a proper subset of $\{1,2,3,...,n\}$ then $r < n$.\\
 	\item If $A \setminus X$ is $\emptyset$, then the result is trivial. Consider the case, when $A \setminus X \neq \emptyset$, and let $|A| = n$ for some $n > 0$. Let $f \colon A \to [n]$ be a bijection. We apply the technical theorem to a subset $f(X) \subseteq [n]$ for $X \subseteq A$, to find a bijection $g \colon [n] \to [n]$ such that $g(f(X)) =  [k]$ for some $k \in \N$ and $k \leq n$. Since $g$ and $f$ are bijections, $g \circ f$ is also a bijection. Then, it follows that $X \sim  [k]$, that is $|X|=k$. Hence, we have
 \begin{align*} 
@@ -152,16 +152,16 @@ Next, we define an injective map $g \colon [-1,1] \to (-1,1)$ defined by $g(x) =
 \end{align*}
 %$\qquad \qquad \qquad \qquad \qquad \,\,\,\,\,\,\,\,   =\{1,2,3,...,n\}-\{1,2,3,...,k\} = \{k+1,k+2,...,n\}$\\
 Since $g \circ f$ is bijection, it follows that $|A-X| \sim \{m \in \N: k < m \leq n\}$. We can find a bijection $h: [n-k] \to \{m \in \N: k < m \leq n\}$ defined by $g(x) = x-k$. Therefore, we deduce that $|A \setminus X|=n-k$.
-	\item It follows from $ii\_$ and non-negativity of cardinality.
-	\item It follows from $iii\_$ and Corollary~\ref{Cor:EqCard}.
+	\item It follows from ii$\_$ and non-negativity of cardinality.
+	\item It follows from iii$\_$ and Corollary~\ref{Cor:EqCard}.
 \end{enumerate}
-
-
 \end{proof}
-\begin{cor} Let A be a set, then A is infinite iff it contains an infinite subset.
+\begin{rem} Theorem~\ref{Thm:SubsetFiniteSets}iv$\_$ is not always true, and finiteness is important. For example, $\N \subset \Z$, but $\N \sim \Z$. 
+\end{rem}
+\begin{cor} Let $A$ be a set, then $A$ is infinite iff it contains an infinite subset.
 \end{cor}
-
-
-
-
+\begin{thm} A countably infinite set has same cardinality as $\N$.
+\end{thm}
+\begin{rem} Informally, a countably infinite set can be lined up in some order. For example, if $A \sim \N$ with the bijection $f: \N \to A$, then elements of $A$ can be written as $\{f(n): n \in \N\}$.
+\end{rem}
 \end{document}  
