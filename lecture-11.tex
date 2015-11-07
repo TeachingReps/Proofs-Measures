@@ -1,119 +1,161 @@
 \documentclass[a4paper,english,12pt]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
 \input{header}
 
-
-\title{Lecture 11 : Countability}
+\title{Lecture 11 : Cardinality of Sets}
 \author{}
 
 \begin{document}
 \maketitle
 
-\section{Countability}
-\begin{defn} Let $n \in \N$, Let $[n]$ denote the set $\{1,2,3,....n\}$
-\begin{enumerate}
-\item A set $\textbf{A}$ is finite if it is either empty or $A \sim [n]$ for some $n \in \N$.
-\item The set $\textbf{A}$ is infinite if it is not finite.
-\item The set $\textbf{A}$ is countably infinite if $A \sim \N$.
-\item The set $\textbf{A}$ is countable if it is finite or countably infinite.
-\item The set $\textbf{A}$ is uncountable if it is not countable.
-\end{enumerate}
+\section{Cardinality}
+We are interested in knowing sizes of sets. Finite sets are usually well behaved. The difficulty starts in trying to understand infinite sets. Infinite sets have been notoriously difficult to understand. In fact, Greek philosopher Zeno proposed several paradoxes to support that Parmenides's doctrine that motion is an illusion. Nine of his surviving paradoxes are all equivalent and inherently related to notion of infinity and infinitesimal. Zeno's three most famous paradoxes are noted below.
+\begin{itemize}
+	\item Achilles and tortois paradox states that ``\textit{in a race, the quickest runner can never overtake the slowest, since the pursuer must first reach the point whence the pursued started, so that the slower must always hold a lead}''.
+	\item Dichotomy law states ``\textit{that which is in locomotion must arrive at the half-way stage before it arrives at the goal}''. 
+	\item Arrow paradox states that ``\textit{if everything when it occupies an equal space is at rest, and if that which is in locomotion is always occupying such a space at any moment, the flying arrow is therefore motionless}'' .
+\end{itemize}
+By 17th century, we had a good yet incomplete understanding of infinite numbers. Galileo thought all infinite sets have same size, which as we know now is incorrect. Cantor developed the set theory 250 years after Galileo, providing an accurate understanding of the sizes of infinite sets.
+
+We consider the famous hotel problem related to cardinality. Suppose that a bus full of mathematicians come to a hotel, how can we ensure that they can all be accommodated in this hotel? There are two ways of going about it. First, we can just assign each mathematician to an available room in the hotel. Second, we can count the number of available rooms and number of mathematicians in the bus. If these two numbers are the same, then they can be accommodated in the hotel. It turns out, this example is very instructive, and right way of thinking about sizes of sets.
+\begin{defn} We say that two sets $A$ and $B$ have same \textbf{cardinality} written $A \sim B$, if there is a bijective map $f: A \to B$.
 \end{defn}
-\begin{lem} 
-\begin{enumerate}
-\item The set $\N$ is infinite.
-\item A countably infinite set if $A \sim \N$.
+
+\begin{lem} Let $A,B,C$ be sets.
+\begin{enumerate}[i$\_$]
+\item $A \sim A$.
+\item If $A \sim B$ and $B \sim C$, then $A \sim C$.
+\item If $A \sim B$, then $B \sim A$.
 \end{enumerate}
 \end{lem}
-\begin{proof} $\textbf{(i)}$ Suppose that $\N$ is finite. Because $\N \neq \emptyset$ then $\exists n \in \N$ such that $\N \sim [n]$.
-Let $f \colon [n] \to \N$ be bijective function. From previous theorem it follows that $\exists k \in [n]$ such that $f(k) \geq f(i) $ $\forall i \in [n]$. Therefore 
-$f(k)+1 \notin f([n])$. But $f(k)+1 \in \N$,Therefore $f$ is not Surjective. This is contradiction since $f$ is bijective. Hence The set $\N$ is infinite.\\
-$\textbf{(ii)}$ Let B be a countably infinite set, Then $B \sim \N$ by definition. Suppose that B is finite, then it means  $\N$ is finite. Which is a contradiction to part 1 of this lemma.
-\end{proof} 
-\begin{exmp} Let A={1,2} then $P(A)=\{ \emptyset,\{1\},\{2\},\{1,2\}\}$. Therefore $A \nsim P(A) $.
-\end{exmp}
-\begin{thm} Let A be a set then $A \nsim P(A) $.
-\end{thm}
-\begin{proof} Consider $A = \emptyset$ then $P(A) = \{ \emptyset \}$ , Hence there can not be a bijective function $P(A) \to A$. So $A \nsim P(A) $.\\
-Suppose $A \neq \emptyset$ , Suppose $A \sim P(A)$ then $\exists$ bijection $f \colon A \to P(A)$.\\
-Let $D=\{a \in A  | a \notin f(a)\}$. Notice $D \subseteq A$. Hence $D \in P(A)$. Since $f$ is surjective we can choose $d \in A$ such that $f(d)=D$.\\
-Is $d \in D$?\\
-Suppose $d \in D$, then $d \notin f(d)=D$.\\
-Suppose $d \notin D$, then $d \in f(d)=D$.\\
-We therefore have a contradiction. So $A \nsim P(A)$.
-\end{proof}
-\begin{cor} The set P($\N$) is uncountable.
+\begin{cor} Cardinality is an equivalence relation on subsets of any non-empty set $X$.
 \end{cor}
-\begin{defn} Let A and B be sets. we say that $A \leq B$ if there is an injection function $f \colon A \to B$. we say that $A < B$ if $A \leq B$ and $A \nsim B$.
+
+\begin{defn} Let $n \in \N$, Let $[n]$ denote the set $\{m \in \N: m \leq n\}$.
+\begin{enumerate}
+\item A set $A$ is \textbf{finite} if it is either empty or $A \sim [n]$ for some $n \in \N$.
+\item A set $A$ is \textbf{infinite} if it is not finite.
+\item A set $A$ is \textbf{countably infinite} if $A \sim \N$.
+\item A set $A$ is \textbf{countable} if it is finite or countably infinite.
+\item A set $A$ is \textbf{uncountable} if it is not countable.
+\end{enumerate}
 \end{defn}
-It is easy to see that for any set A their is an injective function from $A \to P(A)$ and hence $A \leq P(A)$. By above Theorem $A \nsim P(A)$ so $A < P(A)$. Applying this fact to set $\N$ repeatedly we get following
-\[ \N < P(\N) < P(P(\N)) < P(P(P(\N)))......\]
-Because all the sets in this sequence other than the first are uncountable, we therefore see that there are infinitely many different cardinalities among the uncountable sets.The cardinality of $\N$ is denoted by $\aleph _{0}$ and called "cardinal number" even though it is not real number. it is common to denote the cardinality of $P(\N)$ by  $ 2 ^{\aleph _{0}}$
-
-
-
-\begin{thm}[Schroeder - Bernstien theorem]
-Let A and B be sets. Suppose that $A \leq B$ and $B \leq A$, then $A \sim B$.
+\begin{lem}\label{Lemma:CtblSets} Following hold true for countable sets.
+\begin{enumerate}[i$\_$]
+\item The set $\N$ is infinite.
+\item A countably infinite set is infinite.% $A \sim \N$.
+\end{enumerate}
+\end{lem}
+\begin{proof} We use properties of natural numbers to prove these.
+\begin{enumerate}
+	\item We will show  this by contracition. Suppose that $\N$ is finite. Because $\N \neq \emptyset$ then there exists $n \in \N$ such that $\N \sim [n]$.
+Let $f \colon [n] \to \N$ be a bijective function. From a technical theorem it follows that there exists $k \in [n]$ such that $f(k) \geq f(i) $ for all $i \in [n]$. Therefore, $f(k)+1 \notin f([n])$. But $f(k)+1 > f(i)$ for all $i \in [n]$. Hence, $f(k) + 1 \notin f([n])$, but $f(k)+1 \in \N$. Therefore $f$ is not surjective. This is contradiction since $f$ is bijective. %Hence The set $\N$ is infinite.
+	\item Let $B$ be a countably infinite set, then $B \sim \N$ by definition. Suppose that $B$ is finite, then it means $\N$ is finite. This is a contradiction to part $i\_$ of this lemma.
+\end{enumerate}
+\end{proof} 
+\begin{exmp} Let $A=\{1,2\}$ then $\mathcal{P}(A) =\{ \emptyset,\{1\},\{2\},\{1,2\} \}$. Therefore, $A \nsim \mathcal{P}(A)$.
+\end{exmp}
+\begin{thm}\label{Thm:AneqPA} Let $A$ be a set then $A \nsim \mathcal{P}(A) $.
 \end{thm}
-\begin{proof}
-Let $f \colon A \to B$ and $g \colon B \to A$ be injective functions.\\
-Let T be subset of A constructed as follows\\
-Let $T_{0}=A \backslash g(B)$.
-$T_{n+1}= (g \circ f)(T_{n})$ $\forall n \in \N_{0}$.\\
-$T=\bigcup_{n \in \N_{0}} T_{n}$.\\
-We need to define a bijection $h \colon A \to B$.\\
-\[ h(x)\, \, = f(x)  \quad  x \in T \] 
-$\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \, \,=g^{-1}(x) \quad  x \in A \backslash T$.
+\begin{proof} There are two cases, when $A = \emptyset$ and when $A$ is non-empty. 
+\begin{description}
+\item[$A = \emptyset$:] In this case $\mathcal{P}(A) = \{ \emptyset \}$. Hence, there can not be a bijective function $\mathcal{P}(A) \to A$. %That is, $A \nsim \mathcal{P}(A) $. 
+\item[$A \neq \emptyset$:] We will prove by contradiction. Suppose $A \sim \mathcal{P}(A)$, then there exists a bijection $f \colon A \to \mathcal{P}(A)$. Let $D=\{a \in A  | a \notin f(a)\}$. Notice $D \subseteq A$. Hence $D \in \mathcal{P}(A)$. Since $f$ is surjective we can choose $d \in A$ such that $f(d)=D$. Is $d \in D$? Suppose that $d \in D$, then $d \notin f(d)=D$. Suppose $d \notin D$, then $d \in f(d)=D$. We therefore have a contradiction. %So $A \nsim \mathcal{P}(A)$.
+\end{description} 
+\end{proof}
+\begin{cor} The set $\mathcal{P}(\N)$ is uncountable.
+\end{cor}
+\begin{proof} From Theorem~\ref{Thm:AneqPA}, we know that a set doesn't have same cardinality as its power set. Hence, $\mathcal{P}(\N)$ is not countably infinite. It suffices to show that $\mathcal{P}(\N)$ is not finite. We show this by assuming $\mathcal{P}(\N)$ is finite and arriving at a contradiction. Observe that $T = \{\{n\}: n \in \N\} \subseteq \mathcal{P}(\N)$. It follows from Theorem~\ref{Thm:SubsetFiniteSets} that $T$ is finite. However, $T \sim \N$, which contradicts Lemma~\ref{Lemma:CtblSets}.
+\end{proof}
+\begin{rem} Any set if finite, countably infinite, or uncountable.
+\end{rem}
+\begin{defn} Let $A$ and $B$ be sets. we say that $A \preccurlyeq B$ if there is an injection function $f \colon A \to B$. we say that $A \prec B$ if $A \preccurlyeq B$ and $A \nsim B$.
+\end{defn}
+\begin{rem} Intuitively, if $A \prec B$, then $A$ has \textit{smaller size} than $B$.
+\end{rem}
+\begin{thm}\label{Thm:AlessPA} For any set $A$, we have $A \prec \mathcal{P}(A)$.
+\end{thm}
+\begin{proof} For any set $A$ there is an injective function $f: A \to \mathcal{P}(A)$ such that $f(a) = \{a\}$ for all $a \in A$. It follows that $A \preccurlyeq \mathcal{P}(A)$. By Theorem~\ref{Thm:AneqPA}, we have $A \nsim \mathcal{P}(A)$, and hence the result follows. 
+\end{proof}
+\begin{defn}\label{Defn:CardinalNumber} Cardinality of $\N$ is denoted by $\omega_0$ and called \textbf{cardinal number}. Cardinality of $\mathcal{P}(\N)$ is denoted by $\omega_1$ or $2^{\omega_0}$. Inductively, we can define cardinality of $\mathcal{P}(\omega_n)$, and denote it by $\omega_{n+1}$ for all $n \in \N$.
+\end{defn}
+\begin{rem}
+Because all the sets in this sequence other than the first are uncountable, we therefore see that there are infinitely many different cardinalities among the uncountable sets. Notice that $\{\omega_n: n \in \N_0\}$ are not real numbers. %The cardinality of $\N$ is denoted by $\aleph _{0}$ and called "cardinal number" even though it is not real number. It is common to denote the cardinality of $P(\N)$ by  $ 2 ^{\aleph _{0}}$.
+\end{rem}
+\begin{thm} For $\{\omega_n: \in \N_0\}$ defined in~\ref{Defn:CardinalNumber}, we have
+\begin{align*}
+\omega_n \prec \omega_{n+1}, \forall n \in \N_0.
+\end{align*}
+\end{thm}
+\begin{proof} Applying Theorem~\ref{Thm:AlessPA} to set $\N$ repeatedly, we get the result.
+\end{proof}
+\begin{thm}[Schroeder-Bernstien Theorem]
+Let $A$ and $B$ be sets. Suppose that $A \preccurlyeq B$ and $B \preccurlyeq A$, then $A \sim B$.
+\end{thm}
+\begin{proof} Let $f \colon A \to B$ and $g \colon B \to A$ be injective functions. Let $T \subseteq A$ be constructed as follows. Let $T_{0}=A \setminus g(B), T_{n+1}= (g \circ f)(T_{n})$ $\forall n \in \N_{0}$. Existence of a unique map $T: \mathcal{N}_0 \to \mathcal{P}(A)$ follows from definition by recursion applied to set $\mathcal{P}(A)$, element $A \setminus g(B) \in \mathcal{P}(A)$, and mapping $(g \circ f): \mathcal{P}(A) \to \mathcal{P}(A)$ as shown in Figure~\ref{Fig:SchroederBernstein}. With some abuse of notation, we define $T = \bigcup_{n \in \N_{0}} T_{n}$, and observe that
+\begin{align*}
+(g \circ f)(T)=\bigcup_{n \in \N_{0}} (g \circ f)(T_{n}) = \bigcup _{n \in \N} T_{n} \subseteq T.
+\end{align*}
+We define a map $h \colon A \to B$, such that 
+\begin{align*}
+h(x) = \begin{cases}f(x), &x \in T, \\ g^{-1}(x), & x \in A \setminus T.\end{cases}
+\end{align*}
+Since $g$ is injective, $g^{-1}(\{x\})$ has at most one element. For this function to be well defined, we need to show that $g^{1}(\{x\})$ is non-empty for all $x \notin T$. However, that follows from the fact that $x \in A\setminus T \subseteq g(B)$. Next, we will show that $h$ is a bijection in two steps.
+\begin{description}
+\item[Injectiviity:] It clear from definition that $h \arrowvert_{T}$ and $h \arrowvert_{A \setminus T}$ are injective. Let $x \in T$ and $y \notin T$. To show injectivity of $h$, it suffices to show that $h(x) \neq h(y)$. If $h(x)=h(y)$, then $f(x) = g^{-1}(y)$ or $(g \circ f)(x) = y$. This implies that $y \in (g \circ f)(T) \subseteq T$, which is contradiction since  $y \notin T$. %Hence, $h(x) \neq h(y)$, and $h$ is injective.
+\item[Surjectivity:] It is clear that $h$ is surjective on $f(T)$. To show surjectivity of $h$, it suffices to show that $h$ is surjective on $B \setminus f(T)$. Therefore, it suffices to show that 
+%Since $h$ is injective $f(T)$ and $g^{-1}(A \setminus T)$ sets  are disjoint, and $f(T) \cup g^{-1}(A \setminus T) \subseteq B$. It follows that, $ g^{-1}(A \setminus T) \subseteq B \setminus f(T)$. To show surjectivity of $h$, it suffices to show that 
+\begin{align*}
+B \setminus f(T) \subseteq g^{-1}(A \setminus T).
+\end{align*}
+Let $y \in B \setminus f(T)$. Then, $y \notin f(x)$ for any $x \in T$. By injectivity of $g$, we have $g(y) \neq (g \circ f)(x)$ for any $x \in T$. That is, $g(y) \notin (g \circ f)(T) \subseteq T$. That is, $g(y) \in A \setminus T$, or $y \in g^{-1}(A \setminus T)$.
+%Because we need to show $\forall b \in B$  $\exists a \in A$ such that $f(a)=b$.\,\,$\forall b \in f(T) \subseteq B$ this property is satisfied. Need to show for $\forall b \in B \setminus f(T)$.
+%If we can show sets $B \setminus f(T)$ and $g^{-1}(A \setminus T)$ are equal from injectivity of $h$ and property of functions we can satisfy surjectivity.
+\end{description}
+%Let $y \in B \setminus f(T) = \{ y \in B |\, \,  y \neq f(x)\,\,   for \,\,  any \,\,  x \in T\}$. Now $g(y) \neq (g \circ f)(x)$. For any $x \in T$, Since $g$ is injective. That is $g(y) \neq (g \circ f)(T) \subseteq T$(followed from above given derivation)  OR $g(y) \in A \setminus T$. That is $y \in g^{-1}(A \setminus T)$.
+\end{proof}
+
 \begin{figure}[hhhh]
 \centering
-\scalebox{.8}{\input{Figures/l11thmlemma}}
-\caption{}
-\label{Fig1}
+\scalebox{1}{\input{Figures/SchroederBernstein}}
+\caption{Commutative diagram for recursion with set $\mathcal{P} = \mathcal{P}(A)$, function $g \circ f: \mathcal{P}(A) \to \mathcal{P}(A)$, and the unique function $T: \N \to \mathcal{P}(A)$.}
+\label{Fig:SchroederBernstein}
 \end{figure}
-\\$T=\bigcup_{n \in \N_{0}} T_{n}$.\\
-$(g \circ f)(T)=\bigcup_{n \in \N_{0}} (g \circ f)(T_{n})$
-$= \bigcup _{n \in \N} T_{n} \subseteq T$.
-\\To show $h$ is bijection\\
-\textbf{Injectiviity:} Since $h \arrowvert _{T}$ and $h \arrowvert _{A \backslash T}$ are injective and if $x_{1} \in T$ and $x_{2} \in A \backslash T$ If $h(x_{1})=h(x_{2})$ implies $f(x_{1})=g^{-1}(x_{2})$ or $(g \circ f)(x_{1})=x_{2}$, that $x_{2} \in (g \circ f)(T) \subseteq T$ from above derivation. which is contradiction since  $x_{2} \in A \backslash T$. so $h(x_{1}) \neq h(x_{2})$. Hence $h$ is injective.\\
-\textbf{Surjectivity:} 
-Since $h$ is injective $f(T)$ and $g^{-1}(A \backslash T)$ sets  are disjoint. 
-And $f(T) \cup g^{-1}(A \backslash T) \subseteq B$.\,\,\,\,\,\,$ g^{-1}(A \backslash T) \subseteq B$.
-To show $h$ is surjective It suffices to show $B \backslash f(T) \subseteq g^{-1}(A \backslash T)$. Because we need to show $\forall b \in B$  $\exists a \in A$ such that $f(a)=b$.\,\,$\forall b \in f(T) \subseteq B$ this property is satisfied. Need to show for $\forall b \in B \backslash f(T)$.
-If we can show sets $B \backslash f(T)$ and $g^{-1}(A \backslash T)$ are equal from injectivity of $h$ and property of functions we can satisfy surjectivity.\\
-Let $y \in B \backslash f(T) = \{ y \in B |\, \,  y \neq f(x)\,\,   for \,\,  any \,\,  x \in T\}$. Now $g(y) \neq (g \circ f)(x)$. For any $x \in T$, Since $g$ is injective. That is $g(y) \neq (g \circ f)(T) \subseteq T$(followed from above given derivation)  OR $g(y) \in A \backslash T$. That is $y \in g^{-1}(A \backslash T)$.
 
-\end{proof}
-
-\begin{exmp} Let $a<b \in \mathbb{R}$. We will use Schroeder - Bernstien theorem to show $[a,b] \sim (a,b)$. Suffices to show $[-1,1] \sim (-1,1)$.\\
-Let $f \colon (-1,1) \to [-1,1]$ be defined by $f(x)=x$ $\forall x \in (-1,1)$ it is easy to see $f$ is injective.\\
-Let $g \colon [-1,1] \to (-1,1)$ be defined by $g(x)=x/2$ $\forall x \in [-1,1]$.
+\begin{exmp} Let $a, b \in \mathbb{R}$ such that $a < b$. We will use Schroeder-Bernstein theorem to show that $[a,b] \sim (a,b)$. Since, there is a bijection between $[a,b]$ and $[-1,1]$ and similarly a bijection between $(a,b)$ and $(-1,1)$, it suffices to show $[-1,1] \sim (-1,1)$. Let $f \colon (-1,1) \to [-1,1]$ be an injective map defined by $f(x) = x$ for all $x \in (-1,1)$.% it is easy to see $f$ is injective.\\
+Next, we define an injective map $g \colon [-1,1] \to (-1,1)$ defined by $g(x) = x/2$ for all $x \in [-1,1]$.
 \end{exmp}
-\begin{thm}[Trichotomy law for sets] Let A and B be sets then $A \leq B $ or $B \leq A$.
+\begin{thm}[Trichotomy law for sets] Let $A$ and $B$ be sets. Then $A \preccurlyeq B $ or $B \preccurlyeq A$.
 \end{thm}
-
 \section{Finite sets and countable sets}
-\begin{defn} Let A be a set. Suppose A is finite. The "cardinality" of denoted by $|A|$, is defined as follows. If $A= \emptyset$ then $|A|=0$, If $A \neq \emptyset$, then $|A|=n$ where $A \sim [n]$.
+\begin{defn} Let $A$ be a finite set. The \textbf{cardinality} of $A$ is denoted by $|A|$, and defined as follows. If $A= \emptyset$ then $|A|=0$, else $|A|=n$ when $A \sim [n]$.
 \end{defn}
-\begin{lem} Let $n,m \in \N$ then $[n] \sim [m]$ iff n=m.
+\begin{lem} Let $n,m \in \N$ then $[n] \sim [m]$ iff $n=m$.
 \end{lem}
-\begin{cor} Let A,B be finite sets then $A \sim B$ iff $|A|=|B|$.
+\begin{cor}\label{Cor:EqCard} Let $A,B$ be finite sets then $A \sim B$ iff $|A|=|B|$.
 \end{cor}
-\begin{thm} Let A be a set. Suppose A is finite
-\begin{enumerate}
-\item If $X \subseteq A$, then X is finite.
-\item If $X \subseteq A$, then $|A|=|X|+|A\backslash X|$.
+\begin{exmp} Let $B = \{1,4,9,16\}$. We can show $|B| = 4$ by showing $B \sim [4]$. Let $h: B \to [4]$ defined by $h(x) = \sqrt{x}$ for all $x \in B$. It is easy to see that $h$ is a bijection.
+\end{exmp}
+\begin{thm} Let $A$ be a set. Suppose $A$ is finite
+\begin{enumerate}[i$\_$]
+\item If $X \subseteq A$, then $X$ is finite.
+\item If $X \subseteq A$, then $|A|=|X|+|A \setminus X|$.
 \item If $X \subset A$, then $|X|<|A|$.
 \item If $X \subset A$, then $X \nsim A$.
 \end{enumerate}
 \end{thm}
 \begin{proof}
-\textbf{(i)} It follows immediately from the theorem Let $S \subseteq \{1,2,3,...,n\}$  be a non-empty subset. Then there is a bijective function $g \colon \{1,2,3,...,n\} \to \{1,2,3,...,n\}$ such that $g(S) =  \{1,2,3,...,k\}$ for some $k \in \N$ and $k \leq n$.If S is a proper subset of $\{1,2,3,...,n\}$ then $r < n$.\\
-\textbf{(ii)} If $A - X$ is $\emptyset$ result is trivial. If $A - X \neq \emptyset$ and let $|A|=n$ and n>0. Let $f \colon A \to \{1,2,3,...,n\}$ be bijection. $f(X) \subseteq \{1,2,3,...,n\}$ for $X \subseteq A$. We can find bijection $g \colon \{1,2,3,...,n\} \to \{1,2,3,...,n\}$ such that $g(f(X)) =  \{1,2,3,...,k\}$ for some $k \in \N$ and $k \leq n$. We can se that $g \circ f$ is bijection. Then it follows that $X \sim  \{1,2,3,...,k\}$ that is $|X|=k$.\\
-\[ (g \circ f)(A-X)=(g \circ f)(A)-(g \circ f)(X)= g(f(A))-g(f(X))\]
-$\qquad \qquad \qquad \qquad \qquad \,\,\,\,\,\,\,\,   =\{1,2,3,...,n\}-\{1,2,3,...,k\} = \{k+1,k+2,...,n\}$\\
-Since $g \circ f$ is bijection it follows that $|A-X| \sim \{k+1,k+2,...,n\}$. We can find a bijection from $\{1,2,3,...,n-k\} \to \{k+1,k+2,...,n\}$. Hence $|A-X|=n-k$.
-Which completes the proof.\\
-\textbf{(iii)} It follows from the above part (ii) proof.\\
-\textbf{(iv)} This part of the theorem follows from Part (iii) and Corollary.
+\begin{enumerate}[$i\_$]
+	\item It follows immediately from the technical theorem. %Let $S \subseteq \{1,2,3,...,n\}$  be a non-empty subset. Then there is a bijective function $g \colon \{1,2,3,...,n\} \to \{1,2,3,...,n\}$ such that $g(S) =  \{1,2,3,...,k\}$ for some $k \in \N$ and $k \leq n$.If S is a proper subset of $\{1,2,3,...,n\}$ then $r < n$.\\
+	\item If $A \setminus X$ is $\emptyset$, then the result is trivial. Consider the case, when $A \setminus X \neq \emptyset$, and let $|A| = n$ for some $n > 0$. Let $f \colon A \to [n]$ be a bijection. We apply the technical theorem to a subset $f(X) \subseteq [n]$ for $X \subseteq A$, to find a bijection $g \colon [n] \to [n]$ such that $g(f(X)) =  [k]$ for some $k \in \N$ and $k \leq n$. Since $g$ and $f$ are bijections, $g \circ f$ is also a bijection. Then, it follows that $X \sim  [k]$, that is $|X|=k$. Hence, we have
+\begin{align*} 
+(g \circ f)(A \setminus X)=(g \circ f)(A) \setminus (g \circ f)(X) = g(f(A)) \setminus g(f(X)) = [n] \setminus [k].
+\end{align*}
+%$\qquad \qquad \qquad \qquad \qquad \,\,\,\,\,\,\,\,   =\{1,2,3,...,n\}-\{1,2,3,...,k\} = \{k+1,k+2,...,n\}$\\
+Since $g \circ f$ is bijection, it follows that $|A-X| \sim \{m \in \N: k < m \leq n\}$. We can find a bijection $h: [n-k] \to \{m \in \N: k < m \leq n\}$ defined by $g(x) = x-k$. Therefore, we deduce that $|A \setminus X|=n-k$.
+	\item It follows from $ii\_$ and non-negativity of cardinality.
+	\item It follows from $iii\_$ and Corollary~\ref{Cor:EqCard}.
+\end{enumerate}
+
 
 \end{proof}
 \begin{cor} Let A be a set, then A is infinite iff it contains an infinite subset.
