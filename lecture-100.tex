@@ -81,7 +81,7 @@ We can replace finiteness of $\mu(A_1)$ by finiteness of $\mu(A_n)$ for some $n 
 \end{rem}
 \begin{rem} Finite assumption is necessary in continuity from above. It is possible that $\mu(A_j) = \infty$ for all $j \in \N$ and $\mu\left(\bigcap_{n \in \N}A_n\right)  < \infty$. %One such example is when $A_n = \{m \in \N: m \geq n\}$.
 \end{rem}
-\section{Limits of Sets}
+\section{Continuity of Measures}
 \begin{defn} Let $\{A_n: n \in \N\}$ be a countable collection of subsets of a non-empty set $X$. We can define increasing sequence of sets $\{B_n: n \in \N\}$ and decreasing sequence of sets $\{C_n: n\in \N\}$, such that 
 \begin{align*}
 B_n = \bigcup_{k \geq n}A_k \text {  and } C_n = \bigcap_{k \geq n}A_k.
@@ -128,7 +128,30 @@ When $\lim\sup A_n = \lim\inf A_n$, we say that \text{limit} $\lim A_n$ of the s
 \end{prop}
 \begin{proof} Let $B_n$ and $C_n$ be as in definition. Then, it is easy to see that $\{B_n: n \in \N\}$ and $\{C_n: n \in \N\}$ are decreasing and increasing sequences of sets respectively. Further, we have $C_n \subseteq A_m \subseteq B_m$ for all $m \geq n$. Further, since $B_m$ is decreasing sequence of sets, we have for all $n \in \N$,
 \begin{align*}
-C_n \subseteq \cap_{m \geq n} B_m = \cap_{m \in \N} B_m = \lim\sup A_n.
+C_n \subseteq \bigcap_{m \geq n} B_m = \bigcap_{m \in \N} B_m = \lim\sup A_n.
 \end{align*}
+Result follows from taking countable union of increasing sequence of sets $\{C_n: n \in \N\}$.
+\end{proof}
+
+\begin{lem}[Continuity of measures] Let $(X, \F, \mu)$ be a finite measure space, and a sequence $\{A_n \in \F: n \in \N\}$ of measurable sets. Then, 
+\begin{align*}
+\mu(\lim\inf A_n) \leq \lim\inf \mu(A_n) \leq \lim\sup \mu(A_n) \leq \mu(\lim\sup A_n).
+\end{align*}
+In particular, when $\lim A_n$ exists then 
+\begin{align*}
+\mu(\lim A_n) = \lim \mu(A_n).
+\end{align*}
+\end{lem}
+
+\begin{prop}[Borel-Cantelli Lemma I] Let $(X, \F, \mu)$ be a measure space, and a sequence $\{A_n \in \F: n \in \N\}$ such that $\sum_{n \in \N}\mu(A_n) < \infty$. Then, 
+\begin{align*}
+\mu(\lim\sup_{n \in \N} A_n) = 0.
+\end{align*}
+\end{prop}
+\begin{proof} Let $B_n = \cup_{k \geq n}A_k$. Then, $\{B_n: n \in \N\}$ is a decreasing sequence of sets in $\F$ with $\lim\sup_{n} A_n = \cap_{n}B_n$. Hence, for each $n \in \N$, we have
+\begin{align*}
+\mu(\lim\sup_{n \in \N} A_n) \leq \mu(B_n).
+\end{align*}
+From sub-additivity of measures, we have $\mu(B_n) \leq \sum_{k \geq n}\mu(A_k)$. Since, series $\sum_{n \in \N}\mu(A_n)$ converges, we have $\sum_{k \geq n}\mu(A_k)$ converging to zero as $n$ grows large.
 \end{proof}
 \end{document}

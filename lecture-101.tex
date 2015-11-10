@@ -1,0 +1,186 @@
+\documentclass[a4paper,english,12pt]{article}
+\include{header}
+
+%opening
+\title{Lecture 101: Properties of Measures}
+\author{}
+
+\begin{document}
+\maketitle
+
+\section{Properties of Measures}
+We will assume $(X, \F)$ to be the measurable space throughout this lecture, unless specified otherwise.
+\begin{defn} Let $(X, \F)$ be a measurable space. A measure $\mu: \F \to [0, \infty]$ is called 
+\begin{enumerate}
+	\item a \textbf{probability measure}, if $\mu(X) = 1$,
+	\item a \textbf{finite measure}, if $\mu(X) < \infty$,
+	\item a \textbf{$\sigma$-finite measure}, if there exists a sequence $\{A_n \in \F: n \in \N\}$ such that $\cup_{n \in \N}A_n = X$ and $\mu(A_n) < \infty$ for all $n \in \N$,
+	\item a \textbf{semi-finite measure}, if for each $E \in \F$ with $\mu(E) = \infty$, there exists $F \in \F$ with $F \subseteq E$ and $\mu(F) < \infty$,
+	\item \textbf{diffuse} or \textbf{atom-free}, if $\mu(\{x\}) = 0$, whenever $x \in X$ and $\{x\} \in \F$.
+\end{enumerate}
+\end{defn}
+
+\begin{lem} If $\mu$ is a finite measure, then $\mu(E)$ is finite for all $E \in \F$.
+\end{lem}
+\begin{proof} Let $E \in \F$, then $X \setminus E \in \F$. Further, set $X$ can be expressed as disjoint union of  $E \sqcup (X \setminus E)$. Then, by finite additivity of measures, we have $\mu(X) = \mu(E) + \mu(X \setminus E)$. Hence, by non-negativity of measures, we have $\mu(E) < \infty$.
+\end{proof}
+\begin{defn} Let $(X,\F,\mu)$ be a measure space. If $E = \cup_{j \in \N}E_j$ where $\mu(E_j) < \infty$ for all $j \in \N$, then the set $E$ is called of \textbf{$\sigma$-finite measure}.
+\end{defn}
+\begin{lem} A probability measure is finite. A finite measure is $\sigma$-finite.
+\end{lem}
+\begin{prop} Every $\sigma$-finite measure is semi-finite.%, but not conversely.
+\end{prop}
+\begin{proof} 
+Let $(X, \F, \mu)$ be a measure space, with $\mu$ $\sigma$-finite. Since finite measures are trivial, we consider non-finite measures. Then, there exists a countable sequence of finite sets $\{A_n: n \in \N\}$ that cover $X$. We consider $E \in \F$ such that $\mu(E) = \infty$, and we have $E = \cup_{n \in \N}E \cap A_n$. Since, $\mu(E) = \infty$, set $M = \{n \in \N: E \cap A_n \neq \emptyset \}$ is non-empty. Let $m \in M$, then $E \cap A_m \subseteq E$ and is finite from monotonicity of measures and finiteness of $A_n$ for each $n \in \N$.
+\end{proof}
+\begin{rem} In practice, most measures are $\sigma$-finite. Non $\sigma$-finite measures have pathological properties.
+\end{rem}
+
+\begin{defn}[Uniform measure] Consider a finite set $X$ with $\F = \mathcal{P}(X)$. We define a set function $\mu: \F \to [0,1]$ by $\mu(A) = \frac{|A|}{|N|}$. Then, set function $\mu$ is a probability measure called the \textbf{uniform measure} on $X$.
+\end{defn}
+
+\begin{defn}[Dirac measure] For $x \in X$, we define the set function $\delta_x$ on $\F$ by 
+\begin{align*}
+\delta_x(A) = \begin{cases}1, & x \in A,\\ 0, &x \notin A.\end{cases}
+\end{align*} 
+Set function $\delta_x$ is called the \textbf{point mass at $x$}, or an \textbf{atom on $x$}, or the \textbf{Dirac function}. 
+\end{defn}
+\begin{lem} Dirac function $\delta_x$ at $x$ is probability measure on $(X, \F)$. It is atom free only if $\{x\} \notin \F$.
+\end{lem}
+
+\begin{defn}[Counting measure] We define a set function $\mu$ on $\F$ by 
+\begin{align*}
+\mu(A) = \begin{cases}|A|, & A \text{ finite},\\ \infty, &A \text{ infinite}.\end{cases}
+\end{align*} 
+Set function $\mu$ is called the \textbf{counting measure}. 
+\end{defn}
+\begin{lem} Counting measure is finite iff $X$ is finite set. It is never atom-free. It is probability measure iff $|X| = 1$.
+\end{lem}
+
+\begin{exmp} Counting measure $\mu$ on $(\N, \mathcal{P}(\N))$ is $\sigma$-finite, but not finite. Clearly, $\mu(X) = \infty$ and $\mu(A_n) = 1$ for pair-wise disjoint $A_n = \{n: n \in \N\}$, where $\cup_{n \in \N}A_n = \N$.
+\end{exmp}
+
+\begin{exmp} Counting measure on $X = [0,1]$ and $\F = \B_X$ is semi-finite but not $\sigma$-finite.
+\end{exmp}
+
+\begin{defn} Let $X$ be a non-empty set, $E \subseteq X$ be an infinite subset, and a function $f: X \to [0, \infty]$, then 
+\begin{align*}
+\sum_{x \in E} f(x) = \sup_{F \subseteq E:  F \text{ finite }}\sum_{x \in F}f(x).
+\end{align*}
+\end{defn}
+
+\begin{prop}
+Suppose that $X$ is a finite/countable set. Then, each measure $\mu$ on $\F = \mathcal{P}(X)$ is of the form $\mu(A) = \sum_{x \in A}p(x)$ for some function $p: \F \to [0, \infty]$. 
+\end{prop}
+\begin{proof} We will show it for the case when $\mu(X) < \infty$. For each $x \in X$, since $\mathcal{P}(X)$ is the$\sigma$-algebra on $X$, all subsets of $X$ are measurable. In particular, $\{x\}$ and $X \setminus \{x\}$ are measurable. Therefore, we have $\mu(\{x\}) = \mu(X) - \mu(X\setminus \{x\})$ from finite additivity of measures. We define $p(x) = \mu(\{x\})$ for all $x \in X$. Clearly, then $p(x) \geq  0$ from monotonicity of measures. Let $A \subseteq X$. Then, $A$ is countable since $X$ is countable. From the $\sigma$-additivity of countable pair-wise disjoint sets $\{x: x \in A\}$ that cover $A$, it follows that
+\begin{align*}
+\mu(A) = \mu(\bigcup_{x \in A}\{x\}) = \sum_{x \in A}\mu(\{x\}) = \sum_{x \in A}p(x).
+\end{align*}
+\end{proof}
+
+\begin{prop} Let $(X, \mathcal{P}(X))$ be a measurable space for non-empty set $X$. Then, any non-negative function $f: X \to [0, \infty]$ determines a measure $\mu: \mathcal{P}(X) \to [0, \infty]$ by $\mu(A) = \sum_{x \in A}f(x)$ for all $A \subseteq X$. This measure $\mu$ is
+\begin{enumerate}
+	\item semi-finite iff $f(x) < \infty$ for all $x \in X$,
+	\item $\sigma$-finite iff $\mu$ is semi-finite and $\{x \in X: f(x) > 0\}$ is countable,
+	\item counting measure if $f(x) = 1$ for all $x \in X$,
+	\item dirac measure if for some $x_0 \in X$, we have $f(x) = \delta_{x_0}(\{x\})$ for all $x \in X$,%$f(x_0) = 1$ and $f(x) = 0$ for all $x \neq x_0$,
+	\item uniform measure if $X$ finite and $f(x) = 1/|X|$ for all $x \in X$.
+\end{enumerate}
+\end{prop}
+\begin{proof} It's easy to verify the null set has measure zero. It's also trivial to see $\sigma$-additivity holds for finite sets $X$. We will verify $\sigma$-additive property for general $X$. Consider $\{A_n \subseteq X: n \in \N\}$, a pair-wise disjoint sequence of subsets of $X$, and $E \subseteq X$ finite. Let $A = \cup_{n \in \N}A_n$, then $\{E \cap A_n \subseteq A_n: n \in \N\}$ is a pair-wise disjoint sequence of finite sets such that $E \cap A = \cup_{n \in \N} E \cap A_n$. % with respect to set function $\mu$, since non-finite case is trivial. 
+Then, from $\sigma$-additivity of measure on finite sets, we have 
+\begin{align*}
+\mu(E \cap A)= \sum_{n \in \N}\mu(E \cap A_n).
+\end{align*}
+Therefore, we can conclude by taking supremums that 
+\begin{align*}
+\mu(A) &= \sup_{E \subseteq A : E \text{ finite}}\sum_{x \in E}f(x) = \sup_{E \subseteq A : E \text{ finite}}\mu(E \cap A)= \sup_{E \subseteq A : E \text{ finite}}\sum_{n \in \N}\mu(E \cap A_n)\\
+& = \sup_{E \subseteq A : E \text{ finite}}\sum_{n \in \N}\mu(E \cap A_n) = \sum_{n \in \N} \sup_{E \cap A_n \subseteq A_n : E \text{ finite}}\mu(E \cap A_n)= \sum_{n \in \N } \mu(A_n). 
+\end{align*}
+Last step follows from the fact that for every finite $E$, only finitely many terms in the summation would be non-zero. Hence we can exchange supremum and summation.
+\begin{enumerate}
+	\item If $f(x_0) = \infty$ for some $x_0 \in X$. Then, any set $\{x_0\}$ is not semi-finite. Further, if $f(x) < \infty$ for all $x \in X$. Then, for each set $A \subseteq X$, we can find a finite subset of $A$, hence $\mu(A) = \sum_{x \in A}f(x)$ is of finite measure.
+	\item It is clear that $\sigma$-finiteness implies semi-finiteness. 
+	\item It follows trivially from the definition.
+	\item For any $A \subseteq X$, we see that $\mu(A) = \delta_{x_0}(A)$.
+	\item For any $A \subseteq X$, we see that $\mu(A) = \frac{|A|}{|X|}$.
+\end{enumerate}
+\end{proof}
+
+
+%\begin{exmp} Consider the measurable space $(X,\mathcal{P}(X))$. %Let $X \neq \emptyset$, and $\F$ be a $\sigma$-algebra on $X$.
+%\begin{enumerate}
+	%\item \textbf{Measures on countable sets}. In particular, consider a finite set $X$ with $N$ elements. Then, any measure $\mu$ on $X$ is of form $\mu(A) = \sum_{x \in A}p(x)$ for some non-negative function $p(x)$. If $p(x) = 1/N$, then $\mu$ is uniform measure.
+	%\item Consider a function $f: X \to [0, \infty]$. Then $\mu(A) = \sum_{x \in A}f(x)$ is a measure on $X$. 
+		%\begin{enumerate}
+			%\item If $f(x) = 1$ for all $x \in X$, then $\mu$ is a counting measure
+		%\end{enumerate}
+%\end{enumerate}
+%\end{exmp}
+
+\begin{exmp} Consider an uncountable set $X$ with $\sigma$-algebra $\F$ of countable or co-countable sets. That is,
+\begin{align*}
+\F = \{ E \subseteq X: E \text{ countable or } X \setminus E \text{ countable } \}. 
+\end{align*}
+Then, the set function $\mu: \F \to [0, \infty]$ defined by 
+\begin{align*}
+\mu(E) = \begin{cases}0, & E \text{ countable},\\1, & E \text{ co-countable},\end{cases}
+\end{align*}
+is a measure.
+%Let $X \neq \emptyset$, and $\F$ be a $\sigma$-algebra on $X$.
+%\begin{enumerate}
+	%\item \textbf{Measures on countable sets}. In particular, consider a finite set $X$ with $N$ elements. Then, any measure $\mu$ on $X$ is of form $\mu(A) = \sum_{x \in A}p(x)$ for some non-negative function $p(x)$. If $p(x) = 1/N$, then $\mu$ is uniform measure.
+	%\item Consider a function $f: X \to [0, \infty]$. Then $\mu(A) = \sum_{x \in A}f(x)$ is a measure on $X$. 
+		%\begin{enumerate}
+			%\item If $f(x) = 1$ for all $x \in X$, then $\mu$ is a counting measure
+		%\end{enumerate}
+%\end{enumerate}
+\end{exmp}
+\begin{exmp} Consider an infinite set $X$ with $\sigma$-algebra $\F = \mathcal{P}(X)$. Then, the set function $\mu: \F \to [0, \infty]$ defined by 
+\begin{align*}
+\mu(E) = \begin{cases}0, & E \text{ finite},\\ \infty, & E \text{ infinite},\end{cases}
+\end{align*}
+is finitely additive, but not a measure.
+\end{exmp}
+%\begin{defn}%[Finite Additivity]
+%Let $(X, \F)$ be a measurable space and $\{A_i: i \in [n] \}$ a finite set of pairwise disjoint sets in $\F$, then a set mapping $\mu: \F \to [0, \infty]$ is called \textbf{finite additive} if $\mu(\cup_{i = 1}^nA_i) = \sum_{i = 1}^n \mu(A_i)$.
+%\end{defn}
+
+
+\subsection{Complete Measure}
+
+\begin{defn} Let $(X, \F, \mu)$ be a measure space. A set $N \in \F$ is said to be \textbf{$\mu$-null} if $\mu(N) = 0$.
+\end{defn}
+\begin{lem} Any countable union of null sets is null.
+\end{lem}
+\begin{proof} It follows from sub-additivity of measures.
+\end{proof}
+\begin{defn} For a measure space $(X, \F, \mu)$, if a statement about points $x \in X$ is true except for $x$ in some $\mu$-null set, the statement is said to be true \textbf{$\mu$-almost everywhere}.
+\end{defn}
+
+\begin{rem} If $\mu(E) = 0$ then $\mu(F) = 0$ for all $F \subseteq E$ by monotonicity if $F \in \F$. However, in general, $F \notin \F$.
+\end{rem}
+\begin{defn} Let $(X, \F, \mu)$ be measure space. Measure $\mu$ is called \textbf{complete} if its domain includes all subsets of null sets.
+\end{defn}
+
+\begin{thm}[Measure completion]\label{Thm:MeasureCompletion} Let $(X, \F, \mu)$ be a measure space. Let $\mathcal{N} = \{N \in \F: \mu(N) = 0\}$ and 
+\begin{align*}
+\bar{\F} = \{E \cup F: E \in \F, F\subseteq N \text{ for some } N \in \mathcal{N}\}.
+\end{align*}
+Then, $\bar{\F}$ is a $\sigma$-algebra, and there is a unique extension $\bar{\mu}$ of $\mu$ to a complete measure on $\bar{\F}$.
+\end{thm}
+\begin{proof} First, we will show that $\bar{\F}$ is a $\sigma$-algebra. Since $\F$ and $\mathcal{N}$ are closed under countable unions, so is $\bar{\F}$. To show $\bar{\F}$ is closed under complements, consider an element $E \cup F \in \bar{\F}$, where $E \in \F$ and $F \subseteq N \in \mathcal{N}$. We can assume that $E \cap N = \emptyset$, since otherwise we can replace $F$ and $N$ by $F \setminus E$ and $N \setminus E$ respectively. Then, 
+\begin{align*}
+E \cup F &= (E \cup N) \cap (X \setminus N \cup F).
+\end{align*}
+Taking complements and using De Moivre's Theorem, we get
+\begin{align*}
+X \setminus (E \cup F) &=   X \setminus (E \cup N) \cup (N \setminus F),
+\end{align*}
+where $E \cup N \in \F$ and $N \setminus F \subseteq N$ and hence $X \setminus (E \cup F)$ belongs to $\F$.
+
+We can define a set function $\bar{\mu}: \bar{F} \to [0, \infty]$ for each $E\cup F \in \bar{F}$ as before, as $\bar{\mu}(E \cup F) = \mu(E)$. We verify that it is indeed a well-defined function by taking $E_1 \cup F_1 = E_2 \cup F_2$ where $E_j \in \F$ and $F_j \subseteq N_j \in \mathcal{N}$. Then, $E_1 \subseteq E_2 \cup N_2$, and hence $\mu(E_1) \leq \mu(E_2) + \mu(N_2) = \mu(E_2)$ and similarly, $\mu(E_2) \leq \mu(E_1)$. It is easy to see that $\bar{\mu}$ is a complete measure on $\bar{\F}$, and unique measure that extends $\mu$.
+\end{proof}
+\begin{defn} Let $(X,\F,\mu)$ be a measure space with $\bar{\F}$ and $\bar{\mu}$ as defined in measure completion theorem. Then, the unique extension $\bar{\mu}$ of measure $\mu$ is called the \textbf{completion} of $\mu$, and $\bar{\F}$ is called the \textbf{completion of $\F$ with respect to $\mu$}.
+\end{defn}
+\end{document}
