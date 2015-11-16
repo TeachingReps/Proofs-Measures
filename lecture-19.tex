@@ -8,7 +8,7 @@
 \begin{document}
 \maketitle
 
-\section{The subspace topology}
+\section{Compact spaces}
 \begin{defn}
 	A collection $\mathcal{A}$ of subsets of a space $X$ is said to \textbf{cover} $X$, or to be a $\textbf{covering}$ of $X$, if the union of the elements of $\mathcal{A}$ is equal to $X$. It is called an \textbf{open covering} of $X$ if its elements are open subsets of $X$.
 \end{defn}
@@ -18,14 +18,12 @@
 \end{defn}	
 
 \begin{exmp}
-	The real line $\mathbb{R}$ is not compact, for the covering of $\mathbb{R}$ by open intervals
-	\[ A = \{(n,n+2) | n \in \mathbb{Z}\} \]
+	The real line $\mathbb{R}$ is not compact, for the covering of $\mathbb{R}$ by open intervals $A = \{(n,n+2) | n \in \mathbb{Z}\}$
 	contains no finite subcollection that covers $\mathbb{R}$.
 \end{exmp}
 
 \begin{exmp}
-	The following subspace of $\mathbb{R}$ is compact:
-	\[ X= \{0\} \cup \{1/n | n \in \mathbb{Z_+}\}\]
+	The following subspace of $\mathbb{R}$ is compact:$ X= \{0\} \cup \{1/n | n \in \mathbb{Z_+}\} $
 	Given an open covering $\mathcal{A}$ of $X$, there is an element $U$ of $\mathcal{A}$ containing $0$. The set $U$ contains all but finitely many of the points $1/n$; choose, for each point of $X$ not in $U$, an element of $\mathcal{A}$ containing it. The collection consisting of these elements of $\mathcal{A}$, along with the element $U$, is a finite subcollection of $\mathcal{A}$ that covers $X$.
 \end{exmp}
 
@@ -35,7 +33,7 @@
 
 \begin{exmp}
 	The interval $(0,1]$ is not compact; the open covering
-	\[	\mathcal{A} = \{(1/n,1] | n \in \mathbb{Z_+}\}  \]
+	$	\mathcal{A} = \{(1/n,1] | n \in \mathbb{Z_+}\}  $
 	contains no finite subcollection covering $(0, 1]$. The interval $(0, 1)$ is also not compact by the same argument applies. On the other hand, the interval $[0, 1]$ is compact.
 \end{exmp}
 
@@ -50,10 +48,9 @@ compact spaces out of existing ones.
 	$\{A_\alpha \cap Y | \alpha \in J \}$
 	is a covering of $Y$ by sets open in $Y$; hence a finite subcollection
 	$ \{A_{\alpha_1} \cap Y, ... , A_{\alpha_n} \cap Y \}$ 
-	covers $Y$. Then $\{A_{\alpha_1}, ...,A_{\alpha_n}\}$ is a subcollection of $\mathcal{A}$ that covers $Y$. \\
+	covers $Y$. Then $\{A_{\alpha_1}, ...,A_{\alpha_n}\}$ is a subcollection of $\mathcal{A}$ that covers $Y$. 
 	
-	Conversely, suppose the given condition holds; we wish to prove $Y$ is compact. Let $\mathcal{A}' = \{A'_\alpha \}$ be a covering of $Y$ by sets open in $Y$. For each $\alpha$, choose a set $A_\alpha$ open in $X$ such that $A'_\alpha = A_\alpha \cap Y$. The collection $\mathcal{A} = \{A_\alpha\}$ is a covering of $Y$ by sets open in $X$. By hypothesis, some finite subcollection $\{A_{\alpha_1},..., A_{\alpha_n}\}$ covers $Y$. Then $\{A'_{\alpha_1},..., A'_{\alpha_n}\}$ is a subcollection
-of $\mathcal{A}'$ that covers $Y$.
+	Conversely, suppose the given condition holds; we wish to prove $Y$ is compact. Let $\mathcal{A}' = \{A'_\alpha \}$ be a covering of $Y$ by sets open in $Y$. For each $\alpha$, choose a set $A_\alpha$ open in $X$ such that $A'_\alpha = A_\alpha \cap Y$. The collection $\mathcal{A} = \{A_\alpha\}$ is a covering of $Y$ by sets open in $X$. By hypothesis, some finite subcollection $\{A_{\alpha_1},..., A_{\alpha_n}\}$ covers $Y$. Then $\{A'_{\alpha_1},..., A'_{\alpha_n}\}$ is a subcollection of $\mathcal{A}'$ that covers $Y$.
 \end{proof}
 
 \begin{thm}\label{thm26.2}
