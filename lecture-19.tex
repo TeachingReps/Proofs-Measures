@@ -1,0 +1,122 @@
+\documentclass[a4paper,english,12pt]{article}
+\include{header}
+
+%opening
+\title{Lecture 19: Compactness}
+\author{Parimal Parag}
+
+\begin{document}
+\maketitle
+
+\section{The subspace topology}
+\begin{defn}
+	A collection $\mathcal{A}$ of subsets of a space $X$ is said to \textbf{cover} $X$, or to be a $\textbf{covering}$ of $X$, if the union of the elements of $\mathcal{A}$ is equal to $X$. It is called an \textbf{open covering} of $X$ if its elements are open subsets of $X$.
+\end{defn}
+	
+\begin{defn}	
+	A space $X$ is said to be \textbf{compact} if every open covering $\mathcal{A}$ of $X$ contains a finite subcollection that also covers $X$.
+\end{defn}	
+
+\begin{exmp}
+	The real line $\mathbb{R}$ is not compact, for the covering of $\mathbb{R}$ by open intervals
+	\[ A = \{(n,n+2) | n \in \mathbb{Z}\} \]
+	contains no finite subcollection that covers $\mathbb{R}$.
+\end{exmp}
+
+\begin{exmp}
+	The following subspace of $\mathbb{R}$ is compact:
+	\[ X= \{0\} \cup \{1/n | n \in \mathbb{Z_+}\}\]
+	Given an open covering $\mathcal{A}$ of $X$, there is an element $U$ of $\mathcal{A}$ containing $0$. The set $U$ contains all but finitely many of the points $1/n$; choose, for each point of $X$ not in $U$, an element of $\mathcal{A}$ containing it. The collection consisting of these elements of $\mathcal{A}$, along with the element $U$, is a finite subcollection of $\mathcal{A}$ that covers $X$.
+\end{exmp}
+
+\begin{exmp}
+	Any space $X$ containing only finitely many points is necessarily compact, because in this case every open covering of $X$ is finite.
+\end{exmp}
+
+\begin{exmp}
+	The interval $(0,1]$ is not compact; the open covering
+	\[	\mathcal{A} = \{(1/n,1] | n \in \mathbb{Z_+}\}  \]
+	contains no finite subcollection covering $(0, 1]$. The interval $(0, 1)$ is also not compact by the same argument applies. On the other hand, the interval $[0, 1]$ is compact.
+\end{exmp}
+
+We shall prove some general theorems that show us how to construct new
+compact spaces out of existing ones.
+
+\begin{lem}
+	Let $Y$ be a subspace of $X$. Then $Y$ is compact if and only if every covering of $Y$ by sets open in $X$ contains a finite subcollection covering $Y$.
+\end{lem}
+\begin{proof}
+	Suppose that $Y$ is compact and $\mathcal{A} = \{A_\alpha\}_{\alpha \in J}$ is a covering of $Y$ by sets open in $X$. Then the collection
+	$\{A_\alpha \cap Y | \alpha \in J \}$
+	is a covering of $Y$ by sets open in $Y$; hence a finite subcollection
+	$ \{A_{\alpha_1} \cap Y, ... , A_{\alpha_n} \cap Y \}$ 
+	covers $Y$. Then $\{A_{\alpha_1}, ...,A_{\alpha_n}\}$ is a subcollection of $\mathcal{A}$ that covers $Y$. \\
+	
+	Conversely, suppose the given condition holds; we wish to prove $Y$ is compact. Let $\mathcal{A}' = \{A'_\alpha \}$ be a covering of $Y$ by sets open in $Y$. For each $\alpha$, choose a set $A_\alpha$ open in $X$ such that $A'_\alpha = A_\alpha \cap Y$. The collection $\mathcal{A} = \{A_\alpha\}$ is a covering of $Y$ by sets open in $X$. By hypothesis, some finite subcollection $\{A_{\alpha_1},..., A_{\alpha_n}\}$ covers $Y$. Then $\{A'_{\alpha_1},..., A'_{\alpha_n}\}$ is a subcollection
+of $\mathcal{A}'$ that covers $Y$.
+\end{proof}
+
+\begin{thm}\label{thm26.2}
+	Every closed subspace of a compact space is compact.
+\end{thm}
+\begin{proof}
+	Let $Y$ be a closed subspace of the compact space $X$. Given a covering $\mathcal{A}$ of $Y$ by sets open in $X$, let us form an open covering $\mathcal{B}$ of $X$ by adjoining to $\mathcal{A}$ the single open set $X - Y$, that is, $\mathcal{B} = \mathcal{A} \cup \{X - Y\}$.
+	Some finite subcollection of $\mathcal{B}$ covers $X$. If this subcollection contains the set $X - Y$, discard $X - Y$; otherwise, leave the subcollection alone. The resulting collection is a finite subcollection of $\mathcal{A}$ that covers $Y$.
+\end{proof}
+
+\begin{thm}\label{thm26.3}
+	Every compact subspace of a Hausdorff space is closed.
+\end{thm}
+\begin{proof}
+	Let $Y$ be a compact subspace of the Hausdorff space $X$. We shall prove that $X - Y$ is open, so that Y is closed.\\
+	Let $x_0$ be a point of $X - Y$. We show there is a neighborhood of $x_0$ that is disjoint	from $Y$. For each point $y$ of $Y$, let us choose disjoint neighborhoods and of the
+	points $x_0$ and $y$, respectively (using the Hausdorff condition). The collection $\{V_y | y \in Y\}$ is a covering of $Y$ by sets open in $X$; therefore, finitely many of them $V_{y1},...,V_{yn}$ cover $Y$. The open set $V = V_{y1} \cup ... \cup V_{yn}$ contains $Y$, and it is disjoint from the open set $U = U_{y1} \cap ... \cap U_{yn}$ formed by taking the intersection of the corresponding neighborhoods of $x_0$. For if $z$ is a point of $V$, then $z \in V_{yi}$ for some $i$, hence $z \notin U_y$, and so $z \notin U$. Then $U$ is a neighborhood of $x_0$ disjoint from $Y$, as desired. 
+\end{proof}
+
+\begin{lem}
+	If $Y$ is a compact subspace of the Hausdorff space $X$ and $x_0$ is not in $Y$, then there exist disjoint open sets $U$ and $V$ of $X$ containing $x_0$ and $Y$, respectively.
+\end{lem}
+
+\begin{exmp}
+	Once we prove that the interval $[a,b]$ in $\mathbb{R}$ is compact, it follows from	Theorem \ref{thm26.2} that any closed subspace of $[a,b]$ is compact. On the other hand, it follows from Theorem \ref{thm26.3} that the intervals $(a, b]$ and $(a, b)$ in $\mathbb{R}$ cannot be compact because they are not closed in the Hausdorff space $\mathbb{R}$.
+\end{exmp}
+
+\begin{exmp}
+	Consider the finite complement topology on the real line. The only proper subsets of $\mathbb{R}$ that are closed in this topology are the finite sets. But every subset of $\mathbb{R}$ is compact in this topology, as can be checked.
+\end{exmp}
+
+\begin{thm}
+	The image of a compact space under a continuous map is compact.
+\end{thm}
+\begin{proof}
+	Let $f: X \rightarrow Y$ be continuous; let $X$ be compact. Let $A$ be a covering of the set $f(X)$ by sets open in $Y$. The collection $\{f^{-1} | A \in \mathcal{A}\}$ is a collection of sets covering $X$; these sets are open in $X$ because $f$ is continuous. Hence finitely many of them, say $f^{-1}(A_1),...,f^{-1}(A_n)$, cover $X$. Then, the sets $A_1,...,A_n$ cover $f(X)$.
+\end{proof}
+
+\begin{thm}
+	Let $I : X \rightarrow Y$ be a bijective continuous function. If $X$ is compact and $Y$ is Hausdorff, then $f$ is a homeomorphism.
+\end{thm} 
+\begin{proof}
+	 We shall prove that images of closed sets of $X$ under $f$ are closed in $Y$; this will prove continuity of the map $f^{-1}$. If $A$ is closed in $X$, then $A$ is compact, by Theorem \ref{thm26.2}. Therefore, by the theorem just proved, $f(A)$ is compact. Since $Y$ is Hausdorff, $f(A)$ is closed in $Y$, by Theorem \ref{thm26.3}.
+\end{proof}
+
+\begin{thm}
+	The product of finitely many compact spaces is compact.
+\end{thm}
+
+\begin{lem}[The tube lemma]
+	Consider the product space $X \times Y$, where $Y$ is compact. If $N$ is an open set of $X \times Y$ containing the slice $x_0 \times Y$ of $X \times Y$, then $N$ contains some tube $W \times Y$ about $x_0 \times Y$, where $W$ is a neighborhood of in $X$.
+\end{lem}
+\begin{proof}
+	Let us cover $x_0 \times Y$ by basis elements $U \times V$ lying in $N$. The space $x_0 \times Y$ is compact being homeomorphic to $Y$, we can find finite sub-cover for $x_0 \times Y$ as $U_1 \times V_1,...,U_n \times V_n$. We can assume $U_i \times V_i$ intersects $x_0 \times Y$, $W:=\cap_{(i=1)}^n U_i$ is neighborhood of $x_0$. The chosen $\{U_i \times V_i\}$ cover $W \times Y$ and lie in $N$.
+\end{proof}
+
+\begin{thm}
+	The product of finitely many compact spaces is compact.
+\end{thm}
+
+\begin{proof}
+	Let $X$ and $Y$ be compact spaces. Let $\mathcal{A}$ be an open covering of $X \times Y$. Given $x_0 \in X$, $x_0 \times Y$ is compact and may be covered by finitely many elements of $\mathcal{A}$, say, $A_1,..., A_m$. Their union $N=\cup_{i=1}^n A_i$ is an open set containing $x_0 \times Y$. We can find a tube $W \times Y$ about $x_0 \times Y$ where $W$ is open in $X$. Then, $W \times Y$ is covered by finitely many elements $A_1,...,A_m$.
+	For each $x \in X$ find neighborhood of $x$ such that tube $W_x \times Y$ is covered by finitely many elements of $\mathcal{A}$. Now $\{W_x : x \in X\}$ is an open covering of X, hence, there exists finite subcover $\{W_1,..., W_k\}$ that covers $X$. Union of the tubes $W_1 \times Y,..., W_k \times Y$ covers $X \times Y$.
+	SImilar argument can be used to complete the proof by induction.
+\end{proof}
+\end{document}
