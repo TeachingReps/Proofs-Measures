@@ -1,0 +1,121 @@
+\documentclass[a4paper,english,12pt]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\input{header}
+
+\title{Lecture 29 : Integration of non-negative functions}
+\author{}
+
+\begin{document}
+\maketitle
+\section{Integration of non-negative functions}
+\begin{defn}
+Let $(X, \mathcal{M},\mu)$ be the measurable space, we define $L^{+} = \{f \in \F(X,[0,\infty]) \colon f ~is  ~ (\mu , B_{[0,\infty]}) ~measurable  \}$.
+\end{defn}
+\begin{defn}
+If $\phi$ is simple, $\phi \in L^{+}$, with standard representation $\phi = \sum_{i =1}^{n} a_{j} \mathbbm{1}_{E_{j}}$ then we define \textbf{integral} of $\phi$ with respect to $\mu$ by
+\begin{align*}
+\int \phi ~d\mu = \sum_{j=1}^{n} a_{j} \mu(E_{j})
+\end{align*}
+\end{defn}
+\begin{rem}
+By convention, $0 . \infty = 0$.
+\end{rem}
+\begin{rem}
+$\int \phi ~d\mu = \int \phi $.
+\end{rem}
+\begin{rem}
+$\int \phi ~d\mu = \int \phi(x)~d\mu(x)$.
+\end{rem}
+\begin{rem}
+If $A \in \mathcal{M}$, then $\phi \mathbbm{1}_{A}$ is simple.
+\begin{align*}
+\phi \mathbbm{1}_{A} &= \sum_{j=1}^{n} a_{j} \mathbbm{1}_{E_{j}\cap A} \\
+\int_{A} \phi ~d\mu &= \int \phi \mathbbm{1}_{A} ~d\mu = \sum_{j=1}^{n} a_{j} \mu(E_{j} \cap A).
+\end{align*}
+\end{rem}
+\begin{rem}
+$ \int_{A} \phi ~d\mu = \int \phi \mathbbm{1}_{A} ~d\mu = \int_{A} \phi = \int \phi \mathbbm{1}_{A}$.
+\end{rem}
+\begin{rem}
+$\int = \int_{X}$
+\end{rem}
+\begin{prop}
+Let $\phi,\psi$ simple in $L^{+}$,
+\begin{enumerate}[a)]
+\item If $c \geq 0$, $ \int c \phi ~d\mu = c \int \phi ~d\mu$. 
+\item $\int (\phi + \psi) ~d\mu = \int \phi ~d\mu + \int \psi ~d\mu$.
+\item If $\phi \leq \psi$, then $\int \phi ~d\mu \leq \int \psi ~d\mu$.
+\item The map $A \to \int_{A} \phi ~d\mu$ is measure on $\mathcal{M}$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+\begin{enumerate}[a)]
+\item It is trivial. consider $\phi = \sum_{j=1}^{m} a_{j}\mathbbm{1}_{E_{j}}$. Then $\int c \phi ~d\mu = \sum_{j=1}^{n} c a_{j} \mu(E_{j}) = c \sum_{j=1}^{n}  a_{j} \mu(E_{j}) = c \int \phi ~d\mu $.
+
+\item Let $\phi = \sum_{j=1}^{m} a_{j}\mathbbm{1}_{E_{j}}$, $\psi = \sum_{k=1}^{m} b_{j}\mathbbm{1}_{F_{k}}$. Then $\{E_{j} \cap f_{k}\colon j,k\}$ is pairwise disjoint and covers set  $X$. Then 
+\begin{align*}
+\phi + \psi = \sum_{j,k} (a_{j}+b_{k}) \mathbbm{1}_{E_{j} \cap F_{k}}.
+\end{align*}
+Where $\phi  = \sum_{j,k} a_{j} \mathbbm{1}_{E_{j} \cap F_{k}}$ and $ \psi = \sum_{j,k} b_{k} \mathbbm{1}_{E_{j} \cap F_{k}}$. To complete the proof consider the following 
+\begin{align*}
+\int (\phi + \psi) ~d\mu = \sum_{j,k} (a_{j}+b_{k}) ~\mu(E_{j} \cap F_{k}) &= \sum_{j,k} a_{j} ~\mu(E_{j} \cap F_{k}) + \sum_{j,k} b_{k} ~\mu(E_{j} \cap F_{k}) \\&= \int \phi ~d\mu + \int \psi ~d\mu.
+\end{align*}
+\item Given  $\phi \leq \psi $ then we can get  $a_{i} \leq b_{k} ~\forall j,k$ such that $\mu(E_{j} \cap F_{k}) \neq 0$. Then 
+\begin{align*}
+a_{j} \mu(E_{j} \cap F_{k}) &\leq b_{k} \mu(E_{j} \cap F_{k}) \\
+\sum_{j,k} a_{j} \mu(E_{j} \cap F_{k}) &\leq \sum_{j,k} b_{k} \mu(E_{j} \cap F_{k}) \\
+\int \phi ~d\mu &\leq \int \psi ~d\mu
+\end{align*}
+
+\item Let $\{A_{k} \in \mathcal{M} \colon k \in \mathbb{N}\}$ be a disjoint sequence in $\mathcal{M}$, and call $A = \cup_{k \in \mathbb{N}} A_{k}$. Then 
+\begin{align*}\int_{A} \phi ~d\mu &= \int \sum_{j=1}^{n} a_{j} \mathbbm{1}_{E_{j} \cap A} ~d\mu \\ &=\sum_{j=1}^{n} a_{j} ~\mu(E_{j}\cap A) \\ &= \sum_{j=1}^{n}\sum_{k \in \mathbb{N}} a_{j} ~\mu(E_{j} \cap A_{k}) \\ &= \sum_{k \in \mathbb{N}} \int_{A_{k}} \phi ~d\mu\end{align*}
+Which completes the proof.
+\end{enumerate}
+\end{proof}
+\begin{defn}
+For $f \in L^{+}$ we can define $\int f ~d\mu = \sup \{\int \phi ~d\mu \colon 0 \leq \phi \leq f, \phi ~\text {being simple function}\}$.
+\end{defn}
+\begin{rem}
+This definition is consistent for simple functions.
+\end{rem}
+\begin{rem}
+If $f \leq g$, then $\int f ~d\mu \leq \int g ~d\mu$.
+\end{rem}
+\begin{thm}[Monotone convergence theorem]
+Let $\{f_{n} \in L^{+} \colon n \in \mathbb{N}\}$ such that $f_{j}(x) = f_{j+1}(x) ~\forall j \in \mathbb{N}$, and $f(x) = \lim_{j \in \mathbb{N}} f_{j}(x) = \sup_{j \in \mathbb{N}} f_{j}(x)$, then $ \lim_{n \in \mathbb{N}} \int f_{n} ~d\mu = \int ( \lim_{n \in \mathbb{N}} f_{n}) ~d\mu$
+\end{thm}
+\begin{proof}
+Let $x \in X$ and $\{f_{n}(x) \colon n \in \mathbb{N} \}$, increasing sequence with $f = \lim_{n \to \infty} f_{n}$ exists and possibly $\infty$ and $f_{n} \leq f$. Then from the previous remark we know that $\int f_{n} ~d\mu \leq \int f ~d\mu ~\forall n \in \mathbb{N}$. To prove reverse inequality consider  $\lim_{n \to \infty} \int f_{n} ~d\mu \leq \int f ~d\mu ~\forall n \in \mathbb{N}$. Let $\alpha \in (0,1)$ and $0 \leq \phi \leq f$ simple function, $E_{n} = \{x \in X \colon f_{n}(x) \geq \alpha \phi(x)\}$. Then $\{E_{n} \colon n \in \mathbb{N} \}$ is a sequence of increasing sets such that $\cup_{n \in \mathbb{N}} = X$. Then $\int_{X} f_{n} ~d\mu \geq \int_{E_{n}}f_{n} ~d\mu \geq \alpha \int_{E_{n}} \phi ~d\mu$. Then from previous proposition part $d$ and the continuity from below definition we get $\lim_{n \to \infty} \int_{E_{n}} \phi ~d\mu = \int_{X} \phi ~d\mu$. Hence $\alpha \int \phi ~d\mu \leq \lim_{n \in \mathbb{N}} \int f_{n} ~d\mu$. Then $\int \phi ~d\mu \leq \lim_{n \in \mathbb{N}} \int f_{n} ~d\mu$. Then by taking supremum over all such simple functions we get $\int f ~d\mu \leq \lim_{n \in \mathbb{N}} \int f_{n} ~d\mu$ which completes the proof.
+\end{proof}
+\begin{thm}
+If $\{f_{n} \in L^{+}\}$ and $f = \sum_{n} f_{n}$ then $\int f ~d\mu = \sum_{n} \int f_{n} ~d\mu$.
+\end{thm}
+\begin{proof}
+Consider $f_{1},f_{2} \in L^{+}$, and $\{\phi_{j}\}$ and $\psi_{j}$ increasing and converging to $f_{1},f_{2}$ respectively. Then 
+\begin{align*} \int (f_{1}+f_{2}) ~d\mu &= \lim_{j \in \mathbb{N}} \int (\phi_{j} + \psi_{j}) \\ &= \lim_{j \in \mathbb{N}} \int \phi_{j} + \lim_{j \in \mathbb{N}} \int \psi_{j} \\ &= \int f_{1} ~d\mu + \int f_{2} ~d\mu \end{align*} Hence by induction we get $\int \sum_{i=1}^{n} f_{i} ~d\mu = \sum_{i=1}^{n} \int f_{i} ~d\mu$ for any any finite $n$. From Monotone convergence theorem, as $n \to \infty$ we get $\int \sum_{i=1}^{\infty} f_{i} ~d\mu = \sum_{i=1}^{\infty} \int f_{i} ~d\mu$. which is $\int f ~d\mu = \sum_{n} \int f_{n} ~d\mu$.
+\end{proof}
+\begin{prop}
+If $f \in L^{+}$, and $\int f ~d\mu = 0$,then $f = 0$ a.e
+\end{prop}
+\begin{proof}
+This is clear if $f$ is simple. Since, if $f = \sum_{j=1}^{n} a_{j} \mathbbm{1}_{E_{j}}$ then $\int f ~d\mu =0$ if and only if either $a_{j} = 0$ or $\mu(E_{j})=0$. In general, $\phi$ simple, $0 \leq \phi \leq f$ and $f =0 ~a.e$ then $\phi =0 ~a.e$. Hence, $\int f ~d\mu = \sup_{\phi} \int \phi ~d\mu = 0$. Conversely, $\{x \colon f(x)>0\} = \cup_{n \in \mathbb{N}} E_{n}$ where $E_{n} = \{x \in X \colon f(x) > \frac{1}{n}\}$. If $f \neq 0 ~a.e$ then $\exists n \in \mathbb{N}$ such that $\mu(E_{n}) > 0$. That is, $\mu\{x \in X \colon f(x) > \frac{1}{n}\} > 0$. Then $\int f ~d\mu \geq \int_{E_{n}} f ~d\mu > \frac{1}{n} \mu(E_{n}) > 0$. Which is contradiction since we considered $\int f ~d\mu = 0$.
+\end{proof}
+\begin{cor}
+If $\{f_{n} \in L^{+} \colon n \in \mathbb{N} \}$, $f \in L^{+}$, such that $\sup_{n \to \infty} f_{n}(x) = f(x)$ for a.e $X$ then $\lim_{n} \int f_{n} ~d\mu = \int f ~d\mu$. 
+\end{cor}
+\begin{proof}
+Let $E = \{x \in X \colon f_{n}(x) \uparrow f(x) \}$ where $\mu(E^{c}) = 0$. Then $f - f \mathbbm{1}_{E} = 0 ~a.e$ and $f_{n} - f_{n} \mathbbm{1}_{E} = 0 ~a.e$. By Monotone convergence theorem, $\int f ~d\mu = \int f \mathbbm{1}_{E} ~d\mu = \lim \int f_{n} \mathbbm{1}_{E} ~d\mu = \lim \int f_{n} ~d\mu$.
+\end{proof}
+\begin{lem}[Fatou's lemma]
+If $\{f_{n} \in L^{+} \colon n \in \mathbb{N}\}$ then $\int (\lim \inf f_{n}) ~d\mu \leq \lim \inf_{n} \int f_{n} ~d\mu$.
+\end{lem}
+\begin{proof}
+For $k \in \mathbb{N}$, $\inf_{n \geq k} f_{k} \leq f_{j} ~\forall j \geq k$. Hence, $\int \inf_{n \geq k} f_{n} d\mu \leq \inf_{j \geq k} \int f_{j} ~d\mu$. By letting $n \to \infty$ and applying monotone convergence theorem we get $\int \lim \inf_{n} f_{n} \leq \lim \inf_{n} \int f_{n} ~d\mu$.
+\end{proof}
+
+
+
+
+
+
+
+\end{document}
