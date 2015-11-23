@@ -1,0 +1,92 @@
+\documentclass[a4paper,english,12pt]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ...
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+\usepackage{dsfont}							% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+%SetFonts
+
+%SetFonts
+\include {header}
+
+
+\title{Lecture 22: Introduction to Measure Theory}
+\author{Parimal Parag}
+\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+\section{Introduction}
+The measure theory is a natural extension of the concept of measure in Euclidean geometry, i.e., area and volume. To understand the concept of measureable sets and measurability in more general terms we consider the concept of $\sigma-$algebra. 
+
+Let $X$ be a non-empty set.
+\begin{defn}[Algebra] An algebra of sets of $X$ is a non-empty collection $\mathcal{A}$ of subsets of $X$ that is closed under finite unions and complements. In other words, $\mathcal{A}\subseteq \mathcal{P}(X)$ s.t. $A,B \in \mathcal{A}$ implies $A\cup B \in \mathcal{A}$, and $A \in \mathcal{A}$ implies $A^c \in \mathcal{A}$.
+\end{defn}
+\begin{defn}[$\sigma$-algebra] A $\sigma$-algebra is an algebra that is closed under countable unions. That is, $\{E_n:n\in \mathds{N} \}\subseteq \mathcal{A}$, then $\bigcup_{n\in \mathds{N}}A_n\in \mathcal{A}$.
+\end{defn}
+Next, we define two more structures, i..e, $\pi-$system and $\lambda-$system and show their relation with algebra and $\sigma-$ algebra. Consider following set of assumptions
+\begin{description}
+  \item[A1] $\phi\in\mathcal{A}$
+  \item[A2] $X\in\mathcal{A}$
+  \item[A3] {\bf [Close under complements]} $A\in\mathcal{A} \implies A^c\in\mathcal{A}$.
+  \item[A4] {\bf  [Close under complements]} $A,B\in\mathcal{A} \implies A\cup B\in\mathcal{A}$.
+  \item[A5] {\bf [Close under complements]} $A,B\in\mathcal{A}, A\subseteq B \implies B\backslash A\in\mathcal{A}$.
+  \item[A6] {\bf [Close under finite intersections]} $A,B\in\mathcal{A} \implies A\cap B\in\mathcal{A}$.
+  \item[A7] {\bf [Close under countable unions]} $A_n\in\mathcal{A} \text{ for all } n\in \mathds{N}\implies \bigcup_{n\in \mathds{N}}A_n\in\mathcal{A}$.
+  \item[A8] {\bf [Close under increasing limits]} $A_n\in\mathcal{A} \text{ for all } n\in \mathds{N}, A_n \nearrow A\implies \bigcup_{n\in \mathds{N}}A_n\in\mathcal{A}$.
+  \item[A9] {\bf [Close under countable union of pairwise disjoint sets]} $A_n\in\mathcal{A} \text{ for all } n\in \mathds{N}, \text{pairwise disjoint}\implies \bigcup_{n\in \mathds{N}}A_n\in\mathcal{A}$.
+\end{description}
+ Next we define various structures in terms of these assumptions. 
+ 
+\begin{defn}
+ A family $\mathcal{A}$ of subsets of a non-empty $X$ is called an 
+ \begin{enumerate}
+   \item \emph{Algebra} if it satisfies $A1,A3,\text{ and } A4$
+   \item $\sigma-$\emph{algebra} if it satisfies $A1,A3,\text{ and } A7$
+   \item $\pi-$\emph{system} if it satisfies $A6$
+   \item $\lambda-$\emph{system} if it satisfies $A2,A5\text{ and } A8$
+ \end{enumerate}
+ \end{defn}
+
+Note that, $A3$ and $A4$ implies $A1, A2, A5,$ and $A6$. Next, we study the \emph{properties} of the above described structures.  
+
+\begin{enumerate}
+  \item Every $\sigma-$algebra is an algebra. 
+  \item Each algebra is a $\pi-$system, and each $\sigma-$algebra is an algebra and a $\lambda$-system.
+  \item A family of sets is a $\sigma-$algebra iff $A1,A3, A6, $ and $ A9$ holds.
+  \begin{proof}
+  The proof in forward direction follows from the fact that $A3$ and $A7$ together implies $A1,A2, A4, A5, A6, A8$ and $A9$. Next, we present the proof in the reverse direction. Let $B_1=A_1, B_2= A_2\backslash A_1,$ i.e., $B_n=A_n\backslash\cup_{j=1}^{n-1}A_j$ and $\cup_{j=1}^nB_j =\cup_{j=1}^nA_j$. Now, $\{B_n:n\in\mathds{N}\}$ pairwise disjoint. Hence,  $\cup_{n\in\mathds{N}}A_j=\cup_{n\in\mathds{N}} B_n \in\mathcal{A}$.
+  \end{proof}
+  \item A $\lambda-$system is also a $\pi-$system is also a $\sigma-$algebra. 
+  \begin{proof}
+   Since $A2$ and $A5$ implies $A3$, i.e., let $A\in \mathcal{A}$, then $X\backslash A \in \mathcal{A}$ (by $A2$ and $A5$). The proof follows by observing that $A3$ and $A6$ together implies $A4$ which is proved next. Let $A_n \in \mathcal{A}$ for all $n\in\mathds{N}$. Hence, $B_m = \cup_{n=1}^m A_n \in \mathcal{A}$. Since, $B_m\nearrow \cup_{n\in \mathds{N}} A_n$ then $\cup_{n\in \mathds{N}} A_n \in \mathcal{A}$ (by $A8$).
+  \end{proof}
+  \item There are $\pi-$systems which are not algebras.
+\begin{exmp}
+ Let $X=\{1,2,3\}$ and $\mathcal{A}_c=\left\{ \{1,2\},\{2,3\},\{3\} \right\}$. 
+\end{exmp}
+  \item There are algebras that are not $\sigma-$algebras.
+  \begin{proof}
+    Let $X=\mathds{N}, \mathcal{A}=\{A\subseteq X: A or X \backslash A finite\}$. Let $A\in\mathcal{A}$, the $A$ is finite then $X\backslash A \in \mathcal{A}$ or $X\backslash A$ finite, then $X\backslash A \in \mathcal{A}$. Finite union of finite sets is finite, i.e., $\cup_{i=1}^n A_i \in \mathcal{A}$. Finite intersection of finite sets is finite $\cap_{i=1}^n A_i\in \mathcal{A}$. $A_1$ is finite, $X\backslash A_2$ finite, then $X\backslash (A_1\cup A_2) = (X\backslash A_1)\cap (X\backslash A_2)$. $A_n=\{2n\}$   \end{proof}
+  \item There are $\lambda-$systems which are not $\pi-$system.
+  \begin{proof}
+    Left as a exercise.
+  \end{proof}
+\end{enumerate}
+{\bf Note:} It is trivial to verify that intersection of any family of $\sigma-$algebra is also $\sigma-$algebra. 
+\begin{defn}
+ For a family $\mathcal{A}$ of subsets of a non-empty set $X$, the intersections of all $\sigma-$algebras on $X$ that contain $\mathcal{A}$ is denoted by $\sigma{\mathcal{A}}$ and is called the \emph{$\sigma-$algebra generated by $\mathcal{A}$}.
+\end{defn}
+\begin{exmp}
+\begin{enumerate}
+  \item $\mathcal{P}(X)$ is a $\sigma-$algebra.
+  \item $\{\Phi, X\}$ is a $\sigma-$algebra.
+\end{enumerate}
+
+\end{exmp}
+\end{document}  
