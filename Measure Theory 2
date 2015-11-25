@@ -117,7 +117,7 @@
 	Let y$\in \{f^{-1}(A)\}^c$.So, y is an elment in the set X such that y$\notin f^{-1}(A)$.As a result, f(y)$\notin A$.Then we can write f(y)$\in A^c$ which in turn implies y$\in f^{-1}(A^c)$.
 	So, we have shown $f^{-1}(A^c)\supseteq \{f^{-1}(A)\}^c$. Since the choice of x and y was arbitrary, we can conclude that $\{f^{-1}(A)\}^c=f^{-1}(A^c)$ which proves that $\mathcal{D}$ is closed under complementation.\newline
 	We will now show that $\mathcal{D}$ is closed under countable unions.Let ,$\{A_j\;\mid\;j\in\mathbb{N}\}\in\mathcal{D}$. We consider the sets, $f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}$ and $\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$.Let x$\in f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}$. So, f(x) $\in \bigcup_{n\in\mathbb{N}}(A_n)$. Thus f(x)$\in some A_k$ where $k\in\mathbb{N}$. Thus x $\in f^{-1}A_k$ where $k\in\mathbb{N}$.Thus x$\in \bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$. Hence $f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\} \subseteq\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$.\newline
-	Let y $\in \bigcup_{n \in \mathbb{N}}f{-1}(A_n)$. Thus y $\in f^{-1}(A_p)$ where p $\in N$. Thus f(y) $\in A_p$ $\in N$. So, f(y) $\in \bigcup_{n\in\mathbb{N}}(A_n)$. Hence y$\in f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}$. So,$f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\} \supseteq\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$. Since the choice of x and y was arbitrary,$f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}=\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$.\newline
+	Let y $\in \bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$. Thus y $\in f^{-1}(A_p)$ where p $\in N$. Thus f(y) $\in A_p$ $\in N$. So, f(y) $\in \bigcup_{n\in\mathbb{N}}(A_n)$. Hence y$\in f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}$. So,$f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\} \supseteq\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$. Since the choice of x and y was arbitrary,$f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}=\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$.\newline
 	Now, as $\{A_j\;\mid\;j\in\mathbb{N}\}\in\mathcal{D}$ and $\mathcal{F}$ is a sigma algebra, $ f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}\in \mathcal{F}$ and as $f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}=\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$, $\bigcup_{n \in \mathbb{N}}f^{-1}(A_n) \in \mathcal{D}$. Thus $\mathcal{D}$ is closed under countable unions and complemenetation. Hence it is a $\sigma$-algebra.
 \end{proof} 
 By the construction of $\mathcal{D}$, $\mathcal{C}\subseteq \mathcal{D}$. So $\sigma(\mathcal{C})\subseteq \sigma(\mathcal{D})$. As $\sigma(\mathcal{C})=\mathcal{G}$, $\mathcal{G}\subseteq \sigma(\mathcal{D})$.Hence the function f is ($\mathcal{F},\mathcal{G}$) measurable.
@@ -127,5 +127,23 @@ By the construction of $\mathcal{D}$, $\mathcal{C}\subseteq \mathcal{D}$. So $\s
 \end{prop}
 \begin{proof}
 	Since the function f is continuous, then if V be an open set in (Y,$\mathcal{T}_y$ then $f^{-1}(V)$ is also open in the topological space (X,$\mathcal{T}_x$). Every open set in (X,$\mathcal{T}_x$) and (Y,$\mathcal{T}_y$) is an element of the Borel $\sigma$-algebras   $\mathcal{F}\:and\:\mathcal{G}$ respectively. Thus $V\in \mathcal{G}$ and as the function f is continuous, $f^{-1}(V) \in \mathcal{F}$.This condition is true for all open sets in (X,$\mathcal{T}_x$) and (Y,$\mathcal{T}_y$) as f is continuous. Thus the function f is measurable.
+\end{proof}
+\begin{prop}
+	Let f be function which is defined as f:X$\rightarrow \Real$.Then, f is measurable iff $\{x\in X\:\mid f(x)\leq q\}\:\in\mathcal{F}\:\forall\:q\in\mathbb{Q}$.
+\end{prop}
+\begin{proof}
+	content...
+\end{proof}
+\begin{prop}
+\textbf{Composition of Measurable Maps} Let (X,$\mathcal{F}$),(Y,$\mathcal{G}$) and (Y,$\mathcal{H}$) be measurable spaces and let f and g be functions which are defined as $f:X\rightarrow Y$ and $g:Y \rightarrow Z$ be measurable functions. Then h=$f\circ g$ is $(\mathcal{F},\mathcal{H})$ measurable.
+\end{prop}
+\begin{proof}
+	content...
+\end{proof}
+\begin{cor}
+	Let (X,$\mathcal{F}$) be a measurable space,(Y,$\mathcal{T}_y$) be a topological space and $\mathcal{G}$ be the Borel $\sigma$-algebra on Y.Let g:$Y\rightarrow \Real$ be a continuous function.Then the map $g\circ f$ is Borel measurable for each measurable function f:$X\rightarrow Y$.
+\end{cor}
+\begin{proof}
+	content...
 \end{proof}
 \end{document}
