@@ -45,6 +45,7 @@
 \author{}
 \begin{document}
 \maketitle
+\section{Measures : Sigma Algebra and its properties}
 \begin{lem} 
 	If $\mathcal{A}\subseteq\sigma(\mathcal{F})$,then $\sigma(\mathcal{A})\subseteq\sigma(\mathcal{F})$.
 
@@ -99,4 +100,17 @@
 		\end{prop}
 	\end{enumerate}
 \end{exmp}
+\section{Measurable Mapping}
+\begin{defn}
+	A pair (X,$\mathcal{F}_c$) consisting of a non empty set X and the $\sigma$-Algebra of its subsets is called a "measurable space". The elements of $\mathcal{F}_c$ are called "measurable" in $\mathcal{F}_c$.
+\end{defn}
+\begin{defn}
+	A function $f:X\rightarrow Y$ where (X,$\mathcal{F}$) and (Y,$\mathcal{G}$) are measurable spaces, is ($\mathcal{F},\mathcal{G}$) measurable, if $f^{-1}(B)\in \mathcal{F}$ $\forall\:B\in\mathcal{G}$.
+\end{defn}
+\begin{prop}
+	(A Measurability Criterion).Let (X,$\mathcal{F}$) and (Y,$\mathcal{G}$) be 2 measurable spaces. Let $\mathcal{C}\in\mathcal{G}$ such that $\sigma(\mathcal{C})=\mathcal{G}$.If $f:X\rightarrow Y$ be a function with property that if $f^{-1}(C)\in \mathcal{F}$ $\forall\:C\in\mathcal{G}$. The f is ($\mathcal{F},\mathcal{G}$) measurable.
+\end{prop}
+\begin{proof}
+	content...
+\end{proof}
 \end{document}
