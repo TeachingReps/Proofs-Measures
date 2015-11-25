@@ -108,9 +108,21 @@
 	A function $f:X\rightarrow Y$ where (X,$\mathcal{F}$) and (Y,$\mathcal{G}$) are measurable spaces, is ($\mathcal{F},\mathcal{G}$) measurable, if $f^{-1}(B)\in \mathcal{F}$ $\forall\:B\in\mathcal{G}$.
 \end{defn}
 \begin{prop}
-	(A Measurability Criterion).Let (X,$\mathcal{F}$) and (Y,$\mathcal{G}$) be 2 measurable spaces. Let $\mathcal{C}\in\mathcal{G}$ such that $\sigma(\mathcal{C})=\mathcal{G}$.If $f:X\rightarrow Y$ be a function with property that if $f^{-1}(C)\in \mathcal{F}$ $\forall\:C\in\mathcal{G}$. The f is ($\mathcal{F},\mathcal{G}$) measurable.
+	(A Measurability Criterion).Let (X,$\mathcal{F}$) and (Y,$\mathcal{G}$) be 2 measurable spaces. Let $\mathcal{C}\in\mathcal{G}$ such that $\sigma(\mathcal{C})=\mathcal{G}$.If $f:X\rightarrow Y$ be a function with property that if $f^{-1}(C)\in \mathcal{F}$ $\forall\:C\in\mathcal{G}$. The function f is ($\mathcal{F},\mathcal{G}$) measurable.
 \end{prop}
 \begin{proof}
-	content...
+	Let us define a set $\mathcal{D}=\{B\subseteq Y\:\mid\:f^{-1}(B)\in\mathcal{F}\}$.\newline
+	
+	\textbf{We will now prove that $\mathcal{D}$ is a $\sigma$-algebra}.\newline
+	\begin{proof}
+	Let us assume A be a set such that A$\in\mathcal{D}$.we need to show $A^c\in\mathcal{D}$.By definition, since $\mathcal{F}$ is a sigma algebra, ${f^{-1}(A)}^c\in\mathcal{F}$. So now we need to show $\{f^{-1}(A)\}^c=f^{-1}(A^c)$.\newline
+	Now, let $x\in f^{-1}(A^c)$. So there exists an element $x\in X$ such that f(x)$\in A^c$. Thus f(x)$\notin A$. Thus, x$\notin f^{-1}(A)$. Hence x$\in\{f^{-1}(A)\}^c$. From this, we can infer that $f^{-1}(A^c)\subseteq \{f^{-1}(A)\}^c$.\newline
+	Let y$\in \{f^{-1}(A)\}^c$.So, y is an elment in the set X such that y$\notin f^{-1}(A)$.As a result, f(y)$\notin A$.Then we can write f(y)$\in A^c$ which in turn implies y$\in f^{-1}(A^c)$.
+	So, we have shown $f^{-1}(A^c)\supseteq \{f^{-1}(A)\}^c$. Since the choice of x and y was arbitrary, we can conclude that $\{f^{-1}(A)\}^c=f^{-1}(A^c)$ which proves that $\mathcal{D}$ is closed under complementation.\newline
+	We will now show that $\mathcal{D}$ is closed under countable unions.Let ,$\{A_j\;\mid\;j\in\mathbb{N}\}\in\mathcal{D}$. We consider the sets, $f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}$ and $\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$.Let x$\in f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}$. So, f(x) $\in \bigcup_{n\in\mathbb{N}}(A_n)$. Thus f(x)$\in some A_k$ where $k\in\mathbb{N}$. Thus x $\in f^{-1}A_k$ where $k\in\mathbb{N}$.Thus x$\in \bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$. Hence $f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\} \subseteq\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$.\newline
+	Let y $\in \bigcup_{n \in \mathbb{N}}f{-1}(A_n)$. Thus y $\in f^{-1}(A_p)$ where p $\in N$. Thus f(y) $\in A_p$ $\in N$. So, f(y) $\in \bigcup_{n\in\mathbb{N}}(A_n)$. Hence y$\in f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}$. So,$f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\} \supseteq\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$. Since the choice of x and y was arbitrary,$f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}=\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$.\newline
+	Now, as $\{A_j\;\mid\;j\in\mathbb{N}\}\in\mathcal{D}$ and $\mathcal{F}$ is a sigma algebra, $ f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}\in \mathcal{F}$ and as $f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}=\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$, $\bigcup_{n \in \mathbb{N}}f^{-1}(A_n) \in \mathcal{D}$. Thus $\mathcal{D}$ is closed under countable unions and complemenetation. Hence it is a $\sigma$-algebra.
+\end{proof} 
+By the construction of $\mathcal{D}$, $\mathcal{C}\subseteq \mathcal{D}$. So $\sigma(\mathcal{C})\subseteq \sigma(\mathcal{D})$. As $\sigma(\mathcal{C})=\mathcal{G}$, $\mathcal{G}\subseteq \sigma(\mathcal{D})$.Hence the function f is ($\mathcal{F},\mathcal{G}$) measurable.
 \end{proof}
 \end{document}
