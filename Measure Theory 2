@@ -21,9 +21,6 @@
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\tr}{\operatorname{tr}}
 \newcommand{\Real}{\mathbb{R}}
-\newcommand{\sigal}{$\sigma$-Algebra}
-\newcommand{\Borer}{$\mathcal{B}_\Real$}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -108,7 +105,7 @@
 	A function $f:X\rightarrow Y$ where (X,$\mathcal{F}$) and (Y,$\mathcal{G}$) are measurable spaces, is ($\mathcal{F},\mathcal{G}$) measurable, if $f^{-1}(B)\in \mathcal{F}$ $\forall\:B\in\mathcal{G}$.
 \end{defn}
 \begin{prop}
-	(A Measurability Criterion).Let (X,$\mathcal{F}$) and (Y,$\mathcal{G}$) be 2 measurable spaces. Let $\mathcal{C}\in\mathcal{G}$ such that $\sigma(\mathcal{C})=\mathcal{G}$.If $f:X\rightarrow Y$ be a function with property that if $f^{-1}(C)\in \mathcal{F}$ $\forall\:C\in\mathcal{G}$. The function f is ($\mathcal{F},\mathcal{G}$) measurable.
+	(A Measurability Criterion)Let (X,$\mathcal{F}$) and (Y,$\mathcal{G}$) be 2 measurable spaces. Let $\mathcal{C}\in\mathcal{G}$ such that $\sigma(\mathcal{C})=\mathcal{G}$.If $f:X\rightarrow Y$ be a function with property that if $f^{-1}(C)\in \mathcal{F}$ $\forall\:C\in\mathcal{G}$. The function f is ($\mathcal{F},\mathcal{G}$) measurable.
 \end{prop}
 \begin{proof}
 	Let us define a set $\mathcal{D}=\{B\subseteq Y\:\mid\:f^{-1}(B)\in\mathcal{F}\}$.\newline
@@ -124,5 +121,11 @@
 	Now, as $\{A_j\;\mid\;j\in\mathbb{N}\}\in\mathcal{D}$ and $\mathcal{F}$ is a sigma algebra, $ f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}\in \mathcal{F}$ and as $f^{-1}\{\bigcup_{n\in\mathbb{N}}(A_n)\}=\bigcup_{n \in \mathbb{N}}f^{-1}(A_n)$, $\bigcup_{n \in \mathbb{N}}f^{-1}(A_n) \in \mathcal{D}$. Thus $\mathcal{D}$ is closed under countable unions and complemenetation. Hence it is a $\sigma$-algebra.
 \end{proof} 
 By the construction of $\mathcal{D}$, $\mathcal{C}\subseteq \mathcal{D}$. So $\sigma(\mathcal{C})\subseteq \sigma(\mathcal{D})$. As $\sigma(\mathcal{C})=\mathcal{G}$, $\mathcal{G}\subseteq \sigma(\mathcal{D})$.Hence the function f is ($\mathcal{F},\mathcal{G}$) measurable.
+\end{proof}
+\begin{prop}
+	Let (X,$\mathcal{F}$) and (Y,$\mathcal{G}$) be 2 measurable spaces. Let (X,$\mathcal{T}_x$) and (Y,$\mathcal{T}_y$) be 2 topological spaces and $\mathcal{F}\:and\:\mathcal{G}$ are the corresponding Borel $\sigma$-algebras.Then every continuous function f:$X\rightarrow Y$ is ($\mathcal{F},\mathcal{G}$) measurable.
+\end{prop}
+\begin{proof}
+	Since the function f is continuous, then if V be an open set in (Y,$\mathcal{T}_y$ then $f^{-1}(V)$ is also open in the topological space (X,$\mathcal{T}_x$). Every open set in (X,$\mathcal{T}_x$) and (Y,$\mathcal{T}_y$) is an element of the Borel $\sigma$-algebras   $\mathcal{F}\:and\:\mathcal{G}$ respectively. Thus $V\in \mathcal{G}$ and as the function f is continuous, $f^{-1}(V) \in \mathcal{F}$.This condition is true for all open sets in (X,$\mathcal{T}_x$) and (Y,$\mathcal{T}_y$) as f is continuous. Thus the function f is measurable.
 \end{proof}
 \end{document}
