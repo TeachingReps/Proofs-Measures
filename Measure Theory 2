@@ -138,12 +138,12 @@ By the construction of $\mathcal{D}$, $\mathcal{C}\subseteq \mathcal{D}$. So $\s
 \textbf{Composition of Measurable Maps} Let (X,$\mathcal{F}$),(Y,$\mathcal{G}$) and (Y,$\mathcal{H}$) be measurable spaces and let f and g be functions which are defined as $f:X\rightarrow Y$ and $g:Y \rightarrow Z$ be measurable functions. Then h=$f\circ g$ is $(\mathcal{F},\mathcal{H})$ measurable.
 \end{prop}
 \begin{proof}
-	content...
+	By definition, the functions f and g are measurable. So, $f^{-1}(B)\in \mathcal{F}$ $\forall\:B\in\mathcal{G}$ and $f^{-1}(C)\in \mathcal{G}$ $\forall\:C\in\mathcal{H}$. Now,h is a function from the set X to the set Z. By definition, h is represented as h=$f\circ g$. So we can write $h^{-1}=g^{-1}\circ h^{-1}$.Let us consider a set $K\subseteq Z$ such that $K\in \mathcal{H}$. So, from the definitions of the measurable mappings f and g, it is seen that$h^{-1}(K) \in \mathcal{F}$. Hence the function h which is represented as composition of the 2 measurable maps f and g, is measurable.
 \end{proof}
 \begin{cor}
 	Let (X,$\mathcal{F}$) be a measurable space,(Y,$\mathcal{T}_y$) be a topological space and $\mathcal{G}$ be the Borel $\sigma$-algebra on Y.Let g:$Y\rightarrow \Real$ be a continuous function.Then the map $g\circ f$ is Borel measurable for each measurable function f:$X\rightarrow Y$.
 \end{cor}
 \begin{proof}
-	content...
+	
 \end{proof}
 \end{document}
