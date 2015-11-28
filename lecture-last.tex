@@ -1,0 +1,248 @@
+%% LyX 2.1.3 created this file.  For more info, see http://www.lyx.org/.
+\documentclass[a4paper,english,12pt]{article}
+\include{header}
+%\usepackage[T1]{fontenc}
+%\PassOptionsToPackage{normalem}{ulem}
+%\usepackage{ulem}
+%\usepackage{caption}
+%\makeatletter
+%\usepackage{multicol}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%\pdfpageheight\paperheight
+%\pdfpagewidth\paperwidth
+%\makeatother
+%\usepackage{babel}
+\newcommand{\goodchi}{\protect\raisebox{2.5pt}{$\chi$}}
+\begin{document}
+
+\title{Lecture $\omega$ }
+\author{Parimal Parag}
+\maketitle
+
+\textit{Continuation of Fatou's Lemma.}
+
+\begin{cor} If $f\in L^+$ and $\{f_n\in L^+:n\in \mathbb{N}\}$ is any sequence of functions such that $f_n\rightarrow f$ almost everywhere, then 
+	\begin{align*} 
+		\int_X f \leqslant \liminf \int_X f_n.
+	\end{align*}
+\label{fatou_ae}	
+\end{cor}
+\begin{proof} Let $f_n\rightarrow f$ everywhere in $X$. That is, $\liminf f_n(x)=f(x)$ ($=\limsup f_n$ also) for all $x\in X$. Then, by Fatou's lemma, 
+	\begin{align*} 
+		\int_X f =\int_X \liminf f_n \leqslant \liminf \int_X f_n.
+	\end{align*}
+If $f_n\nrightarrow f$ everywhere in $X$, then let $E=\{x\in X:\liminf f_n(x)\neq f(x)\}$. Since $f_n\rightarrow f$ almost everywhere in $X$, $\mu (E)=0$ and 
+	\begin{align*} 
+		\int_X f =\int_{X-E} f \quad\text{and}\quad \int_X f_n =\int_{X-E} f_n \;\;\forall n
+	\end{align*}
+thus making $f_n\nrightarrow f$ everywhere in $X-E$. Hence,
+	\begin{align*} 
+		\int_X f \quad=\quad \int_{X-E} f \quad\leqslant\quad \liminf \int_{X-E} f_n \quad=\quad \liminf \int_X f_n.
+	\end{align*}
+\end{proof}
+
+\begin{exmp}[Strict inequality] Let $S_n=[n,n+1]\subset \mathbb{R}$ and $f_n=\goodchi _{S_n}$. Then, $f=\liminf f_n\,=\,0$ and
+	\begin{align*}
+		0 \;=\; \int_{\mathbb{R}}f\,d\mu \;<\; \liminf \int_{\mathbb{R}}f_n\,d\mu \;=\;1.
+	\end{align*}
+\end{exmp}
+
+
+\begin{exmp}[Importance of non-negativity] Let $S_n=[n,n+1]\subset \mathbb{R}$ and $f_n=-\goodchi _{S_n}$. Then, $f=\liminf f_n\,=\,0$ but 
+	\begin{align*}
+		0 \;=\; \int_{\mathbb{R}}f\,d\mu \;>\; \liminf \int_{\mathbb{R}}f_n\,d\mu \;=\;-1.
+	\end{align*}
+\end{exmp}
+
+\begin{prop} If $f\in L^+$ and $\int_X f\,d\mu < \infty$, then \textit{(a)} the set $A=\{x\in X: f(x)=\infty\}$ is a null set and \textit{(b)} the set $B=\{x\in X:f(x)>0\}$ is $\sigma$-finite.
+\label{int_nll_fnt}
+\end{prop}
+\begin{proof} Recall that for any $f\in L^+$
+	\begin{align*}
+		\int_X f\,d\mu \;=\; \sup \left\{\int_X \phi\,d\mu \; : \; 0\leqslant \phi \leqslant f,				\; \phi \;\;\text{simple}\right\}
+	\end{align*}
+and for a simple function $\psi$, $\int_X \psi\,d\mu\,=\,\sum _{j=1}^n a_j\mu(E_j)$, where $E_j=\psi^{-1}(\{a_j\})$ and $\{a_1,a_2,\ldots,a_n\}$ is the the range of $\psi$.
+\begin{enumerate}[\itshape(a)]
+\item Assume, on the contrary, that $\mu(A)>0$ and let $I=\int_X f\,d\mu\,<\,\infty$. Define a simple function $\phi$ as 
+	\begin{align*}
+		\phi = 2\frac{I}{\mu(A)} \goodchi _A.
+	\end{align*}
+Since $f(x)=\infty$ for all $x\in A$ and $\phi(x)=0$ for all $x\in X-A$, $\phi(x)\leqslant f(x)$ for all $x\in X$ and therefore, $\int_X \phi\,d\mu\leqslant \int_X f\,d\mu$. But $\int_X \phi\,d\mu=2I>I=\int_X f\,d\mu$, which is a contradiction. Thus, $\mu(A)=0$.
+\item A $\sigma$-finite set is a countable union of sets of finite measure. Define $B_n=\{x\in X\,:\,f(x)>\,n^{-1}\}$. Then, $B$ is a countable union of $B_n$s. For each $B_n$, define the simple functions $\phi_n = n^{-1} \goodchi _{B_n}$. For all $n\in \mathbb{N}$, $\phi_n\leqslant f$, and hence $\int_X \phi_n\,d\mu \,\leqslant \, \int_X f\,d\mu\,<\,\infty$. Since $\int_X \phi_n\,d\mu\,=\,n^{-1}\mu(B_n)$, $\mu(B_n)<\infty$. Thus, $B=\cup _{n\in \mathbb{N}}B_n$ is $\sigma$-finite.
+\end{enumerate}
+\end{proof}
+
+\section{Integration of Real-Valued Functions}
+We now discuss integration of real-valued function which need not be positive. Let $f^+$ and $f^-$ be the positive and negative parts of $f$ respectively, where 
+	\begin{align*}
+		f^+(x)=\max\{f(x),0\} \quad\text{and}\quad f^-(x)=\max\{-f(x),0\} \quad\text{for all}\quad x\in X.
+	\end{align*}
+Then, $f\,=\,f^+\,-\,f^-$. Note that both $f^+$ and $f^-$ are positive real-valued functions. If at least one of $\int_X f^+\,d\mu$ and $\int_X f^-\,d\mu$ is finite, then we define
+	\begin{align*}
+		\int_X f\,d\mu \;=\; \int_X f^+\,d\mu \;-\; \int_X f^-\,d\mu.
+	\end{align*}
+If both $\int_X f^+\,d\mu$ and $\int_X f^-\,d\mu$ are finite, then $f$ is said to be \textbf{integrable}. Since $|f|=f^+\,+\,f^-$, $f$ is integrable iff $\int_X |f|\,d\mu<\infty$.
+
+\begin{prop} The set of integrable real-valued functions on $X$, denoted by $\mathcal{F}(X,\mathbb{R})$, is a real vector space, and the integral is linear functional on it.
+\end{prop}	
+\begin{proof} To prove that $\mathcal{F}(X,\mathbb{R})$ is a vector space, it suffices to prove that any linear combination of integrable real-valued functions in $\mathcal{F}(X,\mathbb{R})$ also in $\mathcal{F}(X,\mathbb{R})$. For any $f,g\in \mathcal{F}(X,\mathbb{R})$ and $a,b\in\mathbb{R}$, $|af+bg|\leqslant|a||f|+|b||g|$ (by triangle inequality). Hence, $\int_X|af+bg|\,d\mu\,\leqslant\,\int_X(|a||f|+|b||g|)\,d\mu\,=\,|a|\int_X|f|\,d\mu\,+\,|b|\int_X|g|\,d\mu\,<\infty$ since both $f$ and $g$ are integrable. Thus, $af+bg$ is also in $\mathcal{F}(X,\mathbb{R})$. 
+
+To prove that the functional $I:f\longmapsto \int_X f\,d\mu,\,f\in \mathcal{F}(X,\mathbb{R})$, is linear, we need to show that \textit{(a)}$I(cf)=cI(f)$ and \textit{(b)}$I(f+g)=I(f)+I(g)$ for all $f,g\in \mathcal{F}(X,\mathbb{R})$. 
+\begin{enumerate}[\itshape(a)]
+\item We will use the facts that $(cf)^+=cf^+$ and $(cf)^-=cf^-$ for $c\geqslant 0$ and that $(cf)^+=|c|f^-$ and $(cf)^-=|c|f^+$ for $c<0$. Recall that for any $g\in L^+$, $I(cg)=cI(g)$ and for any $f\in \mathcal{F}(X,\mathbb{R})$, both $f^+$ and $f^-$ are positive. Let $c\geqslant 0$. Then, using the above facts, $I(cf)=c(I(f^+)-I(f^-))= cI(f)$. For $c<0$, $I(cf)=I((cf)^+)-I((cf)^-)=|c|(I(f^-)-I(f^+))=-|c|I(f)=cI(f)$.
+\item Let $f,g\in \mathcal{F}(X,\mathbb{R})$ and $h=f+g$. Then, $h^+-h^-=f^+-f^-+g^+-g^-$ and consequently $h^++f^-+g^-=h^-+f^++g^+$. Recall that if $\{f_n\}$ is a finite of infinite sequence in $L^+$ and $f=\sum_nf_n$, then $\int f=\sum_n\int f_n$. So, 
+	\begin{align*}
+		\int h^+ + \int f^- + \int g^- \;=\;\int h^- + \int f^+ + \int g^+.
+	\end{align*}
+Rearranging the terms above, we get
+	\begin{align*}
+		\int h\;=\;\int h^+-\int h^-\;=\;\int f^+-\int f^-+\int g^+-\int g^-\;=\;\int f+\int g.
+	\end{align*}
+\end{enumerate}
+\end{proof}
+
+\begin{prop}For any $f\in \mathcal{F}(X,\mathbb{R})$, $|\int f|\leqslant \int |f|$.
+\label{int_mod}
+\end{prop}
+\begin{proof}If $\int f=0$, then this is trivial. For any real $f$, $|\int f|=|\int f^+-\int f^-|\leqslant |\int f^+| + |\int f^-|=\int f^+ + \int f^- = \int |f|$ (by triangle inequality).
+\end{proof}
+
+\begin{prop}
+\begin{enumerate}[\itshape(a)]
+\item For any $f\in \mathcal{F}(X,\mathbb{R})$, $A=\{x:f(x)\neq 0\}$ is $\sigma$-finite.
+\item If $f,g\in \mathcal{F}(X,\mathbb{R})$, then $\int_Ef=\int_Eg$ for all $E\in \mathcal{M}$ iff $\int |f-g|=0$ iff $f=g$ almost everywhere.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+\begin{enumerate}[\itshape(a)]
+\item Note that $A=A^+\cup A^-$, where $A^+=\{x:f^+(x)>0\}$ and $A^-=\{x:f^-(x)>0\}$. Since both $f^+$ and $f^-$ are in $L^+$, by Proposition~\ref{int_nll_fnt}, both $A^+$ and $A^-$ are $\sigma$-finite. Hence, $A$ is $\sigma$-finite.
+\item The second equivalence follows from the fact that for any $h\in L^+$, $\int h=0$ iff $h=0$ almost everywhere. If $\int |f-g|=0$, then by Proposition~\ref{int_mod}, for any $E\in \mathcal{M}$,
+	\begin{align*}
+		\left|\int_Ef-\int_Eg\right|\;\leqslant\;\int_X\goodchi_E|f-g|\;\leqslant\;\int_X|f-g|=0
+	\end{align*}
+so that $\int_Ef=\int_Eg$. Let $h=f-g$ and assume that $f=g$ almost everywhere is false, then at least one of $h^+$ and $h^-$ must be nonzero on a set of positive measure. Let $E=\{x:h^+(x)>0\}$ be one such set; note that $h^-(x)=0$ and hence, $\int_Eh^-(x)=0$ for all $x\in E$. Then, $\int_Ef-\int_Eg=\int_Eh=\int_Eh^+>0$. Similar conclusion can be drawn for $h^-$ being nonzero on a set of positive measure.
+\end{enumerate}
+\end{proof}
+
+\begin{rem}
+\begin{enumerate}[\itshape(i)]
+\item Altering functions on a mull set does not alter their integration.
+\item Let $E\in\mathcal{M}$. Then, it is possible to integrate $f$ by defining $f|_{E^{\mathsf{c}}}=0$.
+\item It is possible to treat $\overline{\mathbb{R}}$-valued functions that are finite almost everywhere as $\mathbb{R}$-valued functions.
+\end{enumerate}
+\end{rem}
+
+\begin{defn}$L^1$ can be redefined as follows:
+\begin{align*}
+L^1(\mu)=\{\text{Equivalence class of almost everywhere-defined integrable functions on}\; X\},
+\end{align*}
+where two functions $f$ and $g$ are equivalent if $\mu(\{x\in X:f(x)\neq g(x)\})=0$.
+\end{defn}
+
+\begin{rem}
+\begin{enumerate}[\itshape(i)]
+\item $L^1(\mu)$ is still a vector space (under pointwise almost everywhere addition and scalar multiplication).
+\item $f\in L^1(\mu)$ will mean that $f$ is an almost everywhere-defined integrable function.
+\item For any two $f,g\in L^1(\mu)$, define $\rho(f,g)=\int |f-g|\,d\mu$. This is a metric, since it is symmetric, satisfies triangle inequality, and is $0$ if $f$ and $g$ are equal almost everywhere. This definition allows $L^1(\mu)$ to be a metric space with $\rho(f,g)$ as the metric.
+\end{enumerate}
+\end{rem}
+
+\begin{thm}[The Dominated Convergence Theorem] Let $\{f_n\in L^1:n\in \mathbb{N}\}$ be a sequence of functions such that \textit{(a)} $f_n\rightarrow f$ almost everywhere and \textit{(b)} there exists a non-negative $g\in L^1$ such that $|f_n|\leqslant g$ almost everywhere for all $n\in \mathbb{N}$. Then, $f\in L^1$ and $\int f=\lim_{n\rightarrow\infty}\int f_n$.
+\end{thm}
+\begin{rem} 
+\begin{enumerate}[\itshape(i)]
+\item $\int\lim_{n\rightarrow\infty} f_n=\lim_{n\rightarrow\infty}\int f_n$ is an equivalent statement.
+\item Here $g$ \textbf{dominates} $f_n$s.
+\end{enumerate}
+\end{rem}
+\begin{proof} Since $f$ is the limit of measurable functions $\{f_n\}$ almost every where, it is measurable. Since $|f_n|\leqslant g$ almost everywhere, $|f|=\lim_{n\rightarrow\infty}f_n\leqslant g$ almost everywhere, and hence, $f\in L^1$. Furthermore, $g+f_n\leqslant 0$ almost everywhere and $g-f_n\leqslant 0$ almost everywhere. By Corollary~\ref{fatou_ae}
+	\begin{align*}
+		\int g+\int f=\int (g+f)\leqslant \liminf \int (g+f_n)=\int g + \liminf \int f_n,
+	\end{align*}
+or 
+	\begin{align}
+		\int f\leqslant \liminf \int f_n.
+		\label{f_inf}
+	\end{align}
+Using Corollary~\ref{fatou_ae} for $g-f_n$ we obtain
+	\begin{align*}
+		\int g-\int f=\int (g-f)\leqslant \liminf \int (g-f_n)=\int g - \liminf \int f_n,
+	\end{align*}
+or 
+	\begin{align}
+		\int f\geqslant \limsup \int f_n.
+		\label{f_sup}
+	\end{align}
+Since $\liminf \int f_n\leqslant \limsup \int f_n$, using \ref{f_inf} and \ref{f_sup} we get 
+	\begin{align*}
+		\int f\leqslant \liminf \int f_n\leqslant \limsup \int f_n\leqslant\int f,
+	\end{align*}
+which forces 
+	\begin{align*}
+		\int f= \liminf \int f_n= \limsup \int f_n\leqslant\int f=\lim_{n\rightarrow\infty}\int f_n.
+	\end{align*}
+as claimed.	
+\end{proof}
+
+\begin{thm}Let $\{f_n\in L^1:n\in\mathbb{N}\}$ be a sequence of functions such that $\sum_{n\in\mathbb{N}}\int |f_n|<\infty$. Then, $\sum_{n\in\mathbb{N}}f_n$ converges to a function in $L^1$ and $\int \sum_{n\in\mathbb{N}}f_n =\sum_{n\in\mathbb{N}}\int f_n$.
+\end{thm}
+\begin{proof}Recall that if $\{h_n\}$ is a finite of infinite sequence in $L^+$, then $\int \sum_nh_n=\sum_n\int h_n$. Set $h_n=|f_n|$ and let $g=\sum_{n\in\mathbb{N}}|f_n|$. Then, $\int g=\sum_{n\in\mathbb{N}}\int |f_n|<\infty$ and hence $g\in L^1$. 
+
+By Proposition~\ref{int_nll_fnt}, $g(x)(=\sum_{n\in\mathbb{N}}|f_n(x)|)$ is finite for all $\{x:g(x)>0\}$, and for each such $x$ $\sum_{n\in\mathbb{N}}f_n(x)$ converges. Furthermore, the partial sums $F_k\triangleq\sum_{n=1}^{k}f_n\leqslant g$ (by triangle inequality) for all $k$. We can now apply dominated convergence theorem to the sequence of partial sums $F_k$ to obtain
+	\begin{align*}
+		\int \lim_{k\rightarrow\infty} F_k=\lim_{k\rightarrow\infty}\int F_k,
+	\end{align*}
+which can be simplified to (using linearity of $\int$)
+	\begin{align*}
+		\int \sum_{n\in\mathbb{N}}f_n =\sum_{n\in\mathbb{N}}\int f_n.
+	\end{align*}
+\end{proof}
+
+\begin{thm}If $f\in L^1$ and $\epsilon>0$, then there is an integrable simple function $\phi=\sum a_j\goodchi_{E_j}$ such that $\int |f-\phi|<\epsilon$. (That is, the integrable simple functions are dense in $L^1$ in the $L^1$ metric.)
+\end{thm}
+\begin{proof}Recall that for any real-valued measurable function $g$, there exists a sequence $\{\psi_n\}$ of simple functions such that $\psi_n\rightarrow g$ and $0\leqslant |\psi_1|\leqslant |\psi_2|\leqslant\ldots\leqslant |g|$ pointwise. Let $\{\phi_n\}$ be as above for $f$. Then, $\phi_n$s are integrable. Since $|\phi_n-f|\leqslant 2|f|$, $\int |\phi_n-f|<\epsilon$ for sufficiently large $n$ by the dominated convergence theorem.
+\end{proof}
+
+\section{Modes of Convergence}
+Let $(X,\mathcal{M},\mu)$ be a measure space. Let $\{f_n\}$ be a sequence of functions in $L^1$ and $f\in L^1$.
+\begin{defn}[Convergence in $L^1$] If $f_n\rightarrow f$ in the metric $\rho(f,g)=\int |f-g|\,d\mu$, then $\{f_n\}$ is said to converge to $f$ in $L^1(\mu)$.
+\end{defn}
+\begin{lem}$f_n\rightarrow f$ in $L^1$ iff $\lim_{n\in\mathbb{N}}\int |f_n-f|\,d\mu=0$.
+\end{lem}
+
+\begin{defn}[Pointwise Convergence] $\{f_n\}$ is said to converge to $f$ pointwise if $f_n(x)$ converges to $f(x)$ for all $x\in X$. In other words, for every $\epsilon>0$ and $x$, there exists an $N_{\epsilon,x}$ such that $|f_n(x)-f(x)|\leqslant\epsilon$ for all $n\geqslant N_{\epsilon,x}$.
+\end{defn}
+
+\begin{defn}[Uniform Convergence] $\{f_n\}$ is said to converge to $f$ uniformly if for every $\epsilon>0$, there exists an $N_{\epsilon}$ such that $|f_n(x)-f(x)|\leqslant\epsilon$ for all $n\geqslant N_{\epsilon}$ and $x\in X$.
+\end{defn}
+
+\begin{defn}[Almost Everywhere Convergence] $\{f_n\}$ is said to converge to $f$ almost everywhere if $\mu(\{x\in X:\lim_{n\rightarrow\infty}f_n(x)\neq f(x)\})=0$.
+\end{defn}
+
+\begin{defn}[Convergence in Measure] $\{f_n\}$ is said to converge to $f$ in measure if for every $\epsilon>0$, $\lim_{n\rightarrow\infty}\mu(\{x\in X:|f_n(x)-f(x)|\geqslant\epsilon\})=0$.
+\end{defn}
+
+\begin{defn}[Cauchy Convergence] $\{f_n\}$ is said to be Cauchy in measure if for every $\epsilon >0$, $\mu(\{x\in X:|f_n(x)-f_m(x)|\geqslant 0\})\rightarrow 0$ as $m,n\rightarrow \infty$.
+\end{defn}
+
+\begin{thm}If $f_n\rightarrow f$ almost everywhere and $f_n\leqslant g$ for all $n\in \mathbb{N}$ and some $g\in L^1$, then $f_n\rightarrow f$ in $L^1$.
+\end{thm}
+\begin{proof}Follows from the dominated convergence theorem since $|f_n-f|\leqslant 2g$.
+\end{proof}
+
+\begin{prop}If $f_n\rightarrow f$ in $L^1$, then $f_n\rightarrow f$ in measure.
+\end{prop}
+\begin{proof}Let $E_{n,\epsilon}=\{x:|f_n(x)-f(x)|\geqslant\epsilon\}$. Then, $\int |f_n-f|\geqslant\int_{E_{n,\epsilon}}|f_n-f|\geqslant\epsilon\mu(E_{n,\epsilon})$, and hence $\mu(E_{n,\epsilon})\leqslant\epsilon^{-1}\int|f_n-f|\rightarrow 0$ as $n\rightarrow\infty$.
+\end{proof}
+
+\begin{thm}[Erogoff's Theorem, Almost Uniform Convergence]Let $\mu(X)<\infty$ and $f_1,f_2,\ldots,f$ be measurable real-valued functions on $X$ such that $f_n\rightarrow f$ almost everywhere. Then, for every $\epsilon>0$, there exists $E\subseteq X$ such that $\mu(E)<\epsilon$ and $f_n\rightarrow f$ uniformly on $E^{\mathsf{c}}$.
+\end{thm}
+\begin{rem}$\{f_n\}$ is said to converge to $f$ almost uniformly if for every $\epsilon>0$, there exists $E\in\mathcal{M}$ of measure $\mu(E)<\epsilon$ such that $f_n\rightarrow f$ uniformly on $E^{\mathsf{c}}$.
+\end{rem}
+\begin{proof}Without loss of generality, assume that $f_n\rightarrow f$ everywhere on $X$. For $k,n\in\mathbb{N}$, let 
+	\begin{align*}
+		E_n(k)\;=\; \cup_{m=n}^{\infty} \{x\in X: |f_m(x)-f(x)|\geqslant \,^1/_k\}.
+	\end{align*}
+Then, for fixed $k$, $E_n(k)$ decreases as $n$ increases and $\cap_{n=1}^{\infty}E_n(k)=\emptyset$. Since $\mu(X)\infty$, we conclude that $\lim_{n\rightarrow\infty}\mu(E_n(k))=0$. Given $\epsilon>0$ and $k\in\mathbb{N}$, choose $n_k$ large enough that $\mu(E_n(k))<\epsilon 2^{-k}$ and let $E=\cup_{k=1}^{\infty}E_{n_k}(k)$. Then, $\mu(E)<\epsilon$ and we have $|f_n(x)-f(x)|<\,^1/_k$ for $n>n_k$ and $x\notin E$. Thus, $f_n\rightarrow f$ uniformly on $E^{\mathsf{c}}$.
+\end{proof}
+\end{document}
