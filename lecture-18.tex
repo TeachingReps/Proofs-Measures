@@ -1,176 +1,131 @@
-\documentclass[a4paper,english,12pt]{article}
+\documentclass[a4paper,english,12pt]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
 \input{header}
-\title{Lecture 18: Connectedness}
+
+\title{Lecture 18 :  Product topology}
 \author{}
 
 \begin{document}
 \maketitle
+We have seen topology on $X \times Y$ where $X,Y$ are two topological spaces. Next  step is to generalize this to the products of the form $X_{1} \times \ldots  \times X_{n}$ and $X_{1} \times X_{2} \times \ldots$. One way is to consider the basis of the forms $U_{1} \times \ldots  \times U_{n}$ and $U_{1} \times U_{2} \times \ldots$ where $U_{i}$ are open sets in $X_{i}$. This procedure defines topology named Box topology. Another way is to generalize through the sub basis definition which results in topology called Product topology. Let us define these formally as  
+\section{Box and Product topology} 
+Let $I$ be an index set, and $\{X_{i} \colon i \in I\}$ an index family of sets.
+\begin{defn}[Box topology]
+Let $(X_{i},\mathcal{T}_{i})$ be the topological space for each $i \in I$. Let $\mathcal{B} = \{\prod_{i \in I} U_{i} \colon U_{i} \in \mathcal{T}_{i} , \forall i \in I \}$ be a basis, then the defined topology is called \textbf{Box topology}.
+\end{defn}
+To check $\mathcal{B}$ indeed a basis
+\begin{enumerate}
+\item $X = \prod_{i \in I} X_{i} $ is itself a basis element, hence $X$ is covered by $\mathcal{B}$.
+\item Let $\prod_{i \in I} U_{i}$ and $\prod_{i \in I} V_{i}$ be the two elements of basis $\mathcal{B}$ then $\prod_{i \in I} U_{i} \cap \prod_{i \in I} V_{i} = \prod_{i \in I} (U_{i} \cap V_{i}) \in \mathcal{B}$.
+\end{enumerate}
 
-Now that we have properly defined open, closed sets and limit points in a topological space, we can proceed to define the properties of 
-\textit{connectedness} and \textit{compactness} for arbitrary topological space. The properties of connectedness and compactness are useful in proving 
-three basic theorems about continuous functions which lie at the core of calculus. These are the following:
+\begin{defn}[Product topology]
+Let $(X_{i},\mathcal{T}_{i})$ be the topological space for each $i \in I$. Let $\mathcal{S} = \cup_{i \in I} \{\pi_{i}^{-1} (U_{i})  \colon U_{i} \in \mathcal{T}_{i}  \}$ be a sub basis, then the defined topology is called \textbf{Product topology}.
+\end{defn}
 
-\begin{enumerate} [i)]
- \item \textit{Intermediate Value Theorem}.  If $f:[a, b] \to \R$ is a continuous function and if $r$ is a real number between $f(a)$ and $f(b)$, then 
- there exists an element $c \in [a, b]$ such that $f(c) = r$.
- 
- \item \textit{Maximum Value Theorem}. If $f:[a,b] \to \R$ is continuous, then there exists an element $c \in [a, b]$ such that $f(x) \le f(c)$
- for every $x \in [a, b]$.
- 
- \item \textit{Uniform Continuity Theorem}. If $f:[a,b] \to \R$ is continuous, then given $epsilon > 0$, there exists $\delta > 0$ 
- such that $|f(x_{1}) - f_{x_{2}}| \le \epsilon$ for every pair of numbers $x_{1}, x_{2}$ of $[a, b]$ for which $|x_{1} - x_{2}| < \delta$.
+\begin{thm}[Comparision of box and product topologies]
+The basis for the  box topology is of the form 
+\begin{align*}
+\mathcal{B}_{b} = \{\prod_{i \in I} U_{i} \colon U_{i} \in \mathcal{T}_{i} , \forall i \in I \}.
+\end{align*}
+The basis for the  product topology is of the form 
+\begin{align*}
+\mathcal{B}_{p} &= \{ \cap_{k=1}^{n} \pi_{i_{k}}^{-1}(U_{i_{k}}) \colon i_{k} \in I ~and ~n ~finite  \} \\ &= \{ \prod_{i \in I} U_{i} \colon U_{i} = X_{i}  ~\forall i \in I \setminus \{i_{1},\ldots,i_{n}\} ~for ~some ~n\}.
+\end{align*}
+\end{thm}
+\begin{lem}
+$\mathcal{T}_{p} = \mathcal{T}_{b}$ for $\prod_{i =1}^{n} X_{i}$ and $\mathcal{T}_{p} = \mathcal{T}_{b}$ in general.
+\end{lem}
+
+
+\begin{thm}
+Let $\mathcal{B}_{i}$ be basis for topological space $(X_{i} , \mathcal{T}_{i})$ then $\mathcal{B}_{b} = \{\prod_{i \in I} B_{i} \colon B_{i} \in \mathcal{B}_{i} ~\forall i \in I\}$ is a basis for box topology.  $\mathcal{B}_{p} = \{\prod_{i \in I} B_{i} \colon B_{i} \in \mathcal{B}_{i}, i \in \{i_{1},\ldots,i_{n}\}  \\ ~for ~some ~finite ~subset ~of ~I ~and ~ B_{i} = X_{i}, ~ i \in I\setminus \{i_{1},\ldots,i_{n}\}  \}$ is a basis for product topology.
+\end{thm}
+\begin{proof}
+To prove the first part, Let $U \subseteq X$ be open. Then by construction of box topology for each $x \in U$ we can find $\prod_{i \in I} U_{i}$, $U_{i}$ open in $X_{i}$, and $x \in \prod_{i \in I} U_{i} \subseteq U$. Then by basis definition we can find $x_{i} \in B_{i} \in \mathcal{B}_{i} $ such that $ B_{i} \subseteq U_{i}$. Which completes the proof since $x \in \prod_{i \in I} B_{i} \subseteq \prod_{i \in I} U_{i} \subseteq U$ and $\prod_{i \in I} B_{i} \in \mathcal{B}_{b}$ is indeed a basis for box topology.\\
+ Next, consider  $U \subseteq X$ be open in product topology. Then for each $x \in U$ we can find $\prod_{i \in I} U_{i}$, $U_{i}$ open in $X_{i}$ for each $i \in I$ and for all but finitely many $U_{i} = X_{i}$. Call them $i_{1},i_{2},\ldots,i_{n}$. We can find $B_{i_{k}} \in \mathcal{B}_{i_{k}}$ such that $x_{i_{k}} \in B_{i_{k}} \subseteq U_{i_{k}}$ for $k = 1,2,\ldots,n$. Then $x \in \prod_{i \in I} V_{i} \subseteq \prod_{i \in I} U_{i} \subseteq U$, where 
+ \begin{align*}
+V_{i} = \begin{cases} B_{i}, &i \in \{ i_{1},i_{2},\ldots,i_{n}\}, \\ X_{i}, & i \in I \setminus \{ i_{1},i_{2},\ldots,i_{n}\}. \end{cases}
+\end{align*}
+Which completes the proof since $\prod_{i \in I} V_{i} \in \mathcal{B}_{p}$ which is a basis for product topology.
+ \end{proof}
+\begin{exmp}
+Consider space $\mathbb{R}^{n}$.  We know that basis for $\mathbb{R}$ consists of all open intervals. Also, basis for topology $\mathbb{R}^{n}$ is of the form $\mathcal{B} = \{(a_{1} , b_{1}) \times (a_{2} , b_{2}) \times \ldots \times (a_{n} , b_{n}) \colon a_{i},b_{i} \in \mathbb{R}, \forall i \in [n]\}$
+\end{exmp}
+\begin{rem} Box and Product topologies agree on $\mathbb{R}^{n}$.
+\end{rem}
+\begin{thm}
+Let $A_{i}$ be subspace of $X_{i},~ \forall i \in I$ then $A = \prod_{i \in I} A_{i}$ has a subspace topology of $X = \prod_{i \in I} X_{i}$ under box or product topologies. 
+\end{thm}
+\begin{proof}
+First consider the case of product topology. Let $\mathcal{T}_{s},\mathcal{T}_{p}$ be the topologies for $A$ inherits as subspace of $X$ and as a product space respectively.
+Then basis for $\mathcal{T}_{s},\mathcal{T}_{p}$ are $\mathcal{B}_{s} = \{ B \cap A \colon B \in \mathcal{B}\}$, where $\mathcal{B}$ is basis for product topology on X and $\mathcal{B}_{p} = \{\prod_{i \in I} O_{i} \colon O_{i} ~\text {open in } ~A_{i}, \text { and equals} ~A_{i} ~\text {for all but finitely many} ~i \}$. Need to show both generates same topology. So consider $x \in B \in \mathcal{B}_{s}$ then $B = A \cap \prod_{i \in I} V_{i} = \prod_{i \in I} (V_{i} \cap A_{i})$, where $V_{i}$ is open in $X_{i}$ and $V_{i} \cap A_{i}$ is open in $A_{i}$. Since $V_{i} = X_{i}$ for all but finitely many $i$. So $V_{i} \cap A_{i} = A_{i}$ for those $i$. So $B \in \mathcal{B}_{p}$. To prove the other way consider $B \in \mathcal{B}_{p}$. Then $B = \prod_{i \in I} O_{i}$ where $O_{i}$ is open in $A_{i}$. Which can be written as $O_{i} = V_{i} \cap A_{i}$ where $V_{i}$ is open in $X_{i}$. Then $B = \prod_{i \in I} O_{i} = \prod_{i \in I} (V_{i} \cap A_{i}) = \prod_{i \in I} V_{i} \cap A \in \mathcal{B}_{s}$.\\ The proof for box topology also falls  in the similar lines.
+\end{proof}
+\begin{thm}
+If $X_{i}$ is Hausdorff $~\forall i \in I$, then $X = \prod_{i \in I} X_{i}$ is Hausdorff both in product and box topologies.
+\end{thm}
+\begin{proof}
+The proof is similar  for both box and product topology. Let $x,y \in X$ be distinct then $x_{i} \neq y_{i}$ for some $i \in I$. Since $X_{i}$ is Hausdorff we can find two disjoint open neighborhoods $U,V$ for $x_{i},y_{i}$ respectively. Then $\pi_{i}^{-1}(U),\pi_{i}^{-1}(V)$ are disjoint open neighborhoods of $x,y$ respectively. Hence $X$ is Hausdorff.
+\end{proof}
+\begin{thm}
+Let $A_{i} \subseteq X_{i} ~\forall i \in I$. If $\prod_{i \in I} X_{i}$ is given either product or box topology then $\prod_{i \in I} \bar{A_{i}} = \overline{\prod_{i \in I} A_{i}}$.
+\end{thm}
+\begin{proof}
+$(\Rightarrow)$ Let $x \in \prod_{i \in I} \bar{A_{i}}$, we can choose $y_{i} \in U_{i} \cap A_{i}$ for each $i \in I$, where $U_{i}$ is neighborhood of $x_{i}$. Then $y \in U \cap \prod_{i \in I} A_{i}$, where $U$ is neighborhood of $x$. Therefore $x \in \overline{\prod_{i \in I} A_{i}}$.\\
+$(\Leftarrow)$ Conversely, let $x \in \overline{\prod_{i \in I} A_{i}}$ and let $V_{i}$ be a neighborhood of $x_{i}$  in $X_{i}$. Since, $\pi_{i}^{-1} (V_{i})$ is open neighborhood of $x$ it contains a point $y \in \prod_{i \in I} A_{i}$. Then $\pi_{i} (y) = y_{i} \in V_{i} \cap A_{i}$. It follows that $x_{i} \in \bar{A}_{i}$ 
+\end{proof}
+\begin{lem}
+$\pi_{i}$ is continuous in product topology.
+\end{lem}
+\begin{proof}
+$\pi_{i}^{-1} (U_{i}) \in \mathcal{S}$ for all $U_{i}$ open in $X_{i}$. Since an element of $\mathcal{S}$ is open, $\pi_{i}$ is continuous.
+\end{proof}
+\begin{thm}
+Let $f \colon A \to \prod_{i \in I} X_{i}$ given by $f(a) = \{ f_{i}(a) \colon i \in I \}$ where $f_{i} \colon A \to X_{i} ~ \forall i \in I$. Let $\prod_{i \in I} X_{i}$ have the product topology then $f$ is continuous if and only if $f_{i}$ is continuous for all $i \in I$. 
+\end{thm}
+\begin{proof}
+$(\Rightarrow)$ Since $f$ is continuous we know that $f_{i} = \pi_{i} \circ f$. From previous lemma we know that $\pi_{i}$ is continuous. Hence $f_{i}$ is continuous because composition of two continuous functions is continuous.\\
+$(\Leftarrow)$ Let $f_{i}$ is continuous for each $i \in I$. To prove $f$ is continuous it suffices to show that inverse image of $f$ under each sub basis element is open in $A$. We know that element of the sub basis for product topology on $\prod_{i \in I} X_{i}$ is a set of the form $\pi_{i}^{-1} (U_{i})$ for some $i \in I$.  Let $s \in \mathcal{S}$, then $f^{-1}(s) = f^{-1}(\pi_{i}^{-1}(U_{i})) = f_{i}^{-1}(U_{i})$, which is open in $A$ since $f_{i}$ is continuous. 
+\end{proof} 
+The above theorem does not follow for box topology. To see it consider   the following example  
+\begin{exmp}
+Consider $\mathbb{R}^{\mathbb{N}} = \prod_{n \in \mathbb{N}} X_{n}$ where $X_{n} = \mathbb{R}$. Let $f \colon \mathbb{R} \to \mathbb{R}^{\mathbb{N}}$ is defined as $f(t) = (t,t,t,\ldots)$ and $f_{n}(t) = t$. Then, $f_{n}$ is continuous for each $n \in \mathbb{N}$. Hence $f$ is conyinuous in product topology. We will show that $f$ is not continuous in box topology. \par
+Consider, $B = \prod_{n \in \mathbb{N}} (-\frac{1}{n} , \frac{1}{n})$ open in $X$ for box topology.\\
+\textbf{Claim:} $f^{-1}(B)$ is not open.
+\begin{proof}
+If $f^{-1}(B)$ is open in then $\exists \delta > 0$ such that $(-\delta,\delta) \subseteq f^{-1}(B)$. That is $f(-\delta,\delta) \subseteq B$ or $f_{n}(-\delta,\delta) \subseteq B_{n} ~\forall n \in \mathbb{N}$. Which is a contradiction.   
+\end{proof}
+\end{exmp}
+
+\section{Metric topology}
+\begin{defn} 
+A \textbf{metric} on a set $X$ is function, $d \colon X \times X \to \mathbb{R}$ with the following properties: 
+\begin{enumerate}
+\item(Positivity) $d(x,y) \geq 0 ~\forall x,y \in X$. Equality holds if and only if $x= y$.
+\item(Symmetry) $d(x,y) = d(y,x) ~\forall x,y \in X$.
+\item(Triangle inequality) $d(x,y) \leq d(x,z) + d(z,y) ~\forall x,y,z \in X$
+\end{enumerate}
+\end{defn}
+\par Given a metric $d$ on $X$, the number $d(x,y)$ is often called the \textbf{distance} between $x$ and $y$ in the metric $'d'$. Given $\epsilon > 0$, consider the set $B_{d}(x,\epsilon) = \{y \in X \colon d(x,y) < \epsilon\}$. Of all points $y$ whose distance from $X$ is less than $\epsilon$. It is called the \textbf{$\epsilon$ - ball centered at X}.
+\begin{lem}
+If $y \in B(x,\epsilon)$ then $\exists \delta > 0$ such that $B(y,\delta) \subseteq B(x,\epsilon)$.
+\end{lem}
+\begin{proof}
+Define $\delta = \epsilon - d(x,y)$ be positive number. consider $z \in B(y,\delta)$, then $d(y,z) < \epsilon - d(x,y)$. So we can conclude that $d(x,z) \leq d(x,y) + d(y,z) < \epsilon$. Which imply that $z \in B(X,\epsilon)$. Then $B(y,\delta) \subset B(x,\epsilon)$. 
+\end{proof}
+\begin{defn}
+If $d$ is a metric on $X$, $\mathcal{B} = \{B_{d}(x,\epsilon) \colon x \in X , \epsilon > 0\}$ basis for topology on $X$, the defined topology is called the \textbf{metric topology} induced by $d$.
+\end{defn}
+To check $\mathcal{B}$ indeed a basis
+\begin{enumerate}
+\item $x \in B(x,\epsilon)$ for any $\epsilon > 0$.
+\item Let $B_{1},B_{2} \in \mathcal{B}$ and $y \in B_{1} \cap B_{2}$. Choose $\delta_{1},\delta_{2} > 0$ such that $B(y,\delta_{1}) \subseteq B_{1}$, $B(y,\delta_{2}) \subseteq B_{2}$. Let $\delta = \delta_{1} \wedge \delta_{2}$, then $B(y,\delta) \subseteq B_{1} \cap B_{2}$. 
 \end{enumerate}
 
 
-\section{Connected Spaces}
 
-Coarsely speaking, a topological space is said to be connected if it is not separable which implies that the space cannot be broken up into two disjoint open sets.
-A more formal definition follows.
-
-\begin{defn} 
-Let $X$ be a topological space. A \textbf{separation} of $X$ is a pair $U, V$ of disjoint nonempty open sets of $X$ whose union is $X$.
-The space $X$ is \textbf{connected} if there does not exist a separation of $X$. 
-\end{defn}
-
-Connectedness is a topological property, since it is formulated entirely in terms of the collection of open sets in $X$. 
-
-\begin{rem}
-If the topological space $X$ is connected, then so is any space homeomorphic to $X$. [Show proof] 
-\end{rem}
-
-An alternate definition of connectedness is the following: \\
-\textit{A space $X$ is connected if and only if the only subsets of $X$ that are both open and closed in $X$ are empty set and $X$ itself.}
-\begin{proof}
- Let $X$ be not connected but separable. Then, there exists open sets $U$ and $V$ which form a separation of $X$. The, by definition of separability, 
- $U$ is an open set which is neither empty nor equal to $X$. Also since $U = X \backslash V$, U is closed as well. Likewise, $V$ is also both open 
- and closed. Conversely, let us assume that there exists a set $A$ which is neither empty nor equal to $X$ which is both open and closed in $X$. 
- Then set $X \backslash A$ is an open subset of $X$. Also, $A$ and $X \backslash A$, together form a separation for $X$ and hence set $X$ is not 
- connected. Thus, we have proved the contrapositive of the reverse statement.
-\end{proof}
-
-For a subspace $Y$ of $X$, we now define of connectedness as follows.
-
-\begin{thm}
- If $Y$ is a subspace of $X$, a separation of $Y$ is a pair of disjoint nonempty sets $A$ and $B$ whose union is $Y$, neither of which 
- contain a limit point of the other. The space $Y$ is connected if there exists no separation of $Y$. 
-\end{thm}
-\begin{proof}
- Let $A$ and $B$ form the separation of $Y$. We need to show that $A$ and $B$ do not contain each other's limit points. We first show that 
- $B$ does not contain any limit points of $A$. Since $\bar{A} \cap Y$ is the closure of $A$ in $Y$, we need to show that its intersection 
- with $B$ is an empty set. Here, $\bar{A}$ is the closure of $A$ in $X$. Since $A$ is also closed in $Y$, we have $A = \bar{A} \cap Y$.
- But since $A$ and $B$ are disjoint by hypothesis, $\bar{A} \cap Y$ is also disjoint with $B$. Hence, we are done. Similarly, we can show that 
- $A$ does not contain any limit points of $B$.
- 
-Conversely, suppose that $A$ and $B$ are disjoint nonempty sets whose union is $Y$, neither of which contains a limit point of the other,
-which means $\bar{A} \cap B = \phi$. Along with the facts that $ A \cap B = \phi$ and $(A \cap B) \subset (\bar{A} \cap B)$, we conclude that 
-$A = \bar{A}$ i.e, $A$ is closed. Likewise, we can show that $B$ is also closed. Since $B = Y \backslash A$ and $A = Y \backslash B$, both 
-$A$ and $B$ are open in $Y$ as well. 
-\end{proof}
-
-\begin{exmp}
-Let $X$ denote a two-point space in in-discrete topology $\mathcal{T}\{\phi, X\}$. Clearly, there is no separation of $X$, so $X$ is connected. 
-\end{exmp}
-
-\begin{exmp}
-Let $Y$ denote the subspace $[-1 0) \cup (0, 1]$ on the real line $\R$. Each of the sets $[-1, 0)$ and $(0, 1]$
-are nonempty and open in $Y$ (although not in $\R$); therefore, they form a separation of $Y$. Alternatively, note that 
-neither of these sets contains a limit point of the other.
-\end{exmp}
-
-\begin{exmp}
- Let $X$ be the subspace $[-1, 1]$ of the real line. The sets $[-1, 0]$ and $(0, 1]$
- are disjoint and nonempty, but they do not form a separation of $X$, because the first set 
- is not open in $X$. Alternatively, first set contains the limit point $0$, of the second set.
- Indeed, there exists no separation of the space $[-1, 1]$.
-\end{exmp}
-
-\begin{exmp}
- The set of rational $\mathbb{Q}$ on the real line is also not connected. The only connected subspaces of 
- $\mathbb{Q}$ are the one point sets: If $Y$ is a subspace of $\mathbb{Q}$, containing two points $p$ and $q$,
- one can choose an irrational number $a$ lying between $p$ and $q$, and write $Y$ as a union of open sets 
- \begin{equation}
-  Y \cap (- \infty, a) \; \text{ and } \; Y \cap (a, \infty).    
-  \nonumber
- \end{equation}
-\end{exmp}
-
-\begin{thm} \label{thm_connected_set_enclosure}
- If the sets $C$ and $D$ form a separation of $X$, and if $Y$ is a connected subspace of $X$, then $Y$ lies entirely within 
- either $C$ or $D$.
-\end{thm}
-\begin{proof}
- Since $C$ and $D$ form a separation of $X$, the sets $C$ and $D$ are open in $X$ and consequently the sets $C \cap Y$ and $D \cap Y$
- are open in $Y$. Since $C$ and $D$ are disjoint, so are $C \cap Y$ and $D \cap Y$. Also, $(C \cap Y) \cup (D \cap Y) = (C \cup D) \cap Y = X \cap Y = Y$,
- the pair $\{(C \cap Y), (D \cap Y) \}$ constitute a valid separation for $Y$. From connectedness of $Y$, one of them must be empty and therefore, the other one 
- must contain the entire set $Y$. Hence, $Y$ has to lie completely inside either $C$ or $D$.
-\end{proof}
-
-Now, we will try to build more sophisticated connected sets by combining smaller connected sets. Following theorem shows us how to do so.
-
-\begin{thm} \label{thm_union_preserves_connectedness}
- The union of collection of connected subspaces of $X$ that have a point in common is connected.
-\end{thm}
-\begin{proof}
-Let $\{A_{\alpha}\}$ be a collection of connected subspaces of space $X$. Let $p$ be a point which is common to 
-all $A_{\alpha}$ i.e., $p \in A_{\alpha}$. We need to show that $Y = \cup_{\alpha}A_{\alpha}$ is a connected space.
-We prove this via contradiction. Let us assume that $C$ and $D$ form the separation of subspace $Y$ in $X$. Since 
-$A_{\alpha} \subseteq Y$, and $A_{\alpha}$ is connected, by Theorem \ref{thm_connected_set_enclosure}, $A_{\alpha}$ must lie completely
-inside either $C$ or $D$. Same goes for all $\alpha$. Let there be $\alpha_{1}$ and $\alpha_{2}$ such that $A_{\alpha_{1}}$ and $A_{\alpha_{2}}$
-belong to $C$ and $D$ respectively. Since $C \cap D = \phi$, $A_{\alpha_{1}}$ and $A_{\alpha_{2}}$ cannot have a common element, which is 
-a contradiction. Therefore, said $\alpha_{1}$ and $\alpha_{2}$ do not exist and there is no non-trivial separation of $Y$, and hence it is connected.  
-\end{proof}
+%\section{}
+%\subsection{}
 
 
-\begin{thm}
-Let $A$ be a connected subspace of $X$. If $A \subset B \subset \bar{A}$, then $B$ is also connected.
-\end{thm}
-\begin{proof}
-Suppose that $C$ and $D$ constitute the separation of $B$. Since $A$ is a connected subset of $B$, $A$ must lie completely inside either $C$
-or $D$. Without loss of generality, let $A \subset C$. This implies that $\bar{A} \subset \bar{C}$. Since $D$ does not contain any limit points of 
-$C$, we have $\bar{C} \cap D = \phi$. Consequently, $\bar{A} \cap D = \phi$. Since $B \subset \bar{A}$, $B$ and $D$ do not intersect, implying 
-that $D$ is empty. This contradicts our assumption that $C$ and $D$ form a separation for $B$. Thus, $B$ has to be connected. 
-\end{proof}
 
-
-\begin{thm}
-The image of a connected space under a continuous map is connected.
-\end{thm}
-\begin{proof}
-Let $f: X \to Y$ be a continuous map; let $X$ be connected. Then, we need to show that the image space $Z = f(X)$ is also connected.
-Let $g: X \to Z$ be a map obtained from $f$ by restricting its range to $Z$, Then, $g$ is also a continuous and surjective map. Let $Z = A \cup B$ 
-be a separation of $Z$ into disjoint nonempty open sets in $Z$. Then, $g^{-1}(A)$ and $g^{-1}(B)$ are also disjoint open sets in $X$, 
-since $g$ is a continuous map. Also $g^{-1}(A)$ and $g^{-1}(B)$ are nonempty as $g$ is surjective. Therefore, $g^{-1}(A)$ and $g^{-1}(B)$
-form a nontrivial separation of $X$, contradicting the assumption that $X$ is connected.
-\end{proof}
-
-\begin{thm}
-A finite cartesian product of connected spaces is connected.
-\end{thm}
-\begin{proof}
-We start by proving the theorem for two connected spaces $X$ and $Y$. Choose a ``base point'' $a \times b$ in the product space $X \times Y$. 
-Note that the horizontal slice $X \times b$ is connected as a consequence of it being homeomorphic with $X$ via an extension map $f: X \to 
-X \times \R$, which maps $x \in X$ to $(x, b)$. Likewise, each vertical slice $a \times Y$ is homeomorphic with $Y$. As a result, the 
-``T-shaped'' space $T_{x} (X \times b) \cup (a \times Y)$ is also connected (Theorem \ref{thm_union_preserves_connectedness}). Now, proceed
-to form the union $\cup_{x} T_{x}$, which is also connected as it is a union of connected spaces with a common point $a \times b$. Since 
-this union equals $X \times Y$, the space $X \times Y$ is also connected.
-
-The proof for any finite number of connected spaces follows similarly by induction, using that fact that $X_{1} \times X_{2} \dots X_{n}$
-is homeomorphic with $(X_{1} \times X_{2} \dots X_{n-1}) \times X_{n}$
-\end{proof}
-
-It is natural to ask whether the above theorem extends to arbitrary products of connected spaces. The answer depends on which topology is 
-used for the product, as the following example shows.
-\begin{exmp}
-Consider the Cartesian product $\R^{\infty}$ in the box topology. We can write $\R^{\infty}$ as the union of the 
-set $A$ consisting of all bounded sequences of real numbers, and the set $B$ of all the unbounded sequences. 
-These sets are disjoint, and each is open in the box topology. 
-
-If $a$ is a point of $\R^{\infty}$, the open set
-\begin{equation*}
- U = (a_{1}-1, a_{1} + 1) \times (a_{1}-1, a_{1} + 1) \times \dots
-\end{equation*}
-consists entirely of bounded sequences if $a$ is bounded, and of unbounded sequences if $a$ is unbounded. Thus, even through $\R$ is connected, 
-$\R^{\infty}$ is clearly not connected as we have demonstrated its nontrivial separation.
-\end{exmp}
-
-\end{document}                                                                                                                                                                                                  
+\end{document}  

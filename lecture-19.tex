@@ -1,119 +1,176 @@
 \documentclass[a4paper,english,12pt]{article}
-\include{header}
-
-%opening
-\title{Lecture 19: Compactness}
-\author{Parimal Parag}
+\input{header}
+\title{Lecture 19: Connectedness}
+\author{}
 
 \begin{document}
 \maketitle
 
-\section{Compact spaces}
-\begin{defn}
-	A collection $\mathcal{A}$ of subsets of a space $X$ is said to \textbf{cover} $X$, or to be a $\textbf{covering}$ of $X$, if the union of the elements of $\mathcal{A}$ is equal to $X$. It is called an \textbf{open covering} of $X$ if its elements are open subsets of $X$.
+Now that we have properly defined open, closed sets and limit points in a topological space, we can proceed to define the properties of 
+\textit{connectedness} and \textit{compactness} for arbitrary topological space. The properties of connectedness and compactness are useful in proving 
+three basic theorems about continuous functions which lie at the core of calculus. These are the following:
+
+\begin{enumerate} [i)]
+ \item \textit{Intermediate Value Theorem}.  If $f:[a, b] \to \R$ is a continuous function and if $r$ is a real number between $f(a)$ and $f(b)$, then 
+ there exists an element $c \in [a, b]$ such that $f(c) = r$.
+ 
+ \item \textit{Maximum Value Theorem}. If $f:[a,b] \to \R$ is continuous, then there exists an element $c \in [a, b]$ such that $f(x) \le f(c)$
+ for every $x \in [a, b]$.
+ 
+ \item \textit{Uniform Continuity Theorem}. If $f:[a,b] \to \R$ is continuous, then given $epsilon > 0$, there exists $\delta > 0$ 
+ such that $|f(x_{1}) - f_{x_{2}}| \le \epsilon$ for every pair of numbers $x_{1}, x_{2}$ of $[a, b]$ for which $|x_{1} - x_{2}| < \delta$.
+\end{enumerate}
+
+
+\section{Connected Spaces}
+
+Coarsely speaking, a topological space is said to be connected if it is not separable which implies that the space cannot be broken up into two disjoint open sets.
+A more formal definition follows.
+
+\begin{defn} 
+Let $X$ be a topological space. A \textbf{separation} of $X$ is a pair $U, V$ of disjoint nonempty open sets of $X$ whose union is $X$.
+The space $X$ is \textbf{connected} if there does not exist a separation of $X$. 
 \end{defn}
-	
-\begin{defn}	
-	A space $X$ is said to be \textbf{compact} if every open covering $\mathcal{A}$ of $X$ contains a finite subcollection that also covers $X$.
-\end{defn}	
 
-\begin{exmp}
-	The real line $\mathbb{R}$ is not compact, for the covering of $\mathbb{R}$ by open intervals $A = \{(n,n+2) | n \in \mathbb{Z}\}$
-	contains no finite subcollection that covers $\mathbb{R}$.
-\end{exmp}
+Connectedness is a topological property, since it is formulated entirely in terms of the collection of open sets in $X$. 
 
-\begin{exmp}
-	The following subspace of $\mathbb{R}$ is compact:$ X= \{0\} \cup \{1/n | n \in \mathbb{Z_+}\} $
-	Given an open covering $\mathcal{A}$ of $X$, there is an element $U$ of $\mathcal{A}$ containing $0$. The set $U$ contains all but finitely many of the points $1/n$; choose, for each point of $X$ not in $U$, an element of $\mathcal{A}$ containing it. The collection consisting of these elements of $\mathcal{A}$, along with the element $U$, is a finite subcollection of $\mathcal{A}$ that covers $X$.
-\end{exmp}
+\begin{rem}
+If the topological space $X$ is connected, then so is any space homeomorphic to $X$. [Show proof] 
+\end{rem}
 
-\begin{exmp}
-	Any space $X$ containing only finitely many points is necessarily compact, because in this case every open covering of $X$ is finite.
-\end{exmp}
-
-\begin{exmp}
-	The interval $(0,1]$ is not compact; the open covering
-	$	\mathcal{A} = \{(1/n,1] | n \in \mathbb{Z_+}\}  $
-	contains no finite subcollection covering $(0, 1]$. The interval $(0, 1)$ is also not compact by the same argument applies. On the other hand, the interval $[0, 1]$ is compact.
-\end{exmp}
-
-We shall prove some general theorems that show us how to construct new
-compact spaces out of existing ones.
-
-\begin{lem}
-	Let $Y$ be a subspace of $X$. Then $Y$ is compact if and only if every covering of $Y$ by sets open in $X$ contains a finite subcollection covering $Y$.
-\end{lem}
+An alternate definition of connectedness is the following: \\
+\textit{A space $X$ is connected if and only if the only subsets of $X$ that are both open and closed in $X$ are empty set and $X$ itself.}
 \begin{proof}
-	Suppose that $Y$ is compact and $\mathcal{A} = \{A_\alpha\}_{\alpha \in J}$ is a covering of $Y$ by sets open in $X$. Then the collection
-	$\{A_\alpha \cap Y | \alpha \in J \}$
-	is a covering of $Y$ by sets open in $Y$; hence a finite subcollection
-	$ \{A_{\alpha_1} \cap Y, ... , A_{\alpha_n} \cap Y \}$ 
-	covers $Y$. Then $\{A_{\alpha_1}, ...,A_{\alpha_n}\}$ is a subcollection of $\mathcal{A}$ that covers $Y$. 
-	
-	Conversely, suppose the given condition holds; we wish to prove $Y$ is compact. Let $\mathcal{A}' = \{A'_\alpha \}$ be a covering of $Y$ by sets open in $Y$. For each $\alpha$, choose a set $A_\alpha$ open in $X$ such that $A'_\alpha = A_\alpha \cap Y$. The collection $\mathcal{A} = \{A_\alpha\}$ is a covering of $Y$ by sets open in $X$. By hypothesis, some finite subcollection $\{A_{\alpha_1},..., A_{\alpha_n}\}$ covers $Y$. Then $\{A'_{\alpha_1},..., A'_{\alpha_n}\}$ is a subcollection of $\mathcal{A}'$ that covers $Y$.
+ Let $X$ be not connected but separable. Then, there exists open sets $U$ and $V$ which form a separation of $X$. The, by definition of separability, 
+ $U$ is an open set which is neither empty nor equal to $X$. Also since $U = X \backslash V$, U is closed as well. Likewise, $V$ is also both open 
+ and closed. Conversely, let us assume that there exists a set $A$ which is neither empty nor equal to $X$ which is both open and closed in $X$. 
+ Then set $X \backslash A$ is an open subset of $X$. Also, $A$ and $X \backslash A$, together form a separation for $X$ and hence set $X$ is not 
+ connected. Thus, we have proved the contrapositive of the reverse statement.
 \end{proof}
 
-\begin{thm}\label{thm26.2}
-	Every closed subspace of a compact space is compact.
-\end{thm}
-\begin{proof}
-	Let $Y$ be a closed subspace of the compact space $X$. Given a covering $\mathcal{A}$ of $Y$ by sets open in $X$, let us form an open covering $\mathcal{B}$ of $X$ by adjoining to $\mathcal{A}$ the single open set $X - Y$, that is, $\mathcal{B} = \mathcal{A} \cup \{X - Y\}$.
-	Some finite subcollection of $\mathcal{B}$ covers $X$. If this subcollection contains the set $X - Y$, discard $X - Y$; otherwise, leave the subcollection alone. The resulting collection is a finite subcollection of $\mathcal{A}$ that covers $Y$.
-\end{proof}
-
-\begin{thm}\label{thm26.3}
-	Every compact subspace of a Hausdorff space is closed.
-\end{thm}
-\begin{proof}
-	Let $Y$ be a compact subspace of the Hausdorff space $X$. We shall prove that $X - Y$ is open, so that Y is closed.\\
-	Let $x_0$ be a point of $X - Y$. We show there is a neighborhood of $x_0$ that is disjoint	from $Y$. For each point $y$ of $Y$, let us choose disjoint neighborhoods and of the
-	points $x_0$ and $y$, respectively (using the Hausdorff condition). The collection $\{V_y | y \in Y\}$ is a covering of $Y$ by sets open in $X$; therefore, finitely many of them $V_{y1},...,V_{yn}$ cover $Y$. The open set $V = V_{y1} \cup ... \cup V_{yn}$ contains $Y$, and it is disjoint from the open set $U = U_{y1} \cap ... \cap U_{yn}$ formed by taking the intersection of the corresponding neighborhoods of $x_0$. For if $z$ is a point of $V$, then $z \in V_{yi}$ for some $i$, hence $z \notin U_y$, and so $z \notin U$. Then $U$ is a neighborhood of $x_0$ disjoint from $Y$, as desired. 
-\end{proof}
-
-\begin{lem}
-	If $Y$ is a compact subspace of the Hausdorff space $X$ and $x_0$ is not in $Y$, then there exist disjoint open sets $U$ and $V$ of $X$ containing $x_0$ and $Y$, respectively.
-\end{lem}
-
-\begin{exmp}
-	Once we prove that the interval $[a,b]$ in $\mathbb{R}$ is compact, it follows from	Theorem \ref{thm26.2} that any closed subspace of $[a,b]$ is compact. On the other hand, it follows from Theorem \ref{thm26.3} that the intervals $(a, b]$ and $(a, b)$ in $\mathbb{R}$ cannot be compact because they are not closed in the Hausdorff space $\mathbb{R}$.
-\end{exmp}
-
-\begin{exmp}
-	Consider the finite complement topology on the real line. The only proper subsets of $\mathbb{R}$ that are closed in this topology are the finite sets. But every subset of $\mathbb{R}$ is compact in this topology, as can be checked.
-\end{exmp}
+For a subspace $Y$ of $X$, we now define of connectedness as follows.
 
 \begin{thm}
-	The image of a compact space under a continuous map is compact.
+ If $Y$ is a subspace of $X$, a separation of $Y$ is a pair of disjoint nonempty sets $A$ and $B$ whose union is $Y$, neither of which 
+ contain a limit point of the other. The space $Y$ is connected if there exists no separation of $Y$. 
 \end{thm}
 \begin{proof}
-	Let $f: X \rightarrow Y$ be continuous; let $X$ be compact. Let $A$ be a covering of the set $f(X)$ by sets open in $Y$. The collection $\{f^{-1} | A \in \mathcal{A}\}$ is a collection of sets covering $X$; these sets are open in $X$ because $f$ is continuous. Hence finitely many of them, say $f^{-1}(A_1),...,f^{-1}(A_n)$, cover $X$. Then, the sets $A_1,...,A_n$ cover $f(X)$.
+ Let $A$ and $B$ form the separation of $Y$. We need to show that $A$ and $B$ do not contain each other's limit points. We first show that 
+ $B$ does not contain any limit points of $A$. Since $\bar{A} \cap Y$ is the closure of $A$ in $Y$, we need to show that its intersection 
+ with $B$ is an empty set. Here, $\bar{A}$ is the closure of $A$ in $X$. Since $A$ is also closed in $Y$, we have $A = \bar{A} \cap Y$.
+ But since $A$ and $B$ are disjoint by hypothesis, $\bar{A} \cap Y$ is also disjoint with $B$. Hence, we are done. Similarly, we can show that 
+ $A$ does not contain any limit points of $B$.
+ 
+Conversely, suppose that $A$ and $B$ are disjoint nonempty sets whose union is $Y$, neither of which contains a limit point of the other,
+which means $\bar{A} \cap B = \phi$. Along with the facts that $ A \cap B = \phi$ and $(A \cap B) \subset (\bar{A} \cap B)$, we conclude that 
+$A = \bar{A}$ i.e, $A$ is closed. Likewise, we can show that $B$ is also closed. Since $B = Y \backslash A$ and $A = Y \backslash B$, both 
+$A$ and $B$ are open in $Y$ as well. 
+\end{proof}
+
+\begin{exmp}
+Let $X$ denote a two-point space in in-discrete topology $\mathcal{T}\{\phi, X\}$. Clearly, there is no separation of $X$, so $X$ is connected. 
+\end{exmp}
+
+\begin{exmp}
+Let $Y$ denote the subspace $[-1 0) \cup (0, 1]$ on the real line $\R$. Each of the sets $[-1, 0)$ and $(0, 1]$
+are nonempty and open in $Y$ (although not in $\R$); therefore, they form a separation of $Y$. Alternatively, note that 
+neither of these sets contains a limit point of the other.
+\end{exmp}
+
+\begin{exmp}
+ Let $X$ be the subspace $[-1, 1]$ of the real line. The sets $[-1, 0]$ and $(0, 1]$
+ are disjoint and nonempty, but they do not form a separation of $X$, because the first set 
+ is not open in $X$. Alternatively, first set contains the limit point $0$, of the second set.
+ Indeed, there exists no separation of the space $[-1, 1]$.
+\end{exmp}
+
+\begin{exmp}
+ The set of rational $\mathbb{Q}$ on the real line is also not connected. The only connected subspaces of 
+ $\mathbb{Q}$ are the one point sets: If $Y$ is a subspace of $\mathbb{Q}$, containing two points $p$ and $q$,
+ one can choose an irrational number $a$ lying between $p$ and $q$, and write $Y$ as a union of open sets 
+ \begin{equation}
+  Y \cap (- \infty, a) \; \text{ and } \; Y \cap (a, \infty).    
+  \nonumber
+ \end{equation}
+\end{exmp}
+
+\begin{thm} \label{thm_connected_set_enclosure}
+ If the sets $C$ and $D$ form a separation of $X$, and if $Y$ is a connected subspace of $X$, then $Y$ lies entirely within 
+ either $C$ or $D$.
+\end{thm}
+\begin{proof}
+ Since $C$ and $D$ form a separation of $X$, the sets $C$ and $D$ are open in $X$ and consequently the sets $C \cap Y$ and $D \cap Y$
+ are open in $Y$. Since $C$ and $D$ are disjoint, so are $C \cap Y$ and $D \cap Y$. Also, $(C \cap Y) \cup (D \cap Y) = (C \cup D) \cap Y = X \cap Y = Y$,
+ the pair $\{(C \cap Y), (D \cap Y) \}$ constitute a valid separation for $Y$. From connectedness of $Y$, one of them must be empty and therefore, the other one 
+ must contain the entire set $Y$. Hence, $Y$ has to lie completely inside either $C$ or $D$.
+\end{proof}
+
+Now, we will try to build more sophisticated connected sets by combining smaller connected sets. Following theorem shows us how to do so.
+
+\begin{thm} \label{thm_union_preserves_connectedness}
+ The union of collection of connected subspaces of $X$ that have a point in common is connected.
+\end{thm}
+\begin{proof}
+Let $\{A_{\alpha}\}$ be a collection of connected subspaces of space $X$. Let $p$ be a point which is common to 
+all $A_{\alpha}$ i.e., $p \in A_{\alpha}$. We need to show that $Y = \cup_{\alpha}A_{\alpha}$ is a connected space.
+We prove this via contradiction. Let us assume that $C$ and $D$ form the separation of subspace $Y$ in $X$. Since 
+$A_{\alpha} \subseteq Y$, and $A_{\alpha}$ is connected, by Theorem \ref{thm_connected_set_enclosure}, $A_{\alpha}$ must lie completely
+inside either $C$ or $D$. Same goes for all $\alpha$. Let there be $\alpha_{1}$ and $\alpha_{2}$ such that $A_{\alpha_{1}}$ and $A_{\alpha_{2}}$
+belong to $C$ and $D$ respectively. Since $C \cap D = \phi$, $A_{\alpha_{1}}$ and $A_{\alpha_{2}}$ cannot have a common element, which is 
+a contradiction. Therefore, said $\alpha_{1}$ and $\alpha_{2}$ do not exist and there is no non-trivial separation of $Y$, and hence it is connected.  
+\end{proof}
+
+
+\begin{thm}
+Let $A$ be a connected subspace of $X$. If $A \subset B \subset \bar{A}$, then $B$ is also connected.
+\end{thm}
+\begin{proof}
+Suppose that $C$ and $D$ constitute the separation of $B$. Since $A$ is a connected subset of $B$, $A$ must lie completely inside either $C$
+or $D$. Without loss of generality, let $A \subset C$. This implies that $\bar{A} \subset \bar{C}$. Since $D$ does not contain any limit points of 
+$C$, we have $\bar{C} \cap D = \phi$. Consequently, $\bar{A} \cap D = \phi$. Since $B \subset \bar{A}$, $B$ and $D$ do not intersect, implying 
+that $D$ is empty. This contradicts our assumption that $C$ and $D$ form a separation for $B$. Thus, $B$ has to be connected. 
+\end{proof}
+
+
+\begin{thm}
+The image of a connected space under a continuous map is connected.
+\end{thm}
+\begin{proof}
+Let $f: X \to Y$ be a continuous map; let $X$ be connected. Then, we need to show that the image space $Z = f(X)$ is also connected.
+Let $g: X \to Z$ be a map obtained from $f$ by restricting its range to $Z$, Then, $g$ is also a continuous and surjective map. Let $Z = A \cup B$ 
+be a separation of $Z$ into disjoint nonempty open sets in $Z$. Then, $g^{-1}(A)$ and $g^{-1}(B)$ are also disjoint open sets in $X$, 
+since $g$ is a continuous map. Also $g^{-1}(A)$ and $g^{-1}(B)$ are nonempty as $g$ is surjective. Therefore, $g^{-1}(A)$ and $g^{-1}(B)$
+form a nontrivial separation of $X$, contradicting the assumption that $X$ is connected.
 \end{proof}
 
 \begin{thm}
-	Let $I : X \rightarrow Y$ be a bijective continuous function. If $X$ is compact and $Y$ is Hausdorff, then $f$ is a homeomorphism.
-\end{thm} 
-\begin{proof}
-	 We shall prove that images of closed sets of $X$ under $f$ are closed in $Y$; this will prove continuity of the map $f^{-1}$. If $A$ is closed in $X$, then $A$ is compact, by Theorem \ref{thm26.2}. Therefore, by the theorem just proved, $f(A)$ is compact. Since $Y$ is Hausdorff, $f(A)$ is closed in $Y$, by Theorem \ref{thm26.3}.
-\end{proof}
-
-\begin{thm}
-	The product of finitely many compact spaces is compact.
+A finite cartesian product of connected spaces is connected.
 \end{thm}
-
-\begin{lem}[The tube lemma]
-	Consider the product space $X \times Y$, where $Y$ is compact. If $N$ is an open set of $X \times Y$ containing the slice $x_0 \times Y$ of $X \times Y$, then $N$ contains some tube $W \times Y$ about $x_0 \times Y$, where $W$ is a neighborhood of in $X$.
-\end{lem}
 \begin{proof}
-	Let us cover $x_0 \times Y$ by basis elements $U \times V$ lying in $N$. The space $x_0 \times Y$ is compact being homeomorphic to $Y$, we can find finite sub-cover for $x_0 \times Y$ as $U_1 \times V_1,...,U_n \times V_n$. We can assume $U_i \times V_i$ intersects $x_0 \times Y$, $W:=\cap_{(i=1)}^n U_i$ is neighborhood of $x_0$. The chosen $\{U_i \times V_i\}$ cover $W \times Y$ and lie in $N$.
+We start by proving the theorem for two connected spaces $X$ and $Y$. Choose a ``base point'' $a \times b$ in the product space $X \times Y$. 
+Note that the horizontal slice $X \times b$ is connected as a consequence of it being homeomorphic with $X$ via an extension map $f: X \to 
+X \times \R$, which maps $x \in X$ to $(x, b)$. Likewise, each vertical slice $a \times Y$ is homeomorphic with $Y$. As a result, the 
+``T-shaped'' space $T_{x} (X \times b) \cup (a \times Y)$ is also connected (Theorem \ref{thm_union_preserves_connectedness}). Now, proceed
+to form the union $\cup_{x} T_{x}$, which is also connected as it is a union of connected spaces with a common point $a \times b$. Since 
+this union equals $X \times Y$, the space $X \times Y$ is also connected.
+
+The proof for any finite number of connected spaces follows similarly by induction, using that fact that $X_{1} \times X_{2} \dots X_{n}$
+is homeomorphic with $(X_{1} \times X_{2} \dots X_{n-1}) \times X_{n}$
 \end{proof}
 
-\begin{thm}
-	The product of finitely many compact spaces is compact.
-\end{thm}
+It is natural to ask whether the above theorem extends to arbitrary products of connected spaces. The answer depends on which topology is 
+used for the product, as the following example shows.
+\begin{exmp}
+Consider the Cartesian product $\R^{\infty}$ in the box topology. We can write $\R^{\infty}$ as the union of the 
+set $A$ consisting of all bounded sequences of real numbers, and the set $B$ of all the unbounded sequences. 
+These sets are disjoint, and each is open in the box topology. 
 
-\begin{proof}
-	Let $X$ and $Y$ be compact spaces. Let $\mathcal{A}$ be an open covering of $X \times Y$. Given $x_0 \in X$, $x_0 \times Y$ is compact and may be covered by finitely many elements of $\mathcal{A}$, say, $A_1,..., A_m$. Their union $N=\cup_{i=1}^n A_i$ is an open set containing $x_0 \times Y$. We can find a tube $W \times Y$ about $x_0 \times Y$ where $W$ is open in $X$. Then, $W \times Y$ is covered by finitely many elements $A_1,...,A_m$.
-	For each $x \in X$ find neighborhood of $x$ such that tube $W_x \times Y$ is covered by finitely many elements of $\mathcal{A}$. Now $\{W_x : x \in X\}$ is an open covering of X, hence, there exists finite subcover $\{W_1,..., W_k\}$ that covers $X$. Union of the tubes $W_1 \times Y,..., W_k \times Y$ covers $X \times Y$.
-	SImilar argument can be used to complete the proof by induction.
-\end{proof}
-\end{document}
+If $a$ is a point of $\R^{\infty}$, the open set
+\begin{equation*}
+ U = (a_{1}-1, a_{1} + 1) \times (a_{1}-1, a_{1} + 1) \times \dots
+\end{equation*}
+consists entirely of bounded sequences if $a$ is bounded, and of unbounded sequences if $a$ is unbounded. Thus, even through $\R$ is connected, 
+$\R^{\infty}$ is clearly not connected as we have demonstrated its nontrivial separation.
+\end{exmp}
+
+\end{document}                                                                                                                                                                                                  
